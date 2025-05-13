@@ -1,0 +1,92 @@
+<div [formGroup]="dataForm" class="feedback">
+  <div class="row mb-4 m-0 flex-row-reverse p-0">
+    <div class="col-lg-3 col-md-10 col p-0 feedback__search">
+      <div class="flex flex-wrap justify-content-center gap-3">
+        <span class="p-input-icon-left p-0">
+          <i class="pi pi-search"></i>
+          <input class="search-field" type="text" (ngModelChange)="OnChange()" placeholder="{{ 'UserName'| translate }}"
+            formControlName="UserName" pInputText />
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+  <ng-container *ngIf="!loading; else ListView">
+    <div class="row mx-0 mt-2 box">
+      <div *ngFor="let row of data">
+        <div class="card col-12 mx-0 mb-2">
+          <div class="col-lg-9 col-md-12 col-sm-12 card__contents">
+            <div class="card-section">
+              <div class="card-section__title">info</div>
+              <div class="card-section__items">
+                <div class="card__contents__item">
+                  <div class="card-label">{{ 'UserName' | translate }}</div>
+                  <div class="card-info">
+                    <span class="material-symbols-outlined fill"></span>
+                    {{ row.user.userTranslation![layoutService.config.lang]?.firstName }} {{
+                    row.user.userTranslation![layoutService.config.lang]?.lastName }}
+                  </div>
+                </div>
+                <div class="card__contents__item">
+                  <div class="card-label">{{ 'rateType' | translate }}</div>
+                  <div class="card-info">
+                    <span class="material-symbols-outlined fill"></span>
+                    {{ row.feedbackValue }}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-section d-flex">
+
+              <div class="card__contents__item">
+                <div class="card-label">{{ 'User_Note' | translate }}</div>
+                <div class="card-info">{{ row.note }}</div>
+              </div>
+
+
+            </div>
+
+
+          </div>
+          <div class="one">
+            <div class="card__actions" (click)="confirmDelete(row)">
+              <span class="material-symbols-outlined card__actions__details">delete</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="total">
+        {{ "totalFeedBack" | translate }}:
+        {{ totalRecords }}
+      </div>
+      <p-paginator [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[4, 12, 20, 30]"
+        [first]="first" (onPageChange)="paginate($event)"></p-paginator>
+    </div>
+
+  </ng-container>
+
+  <ng-template #ListView>
+    <div class="row">
+      <div *ngFor="let list of [1, 2, 3, 4]" class="row mx-0 mt-2">
+        <p-skeleton height="7.5rem"></p-skeleton>
+      </div>
+    </div>
+  </ng-template>
+  <p-confirmDialog #positionDialog key="positionDialog" position="bottom" [baseZIndex]="10000" onHide="true">
+    <ng-template pTemplate="footer">
+      <button type="button" pButton icon="pi pi-times" label="{{ 'No' | translate }}"
+        (click)="positionDialog.reject()"></button>
+      <button type="button" pButton icon="pi pi-check" label="{{ 'Yes' | translate }}"
+        (click)="positionDialog.accept()"></button>
+    </ng-template>
+  </p-confirmDialog>
+
+
+
+</div>

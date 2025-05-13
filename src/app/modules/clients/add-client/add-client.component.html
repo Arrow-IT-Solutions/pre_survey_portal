@@ -1,0 +1,103 @@
+<form [formGroup]="dataForm" (ngSubmit)="onSubmit()" class="add-client">
+  <div class="add-client">
+    <div class="box-shadow mb-3">
+      <div class="row">
+        <div class="col-12 side-icon">
+          <span class="material-symbols-outlined">info</span>
+          <span>{{ 'Basic_Info_Client' | translate }}</span>
+        </div>
+        <div class="col-12 row m-0 p-0">
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="firstNameAr" />
+              <label>{{ 'FirstNameAr_Client' | translate }}</label>
+              <span *ngIf="submitted && form['firstNameAr'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
+            </div>
+          </div>
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="lastNameAr" />
+              <label>{{ 'LastNameAr_Client' | translate }}</label>
+              <span *ngIf="submitted && form['lastNameAr'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
+            </div>
+          </div>
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="firstNameEn" />
+              <label>{{ 'FirstNameEn_Client' | translate }}</label>
+              <span *ngIf="submitted && form['firstNameEn'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
+            </div>
+          </div>
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="lastNameEn" />
+              <label>{{ 'LastNameEn_Client' | translate }}</label>
+              <span *ngIf="submitted && form['lastNameEn'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
+            </div>
+          </div>
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <p-dropdown [options]="codes" optionLabel="fullName" optionValue="code" formControlName="contryCode"
+                [filter]="true" [showClear]="true" filterBy="name" (onFilter)="FillCodes($event)"></p-dropdown>
+              <label id="month">{{ 'CountryCode_Client' | translate }}</label>
+              <span *ngIf="submitted && form['contryCode'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
+            </div>
+          </div>
+
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="clientPhone" />
+              <label>{{ 'client-phone' | translate }}</label>
+              <span *ngIf="submitted && form['clientPhone'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
+            </div>
+          </div>
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <p-dropdown [options]="gender" optionLabel="value" optionValue="key"
+                formControlName="clientGender"></p-dropdown>
+              <label id="month">{{ 'client-gender' | translate }}</label>
+              <span *ngIf="submitted && form['clientGender'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
+            </div>
+          </div>
+
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="password" formControlName="password" placeholder="Enter your password" />
+              <label>{{ 'clientPassword' | translate }}</label>
+              <span *ngIf="submitted && form['password'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
+            </div>
+          </div>
+
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <p-calendar [showIcon]="true" formControlName="birthDate"></p-calendar>
+              <label>{{ 'Birthdate_client' | translate }}</label>
+              <span *ngIf="submitted && form['birthDate'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
+            </div>
+          </div>
+          <div>
+            <app-img-control (onSelected)="OnSelectFile($event)" [fileInput]="fileInput"></app-img-control>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="col-xs-12 text-end mt-4">
+      <p-button type="Submit" class="btn-primary" label="Save" [loading]="btnLoading"></p-button>
+    </div>
+  </div>
+</form>
+
+<p-toast key="toast"></p-toast>

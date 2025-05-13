@@ -1,0 +1,45 @@
+<form [formGroup]="verifyForm" (ngSubmit)="onSubmit()" class="">
+  <div class="verify row m-0">
+    <div class="col-md-6 col-sm-12 col-12 p-0">
+      <div class="left">
+        <h4 class="mb-5">Please Enter Your Phone Number starting From 7 and Password</h4>
+        <span class="p-input-icon-left mb-4">
+          <i class="pi">
+            <span class="material-symbols-outlined">person</span>
+          </i>
+          <input type="text" pInputText placeholder="Phone" formControlName="UserName">
+          <span *ngIf="submitted && form['UserName'].errors" class="error-validation">
+            {{ 'Field_Required' |
+            translate }}
+          </span>
+        </span>
+        <span class="p-input-icon-left mb-4">
+          <i class="pi">
+            <span class="material-symbols-outlined">lock</span>
+          </i>
+          <input type="password" pInputText placeholder="Password" formControlName="Password">
+          <span *ngIf="submitted && form['Password'].errors" class="error-validation">
+            {{ 'Field_Required' |
+            translate }}
+          </span>
+        </span>
+        <p-button *ngIf="!isVerified" [loading]="loading" type="Submit" class="btn-primary left__button mb-4 "
+          label="Verify"></p-button>
+        <p-button [loading]="loading" *ngIf="isVerified" type="Submit" class="btn-primary left__button mb-4 "
+          label="Delete" (click)="Delete()"></p-button>
+        <div class="left__small-text mb-4 pb-4">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12 col-12 p-0">
+      <div class="right">
+        <h3 class="mb-4">
+          We are sorry to let you go
+        </h3>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+<p-toast key="toast"></p-toast>
