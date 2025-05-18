@@ -1,0 +1,179 @@
+<div class="options">
+  <div [formGroup]="dataForm" class="row mb-4 m-0  p-0">
+    <div class="container d-flex">
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
+        <div class="flex flex-wrap justify-content-center gap-3">
+          <span class="p-input-icon-left p-0">
+            <i class="pi pi-search"></i>
+            <input class="search-field" type="text"
+              placeholder="{{ 'optionName_option' | translate }}" formControlName="name" pInputText />
+          </span>
+        </div>
+      </div>
+      <div class="col result">
+        <button id="result" (onClick)="resetform()">
+          <span class="material-symbols-outlined">restart_alt</span>
+        </button>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <ng-container>
+    <div class="row mx-0 mt-2 ">
+      <div class="box">
+        <div class="card mx-0 mb-2">
+          <div class="icon-container">
+            <img src="../../../../assets/images/icons8-option-30.png" alt="" style="width: 30px; height: 30px;">
+          </div>
+          <div class="col-3 card__contents">
+            
+                <div class="card__contents__item">
+                  <div class="card-label">option1</div>
+                </div>
+            
+
+          </div>
+
+          <div class="one">
+            <div [matMenuTriggerFor]="menu" class="card__actions">
+              <span class="material-symbols-outlined card__actions__details">more_vert</span>
+            </div>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item >
+                <span class="material-symbols-outlined">Edit</span>
+                {{ 'Edit_Option' | translate }}
+              </button>
+              <button mat-menu-item >
+                <span class="material-symbols-outlined">delete</span>
+                {{ 'Delete_Option' | translate }}
+              </button>
+            </mat-menu>
+
+          </div>
+        </div>
+        <div class="card  mx-0 mb-2">
+          <div class="icon-container">
+            <img src="../../../../assets/images/icons8-option-30.png" alt="" style="width: 30px; height: 30px;">
+          </div>
+          <div class="col-3 card__contents">
+            
+                <div class="card__contents__item">
+                  <div class="card-label">option1</div>
+                </div>
+            
+
+          </div>
+
+          <div class="one">
+            <div [matMenuTriggerFor]="menu" class="card__actions">
+              <span class="material-symbols-outlined card__actions__details">more_vert</span>
+            </div>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item >
+                <span class="material-symbols-outlined">Edit</span>
+                {{ 'Edit_Option' | translate }}
+              </button>
+              <button mat-menu-item >
+                <span class="material-symbols-outlined">delete</span>
+                {{ 'Delete_Option' | translate }}
+              </button>
+            </mat-menu>
+
+          </div>
+        </div>
+        <div class="card  mx-0 mb-2">
+          <div class="icon-container">
+            <img src="../../../../assets/images/icons8-option-30.png" alt="" style="width: 30px; height: 30px;">
+          </div>
+          <div class="col-3 card__contents">
+            
+                <div class="card__contents__item">
+                  <div class="card-label">option1</div>
+                </div>
+            
+
+          </div>
+
+          <div class="one">
+            <div [matMenuTriggerFor]="menu" class="card__actions">
+              <span class="material-symbols-outlined card__actions__details">more_vert</span>
+            </div>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item >
+                <span class="material-symbols-outlined">Edit</span>
+                {{ 'Edit_Option' | translate }}
+              </button>
+              <button mat-menu-item >
+                <span class="material-symbols-outlined">delete</span>
+                {{ 'Delete_Option' | translate }}
+              </button>
+            </mat-menu>
+
+          </div>
+        </div>
+        <div class="card  mx-0 mb-2">
+          <div class="icon-container">
+            <img src="../../../../assets/images/icons8-option-30.png" alt="" style="width: 30px; height: 30px;">
+          </div>
+          <div class="col-3 card__contents">
+            
+                <div class="card__contents__item">
+                  <div class="card-label">option1</div>
+                </div>
+            
+
+          </div>
+
+          <div class="one">
+            <div [matMenuTriggerFor]="menu" class="card__actions">
+              <span class="material-symbols-outlined card__actions__details">more_vert</span>
+            </div>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item >
+                <span class="material-symbols-outlined">Edit</span>
+                {{ 'Edit_Option' | translate }}
+              </button>
+              <button mat-menu-item >
+                <span class="material-symbols-outlined">delete</span>
+                {{ 'Delete_Option' | translate }}
+              </button>
+            </mat-menu>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="all d-flex">
+      <div class="total">
+        {{ "totalOption_option" | translate }}:{{ totalRecords }}
+      </div>
+
+    </div>
+    <p-paginator class="mt-2" [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[4, 12, 20, 30]"
+      [first]="first" (onPageChange)="paginate($event)"></p-paginator>
+    <button class="add-button" (click)="openAddOption()">
+      <span class="material-symbols-outlined">add</span>
+    </button>
+
+  </ng-container>
+
+  <ng-template #ListView>
+    <div class="row">
+      <div *ngFor="let list of [1, 2, 3, 4]" class="row mx-0 mt-2">
+        <p-skeleton height="7.5rem"></p-skeleton>
+      </div>
+    </div>
+  </ng-template>
+
+</div>
+
+
+
+

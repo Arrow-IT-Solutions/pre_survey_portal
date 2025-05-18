@@ -1,0 +1,118 @@
+<form [formGroup]="dataForm" (ngSubmit)="onSubmit()" class="add-customer">
+  <div class="add-customer">
+    <div class="box-shadow mb-3">
+      <div class="row">
+        <div class="col-12 side-icon">
+          <span class="material-symbols-outlined">info</span>
+          <span>{{ 'Basic_Info_Customer' | translate }}</span>
+        </div>
+        <div class="col-12 row m-0 p-0">
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="fullNameAr" />
+              <label>{{ 'fullNameArCustomer_AddCustomer' | translate }}</label>
+              
+            </div>
+          </div>
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="fullNameEn" />
+              <label>{{ 'fullNameEnCustomer_AddCustomer' | translate }}</label>
+            </div>
+          </div>
+            <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <p-dropdown [options]="" optionLabel="value" optionValue="key"
+                formControlName="SocialState"></p-dropdown>
+              <label id="month">{{ 'customerSocialState_AddCustomer' | translate }}</label>
+            </div>
+          </div>
+           <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <p-calendar [showIcon]="true" formControlName="birthDate"></p-calendar>
+              <label>{{ 'Birthdate_AddCustomer' | translate }}</label>
+             
+            </div>
+          </div>
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="state" />
+              <label>{{ 'customerState_AddCustomer' | translate }}</label>
+            </div>
+          </div>
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="email" />
+              <label>{{ 'customerEmail_AddCustomer' | translate }}</label>
+            </div>
+          </div>
+
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="phone" />
+              <label>{{ 'customerPhone_AddCustomer' | translate }}</label>
+            </div>
+          </div>
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="favouriteFood" />
+              <label>{{ 'customerFavouriteFood_AddCustomer' | translate }}</label>
+            </div>
+          </div>
+           <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="KnowingUs" />
+              <label>{{ 'customerKnowingUs_AddCustomer' | translate }}</label>
+            </div>
+          </div>
+          <div class="col-12 mb-3">
+             <label>{{ 'sendOffers_AddCustomer' | translate }}</label>
+            <div class="p-float-label radio_options">
+                <div class="gap-2 option1">
+                    <p-radioButton value="Yes" formControlName="sendOffers" inputId="option1"></p-radioButton>
+                   
+                    <label for="option1">Yes</label>
+                </div>
+                <div class="gap-2 option2">
+                    <p-radioButton value="No" formControlName="sendOffers" inputId="option2"></p-radioButton>
+                    <label for="option2">No</label>
+
+                    
+                </div>
+            </div>
+          </div>
+          <!-- <div class="flex flex-wrap gap-4">
+    <div class="flex items-center">
+        <p-radioButton name="pizza" value="Cheese" formControlName="sendOffers" inputId="ingredient1" />
+        <label for="ingredient1" class="ml-2">Cheese</label>
+    </div>
+
+    <div class="flex items-center">
+        <p-radioButton name="pizza" value="Mushroom" formControlName="sendOffers" inputId="ingredient2" />
+        <label for="ingredient2" class="ml-2">Mushroom</label>
+    </div>
+
+    <div class="flex items-center">
+        <p-radioButton name="pizza" value="Pepper" formControlName="sendOffers"  inputId="ingredient3" />
+        <label for="ingredient3" class="ml-2">Pepper</label>
+    </div>
+
+    <div class="flex items-center">
+        <p-radioButton name="pizza" value="Onion" formControlName="sendOffers" inputId="ingredient4" />
+        <label for="ingredient4" class="ml-2">Onion</label>
+    </div>
+</div> -->
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="col-xs-12 text-end mt-4">
+      <p-button type="Submit" class="btn-primary" label="Save" [loading]="btnLoading"></p-button>
+    </div>
+  </div>
+</form>
+
+<p-toast key="toast"></p-toast>

@@ -1,0 +1,98 @@
+
+<div class="header-admin__tools">
+    <div [matMenuTriggerFor]="langMenu">
+      <span class="material-symbols-outlined lang-icon">language</span>
+      <span class="m-0">{{currentlang}}</span>
+      
+      <span class="material-symbols-outlined m-0"> arrow_drop_down </span>
+    </div>
+      <mat-menu #langMenu="matMenu">
+        <button mat-menu-item (click)="changeLang('en')">
+          English
+        </button>
+        <button mat-menu-item (click)="changeLang('ar')">
+          عربي
+        </button>
+      </mat-menu>
+   
+</div>
+<form [formGroup]="dataForm" action="" class="birthday">
+    <div class="logo-container mb-5">
+        <img src="../../../../assets/images/Fill Logo.svg" alt="">
+    </div>
+    <div class="fields">
+        <div class="col-12 mb-3 field_container">
+            <label>{{ 'userName_Birthday' | translate }}:</label>
+            <div class="p-float-label">
+              <input  pInputText type="text" formControlName="userName" />
+            </div>
+        </div>
+        
+        <div class="col-12 mb-3 field_container">
+            <label>{{ 'maritalStatus_Birthday' | translate }}:</label>
+            <div class="p-float-label dropdown">
+              <p-dropdown [options]="" optionLabel="value" optionValue="key"
+                formControlName="maritalStatus"></p-dropdown>
+            </div>
+        </div>
+        <div class="col-12 mb-3 field_container">
+            <label>{{ 'dateOfBirth_Birthday' | translate }}:</label>
+            <div class="p-float-label">
+              <p-calendar [showIcon]="true" formControlName="dateOfBirth"></p-calendar>
+            </div>
+        </div>
+        <div class="col-12 mb-3 field_container">
+            <label>{{ 'phoneNumber_Birthday' | translate }}:</label>
+            <div class="p-float-label d-flex gap-2">
+                <p-dropdown [options]="" optionLabel="value" optionValue="key"
+                formControlName="countryCode"></p-dropdown>
+                <input  pInputText type="text" formControlName="phoneNumber" />
+            </div>
+        </div>
+        <div class="col-12 mb-3 field_container">
+            <label>{{ 'email_Birthday' | translate }}:</label>
+            <div class="p-float-label">
+              <input  pInputText type="text" formControlName="email" />
+            </div>
+        </div>
+        <div class="col-12 mb-3 field_container">
+            <label>{{ 'country_Birthday' | translate }}:</label>
+            <div class="p-float-label">
+              <input  pInputText type="text" formControlName="country" />
+            </div>
+        </div>
+        <div class="col-12 mb-3 field_container">
+            <label>{{ 'infoGames_Birthday' | translate }}</label>
+            <div class="p-float-label">
+              <textarea pInputText formControlName="info"></textarea>
+            </div>
+        </div>
+       
+        
+        <div class="col-12 mb-3 field_container">
+            <label>{{ 'numberOfPerson_Birthday' | translate }}</label>
+            <div class="p-float-label dropdown">
+              <p-dropdown [options]="" optionLabel="value" optionValue="key"
+                formControlName="numberOfPerson"></p-dropdown>
+            </div>
+        </div>
+        <div class="col-12 mb-3 field_container">
+            <label>{{ 'packageContents_Birthday' | translate }}</label>
+            <div class="p-float-label dropdown">
+              <p-dropdown [options]="" optionLabel="value" optionValue="key"
+                formControlName="packageContents"></p-dropdown>
+            </div>
+        </div>
+        <div class="col-12 mb-3 field_container">
+            <label>{{ 'suggestions_Birthday' | translate }}</label>
+            <div class="p-float-label">
+              <textarea pInputText formControlName="suggestions"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 mt-4 ">
+        <p-button type="Submit" class="btn-primary" label="Start" [loading]="btnLoading"></p-button>
+      </div>
+    
+</form>
+

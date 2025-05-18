@@ -4,7 +4,7 @@ import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component'
 import { ContentLayoutComponent } from './layout/content-layout/content-layout.component';
 import { AuthGuardService } from './Core/guard/auth-guard.service';
 import { ContentLayoutAdminComponent } from './layout/content-layout-admin/content-layout-admin.component';
-import { VerifyComponent } from './modules/Verify/Verify/verify.component';
+
 
 const routes: Routes = [
   {
@@ -13,74 +13,56 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: '',
-    redirectTo: 'verify',
-    pathMatch: 'full',
+    path:'games-form',
+    children:[{
+      path:'',
+      loadChildren: () =>
+        import('./modules/games-form/games-form.module').then(
+          (m) =>m.GamesFormModule
+        )
+    }],
   },
-  // {
-  //   path: 'layout',
-  //   component: ContentLayoutComponent,
-  //   // canActivate: [AuthGuardService],
-  //   children: [
-  //     {
-  //       path: 'home',
-  //       loadChildren: () =>
-  //         import('./modules/home/home.module').then(
-  //           (m) => m.HomeModule
-  //         ),
-  //     },
-  //   ],
-  // },
   {
+    path:'birthday-form',
+    children:[{
+      path:'',
+      loadChildren: () =>
+        import('./modules/birthday-form/birthday-form.module').then(
+          (m) =>m.BirthdayFormModule
+        )
+    }],
+  },
+    {
     path: 'layout-admin',
     component: ContentLayoutAdminComponent,
     // canActivate: [AuthGuardService],
     children: [
       {
-        path: 'clients',
+        path:'customers',
         loadChildren: () =>
-          import('./modules/clients/clients.module').then(
-            (m) => m.ClientsModule
+          import('./modules/customers/customers.module').then(
+            (m) =>m.CustomersModule
+          )
+      },
+        {
+        path:'answers',
+        loadChildren: () =>
+          import('./modules/answers/answers.module').then(
+            (m) =>m.AnswersModule
           )
       },
       {
-        path: 'employees',
+        path:'options',
         loadChildren: () =>
-          import('./modules/employees/employees.module').then(
-            (m) => m.EmployeesModule
+          import('./modules/options/options.module').then(
+            (m) =>m.OptionsModule
           )
       },
-      {
-        path: 'dashBoard',
-        loadChildren: () =>
-          import('./modules/dashboard/dashboard.module').then(
-            (m) => m.DashboardModule
-          )
-      },
-      {
-        path: 'feedback',
-        loadChildren: () =>
-          import('./modules/feedback/feedback.module').then(
-            (m) => m.FeedbackModule
-          )
-      },
-      {
-        path: 'notification',
-        loadChildren: () =>
-          import('./modules/notification/notification.module').then(
-            (m) => m.NotificationModule
-          )
-      },
-      {
-        path: 'password',
-        loadChildren: () =>
-          import('./modules/Password/password.module').then(
-            (m) => m.PasswordModule
-          )
-      },
-
-    ],
-  },
+    ]
+    },
+  
+ 
+  
 
   {
     path: 'auth',
@@ -89,12 +71,7 @@ const routes: Routes = [
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
 
-  {
-    path: 'verify',
-    component: VerifyComponent,
-    loadChildren: () =>
-      import('./modules/Verify/verify.module').then((m) => m.VerifyModule),
-  },
+ 
 
   // {
   //   path: 'segments',

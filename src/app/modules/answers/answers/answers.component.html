@@ -1,0 +1,131 @@
+<div class="answers">
+  <div [formGroup]="dataForm" class="row mb-4 m-0  p-0">
+    <div class="container d-flex">
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
+        <div class="flex flex-wrap justify-content-center gap-3">
+          <span class="p-input-icon-left p-0">
+            <i class="pi pi-search"></i>
+            <input class="search-field" type="text"
+              placeholder="{{ 'searchCustomerName_answer' | translate }}" formControlName="customerName" pInputText />
+          </span>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
+        <div class="flex flex-wrap justify-content-center gap-3">
+          <span class="p-input-icon-left p-0">
+            <i class="pi pi-search"></i>
+            <input class="search-field"  type="text"
+              placeholder="{{ 'searchAnswer_answer'| translate }}" formControlName="answer" pInputText />
+          </span>
+        </div>
+      </div>
+
+      <div class="col result">
+        <button id="result" (onClick)="resetform()">
+          <span class="material-symbols-outlined">restart_alt</span>
+        </button>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <ng-container>
+    <div class="row mx-0 mt-2 box">
+      <div>
+        <div class="card col-12 mx-0 mb-2">
+          <div class="icon-container">
+            <span class="material-symbols-outlined fill">question_answer</span>
+          </div>
+          <div class="col-lg-9 col-md-12 col-sm-12 card__contents">
+            <div class="card-section1">
+              <div class="card-section__title">info</div>
+
+              <div class="card-section__items">
+
+                <div class="card__contents__item">
+                  <div class="card-label">{{ 'questionText_question' | translate }}:</div>
+                  <div class="card-info">
+                    <span class="material-symbols-outlined fill"></span>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus at, vitae ipsum molestias fuga 
+                  </div>
+                </div>
+              </div>
+               <div class="card-section__items">
+
+                <div class="card__contents__item">
+                  <div class="card-label">{{ 'questionAnswer_answer' | translate }}:</div>
+                  <div class="card-info">
+                    <span class="material-symbols-outlined fill"></span>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, amet vel! Officia hic fugiat 
+                  </div>
+                </div>
+              
+              </div>
+              <div class="card-section__items">
+                 <div class="card__contents__item">
+                  <div class="card-label">{{ 'customerName_answer' | translate }}:</div>
+                  <div class="card-info">
+                    <span class="material-symbols-outlined fill"></span>
+                    Nour
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+
+
+          <div class="one">
+            <div [matMenuTriggerFor]="menu" class="card__actions">
+              <span class="material-symbols-outlined card__actions__details">more_vert</span>
+            </div>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item >
+                <span class="material-symbols-outlined">Edit</span>
+                {{ 'Edit_Answer' | translate }}
+              </button>
+              <button mat-menu-item >
+                <span class="material-symbols-outlined">delete</span>
+                {{ 'Delete_Answer' | translate }}
+              </button>
+            </mat-menu>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="all d-flex">
+      <div class="total">
+        {{ "totalAnswers_answer" | translate }}:{{ totalRecords }}
+      </div>
+
+    </div>
+    <p-paginator class="mt-2" [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[4, 12, 20, 30]"
+      [first]="first" (onPageChange)="paginate($event)"></p-paginator>
+  
+
+  </ng-container>
+
+  <ng-template #ListView>
+    <div class="row">
+      <div *ngFor="let list of [1, 2, 3, 4]" class="row mx-0 mt-2">
+        <p-skeleton height="7.5rem"></p-skeleton>
+      </div>
+    </div>
+  </ng-template>
+
+</div>
+
+
+
+
