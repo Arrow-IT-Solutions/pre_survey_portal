@@ -19,15 +19,15 @@ export const navbarData: NavbarData[] = [
     labelar: 'العملاء',
     id: 'customers',
     icon: 'group',
-    routeLink:'customers'
-   
+    routeLink: 'customers'
+
   },
   {
     label: 'Questions',
     labelar: ' الأسئلة',
     id: 'questions',
     icon: 'question_mark',
-    routeLink: "notification"
+    routeLink: "questions"
   },
   {
     label: 'Answers',

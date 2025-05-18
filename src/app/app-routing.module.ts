@@ -13,56 +13,63 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path:'games-form',
-    children:[{
-      path:'',
+    path: 'games-form',
+    children: [{
+      path: '',
       loadChildren: () =>
         import('./modules/games-form/games-form.module').then(
-          (m) =>m.GamesFormModule
+          (m) => m.GamesFormModule
         )
     }],
   },
   {
-    path:'birthday-form',
-    children:[{
-      path:'',
+    path: 'birthday-form',
+    children: [{
+      path: '',
       loadChildren: () =>
         import('./modules/birthday-form/birthday-form.module').then(
-          (m) =>m.BirthdayFormModule
+          (m) => m.BirthdayFormModule
         )
     }],
   },
-    {
+  {
     path: 'layout-admin',
     component: ContentLayoutAdminComponent,
     // canActivate: [AuthGuardService],
     children: [
       {
-        path:'customers',
+        path: 'customers',
         loadChildren: () =>
           import('./modules/customers/customers.module').then(
-            (m) =>m.CustomersModule
-          )
-      },
-        {
-        path:'answers',
-        loadChildren: () =>
-          import('./modules/answers/answers.module').then(
-            (m) =>m.AnswersModule
+            (m) => m.CustomersModule
           )
       },
       {
-        path:'options',
+        path: 'answers',
         loadChildren: () =>
-          import('./modules/options/options.module').then(
-            (m) =>m.OptionsModule
+          import('./modules/answers/answers.module').then(
+            (m) => m.AnswersModule
           )
       },
+      {
+        path: 'options',
+        loadChildren: () =>
+          import('./modules/options/options.module').then(
+            (m) => m.OptionsModule
+          )
+      },
+      {
+        path: 'questions',
+        loadChildren: () =>
+          import('./modules/questions/questions.module').then(
+            (m) => m.QuestionsModule
+          )
+      }
     ]
-    },
-  
- 
-  
+  },
+
+
+
 
   {
     path: 'auth',
@@ -71,7 +78,7 @@ const routes: Routes = [
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
 
- 
+
 
   // {
   //   path: 'segments',
