@@ -117,7 +117,7 @@
 
   & .right {
     height: 100vh;
-    background-color: rgba($primary-color, 0.15);
+    background-color: $primary-color-hover;
     width: 100%;
     overflow: hidden;
     position: relative;

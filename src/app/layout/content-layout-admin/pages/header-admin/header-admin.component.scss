@@ -15,15 +15,17 @@
         color: $primary-color;
         display: flex;
         align-content: center;
+        align-items: center;
+        
         flex-wrap: wrap;
         font-size: $h5-size;
         padding-inline-start: 1rem;
         height: 57px;
         width: 100%;
         .logocontainer{
-            width: 6rem;
+            width: 10rem;
             img{
-                width: 100%;
+                width: 70%;
             }
         }
 

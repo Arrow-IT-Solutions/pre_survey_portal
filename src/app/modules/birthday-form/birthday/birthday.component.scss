@@ -1,0 +1,72 @@
+.birthday{
+    width: 70%;
+    background-color: white;
+    border-radius: 6px;
+    padding: 1rem;
+    margin: auto;
+    margin-top: 2rem;
+    @media (max-width:767px) {
+        width: 90%;
+    }
+    @media (max-width: 991px) and (min-width: 768px) {
+        width: 90%;
+    }
+    
+    .logo-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+
+        img{
+            width: 12rem;
+
+        }
+    }
+    .fields{
+        width: 70%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .field_container{
+            label{
+                font-weight: 300;
+                font-size: 1rem;
+
+             }   
+            input{
+                width: 100%;
+            }
+            .dropdown{
+                width: 100%;
+            }
+            .radio_options{
+                display: flex;
+                // flex-direction: column;
+                margin-top: 0.5rem;
+                column-gap: 6rem;
+                .option1{
+                    background-color: red;
+                    width: 50%;
+                }
+                .option2{
+                    background-color: yellow;
+                    width: 50%;
+                }
+            }
+           
+        }
+    }
+    
+        
+        .btn-primary{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+            
+        }
+    
+ 
+}

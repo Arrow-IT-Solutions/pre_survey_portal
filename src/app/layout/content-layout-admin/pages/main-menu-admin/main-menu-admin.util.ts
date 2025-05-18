@@ -13,47 +13,35 @@ export interface NavbarData {
 }
 
 export const navbarData: NavbarData[] = [
+
   {
-    label: 'Dashboard',
-    labelar: 'لوحة التحكم',
-    id: 'dashboard',
-    icon: 'speed',
-    routeLink: 'dashBoard'
-  },
-  {
-    label: 'Users',
-    labelar: 'المستخدمين',
-    id: 'Users',
+    label: 'Customers',
+    labelar: 'العملاء',
+    id: 'customers',
     icon: 'group',
-    items: [
-      {
-        label: 'Clients',
-        labelar: 'الزبائن',
-        id: 'Clients',
-        routeLink: "clients"
-      },
-      {
-        label: 'Employees',
-        labelar: 'الموظفين',
-        id: 'Employees',
-
-        routeLink: "employees"
-      }
-
-    ]
+    routeLink:'customers'
+   
   },
   {
-    label: 'Notifications',
-    labelar: ' الإشعارات',
-    id: 'notification',
-    icon: 'notifications',
+    label: 'Questions',
+    labelar: ' الأسئلة',
+    id: 'questions',
+    icon: 'question_mark',
     routeLink: "notification"
   },
   {
-    label: 'FeedBack',
-    labelar: ' الآراء',
-    id: 'feedback',
-    icon: 'Comment',
-    routeLink: "feedback"
+    label: 'Answers',
+    labelar: ' الإجابات',
+    id: 'answers',
+    icon: 'question_answer',
+    routeLink: "answers"
+  },
+  {
+    label: 'Options',
+    labelar: 'الخيارات',
+    id: 'options',
+    icon: 'storage',
+    routeLink: "options"
   }
+
 ];
