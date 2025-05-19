@@ -51,7 +51,12 @@
  "Basic_Info_Customer":"Basic Info",
  "fullNameArCustomer_AddCustomer":"fullName in Arabic",
  "fullNameEnCustomer_AddCustomer":"fullName in English",
- "customerSocialState_AddCustomer":"Social State",
+ "customerSocialState_AddCustomer":"Social Status",
+ "Field_Required" : "Required Field",
+ "Yes" : "Yes",
+ "No" : "No",
+ "Delete_Confirmation" : "Delete Confirmation",
+ "Do_you_want_to_delete_this_record?" : "Are you sure you want to delete this record?",
  "Birthdate_AddCustomer":"Birthdate",
  "customerState_AddCustomer":"State",
  "customerEmail_AddCustomer":"Email",
@@ -59,14 +64,14 @@
  "customerFavouriteFood_AddCustomer":"Favourite Food",
  "customerKnowingUs_AddCustomer":"How did you know about our cafee",
  "sendOffers_AddCustomer":"Agree to send offers",
- "optionName_option":"Answer",
+ "optionName_option":"Option",
  "Edit_Option":"Edit",
  "Delete_Option":"Delete",
  "totalOption_option":"Total Options",
  "Basic_Info_Option":"Basic Info",
- "optionEn_option":"Answer in English",
- "optionAr_option":"Answer in Arabic",
- "Create_Option":"Create Answer",
- "Update_Option":"Update Answer"
+ "optionEn_option":"Option in English",
+ "optionAr_option":"Option in Arabic",
+ "Create_Option":"Create Option",
+ "Update_Option":"Update Option"
 
 }

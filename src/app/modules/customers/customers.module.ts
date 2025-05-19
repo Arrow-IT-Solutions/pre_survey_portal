@@ -6,7 +6,7 @@ import { CustomersComponent } from './customers/customers.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AddCustomerComponent } from './add-customer/add-customer.component';
-import { ResponseBase } from 'src/app/shared/class/class';
+import { RequestBase, ResponseBase, SearchRequestBase } from 'src/app/shared/class/class';
 
 
 @NgModule({
@@ -22,6 +22,72 @@ import { ResponseBase } from 'src/app/shared/class/class';
   ]
 })
 export class CustomersModule { }
-export interface CustomerResponse extends ResponseBase {
-  
+export interface CustomerResponse extends ResponseBase
+{
+  uuid?: string;
+  customerTranslation?: { [key: string]: CustomerTranslationResponse };
+  socialStatus?: string;
+  socialStatusValue?: string;
+  phone?: string;
+  birthDate?: string;
+  email?: string;
+  state?: string;
+  knowingUs?: string;
+  favoriteFood?: string;
+  isAgree?: string;
+}
+
+export interface CustomerTranslationResponse {
+  uuid?: string;
+  fullName?: string;
+  language?: string;
+}
+
+export interface CustomerSearchRequest extends SearchRequestBase {
+  uuid?: string;
+  fullName?: string;
+  phone?: string;
+  email?: string;
+  birthDate?: string;
+  socialStatus?: string;
+  favoriteFood?: string;
+  isAgree?: string;
+}
+
+export interface CustomerRequest extends RequestBase {
+  uuid?: string;
+  customerTranslation?: CustomerTranslationRequest[];
+  socialStatus?: string;
+  phone?: string;
+  birthDate?: string;
+  email?: string;
+  state?: string;
+  knowingUs?: string;
+  favoriteFood?: string;
+  isAgree?: string;
+}
+
+export interface CustomerTranslationRequest {
+  uuid?: string;
+  fullName?: string;
+  language?: string;
+}
+
+export interface CustomerUpdateRequest extends RequestBase {
+  uuid?: string;
+  customerTranslation?: CustomerTranslationUpdateRequest[];
+  socialStatus?: string;
+  phone?: string;
+  birthDate?: string;
+  email?: string;
+  state?: string;
+  knowingUs?: string;
+  favoriteFood?: string;
+  isAgree?: string;
+}
+
+export interface CustomerTranslationUpdateRequest {
+  uuid?: string;
+  fullName?: string;
+  language?: string;
 }

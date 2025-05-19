@@ -11,13 +11,16 @@
             <div class="p-float-label">
               <input pInputText type="text" formControlName="optionEn" />
               <label>{{ 'optionEn_option' | translate }}</label>
-              
+              <span *ngIf="submitted && form['optionEn'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
             </div>
           </div>
           <div class="col-12 mb-3">
             <div class="p-float-label">
               <input pInputText type="text" formControlName="optionAr" />
               <label>{{ 'optionAr_option' | translate }}</label>
+              <span *ngIf="submitted && form['optionAr'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
             </div>
           </div>
         </div>

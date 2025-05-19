@@ -29,6 +29,7 @@
     "moment": "^2.29.4",
     "primeicons": "^6.0.1",
     "primeng": "^16.4.1",
+    "Quattro": "file:",
     "query-string": "^7.1.1",
     "require": "^0.4.4",
     "rxjs": "~7.8.0",
