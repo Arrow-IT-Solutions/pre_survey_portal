@@ -5,17 +5,17 @@
         <div class="flex flex-wrap justify-content-center gap-3">
           <span class="p-input-icon-left p-0">
             <i class="pi pi-search"></i>
-            <input class="search-field" type="text"
+            <input class="search-field" type="text" (ngModelChange)="OnChange()"
               placeholder="{{ 'optionName_option' | translate }}" formControlName="name" pInputText />
           </span>
         </div>
       </div>
-      <div class="col result">
-        <button id="result" (onClick)="resetform()">
-          <span class="material-symbols-outlined">restart_alt</span>
-        </button>
 
-      </div>
+            <div class="col result">
+              <p-button class="reset-btn" (onClick)="resetform()">
+                <span class="material-symbols-outlined">restart_alt</span>
+              </p-button>
+            </div>
 
     </div>
 
@@ -23,20 +23,18 @@
   </div>
 
 
-  <ng-container>
+  <ng-container *ngIf="!loading; else ListView">
     <div class="row mx-0 mt-2 ">
-      <div class="box">
+      <div class="box" *ngFor="let row of data">
         <div class="card mx-0 mb-2">
           <div class="icon-container">
             <img src="../../../../assets/images/icons8-option-30.png" alt="" style="width: 30px; height: 30px;">
           </div>
           <div class="col-3 card__contents">
-            
-                <div class="card__contents__item">
-                  <div class="card-label">option1</div>
-                </div>
-            
 
+                <div class="card__contents__item">
+                  <div class="card-label">{{ row.optionTranslation![layoutService.config.lang]?.name }}</div>
+                </div>
           </div>
 
           <div class="one">
@@ -44,101 +42,11 @@
               <span class="material-symbols-outlined card__actions__details">more_vert</span>
             </div>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item >
+              <button mat-menu-item (click)="openAddOption(row)">
                 <span class="material-symbols-outlined">Edit</span>
                 {{ 'Edit_Option' | translate }}
               </button>
-              <button mat-menu-item >
-                <span class="material-symbols-outlined">delete</span>
-                {{ 'Delete_Option' | translate }}
-              </button>
-            </mat-menu>
-
-          </div>
-        </div>
-        <div class="card  mx-0 mb-2">
-          <div class="icon-container">
-            <img src="../../../../assets/images/icons8-option-30.png" alt="" style="width: 30px; height: 30px;">
-          </div>
-          <div class="col-3 card__contents">
-            
-                <div class="card__contents__item">
-                  <div class="card-label">option1</div>
-                </div>
-            
-
-          </div>
-
-          <div class="one">
-            <div [matMenuTriggerFor]="menu" class="card__actions">
-              <span class="material-symbols-outlined card__actions__details">more_vert</span>
-            </div>
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item >
-                <span class="material-symbols-outlined">Edit</span>
-                {{ 'Edit_Option' | translate }}
-              </button>
-              <button mat-menu-item >
-                <span class="material-symbols-outlined">delete</span>
-                {{ 'Delete_Option' | translate }}
-              </button>
-            </mat-menu>
-
-          </div>
-        </div>
-        <div class="card  mx-0 mb-2">
-          <div class="icon-container">
-            <img src="../../../../assets/images/icons8-option-30.png" alt="" style="width: 30px; height: 30px;">
-          </div>
-          <div class="col-3 card__contents">
-            
-                <div class="card__contents__item">
-                  <div class="card-label">option1</div>
-                </div>
-            
-
-          </div>
-
-          <div class="one">
-            <div [matMenuTriggerFor]="menu" class="card__actions">
-              <span class="material-symbols-outlined card__actions__details">more_vert</span>
-            </div>
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item >
-                <span class="material-symbols-outlined">Edit</span>
-                {{ 'Edit_Option' | translate }}
-              </button>
-              <button mat-menu-item >
-                <span class="material-symbols-outlined">delete</span>
-                {{ 'Delete_Option' | translate }}
-              </button>
-            </mat-menu>
-
-          </div>
-        </div>
-        <div class="card  mx-0 mb-2">
-          <div class="icon-container">
-            <img src="../../../../assets/images/icons8-option-30.png" alt="" style="width: 30px; height: 30px;">
-          </div>
-          <div class="col-3 card__contents">
-            
-                <div class="card__contents__item">
-                  <div class="card-label">option1</div>
-                </div>
-            
-
-          </div>
-
-          <div class="one">
-            <div [matMenuTriggerFor]="menu" class="card__actions">
-              <span class="material-symbols-outlined card__actions__details">more_vert</span>
-            </div>
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item >
-                <span class="material-symbols-outlined">Edit</span>
-                {{ 'Edit_Option' | translate }}
-              </button>
-              <button mat-menu-item >
+              <button mat-menu-item (click)="confirmDelete(row)">
                 <span class="material-symbols-outlined">delete</span>
                 {{ 'Delete_Option' | translate }}
               </button>
@@ -171,6 +79,15 @@
       </div>
     </div>
   </ng-template>
+
+      <p-confirmDialog #positionDialog key="positionDialog" position="bottom" [baseZIndex]="10000" onHide="true">
+    <ng-template pTemplate="footer">
+      <button type="button" pButton icon="pi pi-times" label="{{ 'No' | translate }}"
+        (click)="positionDialog.reject()"></button>
+      <button type="button" pButton icon="pi pi-check" label="{{ 'Yes' | translate }}"
+        (click)="positionDialog.accept()"></button>
+    </ng-template>
+  </p-confirmDialog>
 
 </div>
 

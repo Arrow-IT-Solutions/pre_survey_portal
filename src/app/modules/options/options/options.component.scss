@@ -17,30 +17,49 @@
           width: 3rem;
           height: 3rem;
           border-radius: 50%;
-          
+
           color: white;
         }
         .result{
+                        .reset-btn {
+      ::ng-deep button {
+        background-color: $primary-color-hover !important;
+        color: #fff !important;
+        border: none !important;
+        border-radius: 50% !important;
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        font-size: 1.5rem;
+        transition: background 0.2s;
+        &:hover {
+          background-color: darken($primary-color-hover, 5%) !important;
+        }
+      }
+    }
             padding-left: 2rem;
             padding-top: 1rem;
-            
+
             display: flex;
             align-items: center;
             @media(max-width:767px){
               justify-content: center;
             padding-right: 1rem;
-      
-      
+
+
             }
             &:lang(ar){
               padding-right: 2rem;
               @media(max-width:767px){
               padding-right: 0;
               padding-left: 1rem;
-      
-      
+
+
               }
-      
+
             }
           }
       }
@@ -178,7 +197,7 @@
       flex-wrap: wrap;
       column-gap: 2rem;
     }
-    
+
   }
 
   & .box-shadow {
@@ -218,7 +237,7 @@
     }
     .icon-container{
       display: flex;
-     
+
       @media (max-width:767px) {
         padding-top: 0;
         margin-bottom: 1rem;
@@ -230,8 +249,8 @@
       }
       .fill{
         color: $primary-color;
-      
-       
+
+
        }
 
      }
@@ -239,7 +258,7 @@
 
     &__left {
       align-items: center;
-     
+
     }
 
 
@@ -318,7 +337,7 @@
     //     width: 95%;
     //    column-gap: 7rem;
     //    padding: 0.5rem;
-       
+
 
     //     @media (max-width:767px){
     //       display: flex;
@@ -339,8 +358,8 @@
 
 
     &__contents {
-      
-    
+
+
       width: 80%;
 
       @media(max-width:767px){
@@ -359,7 +378,7 @@
 
       &__item {
         margin-inline-end: 2rem;
-        
+
 
 
         @media (max-width: 790px) {
@@ -384,10 +403,10 @@
       height: 40px;
       line-height: 40px;
       width: 100%;
-      
+
       @media(max-width:767px){
         width: 100%;
-        
+
       }
 
       & .material-symbols-outlined {
@@ -400,7 +419,7 @@
       justify-content: center;
 
       width: 20px;
-      
+
       @media (max-width: 991px) and (min-width: 768px) {
         width: 100%;
          // Tablets
@@ -423,7 +442,7 @@
       &__details {
         font-size: $xl-icon;
         color: $primary-color;
-        
+
       }
     }
   }
@@ -452,7 +471,7 @@
     @media (max-width:767px) {
         flex-direction: column;
        align-items: center;
-  
+
       }
 }
 
