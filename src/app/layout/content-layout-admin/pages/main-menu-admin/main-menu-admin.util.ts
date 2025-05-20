@@ -19,8 +19,8 @@ export const navbarData: NavbarData[] = [
     labelar: 'العملاء',
     id: 'customers',
     icon: 'group',
-    routeLink:'customers'
-   
+    routeLink: 'customers'
+
   },
   {
     label: 'Questions',
