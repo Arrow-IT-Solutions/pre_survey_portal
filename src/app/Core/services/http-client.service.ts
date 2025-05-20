@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import axios, { AxiosInstance } from 'axios';
 import { TokenService } from './token.service';
 import { environment } from 'src/environments/environment';
+import { LayoutService } from 'src/app/layout/service/layout.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class HttpClientService {
   private axiosInstance: AxiosInstance;
 
 
-  constructor(private tokenService: TokenService) {
+  constructor(private tokenService: TokenService, private layoutService: LayoutService) {
     this.axiosInstance = axios.create({
       baseURL: environment.baseApiUrl,
     });
@@ -21,7 +22,7 @@ export class HttpClientService {
         const token = this.tokenService.getToken();
         if (token) {
           config.headers['Authorization'] = `Bearer ${token}`;
-          config.headers['Accept-Language'] = `en`;
+          config.headers['Accept-Language'] = this.layoutService.config.lang;
         }
         return config;
       },
