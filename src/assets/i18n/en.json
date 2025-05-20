@@ -69,37 +69,9 @@
  "Delete_Option":"Delete",
  "totalOption_option":"Total Options",
  "Basic_Info_Option":"Basic Info",
-<<<<<<< HEAD
- "optionEn_option":"Answer in English",
- "optionAr_option":"Answer in Arabic",
- "Create_Option":"Create Answer",
- "Update_Option":"Update Answer",
- "searchCustomerAnswer_customerAnswers":"Answer",
- "CustomerAnswer_customerAnswers":"Answer",
- "answerCount_customerAnswers":"count of repetitions",
- "totalAnswers_customerAnswers":"Total Answers",
- "searchQusetion_question":"Qusetion",
- "questionAnswer_questions":"Answers",
- "Edit_question":"Edit",
- "Delete_question":"Delete",
- "totalQuestion_question":"Total Question",
- "Create_Question":"Create Question",
- "Update_Question":"Update Question",
- "questionAr_AddQuestion":"Question in Arabic",
- "questionEn_AddQuestion":"Question in English",
- "questionForm_AddQuestion":"Form",
- "AddtoForm_questions":"Add to form",
- "selectedForm_AddQuestion":"Form",
- "AddAnswers_AddQuestion":"Add Options",
- "selectedAnswers_AddQuestion":"Options",
- "Save_Question":"Save",
- "searchOption_AddQuestion":"search option here...",
- "searchForm_AddQuestion":"search form here..."
-=======
  "optionEn_option":"Option in English",
  "optionAr_option":"Option in Arabic",
  "Create_Option":"Create Option",
  "Update_Option":"Update Option"
->>>>>>> 1ed5129f99763aa8ba756ce80970c4f06a4f18bb
 
 }
