@@ -27,7 +27,7 @@ export const navbarData: NavbarData[] = [
     labelar: ' الأسئلة',
     id: 'questions',
     icon: 'question_mark',
-    routeLink: "notification"
+    routeLink: "questions"
   },
   {
     label: 'Answers',
@@ -42,6 +42,14 @@ export const navbarData: NavbarData[] = [
     id: 'options',
     icon: 'storage',
     routeLink: "options"
-  }
+  },
+   {
+    label: 'Customers Answers',
+    labelar: 'إجابات العملاء',
+    id: 'customers_answers',
+    icon: 'comment',
+    routeLink: "customers-answers"
+  },
+  
 
 ];

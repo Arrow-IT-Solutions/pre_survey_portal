@@ -22,7 +22,7 @@ export class OptionsComponent {
 constructor(public formBuilder:FormBuilder,public layoutService: LayoutService,public translate: TranslateService,public OptionService:OptionService){
   this.dataForm=this.formBuilder.group({
     name:[''],
-    phone:['']
+    
   })
 }
 

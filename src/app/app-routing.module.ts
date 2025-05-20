@@ -58,6 +58,20 @@ const routes: Routes = [
             (m) =>m.OptionsModule
           )
       },
+      {
+        path:'customers-answers',
+        loadChildren: () =>
+          import('./modules/customers-answers/customers-answers.module').then(
+            (m) =>m.CustomersAnswersModule
+          )
+      },
+       {
+        path:'questions',
+        loadChildren: () =>
+          import('./modules/questions/questions.module').then(
+            (m) =>m.QuestionsModule
+          )
+      },
     ]
     },
   
