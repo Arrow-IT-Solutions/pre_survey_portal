@@ -86,6 +86,8 @@
  "selectedForm_AddQuestion":"Form",
  "AddAnswers_AddQuestion":"Add Options",
  "selectedAnswers_AddQuestion":"Options",
- "Save_Question":"Save"
+ "Save_Question":"Save",
+ "searchOption_AddQuestion":"search option here...",
+ "searchForm_AddQuestion":"search form here..."
 
 }

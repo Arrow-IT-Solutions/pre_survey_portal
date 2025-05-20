@@ -47,6 +47,10 @@ export class AddQuestionComponent {
          questionAr:[''],
          questionEn:[''],
          form:[''],
+         search_option:[''],
+         search_form:[''],
+         optionAr:[''],
+         optionEn:['']
         })
       }
       ngOnInit(){
@@ -89,18 +93,6 @@ export class AddQuestionComponent {
     return this.selectedOption.indexOf(option) !== -1;
   }
   
-   
-  
-    // constructor(public formBuilder:FormBuilder){
-    //   this.dataForm=this.formBuilder.group({
-    //    questionAr:[''],
-    //    questionEn:[''],
-    //    form:[''],
-    //   })
-    // }
-    // ngOnInit(){
-     
-    // }
   
 
 

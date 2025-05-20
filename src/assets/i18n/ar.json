@@ -86,5 +86,8 @@
   "selectedForm_AddQuestion":"فورم",
   "AddAnswers_AddQuestion":"إضافة خيارات",
   "selectedAnswers_AddQuestion":"الخيارات المضافة",
-  "Save_Question":"حفظ"
+  "Save_Question":"حفظ",
+  "searchOption_AddQuestion":"البحث عن خيار..",
+  "searchForm_AddQuestion":"البحث عن فورم .."
+
 }

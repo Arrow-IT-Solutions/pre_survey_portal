@@ -207,6 +207,9 @@ padding: 1rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        input{
+          border: none;
+        }
         .material-symbols-outlined{
           color: $primary-color;
           cursor: pointer;
