@@ -3,17 +3,24 @@ import { CommonModule } from '@angular/common';
 
 import { QuestionsRoutingModule } from './questions-routing.module';
 import { QuestionsComponent } from './questions/questions.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { ResponseBase } from 'src/app/shared/class/class';
+import { AddQuestionComponent } from './add-question/add-question.component';
 import { OptionResponse } from '../options/options.module';
 
 
 @NgModule({
   declarations: [
-    QuestionsComponent
+    QuestionsComponent,
+    AddQuestionComponent,
+   
   ],
   imports: [
     CommonModule,
-    QuestionsRoutingModule
+    QuestionsRoutingModule,
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class QuestionsModule { }

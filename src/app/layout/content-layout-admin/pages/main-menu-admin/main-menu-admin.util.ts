@@ -42,6 +42,14 @@ export const navbarData: NavbarData[] = [
     id: 'options',
     icon: 'storage',
     routeLink: "options"
-  }
+  },
+   {
+    label: 'Customers Answers',
+    labelar: 'إجابات العملاء',
+    id: 'customers_answers',
+    icon: 'comment',
+    routeLink: "customers-answers"
+  },
+  
 
 ];

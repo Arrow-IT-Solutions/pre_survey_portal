@@ -52,6 +52,20 @@ const routes: Routes = [
           )
       },
       {
+        path:'customers-answers',
+        loadChildren: () =>
+          import('./modules/customers-answers/customers-answers.module').then(
+            (m) =>m.CustomersAnswersModule
+          )
+      },
+       {
+        path:'questions',
+        loadChildren: () =>
+          import('./modules/questions/questions.module').then(
+            (m) =>m.QuestionsModule
+          )
+      },
+      {
         path: 'options',
         loadChildren: () =>
           import('./modules/options/options.module').then(

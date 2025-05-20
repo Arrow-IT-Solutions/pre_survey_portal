@@ -32,7 +32,8 @@ constructor(public formBuilder:FormBuilder,
   public confirmationService: ConfirmationService
   ){
   this.dataForm=this.formBuilder.group({
-    name:['']
+    name:[''],
+    
   })
 
       this.optionService.refreshOptions$.subscribe(() => {
