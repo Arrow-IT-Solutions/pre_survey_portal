@@ -1,23 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { GamesFormRoutingModule } from './games-form-routing.module';
-import { GamesComponent } from './games/games.component';
-
+import { UserFormsRoutingModule } from './user-forms-routing.module';
+import { FormsComponent } from './forms/forms.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
   declarations: [
-    GamesComponent
+    FormsComponent
   ],
   imports: [
     CommonModule,
-    GamesFormRoutingModule,
-    SharedModule,
-   
+    UserFormsRoutingModule,
+    SharedModule,   
     ReactiveFormsModule
   ]
 })
-export class GamesFormModule { }
+export class UserFormsModule { }

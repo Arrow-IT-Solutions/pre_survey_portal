@@ -13,22 +13,12 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'games-form',
+   path: 'forms',
     children: [{
       path: '',
       loadChildren: () =>
-        import('./modules/games-form/games-form.module').then(
-          (m) => m.GamesFormModule
-        )
-    }],
-  },
-  {
-    path: 'birthday-form',
-    children: [{
-      path: '',
-      loadChildren: () =>
-        import('./modules/birthday-form/birthday-form.module').then(
-          (m) => m.BirthdayFormModule
+        import('./modules/user-forms/user-forms.module').then(
+          (m) => m.UserFormsModule
         )
     }],
   },
@@ -77,6 +67,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('./modules/questions/questions.module').then(
             (m) => m.QuestionsModule
+          )
+      },
+      {
+        path:'forms',
+        loadChildren:() =>
+          import('./modules/form/form.module').then(
+            (m) =>m.FormModule
           )
       }
     ]

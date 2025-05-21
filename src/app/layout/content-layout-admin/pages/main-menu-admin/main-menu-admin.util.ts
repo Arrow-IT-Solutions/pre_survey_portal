@@ -50,6 +50,13 @@ export const navbarData: NavbarData[] = [
     icon: 'comment',
     routeLink: "customers-answers"
   },
+   {
+    label: 'Forms',
+    labelar: 'النماذج',
+    id: 'forms',
+    icon: ' format_align_justify',
+    routeLink: "forms"
+  },
   
 
 ];

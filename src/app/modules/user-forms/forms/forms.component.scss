@@ -1,4 +1,7 @@
-.birthday{
+.header-admin__tools{
+    cursor: pointer;
+}
+.forms{
     width: 70%;
     background-color: white;
     border-radius: 6px;
@@ -47,11 +50,11 @@
                 margin-top: 0.5rem;
                 column-gap: 6rem;
                 .option1{
-                    background-color: red;
                     width: 50%;
+                    column-gap: 0.5rem;
                 }
                 .option2{
-                    background-color: yellow;
+                    column-gap: 0.5rem;
                     width: 50%;
                 }
             }
