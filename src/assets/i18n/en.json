@@ -89,12 +89,25 @@
  "optionAr_option":"Option in Arabic",
  "Create_Option":"Create Option",
  "Update_Option":"Update Option",
- "totalForms_Forms":"Total Forms",
- "Create_form":"Create Form",
- "Update_form":"Update Form",
- "Basic_Info_AddForm":"Basic Info",
- "formNameEn_AddForm":"form Name in English",
- "formNameAr_AddForm":"form Name in Arabic"
+ "questionAr_AddQuestion":"Question in Arabic",
+ "questionEn_AddQuestion":"Question in English",
+ "AddtoForm_questions":"Add to Form",
+ "searchForm_AddQuestion":"Search Form",
+ "selectedForm_AddQuestion":"Selected Form",
+ "AddOptions_AddQuestion":"Add Options",
+ "searchOption_AddQuestion":"Search Option",
+ "Add_New_Option":"Add New Option",
+ "selectedOptions_AddQuestion":"Selected Options",
+ "Save_Question":"Save Question",
+ "searchQusetion_question":"Search Question",
+ "questionOptions_questions":"Question Options",
+ "Delete_question":"Delete Question",
+ "Edit_question":"Edit Question",
+ "totalQuestion_question":"Total Questions",
+ "You_must_select_at_least_one_form":"You must select at least one form",
+ "You_must_select_at_least_one_option":"You must select at least one option"
+
+
 
 
 }

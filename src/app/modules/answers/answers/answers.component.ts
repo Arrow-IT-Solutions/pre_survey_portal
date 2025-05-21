@@ -52,6 +52,8 @@ export class AnswersComponent {
           includeCustomer: '1',
           includeQuestion: '1',
           includeOption: '1',
+          pageIndex: pageIndex.toString(),
+          pageSize: this.pageSize.toString(),
         };
 
         const response = (await this.answerService.Search(filter)) as any;
@@ -70,12 +72,12 @@ export class AnswersComponent {
 
   }
 
-    paginate(event: any) {
-      this.pageSize = event.rows
-      this.first = event.first
+  paginate(event: any) {
+    this.pageSize = event.rows
+    this.first = event.first
+    this.FillData(event.first);
 
-
-    }
+  }
 
    async resetform() {
     this.isResetting = true;

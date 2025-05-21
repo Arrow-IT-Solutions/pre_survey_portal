@@ -33,7 +33,7 @@ constructor(public formBuilder:FormBuilder,
   ){
   this.dataForm=this.formBuilder.group({
     name:[''],
-    
+
   })
 
       this.optionService.refreshOptions$.subscribe(() => {
@@ -52,6 +52,8 @@ async FillData(pageIndex: number = 0) {
       let filter: OptionSearchRequest = {
         uuid: '',
         name: this.dataForm.controls['name'].value,
+        pageIndex: pageIndex.toString(),
+        pageSize: this.pageSize.toString(),
       };
 
       const response = (await this.optionService.Search(filter)) as any;
@@ -95,7 +97,7 @@ openAddOption(row: OptionResponse | null = null){
   paginate(event: any) {
     this.pageSize = event.rows
     this.first = event.first
-
+    this.FillData(event.first);
 
   }
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { OptionService } from 'src/app/layout/service/option.service';
@@ -12,7 +12,10 @@ import { LayoutService } from 'src/app/layout/service/layout.service';
   providers: [MessageService]
 })
 export class AddOptionComponent {
-  dataForm!: FormGroup;
+  @Input() prefillValue: { optionEn: string, optionAr: string, uuid?: string } | null = null;
+  static refreshOptionsCallback: (() => void) | null = null;
+
+    dataForm!: FormGroup;
     submitted: boolean = false;
     btnLoading: boolean = false;
     loading: boolean = false;
@@ -31,22 +34,35 @@ export class AddOptionComponent {
     return this.dataForm.controls;
   }
 
-      async ngOnInit() {
-    try {
-      this.loading = true;
+async ngOnInit() {
+  try {
+    this.loading = true;
 
-      if (this.optionService.SelectedData != null) {
-        await this.FillData();
-      }
-    } catch (exceptionVar) {
-      console.log(exceptionVar);
-    } finally {
-      this.loading = false;
+    if (!this.prefillValue && (this.constructor as any).prefillValue) {
+      this.prefillValue = (this.constructor as any).prefillValue;
+      (this.constructor as any).prefillValue = null;
     }
+    if (this.prefillValue) {
+      if (this.prefillValue.optionEn !== undefined) {
+        this.dataForm.controls['optionEn'].setValue(this.prefillValue.optionEn);
+      }
+      if (this.prefillValue.optionAr !== undefined) {
+        this.dataForm.controls['optionAr'].setValue(this.prefillValue.optionAr);
+      }
+    }
+
+    if (this.optionService.SelectedData != null) {
+      await this.FillData();
+    }
+  } catch (exceptionVar) {
+    console.log(exceptionVar);
+  } finally {
+    this.loading = false;
   }
+}
 
     async onSubmit() {
-       try {
+      try {
       this.btnLoading = true;
       if (this.dataForm.invalid) {
         this.submitted = true;
@@ -93,25 +109,24 @@ export class AddOptionComponent {
             response = await this.optionService.Add(addOption);
           }
 
-          if (response?.requestStatus?.toString() == '200') {
-            this.layoutService.showSuccess(this.messageService, 'toast', true, response?.requestMessage);
-            if (this.optionService.SelectedData == null) {
-              this.resetForm();
-                setTimeout(() => {
-                this.optionService.Dialog.adHostChild.viewContainerRef.clear();
-                this.optionService.Dialog.adHostDynamic.viewContainerRef.clear();
-                this.optionService.triggerRefreshOptions();
-              }, 600);
-            } else {
-              setTimeout(() => {
-                this.optionService.Dialog.adHostChild.viewContainerRef.clear();
-                this.optionService.Dialog.adHostDynamic.viewContainerRef.clear();
-                this.optionService.triggerRefreshOptions();
-              }, 600);
-            }
-          } else {
-            this.layoutService.showError(this.messageService, 'toast', true, response?.requestMessage);
-          }
+    if (response?.requestStatus?.toString() == '200') {
+      this.layoutService.showSuccess(this.messageService, 'toast', true, response?.requestMessage);
+      setTimeout(() => {
+        if ((this.constructor as any).refreshOptionsCallback) {
+          (this.constructor as any).refreshOptionsCallback();
+          (this.constructor as any).refreshOptionsCallback = null; 
+        }
+        if (this.optionService.Dialog && typeof this.optionService.Dialog.Close === 'function') {
+          this.optionService.Dialog.Close();
+        }
+        this.optionService.SelectedData = null;
+      }, 600);
+      if (this.optionService.SelectedData == null) {
+        this.resetForm();
+      }
+    } else {
+      this.layoutService.showError(this.messageService, 'toast', true, response?.requestMessage);
+    }
 
           this.btnLoading = false;
           this.submitted = false;
