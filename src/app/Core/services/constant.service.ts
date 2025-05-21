@@ -39,9 +39,9 @@ export class ConstantService {
   // }
 
 
-  async Search(name: string, isDefault: Number = 1) {
-
-    const apiUrl = `/api/constants?${this.layoutService.Filter({ enumName: name, isDefaultOptionAll: isDefault })}`;
+  async Search(name: string, isDefault: Number = 0) {
+console.log('isDefault', isDefault);
+    const apiUrl = `/api/constants?${this.layoutService.Filter({ enumName: name, addDefault: isDefault.toString(), isDefaultOptionAll: isDefault })}`;
 
     return await this.httpClient.get(apiUrl)
 

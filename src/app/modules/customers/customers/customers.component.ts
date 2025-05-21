@@ -67,7 +67,9 @@ async FillData(pageIndex: number = 0) {
     let filter: CustomerSearchRequest = {
       uuid: '',
       fullName: this.dataForm.controls['name'].value,
-      phone: this.dataForm.controls['phone'].value
+      phone: this.dataForm.controls['phone'].value,
+      pageIndex: pageIndex.toString(),
+      pageSize: this.pageSize.toString(),
 
     };
 
@@ -95,7 +97,7 @@ async FillData(pageIndex: number = 0) {
   paginate(event: any) {
     this.pageSize = event.rows
     this.first = event.first
-
+    this.FillData(event.first);
 
   }
 

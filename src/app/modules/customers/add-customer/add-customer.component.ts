@@ -46,9 +46,9 @@ export class AddCustomerComponent {
     async ngOnInit() {
     try {
       this.loading = true;
-      const SocialStatusResponse = await this.constantService.Search('SocialStatus') as any;
+      const SocialStatusResponse = await this.constantService.Search('SocialStatus',0) as any;
       this.customerSocialStatus = SocialStatusResponse.data;
-
+      console.log('SocialStatusResponse ',SocialStatusResponse);
       if (this.customerService.SelectedData != null) {
         await this.FillData();
       }
