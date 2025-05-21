@@ -5,16 +5,16 @@ import { QuestionsRoutingModule } from './questions-routing.module';
 import { QuestionsComponent } from './questions/questions.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ResponseBase } from 'src/app/shared/class/class';
+import { RequestBase, ResponseBase, SearchRequestBase } from 'src/app/shared/class/class';
 import { AddQuestionComponent } from './add-question/add-question.component';
-import { OptionResponse } from '../options/options.module';
+import { OptionRequest, OptionResponse } from '../options/options.module';
 
 
 @NgModule({
   declarations: [
     QuestionsComponent,
     AddQuestionComponent,
-   
+
   ],
   imports: [
     CommonModule,
@@ -38,6 +38,24 @@ export interface QuestionTranslationResponse {
   language?: string;
 }
 
+export interface QuestionRequest extends RequestBase {
+  uuid?: string;
+  questionTranslations?: QuestionTranslationRequest[];
+  formUUIDs?: string[];
+  optionUUIDs?: string[];
+}
+
+export interface QuestionTranslationRequest {
+  uuid?: string;
+  questionText?: string;
+  language?: string;
+}
+
+export interface QuestionSearchRequest extends SearchRequestBase {
+  uuid?: string;
+  questionText?: string;
+}
+
 
 export interface FormResponse extends ResponseBase {
   uuid?: string;
@@ -46,6 +64,22 @@ export interface FormResponse extends ResponseBase {
 }
 
 export interface FormTranslationResponse {
+  uuid?: string;
+  name?: string;
+  language?: string;
+}
+
+export interface FormSearchRequest extends SearchRequestBase {
+  uuid?: string;
+  name?: string;
+}
+
+export interface FormRequest extends RequestBase {
+  uuid?: string;
+  formTranslations?: FormTranslationRequest[];
+}
+
+export interface FormTranslationRequest {
   uuid?: string;
   name?: string;
   language?: string;

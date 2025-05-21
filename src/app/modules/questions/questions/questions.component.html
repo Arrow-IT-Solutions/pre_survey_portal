@@ -5,23 +5,23 @@
         <div class="flex flex-wrap justify-content-center gap-3">
           <span class="p-input-icon-left p-0">
             <i class="pi pi-search"></i>
-            <input class="search-field" type="text"
+            <input class="search-field" type="text" (ngModelChange)="OnChange()"
               placeholder="{{ 'searchQusetion_question' | translate }}" formControlName="question" pInputText />
           </span>
         </div>
       </div>
-    
 
-      <div class="col result">
-        <button id="result" (onClick)="resetform()">
-          <span class="material-symbols-outlined">restart_alt</span>
-        </button>
-      </div>
+
+            <div class="col result">
+              <p-button class="reset-btn" (onClick)="resetform()">
+                <span class="material-symbols-outlined">restart_alt</span>
+              </p-button>
+            </div>
     </div>
   </div>
-  <ng-container>
+  <ng-container *ngIf="!loading; else ListView">
     <div class="row mx-0 mt-2 box">
-      <div>
+      <div *ngFor="let row of data">
         <div class="card col-12 mx-0 mb-2">
           <div class="icon-container">
             <span class="material-symbols-outlined fill">question_mark</span>
@@ -36,29 +36,23 @@
                   <div class="card-label">{{ 'questionText_question' | translate }}:</div>
                   <div class="card-info">
                     <span class="material-symbols-outlined fill"></span>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus at, vitae ipsum molestias fuga 
+                    {{ row.questionTranslations![layoutService.config.lang]?.questionText }}
                   </div>
                 </div>
               </div>
                <div class="card-section__items">
 
-                <div class="card__contents__item">
-                  <div class="card-label">{{ 'questionAnswer_questions' | translate }}:</div>
-                  <div class="card-info answers_container">
+                <div class="card__contents__item" >
+                  <div class="card-label">{{ 'questionOptions_questions' | translate }}:</div>
+                  <div class="card-info answers_container" *ngFor="let option of row.options">
                     <span>
-                    answer1 
-                    </span>
-                     <span>
-                    answer2 
-                    </span>
-                     <span>
-                    answer3 
+                    {{ option.optionTranslation![layoutService.config.lang]?.name }}
                     </span>
                   </div>
                 </div>
-              
+
               </div>
-              
+
             </div>
 
           </div>
@@ -94,7 +88,7 @@
           <button class="add-button" (click)="openAddQuestion()">
       <span class="material-symbols-outlined">add</span>
     </button>
-  
+
 
   </ng-container>
 
@@ -105,7 +99,7 @@
       </div>
     </div>
   </ng-template>
-  
+
 
 </div>
 
