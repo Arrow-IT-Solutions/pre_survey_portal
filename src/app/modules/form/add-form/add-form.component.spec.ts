@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BirthdayComponent } from './birthday.component';
+import { AddFormComponent } from './add-form.component';
 
-describe('BirthdayComponent', () => {
-  let component: BirthdayComponent;
-  let fixture: ComponentFixture<BirthdayComponent>;
+describe('AddFormComponent', () => {
+  let component: AddFormComponent;
+  let fixture: ComponentFixture<AddFormComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [BirthdayComponent]
+      declarations: [AddFormComponent]
     });
-    fixture = TestBed.createComponent(BirthdayComponent);
+    fixture = TestBed.createComponent(AddFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

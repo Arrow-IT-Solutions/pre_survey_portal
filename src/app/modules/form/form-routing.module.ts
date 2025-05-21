@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GamesComponent } from './games/games.component';
+import { FormComponent } from './form/form.component';
 
 const routes: Routes = [
+  
   {
     path:'',
-    component:GamesComponent
+    component:FormComponent
+
   }
 ];
 
@@ -13,4 +15,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class GamesFormRoutingModule { }
+export class FormRoutingModule { }

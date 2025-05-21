@@ -4,11 +4,11 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { LayoutService } from 'src/app/layout/service/layout.service';
 
 @Component({
-  selector: 'app-birthday',
-  templateUrl: './birthday.component.html',
-  styleUrls: ['./birthday.component.scss']
+  selector: 'app-forms',
+  templateUrl: './forms.component.html',
+  styleUrls: ['./forms.component.scss']
 })
-export class BirthdayComponent {
+export class FormsComponent {
   dataForm!: FormGroup;
     btnLoading: boolean = false;
     currentlang = 'Arabic';
@@ -22,9 +22,8 @@ export class BirthdayComponent {
         email:[''],
         country:[''],
         info:[''],
-        numberOfPerson:[''],
-        packageContents:[''],
-        suggestions:['']
+        sendOffers:[''],
+      
       })
     }
     async ngOnInit() {
