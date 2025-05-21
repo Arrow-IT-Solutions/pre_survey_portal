@@ -65,6 +65,7 @@ import { DisableElementDirective } from './Core/directive/disable-element.direct
   ],
   providers: [],
   bootstrap: [AppComponent],
+
 })
 export class AppModule implements OnInit {
   constructor(

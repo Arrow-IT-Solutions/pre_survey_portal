@@ -1,109 +1,71 @@
 <div class="questions">
-  <div [formGroup]="dataForm" class="row mb-4 m-0  p-0">
-    <div class="container d-flex">
-      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
-        <div class="flex flex-wrap justify-content-center gap-3">
-          <span class="p-input-icon-left p-0">
-            <i class="pi pi-search"></i>
-            <input class="search-field" type="text" (ngModelChange)="OnChange()"
-              placeholder="{{ 'searchQusetion_question' | translate }}" formControlName="question" pInputText />
-          </span>
-        </div>
-      </div>
 
-
-            <div class="col result">
-              <p-button class="reset-btn" (onClick)="resetform()">
-                <span class="material-symbols-outlined">restart_alt</span>
-              </p-button>
-            </div>
+  <!-- Search & Reset Row -->
+  <div class="toolbar p-mb-4">
+    <div class="search-box">
+      <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input pInputText type="text" formControlName="question" (ngModelChange)="OnChange()"
+          placeholder="{{ 'searchQuestion_question' | translate }}" />
+      </span>
     </div>
+    <button pButton type="button" icon="pi pi-refresh" class="p-button-rounded" (click)="resetform()"></button>
   </div>
-  <ng-container *ngIf="!loading; else ListView">
-    <div class="row mx-0 mt-2 box">
-      <div *ngFor="let row of data">
-        <div class="card col-12 mx-0 mb-2">
-          <div class="icon-container">
-            <span class="material-symbols-outlined fill">question_mark</span>
-          </div>
-          <div class="col-lg-9 col-md-12 col-sm-12 card__contents">
-            <div class="card-section1">
-              <div class="card-section__title">info</div>
 
-              <div class="card-section__items">
-
-                <div class="card__contents__item">
-                  <div class="card-label">{{ 'questionText_question' | translate }}:</div>
-                  <div class="card-info">
-                    <span class="material-symbols-outlined fill"></span>
-                    {{ row.questionTranslations![layoutService.config.lang]?.questionText }}
-                  </div>
-                </div>
-              </div>
-               <div class="card-section__items">
-
-                <div class="card__contents__item" >
-                  <div class="card-label">{{ 'questionOptions_questions' | translate }}:</div>
-                  <div class="card-info answers_container" *ngFor="let option of row.options">
-                    <span>
-                    {{ option.optionTranslation![layoutService.config.lang]?.name }}
-                    </span>
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-
+  <!-- Cards Grid -->
+  <div *ngIf="!loading; else loadingTpl" class="cards-grid">
+    <p-card *ngFor="let row of data" class="question-card" [style]="{ width: '100%' }">
+      <ng-template pTemplate="title">
+        <div class="card-header">
+          <i class="pi pi-question-circle question-icon"></i>
+          <div class="question-text">
+            {{ row.questionTranslations![layoutService.config.lang]?.questionText }}
           </div>
           <div class="one">
             <div [matMenuTriggerFor]="menu" class="card__actions">
               <span class="material-symbols-outlined card__actions__details">more_vert</span>
             </div>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item >
+              <button mat-menu-item (click)="openAddQuestion(row)">
                 <span class="material-symbols-outlined">Edit</span>
-                {{ 'Edit_question' | translate }}
+                {{ 'Edit_Option' | translate }}
               </button>
-              <button mat-menu-item >
+              <button mat-menu-item>
                 <span class="material-symbols-outlined">delete</span>
-                {{ 'Delete_question' | translate }}
+                {{ 'Delete_Option' | translate }}
               </button>
             </mat-menu>
 
           </div>
         </div>
+      </ng-template>
 
+      <div class="card-content">
+        <div class="options-label">{{ 'questionOptions_questions' | translate }}:</div>
+        <div class="answers_container">
+          <p-tag *ngFor="let o of row.options" [value]="o.optionTranslation![layoutService.config.lang]?.name"
+            class="answer-tag"></p-tag>
+        </div>
       </div>
+    </p-card>
+  </div>
+
+  <!-- Paginator & Add Button -->
+  <div class="footer-bar">
+    <div class="total-count">
+      {{ 'totalQuestion_question'|translate }}: {{ totalRecords }}
     </div>
+    <p-paginator [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[4,12,20,30]" [first]="first"
+      (onPageChange)="paginate($event)"></p-paginator>
 
-    <div class="all d-flex">
-      <div class="total">
-        {{ "totalQuestion_question" | translate }}:{{ totalRecords }}
-      </div>
-
-    </div>
-    <p-paginator class="mt-2" [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[4, 12, 20, 30]"
-      [first]="first" (onPageChange)="paginate($event)"></p-paginator>
-          <button class="add-button" (click)="openAddQuestion()">
-      <span class="material-symbols-outlined">add</span>
-    </button>
-
-
-  </ng-container>
-
-  <ng-template #ListView>
-    <div class="row">
-      <div *ngFor="let list of [1, 2, 3, 4]" class="row mx-0 mt-2">
-        <p-skeleton height="7.5rem"></p-skeleton>
-      </div>
-    </div>
-  </ng-template>
-
+    <button pButton icon="pi pi-plus" class="add-question-btn p-button-rounded p-button-lg"
+      (click)="openAddQuestion()"></button>
+  </div>
 
 </div>
 
-
-
-
-
+<ng-template #loadingTpl>
+  <div class="loading-grid">
+    <p-skeleton *ngFor="let i of [1,2,3,4]" height="10rem"></p-skeleton>
+  </div>
+</ng-template>

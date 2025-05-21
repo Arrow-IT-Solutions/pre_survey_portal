@@ -5,86 +5,90 @@
         <div class="row">
 
           <div class="col-12 row m-0 p-0">
-         <div class="col-12 mb-3">
-            <div class="p-float-label">
-              <input pInputText type="text" formControlName="questionAr" />
-              <label>{{ 'questionAr_AddQuestion' | translate }}</label>
-              <span *ngIf="submitted && form['questionAr'].errors" class="error-validation">{{ 'Field_Required' |
-                translate }}</span>
+            <div class="col-12 mb-3">
+              <div class="p-float-label">
+                <input pInputText type="text" formControlName="questionAr" />
+                <label>{{ 'questionAr_AddQuestion' | translate }}</label>
+                <span *ngIf="submitted && form['questionAr'].errors" class="error-validation">{{ 'Field_Required' |
+                  translate }}</span>
+              </div>
             </div>
-          </div>
-          <div class="col-12 mb-3">
-            <div class="p-float-label">
-              <input pInputText type="text" formControlName="questionEn" />
-              <label>{{ 'questionEn_AddQuestion' | translate }}</label>
-              <span *ngIf="submitted && form['questionEn'].errors" class="error-validation">{{ 'Field_Required' |
-                translate }}</span>
+            <div class="col-12 mb-3">
+              <div class="p-float-label">
+                <input pInputText type="text" formControlName="questionEn" />
+                <label>{{ 'questionEn_AddQuestion' | translate }}</label>
+                <span *ngIf="submitted && form['questionEn'].errors" class="error-validation">{{ 'Field_Required' |
+                  translate }}</span>
+              </div>
             </div>
-          </div>
-          <div class="col-12 ">
-            <div class="p-float-label">
-              <div class="dropdown" >
-              <button type="button" class="dropdown-button">
-                {{ 'AddtoForm_questions' | translate }}
-                <img src="../../../../assets/images/icons8-arrow-down-30.png" alt="" (click)="toggleDropdownForm()" style="width: 15px; height: 15px;">
-              </button>
-                <div class="dropdown-content" *ngIf="dropdownForm">
+            <div class="col-12 ">
+              <div class="p-float-label">
+                <div class="dropdown">
+                  <button type="button" class="dropdown-button" (click)="toggleDropdownForm()">
+                    {{ 'AddtoForm_questions' | translate }}
+                    <img src="../../../../assets/images/icons8-arrow-down-30.png" alt=""
+                      style="width: 15px; height: 15px;">
+                  </button>
+                  <div class="dropdown-content" *ngIf="dropdownForm">
                     <div class="flex flex-wrap justify-content-center gap-3">
-                     <span class="p-input-icon-left p-0">
-                     <i class="pi pi-search"></i>
-                       <input class="search-field" type="text" (input)="FillForm($event)"
-                          placeholder="{{ 'searchForm_AddQuestion' | translate }}" formControlName="search_form" pInputText />
+                      <span class="p-input-icon-left p-0">
+                        <i class="pi pi-search"></i>
+                        <input class="search-field" type="text" (input)="FillForm($event)"
+                          placeholder="{{ 'searchForm_AddQuestion' | translate }}" formControlName="search_form"
+                          pInputText />
 
-                    </span>
-                   </div>
-                 <div *ngFor="let form of forms" class="option-item" (click)="$event.stopPropagation(); toggleSelectionForm(form.formTranslations![layoutService.config.lang]?.name)">
-                  <input type="checkbox" [checked]="isSelectedFrom(form.uuid!.toString())" />
-                            {{ form.formTranslations![layoutService.config.lang]?.name }}
-                     </div>
-                       </div>
-               </div>
-            </div>
-          </div>
-          <div class="selected-form">
-            <span>{{'selectedForm_AddQuestion' | translate }}:</span>
-               <ul>
-                <li *ngFor="let selected of selectedFrom">{{ selected }}
-                <span class="material-symbols-outlined" (click)=" removeForm(selected)">delete</span>
-                </li>
-                 </ul>
-                 <div *ngIf="formSelectionError" class="error">
-                           {{ 'You_must_select_at_least_one_form' | translate }}
+                      </span>
+                    </div>
+                    <div *ngFor="let form of forms" class="option-item"
+                      (click)="toggleSelectionForm(form.formTranslations![layoutService.config.lang]?.name)">
+                      <input type="checkbox" [checked]="isSelectedFrom(form.uuid!.toString())" />
+                      {{ form.formTranslations![layoutService.config.lang]?.name }}
+                    </div>
                   </div>
-          </div>
-          <div class="col-12 ">
-            <div class="p-float-label">
-              <div class="dropdown">
-              <button type="button" class="dropdown-button">
-                {{ 'AddOptions_AddQuestion' | translate }}
-                <img src="../../../../assets/images/icons8-arrow-down-30.png" alt="" (click)="toggleDropdownOption()" style="width: 15px; height: 15px;">
-              </button>
-                <div class="dropdown-content" *ngIf="dropdownOptions">
-                   <div class="flex flex-wrap justify-content-center gap-3">
-<span class="p-input-icon-left p-0">
-  <i class="pi pi-search"></i>
-  <input class="search-field" type="text" (input)="FillOption($event)"
-    placeholder="{{ 'searchOption_AddQuestion' | translate }}" formControlName="search_option" pInputText />
-  <button *ngIf="options.length === 0 && dataForm.controls['search_option'].value"
-          type="button"
-          class="add-option-btn"
-          (click)="openAddOptionDialog(dataForm.controls['search_option'].value)">
-    + {{ 'Add_New_Option' | translate }}
-  </button>
-</span>
-                   </div>
-                 <div *ngFor="let option of options" class="option-item" (click)="$event.stopPropagation(); toggleSelectionOption(option.optionTranslation![layoutService.config.lang]?.name)">
-                  <input type="checkbox" [checked]="isSelectedOption(option.uuid!.toString())" />
-                            {{ option.optionTranslation![layoutService.config.lang]?.name }}
-                     </div>
-                       </div>
-               </div>
+                </div>
+              </div>
             </div>
-          </div>
+            <div class="selected-form">
+              <span>{{'selectedForm_AddQuestion' | translate }}:</span>
+              <ul>
+                <li *ngFor="let selected of selectedFrom">{{ selected }}
+                  <span class="material-symbols-outlined" (click)=" removeForm(selected)">delete</span>
+                </li>
+              </ul>
+              <div *ngIf="formSelectionError" class="error">
+                {{ 'You_must_select_at_least_one_form' | translate }}
+              </div>
+            </div>
+            <div class="col-12 ">
+              <div class="p-float-label">
+                <div class="dropdown">
+                  <button type="button" class="dropdown-button" (click)="toggleDropdownOption()">
+                    {{ 'AddOptions_AddQuestion' | translate }}
+                    <img src="../../../../assets/images/icons8-arrow-down-30.png" alt=""
+                      style="width: 15px; height: 15px;">
+                  </button>
+                  <div class="dropdown-content" *ngIf="dropdownOptions">
+                    <div class="flex flex-wrap justify-content-center gap-3">
+                      <span class="p-input-icon-left p-0">
+                        <i class="pi pi-search"></i>
+                        <input class="search-field" type="text" (input)="FillOption($event)"
+                          placeholder="{{ 'searchOption_AddQuestion' | translate }}" formControlName="search_option"
+                          pInputText />
+                        <button *ngIf="options.length === 0 && dataForm.controls['search_option'].value" type="button"
+                          class="add-option-btn"
+                          (click)="openAddOptionDialog(dataForm.controls['search_option'].value)">
+                          + {{ 'Add_New_Option' | translate }}
+                        </button>
+                      </span>
+                    </div>
+                    <div *ngFor="let option of options" class="option-item" (click)=" toggleSelectionOption(option)">
+                      <input type="checkbox" [checked]="isSelectedOption(option)" />
+                      {{ option.optionTranslation![layoutService.config.lang]?.name }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
 
           </div>
@@ -93,22 +97,34 @@
       </div>
 
     </div>
-    <div class="options_container col-lg-6 col-md-12">
+    <div class="options_container col-lg-6 col-md-12" formArrayName="options">
       <div class="box-shadow mb-3">
         <span id="tittle">{{'selectedOptions_AddQuestion' | translate}}:</span>
-        <div class="row">
-          <div *ngFor="let selected of selectedOption" class="option">
-            <input  type="text" placeholder="{{ selected }}" formControlName="optionEn" pInputText readonly />
-              <!-- New Edit Button -->
-<button type="button" class="edit-option-btn" (click)="editOption(selected)" title="Edit Option">
-  <span class="material-symbols-outlined">edit</span>
-</button>
-            <span class="material-symbols-outlined" (click)="removeOption(selected)">delete</span>
-          </div>
+        <div class="options-grid">
+          <span class="grid-header">
+            {{ 'OptionNameEn_AddQuestion' | translate }}
+          </span>
+          <span class="grid-header">
+            {{ 'OptionNameAr_AddQuestion' | translate }}
+          </span>
+          <span class="grid-header"></span>
+
+          <ng-container *ngFor="let grp of optionsArray.controls; let i = index">
+            <div [formGroupName]="i" class="option-row">
+              <input type="text" formControlName="optionEn" pInputText [readonly]="selectedOption[i].uuid !== ''" />
+
+              <input type="text" formControlName="optionAr" pInputText [readonly]="selectedOption[i].uuid !== ''" />
+
+              <span class="material-symbols-outlined delete-icon" (click)="removeOption(selectedOption[i])">
+                delete
+              </span>
+            </div>
+          </ng-container>
         </div>
+
         <div *ngIf="optionSelectionError" class="error">
-              {{ 'You_must_select_at_least_one_option' | translate }}
-       </div>
+          {{ 'You_must_select_at_least_one_option' | translate }}
+        </div>
         <!-- Add option in Arabic  -->
         <!-- <div class="row">
            <div *ngFor="let selected of selectedOption" class="option">
@@ -118,14 +134,13 @@
         </div> -->
 
       </div>
-      </div>
+    </div>
 
     <div class="col-xs-12 text-end mt-4">
-      <p-button type="Submit" class="btn-primary" >{{ 'Save_Question' | translate }}</p-button>
+      <p-button type="Submit" class="btn-primary">{{ 'Save_Question' | translate }}</p-button>
     </div>
   </div>
 </form>
 
 
 <p-toast key="toast"></p-toast>
-
