@@ -105,7 +105,13 @@
  "Edit_question":"Edit Question",
  "totalQuestion_question":"Total Questions",
  "You_must_select_at_least_one_form":"You must select at least one form",
- "You_must_select_at_least_one_option":"You must select at least one option"
+ "You_must_select_at_least_one_option":"You must select at least one option",
+ "completeDocument_userQuestion":"Please complete this document to help us improve future sessions.",
+ "thanks_userQuestion":"Thank you for taking part 😍",
+ "select_userQuestion":"Select one option.",
+ "required_userQuestion":"*Required",
+ "Next_userQuestion":"Next",
+ "Send_userQuestion":"Send"
 
 
 

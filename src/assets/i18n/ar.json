@@ -106,5 +106,11 @@
   "Edit_question":"تعديل السؤال",
   "totalQuestion_question":"مجموع الأسئلة",
   "You_must_select_at_least_one_option":"يجب عليك اختيار خيار واحد على الأقل",
-  "You_must_select_at_least_one_form":"يجب عليك اختيار نموذج واحد على الأقل"
+  "You_must_select_at_least_one_form":"يجب عليك اختيار نموذج واحد على الأقل",
+  "completeDocument_userQuestion":"يرجى إكمال هذه الوثيقة لمساعدتنا على تحسين الجلسات المستقبلية.",
+  "thanks_userQuestion":"شكرا لمشاركتك 😍",
+  "select_userQuestion":"حدد خيارا واحدا.",
+  "required_userQuestion":"*مطلوب",
+  "Next_userQuestion":"التالي",
+  "Send_userQuestion":"إرسال"
 }

@@ -5,29 +5,22 @@ import { Router } from '@angular/router';
 import { LayoutService } from 'src/app/layout/service/layout.service';
 
 @Component({
-  selector: 'app-forms',
-  templateUrl: './forms.component.html',
-  styleUrls: ['./forms.component.scss']
+  selector: 'app-page1-questions',
+  templateUrl: './page1-questions.component.html',
+  styleUrls: ['./page1-questions.component.scss']
 })
-export class FormsComponent {
-  dataForm!: FormGroup;
-    btnLoading: boolean = false;
-    currentlang = 'Arabic';
-    constructor(public formBuilder:FormBuilder,public layoutService : LayoutService,@Inject(DOCUMENT) private document: Document,public route:Router){
-      this.dataForm=this.formBuilder.group({
-        userName:[''],
-        maritalStatus:[''],
-        dateOfBirth:[''],
-        countryCode:[''],
-        phoneNumber:[''],
-        email:[''],
-        country:[''],
-        info:[''],
-        sendOffers:[''],
-      
-      })
-    }
-    async ngOnInit() {
+export class Page1QuestionsComponent {
+  dataForm!:FormGroup;
+  currentlang = 'Arabic';
+  constructor(public formBuilder:FormBuilder,public layoutService : LayoutService,@Inject(DOCUMENT) private document: Document,public route:Router){
+    this.dataForm=this.formBuilder.group({
+      answer1:[''],
+      answer2:[''],
+      answer3:[''],
+      answer4:['']
+    })
+  }
+   async ngOnInit() {
       this.checkCurrentLang();
     }
     changeLang(lang : string)
@@ -73,8 +66,8 @@ export class FormsComponent {
          
         }
     }
-    start(){
-    this.route.navigate(['user-questions']);
+    openPage2(){
+     this.route.navigate(['user-questions/page2'])
     }
 
 }

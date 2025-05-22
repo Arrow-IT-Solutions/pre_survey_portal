@@ -23,6 +23,16 @@ const routes: Routes = [
     }],
   },
   {
+   path: 'user-questions',
+    children: [{
+      path: '',
+      loadChildren: () =>
+        import('./modules/user-questions/user-questions.module').then(
+          (m) => m.UserQuestionsModule
+        )
+    }],
+  },
+  {
     path: 'layout-admin',
     component: ContentLayoutAdminComponent,
     // canActivate: [AuthGuardService],
@@ -75,7 +85,8 @@ const routes: Routes = [
           import('./modules/form/form.module').then(
             (m) =>m.FormModule
           )
-      }
+      },
+
     ]
   },
 
