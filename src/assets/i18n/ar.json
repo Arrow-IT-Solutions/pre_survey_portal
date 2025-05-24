@@ -90,7 +90,5 @@
   "selectedOptions_AddQuestion":"الخيارات المحددة",
   "questionOptions_questions":"خيارات السؤال",
   "You_must_select_at_least_one_option":"يجب عليك اختيار خيار واحد على الأقل",
-  "You_must_select_at_least_one_form":"يجب عليك اختيار نموذج واحد على الأقل",
-  "OptionNameEn_AddQuestion" : "الخيار بالإنجليزية",
-  "OptionNameAr_AddQuestion" : "الخيار بالعربية"
+  "You_must_select_at_least_one_form":"يجب عليك اختيار نموذج واحد على الأقل"
 }

@@ -1,0 +1,197 @@
+@import "../../../../assets/scss/varialbles.scss";
+*:after,
+*:before {
+	box-sizing: border-box;
+}
+.page-container{
+    position: relative;
+    background-color: white;
+    width: 100%;
+    padding: 1rem;
+    .elipse-container{
+        position: absolute;
+        top: -5rem;
+        right: 0;
+        :lang(ar){
+            right: unset;
+            left: 0;
+        }
+    }
+    .icon-container{
+        width: 18rem;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+         :lang(ar){
+            right: unset;
+            left: 0;
+        }
+        img{
+            width: 100%;
+        }
+    }
+    .logo-container{
+        width: 12rem;
+        margin: auto;
+        @media(max-width:767px){
+            margin-top: 1rem;
+        }
+        img{
+            width:100%
+        }
+    }
+    &__info{
+        display: flex;
+        flex-direction: column;
+        background-color: #F1F1F1;
+        width: 90%;
+        margin: auto;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-top: 1rem;
+        row-gap: 0.5rem;
+        span{
+            font-family: Roboto;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 22px;
+            letter-spacing: 0%;
+
+        }
+        span:first-child{
+            font-family: Roboto;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 22px;
+            letter-spacing: 0%;
+
+        }
+    }
+    .question_items{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        padding-top: 1rem;
+        margin: auto;
+        row-gap: 1rem;
+        
+        .question_item{
+            display: flex;
+            flex-direction: column;
+            margin-top: 2rem;
+            .question_item_info{
+                display: flex;
+                column-gap: 0.5rem;
+                @media(max-width:767px){
+                    flex-direction: column;
+                    
+                }
+                #question_number,#question_text{
+                    font-family: Roboto;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 120%;
+                    letter-spacing: 0%;
+
+                }
+                
+                #question_select{
+                    font-family: Roboto;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 120%;
+                    letter-spacing: 0%;
+                    color: #b4b3b3;
+                    
+                }
+                
+                #question_required{
+                     font-family: Roboto;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 120%;
+                    letter-spacing: 0%;
+                    color: #E6404D;
+                }
+                :lang(ar){
+                        font-family:myfont-ar ;
+                    }
+            }
+            .options{
+                padding: 0.5rem;
+    
+
+label {
+	display: flex;
+	cursor: pointer;
+	font-weight: 500;
+	position: relative;
+	overflow: hidden;
+	// margin-bottom: 0.375em;
+    width: 70%;
+	input {
+		position: absolute;
+		left: -9999px;
+		&:checked + span {
+			background-color: mix(#fff, #2BB65F, 84%);
+			&:before {
+				box-shadow: inset 0 0 0 0.4375em #2BB65F;
+			}
+		}
+	}
+	span {
+		display: flex;
+		align-items: center;
+		padding: 0.375em 0.75em 0.375em 0.375em;
+		border-radius: 99em; // or something higher...
+		transition: 0.25s ease;
+        color: #9C9C9C;
+        font-family: Roboto;
+		&:hover {
+			// background-color: mix(#fff, $primary-color, 84%);
+		}
+		&:before {
+			display: flex;
+			flex-shrink: 0;
+			content: "";
+			background-color: #fff;
+			width: 1.5em;
+			height: 1.5em;
+			border-radius: 50%;
+			margin-right: 0.375em;
+			transition: 0.25s ease;
+			box-shadow: inset 0 0 0 0.125em #9C9C9C;
+		}
+	}
+}
+            }
+        }
+    }
+    button{
+        border: none;
+        padding: 16px 72px;
+        display: flex;
+        column-gap: 0.5rem;
+        align-items: center;
+        background-color: $primary-color;
+        margin-top: 2rem;
+        border-radius: 30px;
+        color: white;
+        font-family: Roboto;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 120%;
+        cursor: pointer;
+        @media(max-width:767px){
+            margin: auto;
+            margin-top: 4rem;
+        }
+
+    }
+    .header-admin__tools{
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+}
