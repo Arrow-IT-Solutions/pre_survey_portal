@@ -49,9 +49,11 @@ export class AnswersComponent {
           optionIDFK: '',
           questionIDFK: '',
           customerIDFK: '',
+          formIDFK: '',
           includeCustomer: '1',
           includeQuestion: '1',
           includeOption: '1',
+          includeForm: '1',
           pageIndex: pageIndex.toString(),
           pageSize: this.pageSize.toString(),
         };

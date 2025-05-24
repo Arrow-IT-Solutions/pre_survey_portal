@@ -69,12 +69,16 @@
             <div class="p-float-label">
               <input pInputText type="text" formControlName="favouriteFood" />
               <label>{{ 'customerFavouriteFood_AddCustomer' | translate }}</label>
+               <span *ngIf="submitted && form['favouriteFood'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
             </div>
           </div>
            <div class="col-12 mb-3">
             <div class="p-float-label">
               <input pInputText type="text" formControlName="KnowingUs" />
               <label>{{ 'customerKnowingUs_AddCustomer' | translate }}</label>
+              <span *ngIf="submitted && form['KnowingUs'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
             </div>
           </div>
           <div class="col-12 mb-3">

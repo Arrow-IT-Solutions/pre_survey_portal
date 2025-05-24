@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { LayoutService } from 'src/app/layout/service/layout.service';
 import { QuestionService } from 'src/app/layout/service/question.service';
 import { QuestionResponse, QuestionSearchRequest } from '../questions.module';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   selector: 'app-questions',
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.scss'],
-  providers: [MessageService]
+  providers: [MessageService, ConfirmationService]
 })
 export class QuestionsComponent {
       dataForm!: FormGroup;
@@ -26,7 +26,7 @@ export class QuestionsComponent {
       typingTimer: any;
       isResetting: boolean = false;
 
-      constructor(public formBuilder:FormBuilder,public layoutService: LayoutService,public translate: TranslateService,public questionService:QuestionService,public router:Router){
+      constructor(public formBuilder:FormBuilder,public layoutService: LayoutService,public translate: TranslateService,public questionService:QuestionService,public router:Router,public confirmationService: ConfirmationService,public messageService: MessageService) {
         this.dataForm=this.formBuilder.group({
          question:['']
         })
@@ -96,5 +96,33 @@ export class QuestionsComponent {
       this.FillData();
     }, this.doneTypingInterval);
   }
+
+        confirmDelete(row: QuestionResponse) {
+
+        console.log(row)
+        this.confirmationService.confirm({
+          message: this.translate.instant("Do_you_want_to_delete_this_record?"),
+          header: this.translate.instant("Delete_Confirmation"),
+          icon: 'pi pi-info-circle',
+          key: 'positionDialog',
+          closeOnEscape: true,
+          accept: async () => {
+            const response = (await this.questionService.Delete(row.uuid!)) as any;
+            if (response?.requestStatus?.toString() == '200'){
+            this.confirmationService.close();
+            this.layoutService.showSuccess(this.messageService, 'toast', true, response.requestMessage);
+            this.FillData();
+            }
+            else {
+            this.confirmationService.close();
+            this.layoutService.showError(this.messageService, 'toast', true, response?.requestMessage);
+            }
+
+
+
+          },
+          reject: () => {},
+        });
+      }
 
 }

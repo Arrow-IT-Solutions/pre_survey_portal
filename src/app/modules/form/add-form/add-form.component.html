@@ -1,23 +1,26 @@
-<form [formGroup]="dataForm" (ngSubmit)="onSubmit()" class="add-form">
+<form [formGroup]="dataForm" (ngSubmit)="onSubmit()" class="add-option">
   <div class="add-option">
     <div class="box-shadow mb-3">
       <div class="row">
         <div class="col-12 side-icon">
           <span class="material-symbols-outlined">info</span>
-          <span>{{ 'Basic_Info_AddForm' | translate }}</span>
+          <span>{{ 'Basic_Info_Form' | translate }}</span>
         </div>
         <div class="col-12 row m-0 p-0">
           <div class="col-12 mb-3">
             <div class="p-float-label">
-              <input pInputText type="text" formControlName="formNameEn" />
-              <label>{{ 'formNameEn_AddForm' | translate }}</label>
-              
+              <input pInputText type="text" formControlName="formEn" />
+              <label>{{ 'formEn_form' | translate }}</label>
+              <span *ngIf="submitted && form['formEn'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
             </div>
           </div>
           <div class="col-12 mb-3">
             <div class="p-float-label">
-              <input pInputText type="text" formControlName="formNameAr" />
-              <label>{{ 'formNameAr_AddForm' | translate }}</label>
+              <input pInputText type="text" formControlName="formAr" />
+              <label>{{ 'formAr_form' | translate }}</label>
+              <span *ngIf="submitted && form['formAr'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
             </div>
           </div>
         </div>
@@ -34,5 +37,4 @@
 </form>
 
 <p-toast key="toast"></p-toast>
-
 

@@ -9,6 +9,7 @@ import { ResponseBase, SearchRequestBase } from 'src/app/shared/class/class';
 import { OptionResponse } from '../options/options.module';
 import { CustomerResponse } from '../customers/customers.module';
 import { QuestionResponse } from '../questions/questions.module';
+import { FormResponse } from '../form/form.module';
 
 
 @NgModule({
@@ -29,11 +30,13 @@ export interface AnswerSearchRequest extends SearchRequestBase {
   questionIDFK?: string;
   optionIDFK?: string;
   customerIDFK?: string;
+  formIDFK?: string;
   CustomerName?: string;
   OptionName?: string;
   includeQuestion?: string;
   includeOption?: string;
   includeCustomer?: string;
+  includeForm?: string;
 }
 
 export interface AnswerResponse extends ResponseBase {
@@ -41,8 +44,10 @@ export interface AnswerResponse extends ResponseBase {
   questionIDFK?: string;
   optionIDFK?: string;
   customerIDFK?: string;
+  formIDFK?: string;
   question?: QuestionResponse;
   option?: OptionResponse;
   customer?: CustomerResponse;
+  form?: FormResponse;
 }
 
