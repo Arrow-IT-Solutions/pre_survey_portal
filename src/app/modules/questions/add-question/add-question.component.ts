@@ -5,10 +5,9 @@ import { MessageService } from 'primeng/api';
 import { LayoutService } from 'src/app/layout/service/layout.service';
 import { OptionResponse, OptionSearchRequest } from '../../options/options.module';
 import { OptionService } from 'src/app/layout/service/option.service';
-import { QuestionRequest } from '../questions.module';
+import { QuestionRequest, QuestionResponse, QuestionUpdateRequest, QuestionTranslationUpdateRequest } from '../questions.module';
 import { FormResponse, FormSearchRequest } from '../../form/form.module';
 import { FormService } from 'src/app/layout/service/form.service';
-import { AddOptionComponent } from '../../options/add-option/add-option.component';
 import { QuestionService } from 'src/app/layout/service/question.service';
 import { TranslateService } from '@ngx-translate/core';
 import { OptionRequest, OptionTranslationRequest } from '../../options/options.module';
@@ -26,7 +25,7 @@ export class AddQuestionComponent {
   btnLoading: boolean = false;
   loading: boolean = false;
   forms: FormResponse[] = [];
-  selectedFrom: string[] = [];
+  selectedFrom: Array<{ uuid: string; name: string }> = [];
   dropdownForm: boolean = false;
   options: OptionResponse[] = [];
   formSelectionError: boolean = false;
@@ -70,8 +69,14 @@ export class AddQuestionComponent {
     try {
       this.loading = true;
 
+      if (this.questionService.SelectedData != null) {
+        await this.populateForEdit(this.questionService.SelectedData);
+      }
+
       await this.RetriveOption();
       await this.RetriveForm();
+
+
 
       this.optionService.refreshOptions$.subscribe(() => {
         this.RetriveOption();
@@ -83,6 +88,35 @@ export class AddQuestionComponent {
       this.loading = false;
     }
   }
+
+  private populateForEdit(q: QuestionResponse) {
+    // 1) patch the question texts
+    const enText = q.questionTranslations!['en'].questionText;
+    const arText = q.questionTranslations!['ar'].questionText;
+    this.dataForm.patchValue({
+      questionEn: enText,
+      questionAr: arText
+    });
+
+    // 2) pre-select forms
+    this.selectedFrom = (q.forms || []).map(f => ({
+      uuid: f.uuid!,
+      name: f.formTranslations![this.layoutService.config.lang]!.name!
+    }));
+
+    // 3) pre-select options and mirror into the FormArray
+    this.selectedOption = [...(q.options || [])];
+    this.optionsArray.clear();
+    q.options?.forEach(opt => {
+      this.optionsArray.push(
+        this.formBuilder.group({
+          optionAr: [opt.optionTranslation!['ar']?.name || ''],
+          optionEn: [opt.optionTranslation!['en']?.name || '']
+        })
+      );
+    });
+  }
+
 
 
   async onSubmit() {
@@ -128,12 +162,7 @@ export class AddQuestionComponent {
     ];
 
     const formUUIDs = this.selectedFrom
-      .map(name => {
-        const form = this.forms.find(f =>
-          f.formTranslations?.[this.layoutService.config.lang]?.name?.trim() === name
-        );
-        return form?.uuid;
-      })
+      .map(frm => frm.uuid)        // grab the uuid field directly
       .filter(uuid => !!uuid);
 
     const optionRequests: OptionRequest[] = (this.optionsArray.controls as FormGroup[])
@@ -162,13 +191,31 @@ export class AddQuestionComponent {
       });
 
     if (this.questionService.SelectedData != null) {
-      // update
-      // var updateQuestion: QuestionUpdateRequest = {
-      //   uuid: this.questionService.SelectedData?.uuid?.toString(),
-      //   questionTranslation: questionTranslation
-      // };
-      // console.log(updateQuestion)
-      // response = await this.questionService.Update(updateQuestion);
+      const existing = this.questionService.SelectedData;
+
+      // pull out the UUIDs for the translations so we can update them
+      const qtObj = existing.questionTranslations || {};
+      const updateTranslations: QuestionTranslationUpdateRequest[] = [
+        {
+          uuid: qtObj['ar']?.uuid,
+          language: 'ar',
+          questionText: this.dataForm.controls['questionAr'].value || ''
+        },
+        {
+          uuid: qtObj['en']?.uuid,
+          language: 'en',
+          questionText: this.dataForm.controls['questionEn'].value || ''
+        }
+      ];
+
+      const updatePayload: QuestionUpdateRequest = {
+        uuid: existing.uuid,
+        questionTranslations: updateTranslations,
+        formUUIDs: formUUIDs as string[],
+        optionRequest: optionRequests
+      };
+
+      response = await this.questionService.Update(updatePayload);
     } else {
       // add
       var addQuestion: QuestionRequest = {
@@ -182,19 +229,11 @@ export class AddQuestionComponent {
 
     if (response?.requestStatus?.toString() == '200') {
       this.layoutService.showSuccess(this.messageService, 'toast', true, response?.requestMessage);
+
       if (this.questionService.SelectedData == null) {
         this.resetForm();
-        setTimeout(() => {
-          this.questionService.Dialog.adHostChild.viewContainerRef.clear();
-          this.questionService.Dialog.adHostDynamic.viewContainerRef.clear();
-          this.questionService.triggerRefreshQuestions();
-        }, 600);
       } else {
-        setTimeout(() => {
-          this.questionService.Dialog.adHostChild.viewContainerRef.clear();
-          this.questionService.Dialog.adHostDynamic.viewContainerRef.clear();
-          this.questionService.triggerRefreshQuestions();
-        }, 600);
+        this.router.navigate(['layout-admin/questions']);;
       }
     } else {
       this.layoutService.showError(this.messageService, 'toast', true, response?.requestMessage);
@@ -210,10 +249,10 @@ export class AddQuestionComponent {
     this.selectedOption = [];
   }
 
-  removeForm(option: string) {
-    const index = this.selectedFrom.indexOf(option);
-    if (index !== -1) {
-      this.selectedFrom.splice(index, 1);
+  removeForm(formUuid: string) {
+    const idx = this.selectedFrom.findIndex(x => x.uuid === formUuid);
+    if (idx !== -1) {
+      this.selectedFrom.splice(idx, 1);
     }
   }
 
@@ -254,18 +293,24 @@ export class AddQuestionComponent {
     this.dropdownForm = !this.dropdownForm;
   }
 
-  toggleSelectionForm(option: string | undefined) {
-    if (!option) return;
-    const index = this.selectedFrom.indexOf(option);
-    if (index === -1) {
-      this.selectedFrom.push(option);
+  toggleSelectionForm(formUuid: string | undefined) {
+    if (!formUuid) {
+      return;
+    }
+    const idx = this.selectedFrom.findIndex(x => x.uuid === formUuid);
+    if (idx === -1) {
+      this.selectedFrom.push({
+        uuid: formUuid,
+        name: this.getFormName(formUuid)
+      });
     } else {
-      this.selectedFrom.splice(index, 1);
+      this.selectedFrom.splice(idx, 1);
     }
   }
 
-  isSelectedFrom(option: string): boolean {
-    return this.selectedFrom.indexOf(option) !== -1;
+  // Check existence by matching the uuid property
+  isSelectedFrom(formUuid: string): boolean {
+    return this.selectedFrom.some(x => x.uuid === formUuid);
   }
 
   removeOption(option: OptionResponse) {
@@ -463,6 +508,14 @@ export class AddQuestionComponent {
     // const dialogRef = this.layoutService.OpenDialog(AddOptionComponent, 'Update_Option');
     // this.optionService.SelectedData = option;
     // this.optionService.Dialog = dialogRef;
+  }
+
+  getFormName(uuid: string): string {
+    const form = this.forms.find(f => f.uuid === uuid);
+    return (
+      form?.formTranslations?.[this.layoutService.config.lang]?.name
+      || ''
+    );
   }
 
 

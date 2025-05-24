@@ -67,4 +67,17 @@ export interface QuestionSearchRequest extends SearchRequestBase {
   questionText?: string;
 }
 
+export interface QuestionUpdateRequest extends RequestBase {
+  uuid?: string;
+  questionTranslations?: QuestionTranslationUpdateRequest[];
+  formUUIDs?: string[];
+  optionRequest?: OptionRequest[];
+}
+
+export interface QuestionTranslationUpdateRequest {
+  uuid?: string;
+  questionText?: string;
+  language?: string;
+}
+
 

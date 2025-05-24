@@ -39,8 +39,7 @@
 
                       </span>
                     </div>
-                    <div *ngFor="let form of forms" class="option-item"
-                      (click)="toggleSelectionForm(form.formTranslations![layoutService.config.lang]?.name)">
+                    <div *ngFor="let form of forms" class="option-item" (click)="toggleSelectionForm(form.uuid!)">
                       <input type="checkbox" [checked]="isSelectedFrom(form.uuid!.toString())" />
                       {{ form.formTranslations![layoutService.config.lang]?.name }}
                     </div>
@@ -51,8 +50,12 @@
             <div class="selected-form">
               <span>{{'selectedForm_AddQuestion' | translate }}:</span>
               <ul>
-                <li *ngFor="let selected of selectedFrom">{{ selected }}
-                  <span class="material-symbols-outlined" (click)=" removeForm(selected)">delete</span>
+                <li *ngFor="let formUuid of selectedFrom">
+                  <!-- call the helper, fallback to showing the UUID if name is missing -->
+                  {{ getFormName(formUuid.uuid) || formUuid }}
+                  <span class="material-symbols-outlined" (click)="removeForm(formUuid.uuid)">
+                    delete
+                  </span>
                 </li>
               </ul>
               <div *ngIf="formSelectionError" class="error">
