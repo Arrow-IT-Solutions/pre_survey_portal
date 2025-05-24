@@ -49,3 +49,14 @@ export interface FormTranslationRequest {
   language?: string;
 }
 
+export interface FormUpdateRequest extends RequestBase {
+  uuid?: string;
+  formTranslations?: FormTranslationUpdateRequest[];
+}
+
+export interface FormTranslationUpdateRequest {
+  uuid?: string;
+  name?: string;
+  language?: string;
+}
+
