@@ -1,0 +1,125 @@
+
+<div class="page-container">
+  
+ 
+   <div class="elipse-container">
+    <img src="../../../../assets/images/Ellipse 141.svg" alt="">
+   </div>
+   <div class="icon-container">
+    <img src="../../../../assets/images/Logo ICON Transparant.svg" alt="">
+   </div>
+   <div class="logo-container">
+    <img src="../../../../assets/images/Fill Logo.svg" alt="">
+   </div>
+   
+   <div class="question_items">
+    <form action="" [formGroup]="dataForm">
+    <div class="question_item">
+        <div class="question_item_info">
+            <span id="question_number">1.</span>
+            <span id="question_text">Question text goes here.</span>
+            <span id="question_select">{{'select_userQuestion' | translate}}</span>
+            <span id="question_required">{{'required_userQuestion' | translate}}</span>
+        </div>
+        <div class="options">
+            
+		<label>
+			<input formControlName="answer1" type="radio" name="radio1" />
+			<span>Another Number</span>
+		</label>
+		<label>
+			<input formControlName="answer1" type="radio" name="radio1"/>
+			<span>Use my Number</span>
+		</label>
+		<label>
+			<input formControlName="answer1" type="radio" name="radio1" />
+			<span>Use my Number</span>
+		</label>
+	
+        </div>
+        
+    </div>
+
+     <div class="question_item">
+        <div class="question_item_info">
+            <span id="question_number">2.</span>
+            <span id="question_text">Question text goes here.</span>
+            <!-- <span id="question_select">{{'select_userQuestion' | translate}}</span>
+            <span id="question_required">{{'required_userQuestion' | translate}}</span> -->
+        </div>
+        <div class="options">
+            
+		<label>
+			<input formControlName="answer2" type="radio" name="radio2" />
+			<span>Another Number</span>
+		</label>
+		<label>
+			<input formControlName="answer2" type="radio" name="radio2" />
+			<span>Use my Number</span>
+		</label>
+		<label>
+			<input formControlName="answer2" type="radio" name="radio2" />
+			<span>Use my Number</span>
+		</label>
+	
+        </div>
+        
+    </div>
+     <div class="question_item">
+        <div class="question_item_info">
+            <span id="question_number">3.</span>
+            <span id="question_text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa, nihil magnam voluptas ipsa nemo asperiores totam id, neque iure </span>
+            <!-- <span id="question_select">{{'select_userQuestion' | translate}}</span>
+            <span id="question_required">{{'required_userQuestion' | translate}}</span> -->
+        </div>
+        <div class="options">
+            
+		<label>
+			<input formControlName="answer3" type="radio" name="radio3" />
+			<span>Another Number</span>
+		</label>
+		<label>
+			<input formControlName="answer3" type="radio" name="radio3" />
+			<span>Use my Number</span>
+		</label>
+		<label>
+			<input formControlName="answer3" type="radio" name="radio3" />
+			<span>Use my Number</span>
+		</label>
+	
+        </div>
+        
+    </div>
+     <div class="question_item">
+        <div class="question_item_info">
+            <span id="question_number">4.</span>
+            <span id="question_text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa,  </span>
+            <!-- <span id="question_select">{{'select_userQuestion' | translate}}</span>
+            <span id="question_required">{{'required_userQuestion' | translate}}</span> -->
+        </div>
+        <div class="options">
+            
+		<label>
+			<input formControlName="answer4" type="radio" name="radio4" />
+			<span>Another Number</span>
+		</label>
+		<label>
+			<input formControlName="answer4" type="radio" name="radio4" />
+			<span>Use my Number</span>
+		</label>
+		<label>
+			<input formControlName="answer4" type="radio" name="radio4" />
+			<span>Use my Number</span>
+		</label>
+	
+        </div>
+        
+    </div>
+    <button>
+        <img src="../../../../assets/images/send-2.svg" alt="">
+        {{'Send_userQuestion' | translate}}
+    </button>
+    </form>
+   </div>
+</div>
+

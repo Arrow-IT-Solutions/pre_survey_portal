@@ -89,9 +89,7 @@
  "selectedOptions_AddQuestion":"Selected Options",
  "questionOptions_questions":"Question Options",
  "You_must_select_at_least_one_form":"You must select at least one form",
- "You_must_select_at_least_one_option":"You must select at least one option",
- "OptionNameEn_AddQuestion" : "Option in English",
- "OptionNameAr_AddQuestion" : "Option in Arabic"
+ "You_must_select_at_least_one_option":"You must select at least one option"
 
 
 

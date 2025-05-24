@@ -69,24 +69,23 @@
         </div>
         <div class="col-12 mb-3 field_container">
             <label>{{ 'sendOffers_forms' | translate }}</label>
-            <div class="p-float-label radio_options">
-                <div class="gap-2 option1">
-                    <p-radioButton value="Yes" formControlName="sendOffers" id="option1"></p-radioButton>
-                   
-                    <label for="option1">{{'acceptOffers_forms' | translate}}</label>
-                </div>
-                <div class="gap-2 option2">
-                    <p-radioButton value="No" formControlName="sendOffers" id="option2"></p-radioButton>
-                    <label for="option2">{{'notAcceptOffers_forms' | translate}}</label>
-
-                    
-                </div>
+            <div class=" radio_options">
+                
+                <label>
+			           <input formControlName="sendOffers" type="radio" name="radio1" />
+			           <span>{{'acceptOffers_forms' | translate}}</span>
+		            </label>
+                <label>
+			           <input formControlName="sendOffers" type="radio" name="radio1" />
+			           <span>{{'notAcceptOffers_forms' | translate}}</span>
+		            </label>
+              
             </div>
         </div>
       
     </div>
     <div class="col-xs-12 mt-4 ">
-        <p-button type="Submit" class="btn-primary" label="Start" [loading]="btnLoading"></p-button>
+        <p-button type="Submit" class="btn-primary" label="Start" [loading]="btnLoading" (click)="start()"></p-button>
       </div>
     
 </form>
