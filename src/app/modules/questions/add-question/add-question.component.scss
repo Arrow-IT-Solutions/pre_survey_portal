@@ -264,5 +264,41 @@ padding: 1rem;
 
 
       }
+
+            /* component stylesheet */
+            .options-grid {
+              display: grid;
+              grid-template-columns: 1fr 1fr auto;
+              gap: 0.5rem;
+              align-items: center;
+            }
+
+            /* make all headers bold and maybe add bottom border */
+            .grid-header {
+              font-weight: bold;
+              padding-bottom: 0.25rem;
+              border-bottom: 1px solid #ccc;
+            }
+
+            /* optional—you can style your delete icons here */
+            .delete-icon {
+              cursor: pointer;
+              justify-self: center;
+            }
+
+                        .options-grid {
+                          display: grid;
+                          grid-template-columns: 1fr 1fr auto;
+                          gap: 0.5rem;
+                        }
+
+                        .option-row {
+                          display: contents;
+                          /* so each cell still maps into the grid */
+                        }
+
+                        .grid-header {
+                          font-weight: bold;
+                          border-bottom: 1px solid #ccc;           }
     }
 

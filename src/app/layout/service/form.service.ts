@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClientService } from 'src/app/Core/services/http-client.service';
 import { LayoutService } from './layout.service';
-import { FormResponse, FormSearchRequest } from 'src/app/modules/questions/questions.module';
+import { FormResponse, FormSearchRequest } from 'src/app/modules/form/form.module';
 import { Subject } from 'rxjs';
 
 @Injectable({
