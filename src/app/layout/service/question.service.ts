@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { CustomerResponse } from 'src/app/modules/customers/customers.module';
-import { QuestionRequest, QuestionResponse, QuestionSearchRequest } from 'src/app/modules/questions/questions.module';
+import { QuestionRequest, QuestionResponse, QuestionSearchRequest, QuestionUpdateRequest } from 'src/app/modules/questions/questions.module';
 import { LayoutService } from './layout.service';
 import { HttpClientService } from 'src/app/Core/services/http-client.service';
 
@@ -14,24 +14,32 @@ export class QuestionService {
   public Dialog: any | null = null;
   private refreshQuestionsSubject = new Subject<void>();
 
-    refreshQuestions$ = this.refreshQuestionsSubject.asObservable();
+  refreshQuestions$ = this.refreshQuestionsSubject.asObservable();
 
-    triggerRefreshQuestions() {
-      this.refreshQuestionsSubject.next();
-    }
-    constructor(public layoutService: LayoutService, public httpClient: HttpClientService) { }
+  triggerRefreshQuestions() {
+    this.refreshQuestionsSubject.next();
+  }
+  constructor(public layoutService: LayoutService, public httpClient: HttpClientService) { }
 
-        async Add(data: QuestionRequest) {
-        const apiUrl = `/api/question`;
+  async Add(data: QuestionRequest) {
+    const apiUrl = `/api/question`;
 
-        return await this.httpClient.post(apiUrl, data);
-      }
+    return await this.httpClient.post(apiUrl, data);
+  }
 
-          async Search(filter: QuestionSearchRequest) {
+  async Search(filter: QuestionSearchRequest) {
 
-            const apiUrl = `/api/question/list?${this.layoutService.Filter(filter)}`;
+    const apiUrl = `/api/question/list?${this.layoutService.Filter(filter)}`;
 
-              return await this.httpClient.get(apiUrl)
+    return await this.httpClient.get(apiUrl)
 
-          }
+  }
+
+  async Update(data: QuestionUpdateRequest) {
+
+    const apiUrl = `/api/question`;
+    return await this.httpClient.put(apiUrl, data);
+  }
+
+
 }

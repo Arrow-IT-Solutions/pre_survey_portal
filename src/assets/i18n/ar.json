@@ -85,32 +85,10 @@
   "Save_Question":"حفظ",
   "searchOption_AddQuestion":"البحث عن خيار..",
   "searchForm_AddQuestion":"البحث عن فورم ..",
-
-  "optionEn_option":"الخيار باللغة الانكليزية",
-  "optionAr_option":"الخيار باللغة العربية",
-  "Create_Option":"إضافة خيار",
-  "Update_Option":"تعديل الخيار",
-  "questionAr_AddQuestion":"السؤال باللغة العربية",
-  "questionEn_AddQuestion":"السؤال باللغة الانكليزية",
-  "AddtoForm_questions":"إضافة إلى النموذج",
-  "searchForm_AddQuestion":"البحث في النموذج",
-  "selectedForm_AddQuestion":"النموذج المحدد",
   "AddOptions_AddQuestion":"إضافة خيارات",
-  "searchOption_AddQuestion":"البحث في الخيارات",
   "Add_New_Option":"إضافة خيار جديد",
   "selectedOptions_AddQuestion":"الخيارات المحددة",
-  "Save_Question":"حفظ السؤال",
-  "searchQusetion_question":"البحث في الأسئلة",
   "questionOptions_questions":"خيارات السؤال",
-  "Delete_question":"حذف السؤال",
-  "Edit_question":"تعديل السؤال",
-  "totalQuestion_question":"مجموع الأسئلة",
   "You_must_select_at_least_one_option":"يجب عليك اختيار خيار واحد على الأقل",
-  "You_must_select_at_least_one_form":"يجب عليك اختيار نموذج واحد على الأقل",
-  "completeDocument_userQuestion":"يرجى إكمال هذه الوثيقة لمساعدتنا على تحسين الجلسات المستقبلية.",
-  "thanks_userQuestion":"شكرا لمشاركتك 😍",
-  "select_userQuestion":"حدد خيارا واحدا.",
-  "required_userQuestion":"*مطلوب",
-  "Next_userQuestion":"التالي",
-  "Send_userQuestion":"إرسال"
+  "You_must_select_at_least_one_form":"يجب عليك اختيار نموذج واحد على الأقل"
 }

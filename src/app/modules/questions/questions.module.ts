@@ -8,6 +8,12 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { RequestBase, ResponseBase, SearchRequestBase } from 'src/app/shared/class/class';
 import { AddQuestionComponent } from './add-question/add-question.component';
 import { OptionRequest, OptionResponse } from '../options/options.module';
+import { FormResponse } from '../form/form.module';
+import { TagModule } from 'primeng/tag';
+import { CardModule } from 'primeng/card';
+import { PaginatorModule } from 'primeng/paginator';
+import { ButtonModule } from 'primeng/button';
+import { MenuModule } from 'primeng/menu';
 
 
 @NgModule({
@@ -20,7 +26,12 @@ import { OptionRequest, OptionResponse } from '../options/options.module';
     CommonModule,
     QuestionsRoutingModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    TagModule,
+    CardModule,
+    PaginatorModule,
+    ButtonModule,
+    MenuModule
   ]
 })
 export class QuestionsModule { }
@@ -42,7 +53,7 @@ export interface QuestionRequest extends RequestBase {
   uuid?: string;
   questionTranslations?: QuestionTranslationRequest[];
   formUUIDs?: string[];
-  optionUUIDs?: string[];
+  optionRequest?: OptionRequest[];
 }
 
 export interface QuestionTranslationRequest {
@@ -56,31 +67,17 @@ export interface QuestionSearchRequest extends SearchRequestBase {
   questionText?: string;
 }
 
-
-export interface FormResponse extends ResponseBase {
+export interface QuestionUpdateRequest extends RequestBase {
   uuid?: string;
-  formTranslations?: { [key: string]: FormTranslationResponse };
-
+  questionTranslations?: QuestionTranslationUpdateRequest[];
+  formUUIDs?: string[];
+  optionRequest?: OptionRequest[];
 }
 
-export interface FormTranslationResponse {
+export interface QuestionTranslationUpdateRequest {
   uuid?: string;
-  name?: string;
+  questionText?: string;
   language?: string;
 }
 
-export interface FormSearchRequest extends SearchRequestBase {
-  uuid?: string;
-  name?: string;
-}
 
-export interface FormRequest extends RequestBase {
-  uuid?: string;
-  formTranslations?: FormTranslationRequest[];
-}
-
-export interface FormTranslationRequest {
-  uuid?: string;
-  name?: string;
-  language?: string;
-}
