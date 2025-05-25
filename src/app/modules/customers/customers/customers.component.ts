@@ -125,7 +125,7 @@ async FillData(pageIndex: number = 0) {
 
         this.confirmationService.close();
 
-        this.layoutService.showSuccess(this.messageService, 'toste', true, response.requestMessage);
+        this.layoutService.showSuccess(this.messageService, 'toast', true, response.requestMessage);
 
         this.FillData();
 

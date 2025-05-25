@@ -41,5 +41,12 @@ export class QuestionService {
     return await this.httpClient.put(apiUrl, data);
   }
 
+  async Delete(uuid: string) {
+
+        const apiUrl = `/api/question/${uuid}`;
+        return await this.httpClient.delete(apiUrl, uuid);
+
+      }
+
 
 }
