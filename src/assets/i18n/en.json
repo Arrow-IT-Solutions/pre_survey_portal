@@ -90,6 +90,17 @@
  "questionOptions_questions":"Question Options",
  "You_must_select_at_least_one_form":"You must select at least one form",
  "You_must_select_at_least_one_option":"You must select at least one option",
+ "completeDocument_userQuestion":"Please complete this document to help us improve future sessions.",
+ "thanks_userQuestion":"Thank you for taking part 😍",
+ "select_userQuestion":"Select one option.",
+ "required_userQuestion":"*Required",
+ "Next_userQuestion":"Next",
+ "Send_userQuestion":"Send",
+ "success_feedback":"Your Reply has been sent successfully ✅ ✅",
+ "thank_feedback":"Thanks for your time, Feel free rating us bellow!",
+ "Note_feedback":"Note",
+ "Send_feedback":"Send",
+ "closeMessage_feedback":"OK",
  "FormName_form": "Form Name",
  "Edit_Form": "Edit Form",
  "Delete_Form": "Delete Form",
@@ -99,8 +110,4 @@
  "formEn_form": "Form Name in English",
  "Update_Form": "Update Form",
  "Create_Form": "Create Form"
-
-
-
-
 }

@@ -33,6 +33,16 @@ const routes: Routes = [
     }],
   },
   {
+   path: 'user-feedback',
+    children: [{
+      path: '',
+      loadChildren: () =>
+        import('./modules/feedback/feedback.module').then(
+          (m) => m.FeedbackModule
+        )
+    }],
+  },
+  {
     path: 'layout-admin',
     component: ContentLayoutAdminComponent,
     // canActivate: [AuthGuardService],
