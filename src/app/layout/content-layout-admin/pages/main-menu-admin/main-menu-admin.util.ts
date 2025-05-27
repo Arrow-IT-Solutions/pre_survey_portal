@@ -15,14 +15,6 @@ export interface NavbarData {
 export const navbarData: NavbarData[] = [
 
   {
-    label: 'Customers',
-    labelar: 'العملاء',
-    id: 'customers',
-    icon: 'group',
-    routeLink: 'customers'
-
-  },
-  {
     label: 'Questions',
     labelar: ' الأسئلة',
     id: 'questions',
@@ -56,6 +48,26 @@ export const navbarData: NavbarData[] = [
     id: 'forms',
     icon: ' format_align_justify',
     routeLink: "forms"
+  },
+   {
+    label: 'Users',
+    labelar: 'المستخدمين',
+    id: 'users',
+    icon: 'group',
+    items:[
+      {
+    label: 'Customers',
+    labelar: 'العملاء',
+    id: 'customers',
+    routeLink: 'customers'
+      },
+      {
+    label: 'Employees',
+    labelar: 'الموظفين',
+    id: 'employees',
+    routeLink: 'employees'
+      }
+    ]
   },
   
 
