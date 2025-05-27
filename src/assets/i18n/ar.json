@@ -110,7 +110,36 @@
   "formAr_form":"اسم النموذج باللغة العربية",
   "formEn_form":"اسم النموذج باللغة الانكليزية",
   "Update_Form":"تحديث النموذج",
-  "Create_Form":"إنشاء نموذج"
+  "Create_Form":"إنشاء نموذج",
+  "searchQuestion_question":"السؤال",
+  "OptionNameEn_AddQuestion":"الخيار باللغة الانكليزية",
+  "OptionNameAr_AddQuestion":"الخيار باللغة العربية",
+  "Search_EmployeeName":"اسم الموظف",
+  "Search_EmployeePhone":"رقم هاتف الموظف",
+  "Search_EmployeeId":"رقم الموظف",
+  "Search_EmployeeRole":"رقم الموظف",
+  "Search_EmployeeUserName":"اسم المستخدم",
+  "EmployeeName_employee":"الاسم",
+  "EmployeeUserName_employee":"اسم المستخدم",
+  "contryCode_employee":"رمز الدولة",
+  "employeePhone_employee":"رقم الهاتف",
+  "employeeGender_employee":"الجنس",
+  "Birthdate_employee":"تاريخ الميلاد",
+  "EmployeeRole_employee":"الدور",
+  "Edit_Employee":"تعديل",
+  "Delete_Employee":"حذف",
+  "totalEmployees":"مجموع الموظفين",
+  "Basic_Info_Employee":"المعلومات الأساسية",
+  "FirstNameAr_AddEmployee":"الاسم الأول  باللغة العربية",
+  "LastNameAr_AddEmployee":"الاسم الأخير باللغة العربية",
+  "FirstNameEn_AddEmployee":"الاسم الأول باللغة الانكليزية",
+  "LastNameEn_AddEmployee":"الاسم الأخير باللغة الانكليزية",
+  "CountryCode_AddEmployee":"رمز الدولة",
+  "EmployeePhone_AddEmployee":"رقم الهاتف",
+  "username_AddEmployee":"اسم المستخدم",
+  "Gender_AddEmployee":"الجنس",
+  "Birthdate_AddEmployee":"تاريخ الميلاد"
+ 
 
 }
 
