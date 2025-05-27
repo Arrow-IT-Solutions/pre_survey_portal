@@ -1,98 +1,72 @@
 <div class="options">
-  <ng-container>
-    <div class="row mx-0 mt-2 ">
-      <div class="box">
-      <div class="card mx-0 mb-2">
-          
-      <div class="forms" [formGroup]="dataForm">
-       <div class="logo-container mb-5">
-        <img src="../../../../assets/images/Fill Logo.svg" alt="">
-       </div>
-        <div class="fields">
-        <div class="col-12 mb-3 field_container">
-            <label>{{ 'userName_forms' | translate }}:</label>
-            <div class="p-float-label">
-              <input formControlName="userName" pInputText type="text" />
-            </div>
+  <div [formGroup]="dataForm" class="row mb-4 m-0  p-0">
+    <div class="container d-flex">
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
+        <div class="flex flex-wrap justify-content-center gap-3">
+          <span class="p-input-icon-left p-0">
+            <i class="pi pi-search"></i>
+            <input class="search-field" type="text" (ngModelChange)="OnChange()"
+              placeholder="{{ 'FormName_form' | translate }}" formControlName="name" pInputText />
+          </span>
         </div>
-        
-        <div class="col-12 mb-3 field_container">
-            <label>{{ 'maritalStatus_forms' | translate }}:</label>
-            <div class="p-float-label dropdown">
-              <p-dropdown formControlName="maritalStatus" [options]="" optionLabel="value" optionValue="key"
-               ></p-dropdown>
-            </div>
-        </div>
-        <div class="col-12 mb-3 field_container">
-            <label>{{ 'dateOfBirth_forms' | translate }}:</label>
-            <div class="p-float-label">
-              <p-calendar formControlName="dateOfBirth" [showIcon]="true"></p-calendar>
-            </div>
-        </div>
-        <div class="col-12 mb-3 field_container">
-            <label>{{ 'phoneNumber_forms' | translate }}:</label>
-            <div class="p-float-label d-flex gap-2">
-                <p-dropdown formControlName="countryCode" [options]="" optionLabel="value" optionValue="key"
-                formControlName="countryCode"></p-dropdown>
-                <input formControlName="phoneNumber" pInputText type="text"  />
-            </div>
-        </div>
-        <div class="col-12 mb-3 field_container">
-            <label>{{ 'email_forms' | translate }}:</label>
-            <div class="p-float-label">
-              <input formControlName="email" pInputText type="text" />
-            </div>
-        </div>
-        <div class="col-12 mb-3 field_container">
-            <label>{{ 'country_forms' | translate }}:</label>
-            <div class="p-float-label">
-              <input formControlName="country" pInputText type="text" />
-            </div>
-        </div>
-        <div class="col-12 mb-3 field_container">
-            <label>{{ 'infoforms_forms' | translate }}</label>
-            <div class="p-float-label">
-              <textarea formControlName="info" pInputText ></textarea>
-            </div>
-        </div>
-        <div class="col-12 mb-3 field_container">
-            <label>{{ 'sendOffers_forms' | translate }}</label>
-            <div class="p-float-label radio_options">
-                <div class="gap-2 option1">
-                    <p-radioButton formControlName="sendOffers" value="Yes"  id="option1"></p-radioButton>
-                   
-                    <label for="option1">{{'acceptOffers_forms' | translate}}</label>
-                </div>
-                <div class="gap-2 option2">
-                    <p-radioButton formControlName="sendOffers" value="No"  id="option2"></p-radioButton>
-                    <label for="option2">{{'notAcceptOffers_forms' | translate}}</label>
-
-                    
-                </div>
-            </div>
-        </div>
-      
-    </div>
-    <div class="col-xs-12 mt-4 ">
-        <p-button type="Submit" class="btn-primary" label="Start" [loading]="btnLoading"></p-button>
       </div>
-    
+
+      <div class="col result">
+        <p-button class="reset-btn" (onClick)="resetform()">
+          <span class="material-symbols-outlined">restart_alt</span>
+        </p-button>
+      </div>
+
     </div>
 
+
+  </div>
+
+
+  <ng-container *ngIf="!loading; else ListView">
+    <div class="row mx-0 mt-2">
+      <!-- 3 columns per row on md+ screens, full width on xs -->
+      <div class="col-12 col-md-4 mb-4 d-flex" *ngFor="let row of data">
+        <!-- “d-flex” + “flex-fill” makes each card stretch to the same height -->
+        <div class="card flex-fill">
+          <div class="icon-container">
+            <img src="assets/images/icons8-option-30.png" alt="" />
+          </div>
+          <div class="card__contents">
+            <div class="card__contents__item">
+              <div class="card-label">
+                {{ row.formTranslations![layoutService.config.lang]?.name }}
+              </div>
+            </div>
+          </div>
+          <div class="card__actions mt-auto">
+            <div [matMenuTriggerFor]="menu" class="action-trigger">
+              <span class="material-symbols-outlined">more_vert</span>
+            </div>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="openAddForm(row)">
+                <span class="material-symbols-outlined">edit</span>
+                {{ 'Edit_Form' | translate }}
+              </button>
+              <button mat-menu-item (click)="confirmDelete(row)">
+                <span class="material-symbols-outlined">delete</span>
+                {{ 'Delete_Form' | translate }}
+              </button>
+            </mat-menu>
+          </div>
         </div>
-        
       </div>
     </div>
 
     <div class="all d-flex">
       <div class="total">
-        {{ "totalForms_Forms" | translate }}:{{ totalRecords }}
+        {{ "totalForm_form" | translate }}:{{ totalRecords }}
       </div>
 
     </div>
-    <p-paginator class="mt-2" [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[4, 12, 20, 30]"
+    <p-paginator class="mt-2" [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[3, 6, 9, 12]"
       [first]="first" (onPageChange)="paginate($event)"></p-paginator>
-     <button class="add-button" (click)="openAddForm()">
+    <button class="add-button" (click)="openAddForm()">
       <span class="material-symbols-outlined">add</span>
     </button>
 
@@ -106,5 +80,15 @@
     </div>
   </ng-template>
 
+  <p-confirmDialog #positionDialog key="positionDialog" position="bottom" [baseZIndex]="10000" onHide="true">
+    <ng-template pTemplate="footer">
+      <button type="button" pButton icon="pi pi-times" label="{{ 'No' | translate }}"
+        (click)="positionDialog.reject()"></button>
+      <button type="button" pButton icon="pi pi-check" label="{{ 'Yes' | translate }}"
+        (click)="positionDialog.accept()"></button>
+    </ng-template>
+  </p-confirmDialog>
+
 </div>
 
+<p-toast key="toast"></p-toast>
