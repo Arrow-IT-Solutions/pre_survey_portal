@@ -6,6 +6,7 @@ import { AddFormComponent } from './add-form/add-form.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ResponseBase, RequestBase, SearchRequestBase } from 'src/app/shared/class/class';
+import { QuestionResponse } from '../questions/questions.module';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ export class FormModule { }
 export interface FormResponse extends ResponseBase {
   uuid?: string;
   formTranslations?: { [key: string]: FormTranslationResponse };
+  questions: QuestionResponse[]
 
 }
 

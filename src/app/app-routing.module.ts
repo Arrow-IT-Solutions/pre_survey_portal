@@ -13,7 +13,7 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-   path: 'forms',
+    path: 'forms/:uuid',
     children: [{
       path: '',
       loadChildren: () =>
@@ -23,7 +23,7 @@ const routes: Routes = [
     }],
   },
   {
-   path: 'user-questions',
+    path: 'user-questions',
     children: [{
       path: '',
       loadChildren: () =>
@@ -52,17 +52,17 @@ const routes: Routes = [
           )
       },
       {
-        path:'customers-answers',
+        path: 'customers-answers',
         loadChildren: () =>
           import('./modules/customers-answers/customers-answers.module').then(
-            (m) =>m.CustomersAnswersModule
+            (m) => m.CustomersAnswersModule
           )
       },
-       {
-        path:'questions',
+      {
+        path: 'questions',
         loadChildren: () =>
           import('./modules/questions/questions.module').then(
-            (m) =>m.QuestionsModule
+            (m) => m.QuestionsModule
           )
       },
       {
@@ -80,10 +80,10 @@ const routes: Routes = [
           )
       },
       {
-        path:'forms',
-        loadChildren:() =>
+        path: 'forms',
+        loadChildren: () =>
           import('./modules/form/form.module').then(
-            (m) =>m.FormModule
+            (m) => m.FormModule
           )
       },
 

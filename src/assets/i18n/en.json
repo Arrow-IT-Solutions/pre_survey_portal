@@ -1,10 +1,10 @@
 {
- "userName_forms":"Name",
+ "userName_forms":"Full Name",
  "maritalStatus_forms":"Marital Status",
  "dateOfBirth_forms":"BirthDate",
  "phoneNumber_forms":"Phone Number",
  "email_forms":"Email",
- "country_forms":"Country",
+ "country_forms":"State/City",
  "infoforms_forms":"How did you know about our cafee?",
  "sendOffers_forms":"Do you agree that we use your number or email to send you offers via WhatsApp or email?",
  "notAcceptOffers_forms":"No,Thanks",
@@ -89,7 +89,13 @@
  "selectedOptions_AddQuestion":"Selected Options",
  "questionOptions_questions":"Question Options",
  "You_must_select_at_least_one_form":"You must select at least one form",
- "You_must_select_at_least_one_option":"You must select at least one option"
+ "You_must_select_at_least_one_option":"You must select at least one option",
+ "thanks_userQuestion" : "Thank you for taking part 😍",
+ "completeDocument_userQuestion" : "Please complete this document to help us improve future sessions.",
+ "required_userQuestion" : "Required",
+ "select_userQuestion" : "Select one option.",
+ "Next_userQuestion" : "Next"
+
 
 
 
