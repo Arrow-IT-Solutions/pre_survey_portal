@@ -1,91 +1,90 @@
-
 <div class="header-admin__tools">
-    <div [matMenuTriggerFor]="langMenu">
-      <span class="material-symbols-outlined lang-icon">language</span>
-      <span class="m-0">{{currentlang}}</span>
-      
-      <span class="material-symbols-outlined m-0"> arrow_drop_down </span>
-    </div>
-      <mat-menu #langMenu="matMenu">
-        <button mat-menu-item (click)="changeLang('en')">
-          English
-        </button>
-        <button mat-menu-item (click)="changeLang('ar')">
-          عربي
-        </button>
-      </mat-menu>
-   
+  <div [matMenuTriggerFor]="langMenu">
+    <span class="material-symbols-outlined lang-icon">language</span>
+    <span class="m-0">{{currentlang}}</span>
+
+    <span class="material-symbols-outlined m-0"> arrow_drop_down </span>
   </div>
+  <mat-menu #langMenu="matMenu">
+    <button mat-menu-item (click)="changeLang('en')">
+      English
+    </button>
+    <button mat-menu-item (click)="changeLang('ar')">
+      عربي
+    </button>
+  </mat-menu>
+
+</div>
 <form [formGroup]="dataForm" action="" class="forms">
-    <div class="logo-container mb-5">
-        <img src="../../../../assets/images/Fill Logo.svg" alt="">
-    </div>
-    <div class="fields">
-        <div class="col-12 mb-3 field_container">
-            <label>{{ 'userName_forms' | translate }}:</label>
-            <div class="p-float-label">
-              <input  pInputText type="text" formControlName="userName" />
-            </div>
-        </div>
-        
-        <div class="col-12 mb-3 field_container">
-            <label>{{ 'maritalStatus_forms' | translate }}:</label>
-            <div class="p-float-label dropdown">
-              <p-dropdown [options]="" optionLabel="value" optionValue="key"
-                formControlName="maritalStatus"></p-dropdown>
-            </div>
-        </div>
-        <div class="col-12 mb-3 field_container">
-            <label>{{ 'dateOfBirth_forms' | translate }}:</label>
-            <div class="p-float-label">
-              <p-calendar [showIcon]="true" formControlName="dateOfBirth"></p-calendar>
-            </div>
-        </div>
-        <div class="col-12 mb-3 field_container">
-            <label>{{ 'phoneNumber_forms' | translate }}:</label>
-            <div class="p-float-label d-flex gap-2">
-                <p-dropdown [options]="" optionLabel="value" optionValue="key"
-                formControlName="countryCode"></p-dropdown>
-                <input  pInputText type="text" formControlName="phoneNumber" />
-            </div>
-        </div>
-        <div class="col-12 mb-3 field_container">
-            <label>{{ 'email_forms' | translate }}:</label>
-            <div class="p-float-label">
-              <input  pInputText type="text" formControlName="email" />
-            </div>
-        </div>
-        <div class="col-12 mb-3 field_container">
-            <label>{{ 'country_forms' | translate }}:</label>
-            <div class="p-float-label">
-              <input  pInputText type="text" formControlName="country" />
-            </div>
-        </div>
-        <div class="col-12 mb-3 field_container">
-            <label>{{ 'infoforms_forms' | translate }}</label>
-            <div class="p-float-label">
-              <textarea pInputText formControlName="info"></textarea>
-            </div>
-        </div>
-        <div class="col-12 mb-3 field_container">
-            <label>{{ 'sendOffers_forms' | translate }}</label>
-            <div class=" radio_options">
-                
-                <label>
-			           <input formControlName="sendOffers" type="radio" name="radio1" />
-			           <span>{{'acceptOffers_forms' | translate}}</span>
-		            </label>
-                <label>
-			           <input formControlName="sendOffers" type="radio" name="radio1" />
-			           <span>{{'notAcceptOffers_forms' | translate}}</span>
-		            </label>
-              
-            </div>
-        </div>
-      
-    </div>
-    <div class="col-xs-12 mt-4 ">
-        <p-button type="Submit" class="btn-primary" label="Start" [loading]="btnLoading" (click)="start()"></p-button>
+  <div class="logo-container mb-5">
+    <img src="../../../../assets/images/Fill Logo.svg" alt="">
+  </div>
+  <div class="fields">
+    <div class="col-12 mb-3 field_container">
+      <label>{{ 'userName_forms' | translate }}:</label>
+      <div class="p-float-label">
+        <input pInputText type="text" formControlName="userName" />
       </div>
-    
+    </div>
+
+    <div class="col-12 mb-3 field_container">
+      <label>{{ 'maritalStatus_forms' | translate }}:</label>
+      <div class="p-float-label dropdown">
+        <p-dropdown [options]="martialStatus" optionLabel="value" optionValue="key"
+          formControlName="maritalStatus"></p-dropdown>
+      </div>
+    </div>
+    <div class="col-12 mb-3 field_container">
+      <label>{{ 'dateOfBirth_forms' | translate }}:</label>
+      <div class="p-float-label">
+        <p-calendar [showIcon]="true" formControlName="dateOfBirth"></p-calendar>
+      </div>
+    </div>
+    <div class="col-12 mb-3 field_container">
+      <label>{{ 'phoneNumber_forms' | translate }}:</label>
+      <div class="p-float-label d-flex gap-2">
+        <p-dropdown [options]="codes" optionLabel="fullName" optionValue="code"
+          formControlName="countryCode"></p-dropdown>
+        <input pInputText type="text" formControlName="phoneNumber" />
+      </div>
+    </div>
+    <div class="col-12 mb-3 field_container">
+      <label>{{ 'email_forms' | translate }}:</label>
+      <div class="p-float-label">
+        <input pInputText type="text" formControlName="email" />
+      </div>
+    </div>
+    <div class="col-12 mb-3 field_container">
+      <label>{{ 'country_forms' | translate }}:</label>
+      <div class="p-float-label">
+        <input pInputText type="text" formControlName="country" />
+      </div>
+    </div>
+    <div class="col-12 mb-3 field_container">
+      <label>{{ 'infoforms_forms' | translate }}</label>
+      <div class="p-float-label">
+        <textarea pInputText formControlName="info"></textarea>
+      </div>
+    </div>
+    <div class="col-12 mb-3 field_container">
+      <label>{{ 'sendOffers_forms' | translate }}</label>
+      <div class=" radio_options">
+
+        <label>
+          <input formControlName="sendOffers" type="radio" name="sendOffers" [value]="1" />
+          <span>{{'acceptOffers_forms' | translate}}</span>
+        </label>
+        <label>
+          <input formControlName="sendOffers" type="radio" name="sendOffers" [value]="0" />
+          <span>{{'notAcceptOffers_forms' | translate}}</span>
+        </label>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="col-xs-12 mt-4 ">
+    <p-button type="Submit" class="btn-primary" label="Start" [loading]="btnLoading" (click)="start()"></p-button>
+  </div>
+
 </form>
