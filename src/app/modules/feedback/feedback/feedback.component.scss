@@ -1,0 +1,223 @@
+@import "../../../../assets/scss/varialbles.scss";
+
+.page-container{
+    position: relative;
+    background-color: white;
+    width: 100%;
+    padding: 1rem;
+    height: 100vh;
+    .elipse1-container{
+        position: absolute;
+        top: -5rem;
+        right: 0;
+        :lang(ar){
+            right: unset;
+            left: 0;
+        }
+    }
+     .elipse2-container{
+        position: absolute;
+        left: 0;
+        bottom: -5rem;
+        :lang(ar){
+            right: unset;
+            left: 0;
+        }
+    }
+    .icon-container{
+        width: 18rem;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+         :lang(ar){
+            right: unset;
+            left: 0;
+        }
+        img{
+            width: 100%;
+        }
+    }
+    .logo-container{
+        width: 12rem;
+        margin: auto;
+        @media(max-width:767px){
+            margin-top: 1rem;
+        }
+        img{
+            width:100%
+        }
+    }
+    &__info{
+        display: flex;
+        flex-direction: column;
+        background-color: #F1F1F1;
+        width: 90%;
+        margin: auto;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-top: 1rem;
+        row-gap: 0.5rem;
+         @media(max-width:767px){
+            width: 100%;
+            margin-top: 2rem;
+        }
+        span{
+            
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 22px;
+            letter-spacing: 0%;
+
+        }
+        span:first-child{
+           
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 22px;
+            letter-spacing: 0%;
+
+        }
+    }
+    &__feedbackInfo{
+        width: 90%;
+        margin: auto;
+        background-color: white;
+        margin-top: 2rem;
+        border-radius: 32px;
+        padding: 24px 56px;
+        border: 1px solid #E7E7E7;
+        @media(max-width:767px){
+            width: 100%;
+            margin-top: 3rem;
+            padding: 24px 20px;
+        }
+      
+        .feedback_note{
+            margin-top: 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            row-gap: 1rem;
+            span{
+                font-weight: 400;
+                font-size: 24px;
+                line-height: 120%;
+                letter-spacing: 0%;
+            }
+
+        }
+    }
+   
+    #send{
+        border: none;
+        padding: 16px 72px;
+        display: flex;
+        column-gap: 0.5rem;
+        align-items: center;
+        background-color: $primary-color;
+        border-radius: 30px;
+        color: white;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 120%;
+        margin: auto;
+        cursor: pointer;
+        margin-top: 2rem;
+        @media(max-width:767px){
+            margin: auto;
+            margin-top: 2rem;
+        }
+
+    }
+ 
+.card {
+  display: flex;
+  margin: auto;
+  padding: 0.8rem;
+  width: 100%;
+  border: none;
+  @media(max-width:767px){
+    padding: 0;
+   
+    margin: auto;
+    
+  }
+}
+.rating-container {
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0.4rem 0.8rem;
+  width: 100%;
+}
+.rating {
+//   background-color: rgba(0, 0, 16, 0.8);
+  padding: 0.4rem 0.4rem 0.1rem 0.4rem;
+  border-radius: 2.2rem;
+  margin: auto;
+  @media(max-width:767px){
+    width: 100%;
+  }
+}
+
+svg {
+  fill: rgb(242, 242, 242);
+  height: 3.6rem;
+  width: 3.6rem;
+  margin: 0.2rem;
+}
+
+.rating-form-2 svg {
+  height: 3rem;
+  width: 3rem;
+  margin: 0.5rem;
+}
+#radios label {
+  position: relative;
+}
+
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+input[type="radio"] + svg {
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+input + svg {
+  cursor: pointer;
+}
+input[class="super-happy"]:hover + svg,
+input[class="super-happy"]:checked + svg,
+input[class="super-happy"]:focus + svg {
+  fill: #55C57F;
+}
+
+input[class="happy"]:hover + svg,
+input[class="happy"]:checked + svg,
+input[class="happy"]:focus + svg {
+  fill:#E1DD5C;
+}
+
+input[class="neutral"]:hover + svg,
+input[class="neutral"]:checked + svg,
+input[class="neutral"]:focus + svg {
+  fill:#76C3E8;
+}
+
+input[class="sad"]:hover + svg,
+input[class="sad"]:checked + svg,
+input[class="sad"]:focus + svg {
+  fill:#EFA372;
+}
+
+input[class="super-sad"]:hover + svg,
+input[class="super-sad"]:checked + svg,
+input[class="super-sad"]:focus + svg {
+  fill: #EE7F88;
+}
+
+}

@@ -58,6 +58,7 @@ async FillData(pageIndex: number = 0) {
 
       const response = (await this.optionService.Search(filter)) as any;
       console.log('data',response)
+
       if (response.data == null || response.data.length == 0) {
         this.data = [];
         this.optionTotal = 0;
@@ -122,12 +123,15 @@ openAddOption(row: OptionResponse | null = null){
         closeOnEscape: true,
         accept: async () => {
           const response = (await this.optionService.Delete(row.uuid!)) as any;
-
+          if (response?.requestStatus?.toString() == '200'){
           this.confirmationService.close();
-
-          this.layoutService.showSuccess(this.messageService, 'toste', true, response.requestMessage);
-
+          this.layoutService.showSuccess(this.messageService, 'toast', true, response.requestMessage);
           this.FillData();
+          }
+          else {
+          this.confirmationService.close();
+          this.layoutService.showError(this.messageService, 'toast', true, response?.requestMessage);
+          }
 
         },
         reject: () => {},

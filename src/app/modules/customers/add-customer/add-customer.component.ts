@@ -34,8 +34,8 @@ export class AddCustomerComponent {
       state:['',Validators.required],
       email:['',Validators.required],
       phone:['',Validators.required],
-      favouriteFood:[''],
-      KnowingUs:[''],
+      favouriteFood:['',Validators.required],
+      KnowingUs:['',Validators.required],
       sendOffers:['No',Validators.required]
     })
   }
