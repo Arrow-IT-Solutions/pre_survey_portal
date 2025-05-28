@@ -62,7 +62,7 @@
             margin-top: 2rem;
         }
         span{
-            
+
             font-weight: 400;
             font-size: 16px;
             line-height: 22px;
@@ -70,7 +70,7 @@
 
         }
         span:first-child{
-           
+
             font-weight: 700;
             font-size: 20px;
             line-height: 22px;
@@ -91,7 +91,7 @@
             margin-top: 3rem;
             padding: 24px 20px;
         }
-      
+
         .feedback_note{
             margin-top: 2rem;
             text-align: center;
@@ -107,7 +107,7 @@
 
         }
     }
-   
+
     #send{
         border: none;
         padding: 16px 72px;
@@ -129,7 +129,7 @@
         }
 
     }
- 
+
 .card {
   display: flex;
   margin: auto;
@@ -138,9 +138,9 @@
   border: none;
   @media(max-width:767px){
     padding: 0;
-   
+
     margin: auto;
-    
+
   }
 }
 .rating-container {
@@ -219,4 +219,116 @@ input[class="super-sad"]:focus + svg {
   fill: #EE7F88;
 }
 
+}
+.feedback .rating label {
+  position: relative;
+  display: inline-block;
+  margin: 0 .5rem;
+  cursor: pointer;
+}
+
+/* stretch the native radio over the entire label + icon */
+.feedback .rating label input[type="radio"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  z-index: 10;
+  cursor: pointer;
+}
+:host ::ng-deep .rating label {
+  position: relative;
+  display: inline-block;
+  margin: 0 .5rem;
+  cursor: pointer;
+}
+
+:host ::ng-deep .rating label input[type="radio"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+
+:host ::ng-deep .rating label svg {
+  pointer-events: none;
+  transition: transform .2s, opacity .2s, fill .2s;
+  opacity: 0.7;
+}
+
+:host ::ng-deep .rating label:hover svg {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* checked state */
+:host ::ng-deep .rating label input[type="radio"]:checked+svg {
+  opacity: 1;
+  transform: scale(1.2);
+}
+:host ::ng-deep .rating label {
+  position: relative;
+  display: inline-block;
+  margin: 0 .5rem;
+  cursor: pointer;
+}
+
+/* stretch the radio over the full label so clicks always hit it */
+:host ::ng-deep .rating label input[type="radio"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* SVG is non‐interactive so hover falls through to the label/input */
+:host ::ng-deep .rating label svg {
+  pointer-events: none;
+  transition: all .2s;
+  fill: rgb(242, 242, 242);
+  /* your default */
+}
+
+/* Hover and focus states use your original colors */
+:host ::ng-deep .rating label input.super-happy:hover+svg,
+:host ::ng-deep .rating label input.super-happy:focus+svg,
+:host ::ng-deep .rating label input.super-happy:checked+svg {
+  fill: #55C57F;
+}
+
+:host ::ng-deep .rating label input.happy:hover+svg,
+:host ::ng-deep .rating label input.happy:focus+svg,
+:host ::ng-deep .rating label input.happy:checked+svg {
+  fill: #E1DD5C;
+}
+
+:host ::ng-deep .rating label input.neutral:hover+svg,
+:host ::ng-deep .rating label input.neutral:focus+svg,
+:host ::ng-deep .rating label input.neutral:checked+svg {
+  fill: #76C3E8;
+}
+
+:host ::ng-deep .rating label input.sad:hover+svg,
+:host ::ng-deep .rating label input.sad:focus+svg,
+:host ::ng-deep .rating label input.sad:checked+svg {
+  fill: #EFA372;
+}
+
+:host ::ng-deep .rating label input.super-sad:hover+svg,
+:host ::ng-deep .rating label input.super-sad:focus+svg,
+:host ::ng-deep .rating label input.super-sad:checked+svg {
+  fill: #EE7F88;
 }

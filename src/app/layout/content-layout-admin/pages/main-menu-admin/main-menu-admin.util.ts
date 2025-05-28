@@ -13,7 +13,26 @@ export interface NavbarData {
 }
 
 export const navbarData: NavbarData[] = [
-
+  {
+    label: 'Users',
+    labelar: 'المستخدمين',
+    id: 'users',
+    icon: 'group',
+    items: [
+      {
+        label: 'Customers',
+        labelar: 'العملاء',
+        id: 'customers',
+        routeLink: 'customers'
+      },
+      {
+        label: 'Employees',
+        labelar: 'الموظفين',
+        id: 'employees',
+        routeLink: 'employees'
+      }
+    ]
+  },
   {
     label: 'Questions',
     labelar: ' الأسئلة',
@@ -35,47 +54,28 @@ export const navbarData: NavbarData[] = [
     icon: 'storage',
     routeLink: "options"
   },
-   {
+  {
     label: 'Customers Answers',
     labelar: 'إجابات العملاء',
     id: 'customers_answers',
     icon: 'comment',
     routeLink: "customers-answers"
   },
-   {
+  {
     label: 'Forms',
     labelar: 'النماذج',
     id: 'forms',
     icon: ' format_align_justify',
     routeLink: "forms"
   },
-     {
+  {
     label: 'Feedback',
     labelar: 'التعليقات',
     id: 'feedback',
     icon: 'Comment',
     routeLink: "feedback"
-  },
-   {
-    label: 'Users',
-    labelar: 'المستخدمين',
-    id: 'users',
-    icon: 'group',
-    items:[
-      {
-    label: 'Customers',
-    labelar: 'العملاء',
-    id: 'customers',
-    routeLink: 'customers'
-      },
-      {
-    label: 'Employees',
-    labelar: 'الموظفين',
-    id: 'employees',
-    routeLink: 'employees'
-      }
-    ]
   }
+
 
 
 ];

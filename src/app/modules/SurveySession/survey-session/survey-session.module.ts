@@ -18,5 +18,16 @@ export interface SurveySession {
   formUuid?: string;
   customer: CustomerRequest;
   questions?: QuestionResponse[];
-  answers?: Record<string, string>;
+  answers?: AnswerPair[]
+}
+
+export interface AnswerPair {
+  questionUUID: string;
+  optionUUID: string;
+}
+
+export interface SubmitAnswersRequest {
+  formUUID: string;
+  answers: AnswerPair[];
+  customer: CustomerRequest;
 }
