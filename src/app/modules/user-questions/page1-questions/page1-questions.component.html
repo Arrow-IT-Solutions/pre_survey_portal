@@ -55,10 +55,14 @@
           </div>
         </div>
       </ng-container>
+
       <button (click)="openPage2()">
+
         <img src="../../../../assets/images/arrow-right.svg" alt="">
         {{'Next_userQuestion' | translate}}
       </button>
+      <div *ngIf="pageError" class="page-error">
+        {{ 'Please_select_one_option_per_question' | translate }}</div>
     </form>
   </div>
 </div>

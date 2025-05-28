@@ -24,7 +24,7 @@ export class Page1QuestionsComponent {
   questions: QuestionResponse[] = [];
   displayedQuestions: QuestionResponse[] = [];
   readonly pageSize = 4;
-
+  pageError = false;
 
   constructor(public formBuilder: FormBuilder,
     public layoutService: LayoutService,
@@ -109,6 +109,15 @@ export class Page1QuestionsComponent {
 
   openPage2() {
 
+    const missing = this.displayedQuestions
+      .filter(q => q.uuid)
+      .find(q => !this.dataForm.value[q.uuid!]);
+    if (missing) {
+      this.pageError = true;
+      return;
+    }
+    this.pageError = false;
+
     this.displayedQuestions.forEach(q => {
       if (q.uuid) {
         this.session.answers![q.uuid] = this.dataForm.value[q.uuid];
@@ -117,9 +126,8 @@ export class Page1QuestionsComponent {
 
     this.pageIndex++;
     if (this.pageIndex * this.pageSize >= this.questions.length) {
-      this.route.navigate(['user-questions/page2']);
+      this.route.navigate(['user-feedback']);
     } else {
-      console.log('Next')
       this.loadPageForm();
     }
   }
