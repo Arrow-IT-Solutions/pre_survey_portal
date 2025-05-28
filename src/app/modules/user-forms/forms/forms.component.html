@@ -24,6 +24,9 @@
       <label>{{ 'userName_forms' | translate }}:</label>
       <div class="p-float-label">
         <input pInputText type="text" formControlName="userName" />
+        <span *ngIf="submitted && dataForm.controls['userName']?.hasError('required')" class="error-validation">{{
+          'Field_Required' |
+          translate }}</span>
       </div>
     </div>
 
@@ -32,55 +35,86 @@
       <div class="p-float-label dropdown">
         <p-dropdown [options]="martialStatus" optionLabel="value" optionValue="key"
           formControlName="maritalStatus"></p-dropdown>
+        <span *ngIf="submitted && dataForm.controls['maritalStatus']?.hasError('required')" class="error-validation">{{
+          'Field_Required' |
+          translate }}</span>
       </div>
+
     </div>
     <div class="col-12 mb-3 field_container">
       <label>{{ 'dateOfBirth_forms' | translate }}:</label>
       <div class="p-float-label">
         <p-calendar [showIcon]="true" formControlName="dateOfBirth"></p-calendar>
+        <span *ngIf="submitted && dataForm.controls['dateOfBirth']?.hasError('required')" class="error-validation">{{
+          'Field_Required' |
+          translate }}</span>
       </div>
+
     </div>
     <div class="col-12 mb-3 field_container">
       <label>{{ 'phoneNumber_forms' | translate }}:</label>
       <div class="p-float-label d-flex gap-2">
         <p-dropdown [options]="codes" optionLabel="fullName" optionValue="code"
           formControlName="countryCode"></p-dropdown>
+        <span *ngIf="submitted && dataForm.controls['phoneNumber']?.hasError('required')" class="error-validation">{{
+          'Field_Required' |
+          translate }}</span>
         <input pInputText type="text" formControlName="phoneNumber" />
       </div>
+
     </div>
     <div class="col-12 mb-3 field_container">
       <label>{{ 'email_forms' | translate }}:</label>
       <div class="p-float-label">
         <input pInputText type="text" formControlName="email" />
+        <span *ngIf="submitted && dataForm.controls['email']?.hasError('required')" class="error-validation">{{
+          'Field_Required' |
+          translate }}</span>
       </div>
+
     </div>
     <div class="col-12 mb-3 field_container">
       <label>{{ 'country_forms' | translate }}:</label>
       <div class="p-float-label">
         <input pInputText type="text" formControlName="country" />
+        <span *ngIf="submitted && dataForm.controls['country']?.hasError('required')" class="error-validation">{{
+          'Field_Required' |
+          translate }}</span>
       </div>
+
     </div>
     <div class="col-12 mb-3 field_container">
       <label>{{ 'infoforms_forms' | translate }}</label>
       <div class="p-float-label">
         <textarea pInputText formControlName="info"></textarea>
+        <span *ngIf="submitted && dataForm.controls['info']?.hasError('required')" class="error-validation">{{
+          'Field_Required' |
+          translate }}</span>
       </div>
+
     </div>
     <div class="col-12 mb-3 field_container">
       <label>{{ 'sendOffers_forms' | translate }}</label>
-      <div class=" radio_options">
+      <div class="radio-wrapper">
+        <!-- error now lives in its own block -->
+        <span *ngIf="submitted && dataForm.controls['sendOffers']?.hasError('required')" class="error-validation">
+          {{ 'Field_Required' | translate }}
+        </span>
 
-        <label>
-          <input formControlName="sendOffers" type="radio" name="sendOffers" [value]="1" />
-          <span>{{'acceptOffers_forms' | translate}}</span>
-        </label>
-        <label>
-          <input formControlName="sendOffers" type="radio" name="sendOffers" [value]="0" />
-          <span>{{'notAcceptOffers_forms' | translate}}</span>
-        </label>
-
+        <!-- then the options -->
+        <div class="radio_options">
+          <label>
+            <input formControlName="sendOffers" type="radio" name="sendOffers" [value]="1" />
+            <span>{{'acceptOffers_forms' | translate}}</span>
+          </label>
+          <label>
+            <input formControlName="sendOffers" type="radio" name="sendOffers" [value]="0" />
+            <span>{{'notAcceptOffers_forms' | translate}}</span>
+          </label>
+        </div>
       </div>
     </div>
+
 
   </div>
   <div class="col-xs-12 mt-4 ">

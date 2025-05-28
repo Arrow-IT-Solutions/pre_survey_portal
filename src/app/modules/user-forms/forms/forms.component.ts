@@ -23,7 +23,7 @@ export class FormsComponent {
   formUuid: string;
   codes: CountryCodeResponse[] = [];
   martialStatus: ConstantResponse[] = [];
-
+  submitted: boolean = false;
   constructor(public formBuilder: FormBuilder,
     public layoutService: LayoutService,
     @Inject(DOCUMENT) private document: Document,
@@ -34,14 +34,14 @@ export class FormsComponent {
     public constantService: ConstantService) {
     this.dataForm = this.formBuilder.group({
       userName: ['', Validators.required],
-      maritalStatus: ['', Validators.required],
-      dateOfBirth: ['', Validators.required],
-      countryCode: ['', Validators.required],
+      maritalStatus: [null, Validators.required],
+      dateOfBirth: [null, Validators.required],
+      countryCode: [null, Validators.required],
       phoneNumber: ['', Validators.required],
       email: ['', Validators.required],
       country: ['', Validators.required],
       info: ['', Validators.required],
-      sendOffers: ['', Validators.required],
+      sendOffers: [null, Validators.required],
 
     })
   }
@@ -140,6 +140,12 @@ export class FormsComponent {
   }
 
   start() {
+
+    if (this.dataForm.invalid) {
+      this.submitted = true;
+      this.dataForm.markAllAsTouched();
+      return;
+    }
 
     let birthDate = new Date(this.dataForm.controls['dateOfBirth'].value)
 
