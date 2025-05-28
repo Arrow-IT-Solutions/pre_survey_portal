@@ -25,6 +25,7 @@ export class OptionsModule { }
 export interface OptionResponse extends ResponseBase {
   uuid?: string;
   optionTranslation?: { [key: string]: OptionTranslationResponse };
+
 }
 
 export interface OptionTranslationResponse {

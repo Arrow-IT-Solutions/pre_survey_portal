@@ -109,5 +109,11 @@
  "formAr_form": "Form Name in Arabic",
  "formEn_form": "Form Name in English",
  "Update_Form": "Update Form",
- "Create_Form": "Create Form"
+ "Create_Form": "Create Form",
+ "OptionName_Option" : "Option Name",
+  "UserName":"User Name",
+  "rateType":"rate Type",
+  "User_Note":"Notes",
+  "totalFeedBack":"Total FeedBack",
+  "formName_answer":"Form Name"
 }

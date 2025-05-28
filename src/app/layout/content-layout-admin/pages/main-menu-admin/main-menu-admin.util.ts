@@ -57,6 +57,13 @@ export const navbarData: NavbarData[] = [
     icon: ' format_align_justify',
     routeLink: "forms"
   },
-  
+     {
+    label: 'Feedback',
+    labelar: 'التعليقات',
+    id: 'feedback',
+    icon: 'Comment',
+    routeLink: "feedback"
+  },
+
 
 ];

@@ -457,3 +457,23 @@
       }
 }
 
+.card-details-row {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  overflow-x: auto;
+}
+
+.card-section__items {
+  min-width: 180px;
+  flex: 1 1 200px;
+}
+
+.card-info {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-width: 250px;
+}

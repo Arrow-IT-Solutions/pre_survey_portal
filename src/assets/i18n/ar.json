@@ -110,7 +110,13 @@
   "formAr_form":"اسم النموذج باللغة العربية",
   "formEn_form":"اسم النموذج باللغة الانكليزية",
   "Update_Form":"تحديث النموذج",
-  "Create_Form":"إنشاء نموذج"
+  "Create_Form":"إنشاء نموذج",
+  "OptionName_Option":"اسم الخيار",
+ "UserName":"اسم المستخدم",
+  "rateType":"نوع التقييم",
+  "User_Note":"الملاحظات",
+  "totalFeedBack":"المجموع",
+  "formName_answer":"اسم النموذج"
 
 }
 
