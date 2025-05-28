@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LayoutService } from 'src/app/layout/service/layout.service';
 import { HttpClientService } from './http-client.service';
-import { FeedbackRequest, FeedbackResponse, FeedbackSearchRequest, FeedbackUpdateRequest } from 'src/app/modules/feedback/feedback.module';
+import { FeedbackRequest, FeedbackResponse, FeedbackSearchRequest, FeedbackUpdateRequest } from 'src/app/modules/feedback/feedBacks.module';
 
 @Injectable({
   providedIn: 'root'

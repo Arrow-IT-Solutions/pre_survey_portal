@@ -28,8 +28,7 @@
                   <div class="card-label">{{ 'UserName' | translate }}</div>
                   <div class="card-info">
                     <span class="material-symbols-outlined fill"></span>
-                    {{ row.user.userTranslation![layoutService.config.lang]?.firstName }} {{
-                    row.user.userTranslation![layoutService.config.lang]?.lastName }}
+                    {{ row.customer.customerTranslation![layoutService.config.lang]?.fullName }}
                   </div>
                 </div>
                 <div class="card__contents__item">
@@ -94,4 +93,3 @@
 
 
 </div>
-
