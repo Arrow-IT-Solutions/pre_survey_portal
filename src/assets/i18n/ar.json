@@ -111,6 +111,12 @@
   "formEn_form":"اسم النموذج باللغة الانكليزية",
   "Update_Form":"تحديث النموذج",
   "Create_Form":"إنشاء نموذج",
+  "OptionName_Option":"اسم الخيار",
+ "UserName":"اسم المستخدم",
+  "rateType":"نوع التقييم",
+  "User_Note":"الملاحظات",
+  "totalFeedBack":"المجموع",
+  "formName_answer":"اسم النموذج",
   "searchQuestion_question":"السؤال",
   "OptionNameEn_AddQuestion":"الخيار باللغة الانكليزية",
   "OptionNameAr_AddQuestion":"الخيار باللغة العربية",
@@ -139,7 +145,6 @@
   "username_AddEmployee":"اسم المستخدم",
   "Gender_AddEmployee":"الجنس",
   "Birthdate_AddEmployee":"تاريخ الميلاد"
- 
 
 }
 
