@@ -1,22 +1,32 @@
+
 <div class="questions">
-
-  <!-- Search & Reset Row -->
-  <div class="toolbar p-mb-4">
-    <div class="search-box">
-      <span class="p-input-icon-left">
-        <i class="pi pi-search"></i>
-        <input pInputText type="text" formControlName="question" (ngModelChange)="OnChange()"
+  <div [formGroup]="dataForm" class="row mb-4 m-0  p-0">
+    <div class="container d-flex">
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
+        <div class="flex flex-wrap justify-content-center gap-3">
+          <span class="p-input-icon-left p-0">
+            <i class="pi pi-search"></i>
+             <input pInputText type="text" formControlName="question" (ngModelChange)="OnChange()"
           placeholder="{{ 'searchQuestion_question' | translate }}" />
-      </span>
-    </div>
-    <button pButton type="button" icon="pi pi-refresh" class="p-button-rounded" (click)="resetform()"></button>
-  </div>
+          </span>
+        </div>
+      </div>
+    
 
-  <!-- Cards Grid -->
-  <div *ngIf="!loading; else loadingTpl" class="cards-grid">
-    <p-card *ngFor="let row of data" class="question-card" [style]="{ width: '100%' }">
-      <ng-template pTemplate="title">
-        <div class="card-header">
+      <div class="col result">
+        <button id="result" (onClick)="resetform()">
+          <span class="material-symbols-outlined">restart_alt</span>
+        </button>
+      </div>
+    </div>
+  </div>
+ <div *ngIf="!loading; else loadingTpl">
+     <div class="row mx-0 mt-2">
+      <!-- 3 columns per row on md+ screens, full width on xs -->
+      <div class="col-12 col-md-4 mb-4 d-flex" *ngFor="let row of data">
+        <!-- “d-flex” + “flex-fill” makes each card stretch to the same height -->
+        <div class="card flex-fill">
+          <div class="card-header">
           <i class="pi pi-question-circle question-icon"></i>
           <div class="question-text">
             {{ row.questionTranslations![layoutService.config.lang]?.questionText }}
@@ -38,41 +48,34 @@
 
           </div>
         </div>
-      </ng-template>
-
-      <div class="card-content">
+        <div class="card-content">
         <div class="options-label">{{ 'questionOptions_questions' | translate }}:</div>
         <div class="answers_container">
-          <p-tag *ngFor="let o of row.options" [value]="o.optionTranslation![layoutService.config.lang]?.name"
-            class="answer-tag"></p-tag>
+          <!-- <p-tag *ngFor="let o of row.options" [value]="o.optionTranslation![layoutService.config.lang]?.name"
+            class="answer-tag"></p-tag> -->
+            <span *ngFor="let o of row.options">{{ o.optionTranslation![layoutService.config.lang]?.name }}</span>
         </div>
       </div>
-    </p-card>
-  </div>
-
-  <!-- Paginator & Add Button -->
-  <div class="footer-bar">
-    <div class="total-count">
-      {{ 'totalQuestion_question'|translate }}: {{ totalRecords }}
+          
+          
+        </div>
+      </div>
     </div>
-    <p-paginator [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[4,12,20,30]" [first]="first"
-      (onPageChange)="paginate($event)"></p-paginator>
-
-    <button pButton icon="pi pi-plus" class="add-question-btn p-button-rounded p-button-lg"
-      (click)="openAddQuestion()"></button>
   </div>
+   
+      <div class="total">
+        {{ "totalQuestion_question" | translate }}:{{ totalRecords }}
+      </div>
 
-
-   <p-confirmDialog #positionDialog key="positionDialog" position="bottom" [baseZIndex]="10000" onHide="true">
-    <ng-template pTemplate="footer">
-      <button type="button" pButton icon="pi pi-times" label="{{ 'No' | translate }}"
-        (click)="positionDialog.reject()"></button>
-      <button type="button" pButton icon="pi pi-check" label="{{ 'Yes' | translate }}"
-        (click)="positionDialog.accept()"></button>
-    </ng-template>
-  </p-confirmDialog>
-
+    
+    <p-paginator class="mt-2" [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[3, 6, 9, 12]"
+      [first]="first" (onPageChange)="paginate($event)"></p-paginator>
+    <button class="add-button" (click)="openAddQuestion()">
+      <span class="material-symbols-outlined">add</span>
+    </button>
 </div>
+
+
 
 <ng-template #loadingTpl>
   <div class="loading-grid">

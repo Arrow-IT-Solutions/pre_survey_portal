@@ -51,7 +51,7 @@
         margin-top: 1rem;
         row-gap: 0.5rem;
         span{
-            
+
             font-weight: 400;
             font-size: 16px;
             line-height: 22px;
@@ -59,7 +59,7 @@
 
         }
         span:first-child{
-           
+
             font-weight: 700;
             font-size: 20px;
             line-height: 22px;
@@ -74,7 +74,7 @@
         padding-top: 1rem;
         margin: auto;
         row-gap: 1rem;
-        
+
         .question_item{
             display: flex;
             flex-direction: column;
@@ -84,40 +84,40 @@
                 column-gap: 0.5rem;
                 @media(max-width:767px){
                     flex-direction: column;
-                    
+
                 }
                 #question_number,#question_text{
-                    
+
                     font-weight: 400;
                     font-size: 16px;
                     line-height: 120%;
                     letter-spacing: 0%;
 
                 }
-                
+
                 #question_select{
-                    
+
                     font-weight: 400;
                     font-size: 16px;
                     line-height: 120%;
                     letter-spacing: 0%;
                     color: #b4b3b3;
-                    
+
                 }
-                
+
                 #question_required{
-                     
+
                     font-weight: 400;
                     font-size: 16px;
                     line-height: 120%;
                     letter-spacing: 0%;
                     color: #E6404D;
                 }
-              
+
             }
             .options{
                 padding: 0.5rem;
-    
+
 
 label {
 	display: flex;
@@ -144,7 +144,7 @@ label {
 		border-radius: 99em; // or something higher...
 		transition: 0.25s ease;
         color: #9C9C9C;
-       
+
 		&:hover {
 			// background-color: mix(#fff, $primary-color, 84%);
 		}
@@ -175,7 +175,7 @@ label {
         margin-top: 2rem;
         border-radius: 30px;
         color: white;
-       
+
         font-weight: 400;
         font-size: 20px;
         line-height: 120%;
@@ -192,4 +192,16 @@ label {
     top: 0;
     left: 0;
 }
+}
+.error-validation {
+  color: #c00;
+  margin: 0.5rem 0; // give it some breathing room
+  font-size: 0.9rem;
+  text-align: center; // center under the questions
+}
+.page-error {
+  color: #c00;
+  margin: 1rem 0; // space above and below
+  text-align: left; // align with questions
+  font-size: 0.9rem;
 }
