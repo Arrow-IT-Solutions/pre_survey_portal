@@ -11,13 +11,13 @@
           </span>
         </div>
       </div>
-    
 
-      <div class="col result">
-        <button id="result" (onClick)="resetform()">
-          <span class="material-symbols-outlined">restart_alt</span>
-        </button>
-      </div>
+
+ <div class="col result">
+              <p-button class="reset-btn" (onClick)="resetform()">
+                <span class="material-symbols-outlined">restart_alt</span>
+              </p-button>
+            </div>
     </div>
   </div>
  <div *ngIf="!loading; else loadingTpl">
@@ -56,18 +56,18 @@
             <span *ngFor="let o of row.options">{{ o.optionTranslation![layoutService.config.lang]?.name }}</span>
         </div>
       </div>
-          
-          
+
+
         </div>
       </div>
     </div>
   </div>
-   
+
       <div class="total">
         {{ "totalQuestion_question" | translate }}:{{ totalRecords }}
       </div>
 
-    
+
     <p-paginator class="mt-2" [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[3, 6, 9, 12]"
       [first]="first" (onPageChange)="paginate($event)"></p-paginator>
     <button class="add-button" (click)="openAddQuestion()">

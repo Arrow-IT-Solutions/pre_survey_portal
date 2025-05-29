@@ -103,11 +103,18 @@ const routes: Routes = [
             (m) => m.FormModule
           )
       },
-            {
+     {
         path: 'feedback',
         loadChildren: () =>
           import('./modules/feedback/feedback.module').then(
             (m) => m.FeedbackModule
+          )
+      },
+      {
+        path: 'password',
+        loadChildren: () =>
+          import('./modules/password/password.module').then(
+            (m) => m.PasswordModule
           )
       },
 

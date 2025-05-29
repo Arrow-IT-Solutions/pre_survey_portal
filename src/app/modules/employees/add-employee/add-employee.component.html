@@ -10,59 +10,77 @@
           <div class="col-12 mb-3">
             <div class="p-float-label">
               <input pInputText type="text" formControlName="firstNameAr" />
-              <label>{{ 'FirstNameAr_AddEmployee' | translate }}</label>
+              <label>{{ 'FirstNameAr_Employee' | translate }}</label>
+              <span *ngIf="submitted && form['firstNameAr'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
             </div>
           </div>
           <div class="col-12 mb-3">
             <div class="p-float-label">
               <input pInputText type="text" formControlName="lastNameAr" />
-              <label>{{ 'LastNameAr_AddEmployee' | translate }}</label>
+              <label>{{ 'LastNameAr_Employee' | translate }}</label>
+              <span *ngIf="submitted && form['lastNameAr'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
             </div>
           </div>
           <div class="col-12 mb-3">
             <div class="p-float-label">
               <input pInputText type="text" formControlName="firstNameEn" />
-              <label>{{ 'FirstNameEn_AddEmployee' | translate }}</label>
+              <label>{{ 'FirstNameEn_Employee' | translate }}</label>
+              <span *ngIf="submitted && form['firstNameEn'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
             </div>
           </div>
           <div class="col-12 mb-3">
             <div class="p-float-label">
               <input pInputText type="text" formControlName="lastNameEn" />
-              <label>{{ 'LastNameEn_AddEmployee' | translate }}</label>
+              <label>{{ 'LastNameEn_Employee' | translate }}</label>
+              <span *ngIf="submitted && form['lastNameEn'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
             </div>
           </div>
           <div class="col-12 mb-3">
             <div class="p-float-label">
               <p-dropdown [options]="codes" optionLabel="fullName" optionValue="code" formControlName="contryCode"
-                [filter]="true" [showClear]="true" filterBy="name" ></p-dropdown>
-              <label id="month">{{ 'CountryCode_AddEmployee' | translate }}</label>
+                [filter]="true" [showClear]="true" filterBy="name" (onFilter)="FillCodes($event)"></p-dropdown>
+              <label id="month">{{ 'CountryCode_Employee' | translate }}</label>
+              <span *ngIf="submitted && form['contryCode'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
             </div>
           </div>
 
           <div class="col-12 mb-3">
             <div class="p-float-label">
               <input pInputText type="text" formControlName="clientPhone" />
-              <label>{{ 'EmployeePhone_AddEmployee' | translate }}</label>
+              <label>{{ 'Employee-phone' | translate }}</label>
+              <span *ngIf="submitted && form['clientPhone'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
             </div>
           </div>
           <div class="col-12 mb-3">
             <div class="p-float-label">
               <input pInputText type="text" formControlName="username" />
-              <label>{{ 'username_AddEmployee' | translate }}</label>
+              <label>{{ 'Employee-username' | translate }}</label>
+              <span *ngIf="submitted && form['username'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
             </div>
           </div>
           <div class="col-12 mb-3">
             <div class="p-float-label">
               <p-dropdown [options]="gender" optionLabel="value" optionValue="key"
                 formControlName="clientGender"></p-dropdown>
-              <label id="month">{{ 'Gender_AddEmployee' | translate }}</label>
+              <label id="month">{{ 'Employee-gender' | translate }}</label>
+              <span *ngIf="submitted && form['clientGender'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
             </div>
           </div>
 
           <div class="col-12 mb-3">
             <div class="p-float-label">
               <p-calendar [showIcon]="true" formControlName="birthDate"></p-calendar>
-              <label>{{ 'Birthdate_AddEmployee' | translate }}</label>
+              <label>{{ 'Birthdate_Employee' | translate }}</label>
+              <span *ngIf="submitted && form['birthDate'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
             </div>
           </div>
           <div>

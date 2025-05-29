@@ -56,9 +56,9 @@
             </div>
 
             <div class="col result">
-              <button  (onClick)="resetform()">
+              <p-button class="reset-btn" (onClick)="resetform()">
                 <span class="material-symbols-outlined">restart_alt</span>
-              </button>
+              </p-button>
             </div>
           </div>
         </ng-template>
@@ -66,15 +66,15 @@
     </p-accordion>
   </div>
 
-  <ng-container >
+  <ng-container *ngIf="!loading; else ListView">
     <div class="row mx-0 mt-2 box">
-      <div>
+      <div *ngFor="let row of data">
         <div class="card col-12 mx-0 mb-2">
           <div class="col-lg-2 col-md-6 col-sm-6 d-flex card__left">
             <div class="image-container">
               <div class="user-card__image employee_image">
-                <!-- <img *ngIf="row.image != null && row.image != ''; else char" (click)="showDialog(row.image)"  [src]="row.image" />
-                <ng-template #char>{{ getFirstChar(row.employeeTranslation) }}</ng-template> -->
+                <img *ngIf="row.image != null && row.image != ''; else char" (click)="showDialog(row.image)"  [src]="row.image" />
+                <ng-template #char>{{ getFirstChar(row.employeeTranslation) }}</ng-template>
               </div>
             </div>
           </div>
@@ -84,17 +84,18 @@
               <div class="card-section__title">info</div>
               <div class="card-section__items">
                 <div class="card__contents__item">
-                  <div class="card-label">{{ 'EmployeeName_employee' | translate }}</div>
+                  <div class="card-label">{{ 'EmployeeName' | translate }}</div>
                   <div class="card-info">
-                    Nour Saleem
-                  
+                    <span class="material-symbols-outlined fill"></span>
+                    {{ row.employeeTranslation![layoutService.config.lang]?.firstName }} {{
+                    row.employeeTranslation![layoutService.config.lang]?.lastName }}
                   </div>
                 </div>
                 <div class="card__contents__item">
-                  <div class="card-label">{{ 'EmployeeUserName_employee' | translate }}</div>
+                  <div class="card-label">{{ 'EmployeeUserName' | translate }}</div>
                   <div class="card-info">
-                    Nour
-                    
+                    <span class="material-symbols-outlined fill"></span>
+                    {{row.user.username}}
                   </div>
                 </div>
 
@@ -103,43 +104,52 @@
 
             <div class="card-section d-flex box3">
               <div class="card__contents__item">
-                <div class="card-label">{{ 'contryCode_employee' | translate }}</div>
-                <div class="card-info">+963</div>
+                <div class="card-label">{{ 'contryCode' | translate }}</div>
+                <div class="card-info">{{row.user.countryCode}}</div>
               </div>
               <div class="card__contents__item">
-                <div class="card-label">{{ 'employeePhone_employee' | translate }}</div>
-                <div class="card-info">958902520</div>
+                <div class="card-label">{{ 'employee-phone' | translate }}</div>
+                <div class="card-info">{{row.phone}}</div>
               </div>
               <div class="card__contents__item">
-                <div class="card-label">{{ 'employeeGender_employee' | translate }}</div>
-                <div class="card-info">female</div>
+                <div class="card-label">{{ 'employee-gender' | translate }}</div>
+                <div class="card-info">{{row.genderValue}}</div>
               </div>
               <div class="card__contents__item">
                 <div class="card-label">{{ 'Birthdate_employee' | translate }}</div>
-                <div class="card-info">29-7-1999</div>
+                <div class="card-info">{{row.birthDate | date : 'dd-MM-yyyy'}}</div>
               </div>
               <div class="card__contents__item">
-                <div class="card-label">{{ 'EmployeeRole_employee' | translate }}</div>
+                <div class="card-label">{{ 'EmployeeRole' | translate }}</div>
                 <div class="card-info">
+                  <span class="material-symbols-outlined fill"></span>
                   developer
                 </div>
               </div>
 
             </div>
 
-           
+            <div class="card-section">
+              <div class="card-section__title"></div>
+              <div class="card-section__items">
+
+              </div>
+            </div>
           </div>
           <div class="one">
             <div [matMenuTriggerFor]="menu" class="card__actions">
               <span class="material-symbols-outlined card__actions__details">more_vert</span>
             </div>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item >
+              <button mat-menu-item (click)="openDialog(row)">
                 <span class="material-symbols-outlined">Edit</span>
                 {{ 'Edit_Employee' | translate }}
               </button>
-           
-              <button mat-menu-item >
+              <button mat-menu-item (click)="resetPass(row)">
+                <span class="material-symbols-outlined">Edit</span>
+                {{ 'ResetPassword_Employee' | translate }}
+              </button>
+              <button mat-menu-item (click)="confirmDelete(row)">
                 <span class="material-symbols-outlined">delete</span>
                 {{ 'Delete_Employee' | translate }}
               </button>
@@ -184,3 +194,5 @@
 
 </div>
 
+
+<p-toast key="toast"></p-toast>
