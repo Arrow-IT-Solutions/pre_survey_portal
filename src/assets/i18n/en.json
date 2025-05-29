@@ -144,5 +144,7 @@
  "EmployeePhone_AddEmployee":"Phone",
  "username_AddEmployee":"Username",
  "Gender_AddEmployee":"Gender",
- "Birthdate_AddEmployee":"Birthdate"
+ "Birthdate_AddEmployee":"Birthdate",
+ "thanks_feedback":"Thank you!",
+ "sentSuccessfuly_feedback":"Your feedback has been sent successfully. ✅ ✅"
 }

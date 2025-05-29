@@ -38,6 +38,8 @@
     border: none;
     margin-top: 2rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
     span{
         font-weight: 500;
         font-size: 20px;

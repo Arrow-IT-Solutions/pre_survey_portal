@@ -5,6 +5,7 @@ import { FeeddbackService } from 'src/app/Core/services/feeddback.service';
 import { MessageService } from 'primeng/api';
 import { LayoutService } from 'src/app/layout/service/layout.service';
 import { FeedbackRequest } from '../feedBacks.module';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-feedback',
@@ -24,7 +25,8 @@ export class FeedbackComponent {
   constructor(public formBuilder: FormBuilder,
     public feedbasckService: FeeddbackService,
     public layoutService: LayoutService,
-    public messageService: MessageService
+    public messageService: MessageService,
+    public route:Router
   ) {
     this.dataform = this.formBuilder.group({
       feedback_note: [''],
@@ -85,6 +87,9 @@ export class FeedbackComponent {
   }
   selectRating(val: string) {
     this.dataform.get('rating')!.setValue(val);
+  }
+  openThanksMessage(){
+    this.route.navigate(['/thanks']);
   }
 
 }

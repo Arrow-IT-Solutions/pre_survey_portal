@@ -43,6 +43,16 @@ const routes: Routes = [
     }],
   },
   {
+    path: 'thanks',
+    children: [{
+      path: '',
+      loadChildren: () =>
+        import('./modules/thank-page/thank-page.module').then(
+          (m) => m.ThankPageModule
+        )
+    }],
+  },
+  {
     path: 'layout-admin',
     component: ContentLayoutAdminComponent,
     // canActivate: [AuthGuardService],
