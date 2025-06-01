@@ -27,146 +27,139 @@
       </div>
 
 
+      <ng-container *ngIf="!loading; else ListView">
+        <div class="row mx-0 mt-2 box">
+          <div *ngFor="let row of data">
+            <div class="card col-12 mx-0 mb-2">
+              <div class="icon-container">
+                <span class="material-symbols-outlined fill">group</span>
+              </div>
+              <div class="col-lg-9 col-md-12 col-sm-12 card__contents">
+                <div class="card-section1">
+                  <div class="card-section__title">info</div>
 
-    </div>
+                  <div class="card-section__items">
 
+                    <div class="card__contents__item">
+                      <div class="card-label">{{ 'customerFullName_customer' | translate }}</div>
+                      <div class="card-info">
+                        <span class="material-symbols-outlined fill"></span>
+                        {{ row.customerTranslation![layoutService.config.lang]?.fullName }}
+                      </div>
+                    </div>
+                    <div class="card__contents__item">
+                      <div class="card-label">{{ 'customerPhone_customer' | translate }}</div>
+                      <div class="card-info">
+                        <span class="material-symbols-outlined fill"></span>
+                        {{ row.phone }}
+                      </div>
+                    </div>
+                    <div class="card__contents__item">
+                      <div class="card-label">{{ 'customerSocialStatus_customer' | translate }}</div>
+                      <div class="card-info">
+                        <span class="material-symbols-outlined fill"></span>
+                        {{ row.socialStatusValue }}
+                      </div>
+                    </div>
+                    <div class="card__contents__item">
+                      <div class="card-label">{{ 'customerBirthDate_customer' | translate }}</div>
+                      <div class="card-info">
+                        <span class="material-symbols-outlined fill"></span>
+                        {{ row.birthDate | date: 'dd/MM/yyyy' }}
+                      </div>
+                    </div>
 
-  </div>
-
-
-  <ng-container *ngIf="!loading; else ListView">
-    <div class="row mx-0 mt-2 box">
-      <div *ngFor="let row of data">
-        <div class="card col-12 mx-0 mb-2">
-          <div class="icon-container">
-            <span class="material-symbols-outlined fill">group</span>
-          </div>
-          <div class="col-lg-9 col-md-12 col-sm-12 card__contents">
-            <div class="card-section1">
-              <div class="card-section__title">info</div>
-
-              <div class="card-section__items">
-
-                <div class="card__contents__item">
-                  <div class="card-label">{{ 'customerFullName_customer' | translate }}</div>
-                  <div class="card-info">
-                    <span class="material-symbols-outlined fill"></span>
-                    {{ row.customerTranslation![layoutService.config.lang]?.fullName }}
                   </div>
-                </div>
-                <div class="card__contents__item">
-                  <div class="card-label">{{ 'customerPhone_customer' | translate }}</div>
-                  <div class="card-info">
-                    <span class="material-symbols-outlined fill"></span>
-                    {{ row.phone }}
+                  <div class="card-section__items">
+
+                    <div class="card__contents__item">
+                      <div class="card-label">{{ 'customerCountry_customer' | translate }}</div>
+                      <div class="card-info">
+                        <span class="material-symbols-outlined fill"></span>
+                        {{ row.state }}
+                      </div>
+                    </div>
+                    <div class="card__contents__item">
+                      <div class="card-label">{{ 'customerIsAgree_customer' | translate }}</div>
+                      <div class="card-info">
+                        <span class="material-symbols-outlined fill"></span>
+                        {{ row.isAgree == 'True' ? layoutService.config.lang =='en'?'Yes':'نعم' :
+                        layoutService.config.lang=='en'?'No':'لا' }}
+                      </div>
+                    </div>
+                    <div class="card__contents__item">
+                      <div class="card-label">{{ 'customerEmail_customer' | translate }}</div>
+                      <div class="card-info">
+                        <span class="material-symbols-outlined fill"></span>
+                        {{ row.email }}
+                      </div>
+                    </div>
+
+
+
                   </div>
-                </div>
-                <div class="card__contents__item">
-                  <div class="card-label">{{ 'customerSocialStatus_customer' | translate }}</div>
-                  <div class="card-info">
-                    <span class="material-symbols-outlined fill"></span>
-                    {{ row.socialStatusValue }}
-                  </div>
-                </div>
-                <div class="card__contents__item">
-                  <div class="card-label">{{ 'customerBirthDate_customer' | translate }}</div>
-                  <div class="card-info">
-                    <span class="material-symbols-outlined fill"></span>
-                    {{ row.birthDate | date: 'dd/MM/yyyy' }}
+                  <div class="card-section__items">
+                    <div class="card__contents__item">
+                      <div class="card-label">{{ 'customerKnowingUs_customer' | translate }}</div>
+                      <div class="card-info">
+                        <span class="material-symbols-outlined fill"></span>
+                        {{ row.knowingUs }}
+                      </div>
+                    </div>
                   </div>
                 </div>
 
               </div>
-              <div class="card-section__items">
-
-                <div class="card__contents__item">
-                  <div class="card-label">{{ 'customerCountry_customer' | translate }}</div>
-                  <div class="card-info">
-                    <span class="material-symbols-outlined fill"></span>
-                    {{ row.state }}
-                  </div>
+              <div class="one">
+                <div [matMenuTriggerFor]="menu" class="card__actions">
+                  <span class="material-symbols-outlined card__actions__details">more_vert</span>
                 </div>
-                <div class="card__contents__item">
-                  <div class="card-label">{{ 'customerIsAgree_customer' | translate }}</div>
-                  <div class="card-info">
-                    <span class="material-symbols-outlined fill"></span>
-                    {{ row.isAgree == 'True' ? layoutService.config.lang =='en'?'Yes':'نعم' :
-                    layoutService.config.lang=='en'?'No':'لا' }}
-                  </div>
-                </div>
-                <div class="card__contents__item">
-                  <div class="card-label">{{ 'customerEmail_customer' | translate }}</div>
-                  <div class="card-info">
-                    <span class="material-symbols-outlined fill"></span>
-                    {{ row.email }}
-                  </div>
-                </div>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item (click)="openAddCustomer(row)">
+                    <span class="material-symbols-outlined">Edit</span>
+                    {{ 'Edit_Customer' | translate }}
+                  </button>
+                  <button mat-menu-item (click)="confirmDelete(row)">
+                    <span class="material-symbols-outlined">delete</span>
+                    {{ 'Delete_Customer' | translate }}
+                  </button>
+                </mat-menu>
 
-
-
-              </div>
-              <div class="card-section__items">
-                <div class="card__contents__item">
-                  <div class="card-label">{{ 'customerKnowingUs_customer' | translate }}</div>
-                  <div class="card-info">
-                    <span class="material-symbols-outlined fill"></span>
-                    {{ row.knowingUs }}
-                  </div>
-                </div>
               </div>
             </div>
-
-          </div>
-          <div class="one">
-            <div [matMenuTriggerFor]="menu" class="card__actions">
-              <span class="material-symbols-outlined card__actions__details">more_vert</span>
-            </div>
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item (click)="openAddCustomer(row)">
-                <span class="material-symbols-outlined">Edit</span>
-                {{ 'Edit_Customer' | translate }}
-              </button>
-              <button mat-menu-item (click)="confirmDelete(row)">
-                <span class="material-symbols-outlined">delete</span>
-                {{ 'Delete_Customer' | translate }}
-              </button>
-            </mat-menu>
 
           </div>
         </div>
 
-      </div>
+        <div class="all d-flex">
+          <div class="total">
+            {{ "totalCustomer_customer" | translate }}:{{ totalRecords }}
+          </div>
+
+        </div>
+        <p-paginator class="mt-2" [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[4, 12, 20, 30]"
+          [first]="first" (onPageChange)="paginate($event)"></p-paginator>
+        <button class="add-button" (click)="openAddCustomer()">
+          <span class="material-symbols-outlined">add</span>
+        </button>
+
+      </ng-container>
+
+      <ng-template #ListView>
+        <div class="row">
+          <div *ngFor="let list of [1, 2, 3, 4]" class="row mx-0 mt-2">
+            <p-skeleton height="7.5rem"></p-skeleton>
+          </div>
+        </div>
+      </ng-template>
+
+      <p-confirmDialog #positionDialog key="positionDialog" position="bottom" [baseZIndex]="10000" onHide="true">
+        <ng-template pTemplate="footer">
+          <button type="button" pButton icon="pi pi-times" label="{{ 'No' | translate }}"
+            (click)="positionDialog.reject()"></button>
+          <button type="button" pButton icon="pi pi-check" label="{{ 'Yes' | translate }}"
+            (click)="positionDialog.accept()"></button>
+        </ng-template>
+      </p-confirmDialog>
+
     </div>
-
-    <div class="all d-flex">
-      <div class="total">
-        {{ "totalCustomer_customer" | translate }}:{{ totalRecords }}
-      </div>
-
-    </div>
-    <p-paginator class="mt-2" [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[4, 12, 20, 30]"
-      [first]="first" (onPageChange)="paginate($event)"></p-paginator>
-    <button class="add-button" (click)="openAddCustomer()">
-      <span class="material-symbols-outlined">add</span>
-    </button>
-
-  </ng-container>
-
-  <ng-template #ListView>
-    <div class="row">
-      <div *ngFor="let list of [1, 2, 3, 4]" class="row mx-0 mt-2">
-        <p-skeleton height="7.5rem"></p-skeleton>
-      </div>
-    </div>
-  </ng-template>
-
-  <p-confirmDialog #positionDialog key="positionDialog" position="bottom" [baseZIndex]="10000" onHide="true">
-    <ng-template pTemplate="footer">
-      <button type="button" pButton icon="pi pi-times" label="{{ 'No' | translate }}"
-        (click)="positionDialog.reject()"></button>
-      <button type="button" pButton icon="pi pi-check" label="{{ 'Yes' | translate }}"
-        (click)="positionDialog.accept()"></button>
-    </ng-template>
-  </p-confirmDialog>
-
-</div>
