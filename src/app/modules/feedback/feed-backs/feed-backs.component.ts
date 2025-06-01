@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { LayoutService } from 'src/app/layout/service/layout.service';
 import { FeeddbackService } from 'src/app/Core/services/feeddback.service';
 import { MessageService, ConfirmationService } from 'primeng/api';
-import { FeedbackResponse, FeedbackSearchRequest } from '../feedback.module';
+import { FeedbackResponse, FeedbackSearchRequest } from '../feedBacks.module';
 
 @Component({
   selector: 'app-feed-backs',
@@ -13,7 +13,7 @@ import { FeedbackResponse, FeedbackSearchRequest } from '../feedback.module';
   providers: [MessageService, ConfirmationService]
 })
 export class FeedBacksComponent {
- pageSize: number = 12;
+  pageSize: number = 12;
   first: number = 0;
   totalRecords: number = 0;
   dataForm!: FormGroup;

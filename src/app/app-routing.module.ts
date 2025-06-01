@@ -33,12 +33,22 @@ const routes: Routes = [
     }],
   },
   {
-   path: 'user-feedback',
+    path: 'user-feedback',
     children: [{
       path: '',
       loadChildren: () =>
         import('./modules/feedback/feedback.module').then(
           (m) => m.FeedbackModule
+        )
+    }],
+  },
+  {
+    path: 'thanks',
+    children: [{
+      path: '',
+      loadChildren: () =>
+        import('./modules/thank-page/thank-page.module').then(
+          (m) => m.ThankPageModule
         )
     }],
   },
@@ -54,7 +64,7 @@ const routes: Routes = [
             (m) => m.CustomersModule
           )
       },
-       {
+      {
         path: 'employees',
         loadChildren: () =>
           import('./modules/employees/employees.module').then(
@@ -104,10 +114,11 @@ const routes: Routes = [
           )
       },
      {
+      {
         path: 'feedback',
         loadChildren: () =>
-          import('./modules/feedback/feedback.module').then(
-            (m) => m.FeedbackModule
+          import('./modules/feedback/feedBacks.module').then(
+            (m) => m.FeedBacksModule
           )
       },
       {

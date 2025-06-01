@@ -4,12 +4,12 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LayoutService } from 'src/app/layout/service/layout.service';
 import { SurveyServiceService } from 'src/app/layout/service/survey-service.service';
-import { SurveySession } from '../../SurveySession/survey-session/survey-session.module';
+import { SubmitAnswersRequest, SurveySession } from '../../SurveySession/survey-session/survey-session.module';
 import { QuestionService } from 'src/app/layout/service/question.service';
 import { QuestionResponse, QuestionSearchRequest } from '../../questions/questions.module';
 import { FormResponse, FormSearchRequest } from '../../form/form.module';
 import { FormService } from 'src/app/layout/service/form.service';
-
+import { AnswerPair } from '../../SurveySession/survey-session/survey-session.module';
 @Component({
   selector: 'app-page1-questions',
   templateUrl: './page1-questions.component.html',
@@ -40,7 +40,7 @@ export class Page1QuestionsComponent {
 
     this.session = this.surveyService.getSession();
     if (!this.session.answers) {
-      this.session.answers = {};
+      this.session.answers = [];
     }
     await this.RetriveQuestions();
     this.pageIndex = 0;
@@ -107,7 +107,7 @@ export class Page1QuestionsComponent {
     }
   }
 
-  openPage2() {
+  async openPage2() {
 
     const missing = this.displayedQuestions
       .filter(q => q.uuid)
@@ -118,14 +118,32 @@ export class Page1QuestionsComponent {
     }
     this.pageError = false;
 
+    this.session.answers = this.session.answers || [];
     this.displayedQuestions.forEach(q => {
-      if (q.uuid) {
-        this.session.answers![q.uuid] = this.dataForm.value[q.uuid];
+      if (!q.uuid) return;
+      const selectedOpt = this.dataForm.value[q.uuid];
+      const idx = this.session.answers!.findIndex(p => p.questionUUID === q.uuid);
+
+      if (idx > -1) {
+        this.session.answers![idx].optionUUID = selectedOpt;
+      } else {
+        this.session.answers!.push({
+          questionUUID: q.uuid,
+          optionUUID: selectedOpt
+        });
       }
     });
 
     this.pageIndex++;
     if (this.pageIndex * this.pageSize >= this.questions.length) {
+      const payload: SubmitAnswersRequest = {
+        formUUID: this.session.formUuid!,
+        answers: this.session.answers || [],
+        customer: this.session.customer,
+      };
+
+      console.log(payload)
+      // await this.surveyService.submitAllAnswers(payload);
       this.route.navigate(['user-feedback']);
     } else {
       this.loadPageForm();

@@ -173,6 +173,6 @@
   "LastNameAr_Password" : "Last Name in Arabic",
   "FirstNameEn_Password" : "First Name in English",
   "LastNameEn_Password" : "Last Name in English"
-
-
+ "thanks_feedback":"Thank you!",
+ "sentSuccessfuly_feedback":"Your feedback has been sent successfully."
 }

@@ -173,9 +173,8 @@
   "LastNameAr_Password" : "الأسم الأخير بالعربية",
   "FirstNameEn_Password" : "الأسم الأول بالإنجليزية",
   "LastNameEn_Password" : "الإسم الأخير بالإنجليزية"
-
-
-
+  "thanks_feedback":"شكرا لك!",
+  "sentSuccessfuly_feedback":"لقد تم إرسال تعليقك بنجاح."
 
 }
 
