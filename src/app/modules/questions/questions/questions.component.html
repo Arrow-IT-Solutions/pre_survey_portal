@@ -83,5 +83,14 @@
   </div>
 </ng-template>
 
+  <p-confirmDialog #positionDialog key="positionDialog" position="bottom" [baseZIndex]="10000" onHide="true">
+    <ng-template pTemplate="footer">
+      <button type="button" pButton icon="pi pi-times" label="{{ 'No' | translate }}"
+        (click)="positionDialog.reject()"></button>
+      <button type="button" pButton icon="pi pi-check" label="{{ 'Yes' | translate }}"
+        (click)="positionDialog.accept()"></button>
+    </ng-template>
+  </p-confirmDialog>
+
 
 <p-toast key="toast"></p-toast>

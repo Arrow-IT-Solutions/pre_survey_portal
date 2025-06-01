@@ -143,7 +143,7 @@ export class Page1QuestionsComponent {
       };
 
       console.log(payload)
-      // await this.surveyService.submitAllAnswers(payload);
+       await this.surveyService.submitAllAnswers(payload);
       this.route.navigate(['user-feedback']);
     } else {
       this.loadPageForm();
