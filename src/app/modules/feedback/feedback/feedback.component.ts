@@ -5,11 +5,8 @@ import { FeeddbackService } from 'src/app/Core/services/feeddback.service';
 import { MessageService } from 'primeng/api';
 import { LayoutService } from 'src/app/layout/service/layout.service';
 import { FeedbackRequest } from '../feedBacks.module';
-<<<<<<< HEAD
 import { SurveyServiceService } from 'src/app/layout/service/survey-service.service';
-=======
 import { Router } from '@angular/router';
->>>>>>> ad3ec033505cda54552f98c6518fda12f106070b
 
 @Component({
   selector: 'app-feedback',
@@ -31,11 +28,8 @@ export class FeedbackComponent {
     public feedbasckService: FeeddbackService,
     public layoutService: LayoutService,
     public messageService: MessageService,
-<<<<<<< HEAD
-    public surveyService: SurveyServiceService
-=======
-    public route:Router
->>>>>>> ad3ec033505cda54552f98c6518fda12f106070b
+    public surveyService: SurveyServiceService,
+    public route: Router
   ) {
     this.dataform = this.formBuilder.group({
       feedback_note: [''],
@@ -100,7 +94,7 @@ export class FeedbackComponent {
   selectRating(val: string) {
     this.dataform.get('rating')!.setValue(val);
   }
-  openThanksMessage(){
+  openThanksMessage() {
     this.route.navigate(['/thanks']);
   }
 
