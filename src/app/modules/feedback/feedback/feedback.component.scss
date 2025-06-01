@@ -332,3 +332,61 @@ input[class="super-sad"]:focus + svg {
 :host ::ng-deep .rating label input.super-sad:checked+svg {
   fill: #EE7F88;
 }
+:host ::ng-deep .rating label {
+  position: relative;
+  display: inline-block;
+  margin: 0 .5rem;
+  cursor: pointer;
+}
+
+/* stretch the native radio over the full label so clicks always hit it */
+:host ::ng-deep .rating label input[type="radio"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* let clicks on the SVG pass through to the input underneath */
+:host ::ng-deep .rating label svg {
+  pointer-events: none;
+  transition: all .2s;
+  fill: rgb(242, 242, 242);
+  /* default (gray) */
+}
+
+/* Now restore each color on hover/focus/checked exactly as you originally intended: */
+:host ::ng-deep .rating label input.super-happy:hover+svg,
+:host ::ng-deep .rating label input.super-happy:focus+svg,
+:host ::ng-deep .rating label input.super-happy:checked+svg {
+  fill: #55C57F;
+}
+
+:host ::ng-deep .rating label input.happy:hover+svg,
+:host ::ng-deep .rating label input.happy:focus+svg,
+:host ::ng-deep .rating label input.happy:checked+svg {
+  fill: #E1DD5C;
+}
+
+:host ::ng-deep .rating label input.neutral:hover+svg,
+:host ::ng-deep .rating label input.neutral:focus+svg,
+:host ::ng-deep .rating label input.neutral:checked+svg {
+  fill: #76C3E8;
+}
+
+:host ::ng-deep .rating label input.sad:hover+svg,
+:host ::ng-deep .rating label input.sad:focus+svg,
+:host ::ng-deep .rating label input.sad:checked+svg {
+  fill: #EFA372;
+}
+
+:host ::ng-deep .rating label input.super-sad:hover+svg,
+:host ::ng-deep .rating label input.super-sad:focus+svg,
+:host ::ng-deep .rating label input.super-sad:checked+svg {
+  fill: #EE7F88;
+}

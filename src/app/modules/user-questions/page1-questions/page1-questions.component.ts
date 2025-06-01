@@ -143,7 +143,13 @@ export class Page1QuestionsComponent {
       };
 
       console.log(payload)
-       await this.surveyService.submitAllAnswers(payload);
+      let response
+      response = await this.surveyService.Add(payload);
+
+      console.log(response)
+
+      this.surveyService.customerUUID = response.customerUUID;
+
       this.route.navigate(['user-feedback']);
     } else {
       this.loadPageForm();

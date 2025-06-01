@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
-import { SurveySession } from 'src/app/modules/SurveySession/survey-session/survey-session.module';
+import { SubmitAnswersRequest, SurveySession, SurveyResponse } from 'src/app/modules/SurveySession/survey-session/survey-session.module';
+import { HttpClientService } from 'src/app/Core/services/http-client.service';
+import { LayoutService } from './layout.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SurveyServiceService {
   private session: SurveySession | null = null;
+  public SelectedData: SurveyResponse;
+  public customerUUID: any
   setSession(sess: SurveySession) {
     this.session = sess;
   }
-  constructor() { }
+  constructor(public layoutService: LayoutService, public httpClient: HttpClientService) { }
 
   getSession(): SurveySession {
     if (!this.session) {
@@ -19,5 +23,11 @@ export class SurveyServiceService {
   }
   clearSession() {
     this.session = null;
+  }
+
+  async Add(data: SubmitAnswersRequest) {
+    const apiUrl = `/api/survey`;
+
+    return await this.httpClient.post(apiUrl, data);
   }
 }

@@ -20,35 +20,34 @@ export class AddCustomerComponent {
   btnLoading: boolean = false;
   loading: boolean = false;
   customerSocialStatus: ConstantResponse[] = [];
-  constructor(public formBuilder:FormBuilder,
+  constructor(public formBuilder: FormBuilder,
     public messageService: MessageService,
     public constantService: ConstantService,
     public customerService: CustomerService,
     public layoutService: LayoutService,
-  ){
-    this.dataForm=this.formBuilder.group({
-      fullNameAr:['',Validators.required],
-      fullNameEn:['',Validators.required],
-      SocialStatus:['',Validators.required],
-      birthDate:['',Validators.required],
-      state:['',Validators.required],
-      email:['',Validators.required],
-      phone:['',Validators.required],
-      favouriteFood:['',Validators.required],
-      KnowingUs:['',Validators.required],
-      sendOffers:['No',Validators.required]
+  ) {
+    this.dataForm = this.formBuilder.group({
+      fullNameAr: ['', Validators.required],
+      fullNameEn: ['', Validators.required],
+      SocialStatus: ['', Validators.required],
+      birthDate: ['', Validators.required],
+      state: ['', Validators.required],
+      email: ['', Validators.required],
+      phone: ['', Validators.required],
+      KnowingUs: ['', Validators.required],
+      sendOffers: ['No', Validators.required]
     })
   }
-    get form(): { [key: string]: AbstractControl } {
+  get form(): { [key: string]: AbstractControl } {
     return this.dataForm.controls;
   }
 
-    async ngOnInit() {
+  async ngOnInit() {
     try {
       this.loading = true;
-      const SocialStatusResponse = await this.constantService.Search('SocialStatus',0) as any;
+      const SocialStatusResponse = await this.constantService.Search('SocialStatus', 0) as any;
       this.customerSocialStatus = SocialStatusResponse.data;
-      console.log('SocialStatusResponse ',SocialStatusResponse);
+      console.log('SocialStatusResponse ', SocialStatusResponse);
       if (this.customerService.SelectedData != null) {
         await this.FillData();
       }
@@ -60,7 +59,7 @@ export class AddCustomerComponent {
   }
 
   async onSubmit() {
-     try {
+    try {
       this.btnLoading = true;
       if (this.dataForm.invalid) {
         this.submitted = true;
@@ -99,9 +98,8 @@ export class AddCustomerComponent {
         state: this.dataForm.controls['state'].value == null ? null : this.dataForm.controls['state'].value.toString(),
         email: this.dataForm.controls['email'].value == null ? null : this.dataForm.controls['email'].value.toString(),
         phone: this.dataForm.controls['phone'].value == null ? null : this.dataForm.controls['phone'].value.toString(),
-        favoriteFood: this.dataForm.controls['favouriteFood'].value == null ? null : this.dataForm.controls['favouriteFood'].value.toString(),
         knowingUs: this.dataForm.controls['KnowingUs'].value == null ? null : this.dataForm.controls['KnowingUs'].value.toString(),
-        isAgree: this.dataForm.controls['sendOffers'].value.toString()=='Yes'?'True':'False'
+        isAgree: this.dataForm.controls['sendOffers'].value.toString() == 'Yes' ? 'True' : 'False'
       };
       console.log(updateCustomer)
       response = await this.customerService.Update(updateCustomer);
@@ -114,12 +112,11 @@ export class AddCustomerComponent {
         state: this.dataForm.controls['state'].value == null ? null : this.dataForm.controls['state'].value.toString(),
         email: this.dataForm.controls['email'].value == null ? null : this.dataForm.controls['email'].value.toString(),
         phone: this.dataForm.controls['phone'].value == null ? null : this.dataForm.controls['phone'].value.toString(),
-        favoriteFood: this.dataForm.controls['favouriteFood'].value == null ? null : this.dataForm.controls['favouriteFood'].value.toString(),
         knowingUs: this.dataForm.controls['KnowingUs'].value == null ? null : this.dataForm.controls['KnowingUs'].value.toString(),
-        isAgree: this.dataForm.controls['sendOffers'].value.toString()=='Yes'?'True':'False'
+        isAgree: this.dataForm.controls['sendOffers'].value.toString() == 'Yes' ? 'True' : 'False'
       };
 
-      console.log('addCustomer ',addCustomer)
+      console.log('addCustomer ', addCustomer)
 
       response = await this.customerService.Add(addCustomer);
     }
@@ -148,20 +145,19 @@ export class AddCustomerComponent {
     this.submitted = false;
   }
 
-    resetForm() {
+  resetForm() {
     this.dataForm.reset();
   }
 
-  FillData(){
+  FillData() {
     let temp = {
       fullNameAr: this.customerService.SelectedData?.customerTranslation!['ar'].fullName,
       fullNameEn: this.customerService.SelectedData?.customerTranslation!['en'].fullName,
-      SocialStatus:Number(this.customerService.SelectedData?.socialStatus),
+      SocialStatus: Number(this.customerService.SelectedData?.socialStatus),
       birthDate: this.customerService.SelectedData?.birthDate,
       state: this.customerService.SelectedData?.state,
       email: this.customerService.SelectedData?.email,
       phone: this.customerService.SelectedData?.phone,
-      favouriteFood: this.customerService.SelectedData?.favoriteFood,
       KnowingUs: this.customerService.SelectedData?.knowingUs,
       sendOffers: this.customerService.SelectedData?.isAgree == 'True' ? 'Yes' : 'No'
     };
