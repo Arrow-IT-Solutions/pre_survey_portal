@@ -23,20 +23,20 @@
                 translate }}</span>
             </div>
           </div>
-            <div class="col-12 mb-3">
+          <div class="col-12 mb-3">
             <div class="p-float-label">
               <p-dropdown [options]="customerSocialStatus" optionLabel="value" optionValue="key"
                 formControlName="SocialStatus"></p-dropdown>
               <label id="month">{{ 'customerSocialState_AddCustomer' | translate }}</label>
-               <span *ngIf="submitted && form['SocialStatus'].errors" class="error-validation">{{ 'Field_Required' |
+              <span *ngIf="submitted && form['SocialStatus'].errors" class="error-validation">{{ 'Field_Required' |
                 translate }}</span>
             </div>
           </div>
-           <div class="col-12 mb-3">
+          <div class="col-12 mb-3">
             <div class="p-float-label">
               <p-calendar [showIcon]="true" formControlName="birthDate"></p-calendar>
               <label>{{ 'Birthdate_AddCustomer' | translate }}</label>
-               <span *ngIf="submitted && form['birthDate'].errors" class="error-validation">{{ 'Field_Required' |
+              <span *ngIf="submitted && form['birthDate'].errors" class="error-validation">{{ 'Field_Required' |
                 translate }}</span>
             </div>
           </div>
@@ -67,14 +67,6 @@
           </div>
           <div class="col-12 mb-3">
             <div class="p-float-label">
-              <input pInputText type="text" formControlName="favouriteFood" />
-              <label>{{ 'customerFavouriteFood_AddCustomer' | translate }}</label>
-               <span *ngIf="submitted && form['favouriteFood'].errors" class="error-validation">{{ 'Field_Required' |
-                translate }}</span>
-            </div>
-          </div>
-           <div class="col-12 mb-3">
-            <div class="p-float-label">
               <input pInputText type="text" formControlName="KnowingUs" />
               <label>{{ 'customerKnowingUs_AddCustomer' | translate }}</label>
               <span *ngIf="submitted && form['KnowingUs'].errors" class="error-validation">{{ 'Field_Required' |
@@ -82,19 +74,19 @@
             </div>
           </div>
           <div class="col-12 mb-3">
-             <label>{{ 'sendOffers_AddCustomer' | translate }}</label>
+            <label>{{ 'sendOffers_AddCustomer' | translate }}</label>
             <div class="radio-options d-flex gap-4 mt-2">
-                <div class="radio-item d-flex align-items-center gap-2">
-                    <p-radioButton value="Yes" formControlName="sendOffers" inputId="option1"></p-radioButton>
+              <div class="radio-item d-flex align-items-center gap-2">
+                <p-radioButton value="Yes" formControlName="sendOffers" inputId="option1"></p-radioButton>
 
-                    <label for="option1">{{ 'Yes' | translate }}</label>
-                </div>
-                <div class="radio-item d-flex align-items-center gap-2">
-                    <p-radioButton value="No" formControlName="sendOffers" inputId="option2" ></p-radioButton>
-                    <label for="option2">{{ 'No' | translate }}</label>
+                <label for="option1">{{ 'Yes' | translate }}</label>
+              </div>
+              <div class="radio-item d-flex align-items-center gap-2">
+                <p-radioButton value="No" formControlName="sendOffers" inputId="option2"></p-radioButton>
+                <label for="option2">{{ 'No' | translate }}</label>
 
 
-                </div>
+              </div>
             </div>
           </div>
           <!-- <div class="flex flex-wrap gap-4">

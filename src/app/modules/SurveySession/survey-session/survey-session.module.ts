@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { QuestionResponse } from '../../questions/questions.module';
 import { CustomerRequest } from '../../customers/customers.module';
+import { ResponseBase } from 'src/app/shared/class/class';
 
 
 
@@ -30,4 +31,10 @@ export interface SubmitAnswersRequest {
   formUUID: string;
   answers: AnswerPair[];
   customer: CustomerRequest;
+}
+
+export interface SurveyResponse extends ResponseBase {
+  formUUID: string,
+  customerUUID: string
+
 }

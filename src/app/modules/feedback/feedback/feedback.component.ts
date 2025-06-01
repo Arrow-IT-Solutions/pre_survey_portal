@@ -5,6 +5,7 @@ import { FeeddbackService } from 'src/app/Core/services/feeddback.service';
 import { MessageService } from 'primeng/api';
 import { LayoutService } from 'src/app/layout/service/layout.service';
 import { FeedbackRequest } from '../feedBacks.module';
+import { SurveyServiceService } from 'src/app/layout/service/survey-service.service';
 
 @Component({
   selector: 'app-feedback',
@@ -18,18 +19,25 @@ export class FeedbackComponent {
   btnLoading: boolean = false;
   loading: boolean = false;
   dataform!: FormGroup;
+  customerIDFK: any;
   @ViewChild(AlertModelComponent) alertModal!: AlertModelComponent;
 
 
   constructor(public formBuilder: FormBuilder,
     public feedbasckService: FeeddbackService,
     public layoutService: LayoutService,
-    public messageService: MessageService
+    public messageService: MessageService,
+    public surveyService: SurveyServiceService
   ) {
     this.dataform = this.formBuilder.group({
       feedback_note: [''],
-      rating: ['']
+      rating: ['4']
     })
+  }
+
+  ngOnInit() {
+    this.customerIDFK = this.surveyService.customerUUID;
+    console.log('CustomerUUID ', this.customerIDFK)
   }
 
   ngAfterViewInit() {
@@ -57,12 +65,10 @@ export class FeedbackComponent {
     // add
     var feedback: FeedbackRequest = {
       note: this.dataform.controls['feedback_note'].value,
-      userIDFK: '2CBCCF10-A9C1-4835-A2F1-55AC0226CE27',
+      userIDFK: this.customerIDFK.toString(),
       value: this.dataform.controls['rating'].value.toString()
 
     };
-
-    console.log(feedback)
 
     response = await this.feedbasckService.Add(feedback);
 
