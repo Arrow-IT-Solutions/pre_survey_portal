@@ -427,3 +427,24 @@
 #feed-notes{
   padding-left: 0.5rem;
 }
+
+    .icon-container{
+      display: flex;
+      margin-bottom: 3rem;
+
+      @media (max-width:767px) {
+        padding-top: 0;
+        margin-bottom: 5rem;
+      }
+      @media (max-width: 991px) and (min-width: 768px) {
+       padding-top: 0;
+       margin-bottom: 1rem;
+
+      }
+      .fill{
+        color: $primary-color;
+
+
+       }
+
+     }

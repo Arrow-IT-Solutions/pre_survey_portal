@@ -43,6 +43,16 @@ const routes: Routes = [
     }],
   },
   {
+    path: 'thanks',
+    children: [{
+      path: '',
+      loadChildren: () =>
+        import('./modules/thank-page/thank-page.module').then(
+          (m) => m.ThankPageModule
+        )
+    }],
+  },
+  {
     path: 'layout-admin',
     component: ContentLayoutAdminComponent,
     // canActivate: [AuthGuardService],
@@ -103,11 +113,19 @@ const routes: Routes = [
             (m) => m.FormModule
           )
       },
+     {
       {
         path: 'feedback',
         loadChildren: () =>
           import('./modules/feedback/feedBacks.module').then(
             (m) => m.FeedBacksModule
+          )
+      },
+      {
+        path: 'password',
+        loadChildren: () =>
+          import('./modules/password/password.module').then(
+            (m) => m.PasswordModule
           )
       },
 
