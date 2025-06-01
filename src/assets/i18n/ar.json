@@ -144,7 +144,9 @@
   "EmployeePhone_AddEmployee":"رقم الهاتف",
   "username_AddEmployee":"اسم المستخدم",
   "Gender_AddEmployee":"الجنس",
-  "Birthdate_AddEmployee":"تاريخ الميلاد"
+  "Birthdate_AddEmployee":"تاريخ الميلاد",
+  "thanks_feedback":"شكرا لك!",
+  "sentSuccessfuly_feedback":"لقد تم إرسال تعليقك بنجاح. ✅ ✅"
 
 }
 
