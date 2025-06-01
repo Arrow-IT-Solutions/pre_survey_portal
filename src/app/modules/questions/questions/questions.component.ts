@@ -98,7 +98,6 @@ export class QuestionsComponent {
   }
 
   confirmDelete(row: QuestionResponse) {
-    console.log("DELETE")
     this.confirmationService.confirm({
       message: this.translate.instant("Do_you_want_to_delete_this_record?"),
       header: this.translate.instant("Delete_Confirmation"),

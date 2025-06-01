@@ -28,8 +28,8 @@ export class FeedbackComponent {
     public feedbasckService: FeeddbackService,
     public layoutService: LayoutService,
     public messageService: MessageService,
-    public surveyService: SurveyServiceService
-    public route:Router
+    public surveyService: SurveyServiceService,
+    public route: Router
   ) {
     this.dataform = this.formBuilder.group({
       feedback_note: [''],
@@ -94,7 +94,7 @@ export class FeedbackComponent {
   selectRating(val: string) {
     this.dataform.get('rating')!.setValue(val);
   }
-  openThanksMessage(){
+  openThanksMessage() {
     this.route.navigate(['/thanks']);
   }
 
