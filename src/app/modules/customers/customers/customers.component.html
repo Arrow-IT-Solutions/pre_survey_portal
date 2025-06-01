@@ -14,7 +14,7 @@
         <div class="flex flex-wrap justify-content-center gap-3">
           <span class="p-input-icon-left p-0">
             <i class="pi pi-search"></i>
-            <input class="search-field"  type="text" (ngModelChange)="OnChange()"
+            <input class="search-field" type="text" (ngModelChange)="OnChange()"
               placeholder="{{ 'searchCustomerPhone_customer'| translate }}" formControlName="phone" pInputText />
           </span>
         </div>
@@ -24,13 +24,6 @@
       <p-button class="reset-btn" (onClick)="resetform()">
         <span class="material-symbols-outlined">restart_alt</span>
       </p-button>
-    </div>
-
-
-
-    </div>
-
-
   </div>
 
 
@@ -77,7 +70,7 @@
                 </div>
 
               </div>
-               <div class="card-section__items">
+              <div class="card-section__items">
 
                 <div class="card__contents__item">
                   <div class="card-label">{{ 'customerCountry_customer' | translate }}</div>
@@ -90,17 +83,11 @@
                   <div class="card-label">{{ 'customerIsAgree_customer' | translate }}</div>
                   <div class="card-info">
                     <span class="material-symbols-outlined fill"></span>
-                    {{ row.isAgree == 'True' ? layoutService.config.lang =='en'?'Yes':'نعم' : layoutService.config.lang=='en'?'No':'لا' }}
+                    {{ row.isAgree == 'True' ? layoutService.config.lang =='en'?'Yes':'نعم' :
+                    layoutService.config.lang=='en'?'No':'لا' }}
                   </div>
                 </div>
                 <div class="card__contents__item">
-                  <div class="card-label">{{ 'customerFavouriteFood_customer' | translate }}</div>
-                  <div class="card-info">
-                    <span class="material-symbols-outlined fill"></span>
-                    {{ row.favoriteFood }}
-                  </div>
-                </div>
-                 <div class="card__contents__item">
                   <div class="card-label">{{ 'customerEmail_customer' | translate }}</div>
                   <div class="card-info">
                     <span class="material-symbols-outlined fill"></span>
@@ -112,7 +99,7 @@
 
               </div>
               <div class="card-section__items">
-                 <div class="card__contents__item">
+                <div class="card__contents__item">
                   <div class="card-label">{{ 'customerKnowingUs_customer' | translate }}</div>
                   <div class="card-info">
                     <span class="material-symbols-outlined fill"></span>
@@ -172,7 +159,7 @@
     </div>
   </ng-template>
 
-    <p-confirmDialog #positionDialog key="positionDialog" position="bottom" [baseZIndex]="10000" onHide="true">
+  <p-confirmDialog #positionDialog key="positionDialog" position="bottom" [baseZIndex]="10000" onHide="true">
     <ng-template pTemplate="footer">
       <button type="button" pButton icon="pi pi-times" label="{{ 'No' | translate }}"
         (click)="positionDialog.reject()"></button>
@@ -182,6 +169,3 @@
   </p-confirmDialog>
 
 </div>
-
-
-

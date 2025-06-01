@@ -22,8 +22,7 @@ import { RequestBase, ResponseBase, SearchRequestBase } from 'src/app/shared/cla
   ]
 })
 export class CustomersModule { }
-export interface CustomerResponse extends ResponseBase
-{
+export interface CustomerResponse extends ResponseBase {
   uuid?: string;
   customerTranslation?: { [key: string]: CustomerTranslationResponse };
   socialStatus?: string;
@@ -33,7 +32,6 @@ export interface CustomerResponse extends ResponseBase
   email?: string;
   state?: string;
   knowingUs?: string;
-  favoriteFood?: string;
   isAgree?: string;
 }
 
@@ -50,7 +48,6 @@ export interface CustomerSearchRequest extends SearchRequestBase {
   email?: string;
   birthDate?: string;
   socialStatus?: string;
-  favoriteFood?: string;
   isAgree?: string;
 }
 
@@ -63,7 +60,6 @@ export interface CustomerRequest extends RequestBase {
   email?: string;
   state?: string;
   knowingUs?: string;
-  favoriteFood?: string;
   isAgree?: string;
 }
 
@@ -82,7 +78,6 @@ export interface CustomerUpdateRequest extends RequestBase {
   email?: string;
   state?: string;
   knowingUs?: string;
-  favoriteFood?: string;
   isAgree?: string;
 }
 
