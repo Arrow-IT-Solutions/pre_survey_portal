@@ -19,7 +19,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="!loading; else loadingTpl">
+  <div *ngIf="!loading; else ListView">
     <div class="row mx-0 mt-2">
       <!-- 3 columns per row on md+ screens, full width on xs -->
       <div class="col-12 col-md-4 mb-4 d-flex" *ngFor="let row of data">
@@ -77,11 +77,14 @@
 
 
 
-<ng-template #loadingTpl>
-  <div class="loading-grid">
-    <p-skeleton *ngFor="let i of [1,2,3,4]" height="10rem"></p-skeleton>
-  </div>
-</ng-template>
+ <ng-template #ListView>
+    <div class="row">
+      <div *ngFor="let list of [1, 2, 3,]" class="col mx-0 mt-2">
+        <p-skeleton height="20rem"  ></p-skeleton>
+      </div>
+     
+    </div>
+  </ng-template>
 
 <p-confirmDialog #positionDialog key="positionDialog" position="bottom" [baseZIndex]="10000" onHide="true">
   <ng-template pTemplate="footer">
