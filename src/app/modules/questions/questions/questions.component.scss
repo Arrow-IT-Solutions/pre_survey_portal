@@ -64,23 +64,7 @@
         }
       }
 
-      & .add-button {
-        width: 60px;
-        height: 60px;
-        font-size: $large-icon;
-        border-radius: 50%;
-        color: $white-color;
-        border: none;
-        position: fixed;
-        top: calc(100vh - 85px);
-        right: 1.5rem;
-        background-color: $primary-color;
-
-        &:lang(ar){
-          right: unset;
-          left: 1.5rem;
-        }
-      }
+    
 
       & .filter-field{
         display: flex;
@@ -138,8 +122,8 @@
   }
 
   .card {
-    height: 11rem;
-    max-height: 11rem;
+    height: 20rem;
+    max-height: 20rem;
     padding-bottom: 0.5rem;
     overflow-y: auto;
     .p-card-content {
@@ -217,3 +201,21 @@
         }
       }
     }
+
+      .add-button {
+        width: 60px;
+        height: 60px;
+        font-size: $large-icon;
+        border-radius: 50%;
+        color: $white-color;
+        border: none;
+        position: fixed;
+        top: calc(100vh - 85px);
+        right: 1.5rem;
+        background-color: $primary-color;
+
+        &:lang(ar){
+          right: unset;
+          left: 1.5rem;
+        }
+      }
