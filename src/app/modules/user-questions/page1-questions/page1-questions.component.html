@@ -46,12 +46,10 @@
             </span>
           </div>
           <div class="options">
-            <label *ngFor="let opt of q.options">
-              <input type="radio" [formControlName]="q.uuid" [value]="opt.uuid" name="{{ q.uuid }}" />
-              <span>
-                {{ opt.optionTranslation?.[layoutService.config.lang]?.name }}
-              </span>
-            </label>
+          <div class="radio-wrapper-6" *ngFor="let opt of q.options">
+          <input type="radio" [formControlName]="q.uuid" [value]="opt.uuid" name="{{ q.uuid }}">
+          <label>{{ opt.optionTranslation?.[layoutService.config.lang]?.name }}</label>
+         </div>
           </div>
         </div>
       </ng-container>

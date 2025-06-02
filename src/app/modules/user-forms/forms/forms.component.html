@@ -103,14 +103,15 @@
 
         <!-- then the options -->
         <div class="radio_options">
-          <label>
-            <input formControlName="sendOffers" type="radio" name="sendOffers" [value]="1" />
-            <span>{{'acceptOffers_forms' | translate}}</span>
-          </label>
-          <label>
-            <input formControlName="sendOffers" type="radio" name="sendOffers" [value]="0" />
-            <span>{{'notAcceptOffers_forms' | translate}}</span>
-          </label>
+         <div class="radio-wrapper-6">
+          <input formControlName="sendOffers" type="radio" name="sendOffers" [value]="1">
+          <label>{{'acceptOffers_forms' | translate}}</label>
+         </div>
+          <div class="radio-wrapper-6">
+          <input formControlName="sendOffers" type="radio" name="sendOffers" [value]="0">
+          <label>{{'notAcceptOffers_forms' | translate}}</label>
+         </div>
+          
         </div>
       </div>
     </div>
