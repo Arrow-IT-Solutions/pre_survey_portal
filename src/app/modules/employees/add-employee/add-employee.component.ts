@@ -6,10 +6,10 @@ import { MessageService } from 'primeng/api';
 import { ConstantResponse } from 'src/app/Core/services/constant.service';
 import { ConstantService } from 'src/app/Core/services/constant.service';
 import { CountryCodeService } from 'src/app/Core/services/country-code.service';
-import { CountryCodeResponse, CountryCodeSearchRequest } from '../../auth/auth.module';
 import { EmployeeRequest, EmployeeSearchRequest, EmployeeUpdateRequest, EmployeesResponse } from '../employees.module';
 import { TranslateService } from '@ngx-translate/core';
 import { PasswordComponent } from '../../password/password/password.component';
+import { CountryCodeResponse, CountryCodeSearchRequest } from '../../country-code/country-code.module';
 
 @Component({
   selector: 'app-add-employee',

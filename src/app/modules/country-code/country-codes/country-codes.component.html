@@ -1,0 +1,115 @@
+<div class="options">
+  <div [formGroup]="dataForm" class="row mb-4 m-0  p-0">
+    <div class="container d-flex">
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
+        <div class="flex flex-wrap justify-content-center gap-3">
+          <span class="p-input-icon-left p-0">
+            <i class="pi pi-search"></i>
+            <input class="search-field" type="text" (ngModelChange)="OnChange()"
+              placeholder="{{ 'countryName_countryCode' | translate }}" formControlName="name" pInputText />
+          </span>
+        </div>
+      </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
+        <div class="flex flex-wrap justify-content-center gap-3">
+          <span class="p-input-icon-left p-0">
+            <i class="pi pi-search"></i>
+            <input class="search-field" type="text" (ngModelChange)="OnChange()"
+              placeholder="{{ 'countryCode_countryCode' | translate }}" formControlName="code" pInputText />
+          </span>
+        </div>
+      </div>
+
+<div class="result ms-2 mt-3">
+        <p-button class="reset-btn" (onClick)="resetform()">
+          <span class="material-symbols-outlined">restart_alt</span>
+        </p-button>
+    </div>
+
+    </div>
+
+
+  </div>
+
+
+  <ng-container *ngIf="!loading; else ListView">
+    <div class="row mx-0 mt-2">
+      <!-- 3 columns per row on md+ screens, full width on xs -->
+      <div class="col-12 col-md-4 mb-4 d-flex" *ngFor="let row of data">
+        <!-- “d-flex” + “flex-fill” makes each card stretch to the same height -->
+        <div class="card flex-fill">
+          <div class="icon-container">
+            <img src="assets/images/icons8-option-30.png" alt="" />
+          </div>
+          <div class="card__contents">
+<div class="card__contents__item d-flex gap-5">
+  <div class="d-flex flex-column">
+    <span class="country-label">{{ 'countryName_countryCode' | translate }}</span>
+    <span class="country-name">
+      {{ row.countryCodeTranslation![layoutService.config.lang]?.name }}
+    </span>
+  </div>
+  <div class="d-flex flex-column">
+    <span class="country-label">{{ 'countryCode_countryCode' | translate }}</span>
+    <span class="country-code">
+      {{ row.code }}
+    </span>
+  </div>
+</div>
+          </div>
+          <div class="card__actions mt-auto">
+            <div [matMenuTriggerFor]="menu" class="action-trigger">
+              <span class="material-symbols-outlined">more_vert</span>
+            </div>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="openAddCountryCode(row)">
+                <span class="material-symbols-outlined">edit</span>
+                {{ 'Edit_Option' | translate }}
+              </button>
+              <button mat-menu-item (click)="confirmDelete(row)">
+                <span class="material-symbols-outlined">delete</span>
+                {{ 'Delete_Option' | translate }}
+              </button>
+            </mat-menu>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="all d-flex">
+      <div class="total">
+        {{ "totalCountryCode_CountryCode" | translate }}:{{ totalRecords }}
+      </div>
+
+    </div>
+    <p-paginator class="mt-2" [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[3, 6, 9, 12]"
+      [first]="first" (onPageChange)="paginate($event)"></p-paginator>
+    <button class="add-button" (click)="openAddCountryCode()">
+      <span class="material-symbols-outlined">add</span>
+    </button>
+
+  </ng-container>
+
+  <ng-template #ListView>
+    <div class="row">
+      <div *ngFor="let list of [1, 2, 3, 4]" class="row mx-0 mt-2">
+        <p-skeleton height="7.5rem"></p-skeleton>
+      </div>
+    </div>
+  </ng-template>
+
+  <p-confirmDialog #positionDialog key="positionDialog" position="bottom" [baseZIndex]="10000" onHide="true">
+    <ng-template pTemplate="footer">
+      <button type="button" pButton icon="pi pi-times" label="{{ 'No' | translate }}"
+        (click)="positionDialog.reject()"></button>
+      <button type="button" pButton icon="pi pi-check" label="{{ 'Yes' | translate }}"
+        (click)="positionDialog.accept()"></button>
+    </ng-template>
+  </p-confirmDialog>
+
+</div>
+
+
+<p-toast key="toast"></p-toast>
+
