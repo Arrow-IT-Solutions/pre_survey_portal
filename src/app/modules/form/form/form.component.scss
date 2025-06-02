@@ -13,13 +13,15 @@
         column-gap: 2rem;
 
          .result{
-        width: 3rem;
-        height: 3rem;
-        border-radius: 50%;
-        background-color: $primary-color-hover;
+          .result_button{
+        width: 3rem !important;
+        height: 3rem !important;
+        border-radius: 50% !important;
+        background-color: $primary-color-hover !important;
         border: none;
         color: white;
-        margin-top: 1rem;
+        padding: 0 !important;
+          }
       }
       }
 

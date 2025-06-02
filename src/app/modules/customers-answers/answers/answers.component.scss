@@ -21,11 +21,19 @@
           color: white;
         }
         .result{
-            padding-left: 2rem;
-            padding-top: 1rem;
+            padding-left: 4rem;
+            padding-top: 2rem;
 
-            display: flex;
-            align-items: center;
+           .result_button{
+        width: 3rem !important;
+        height: 3rem !important;
+        border-radius: 50% !important;
+        background-color: $primary-color-hover !important;
+        border: none;
+        color: white;
+       
+        padding: 0 !important;
+           }
             @media(max-width:767px){
               justify-content: center;
             padding-right: 1rem;

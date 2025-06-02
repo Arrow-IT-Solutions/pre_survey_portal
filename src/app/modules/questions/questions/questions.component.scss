@@ -21,30 +21,17 @@
           color: white;
         }
         .result{
-                        .reset-btn {
-      ::ng-deep button {
-        background-color: $primary-color-hover !important;
-        color: #fff !important;
-        border: none !important;
+        .result_button{
+        width: 3rem !important;
+        height: 3rem !important;
         border-radius: 50% !important;
-        width: 3rem;
-        height: 3rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-        font-size: 1.5rem;
-        transition: background 0.2s;
-        &:hover {
-          background-color: darken($primary-color-hover, 5%) !important;
-        }
+        background-color: $primary-color-hover !important;
+        border: none;
+        color: white;
+       
+        padding: 0 !important;
       }
-    }
-            padding-left: 2rem;
-            padding-top: 1rem;
-
-            display: flex;
-            align-items: center;
+      padding-top: 1rem;
             @media(max-width:767px){
               justify-content: center;
             padding-right: 1rem;

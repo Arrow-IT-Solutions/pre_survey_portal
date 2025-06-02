@@ -149,13 +149,15 @@
         justify-content: center;
       padding-right: 1rem;
       }
-       button{
+       .button_result{
         width: 3rem !important;
         height: 3rem !important;
         border-radius: 50% !important;
-        background-color: $primary-color;
+        background-color: $primary-color-hover !important;
         border: none;
         color: white;
+       
+        padding: 0 !important;
       }
       &:lang(ar){
         padding-right: 0;
@@ -186,11 +188,10 @@
 
     display: flex;
     flex-direction: row;
-    padding: 0.75rem 0;
+    padding: 0.75rem 1rem;
     border-radius: 6px;
 
     border-color: rgba($primary-color, 0.5);
-    padding-left: 1rem;
     :lang(ar){
       padding-left: 0;
     }
