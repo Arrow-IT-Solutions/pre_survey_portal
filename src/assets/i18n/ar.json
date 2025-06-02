@@ -60,10 +60,10 @@
   "totalOption_option":"مجموع الخيارات",
   "Basic_Info_Option":"المعلومات الأساسية",
 
-  "optionEn_option":"الجواب باللغة الانكليزية",
-  "optionAr_option":"الجواب باللغة العربية",
-  "Create_Option":"إضافة جواب",
-  "Update_Option":"تعديل الجواب",
+  "optionEn_option":"الخيار باللغة الانكليزية",
+  "optionAr_option":"الخيار باللغة العربية",
+  "Create_Option":"إضافة خيار",
+  "Update_Option":"تعديل خيار",
   "searchCustomerAnswer_customerAnswers":"الإجابة",
   "CustomerAnswer_customerAnswers":"الجواب",
   "answerCount_customerAnswers":"مرات التكرار",
@@ -174,7 +174,16 @@
   "FirstNameEn_Password" : "الأسم الأول بالإنجليزية",
   "LastNameEn_Password" : "الإسم الأخير بالإنجليزية",
   "thanks_feedback":"شكرا لك!",
-  "sentSuccessfuly_feedback":"لقد تم إرسال تعليقك بنجاح."
+  "sentSuccessfuly_feedback":"لقد تم إرسال تعليقك بنجاح.",
+  "countryCode_countryCode": "رمز الدولة",
+  "countryName_countryCode": "اسم الدولة",
+  "totalCountryCode_CountryCode": "مجموع رموز الدول",
+  "Basic_Info_Country_Code": "المعلومات الأساسية لرمز الدولة",
+  "code_CountryCode": "الرمز",
+  "countryAr_CountryCode": "اسم الدولة باللغة العربية",
+  "countryEn_CountryCode": "اسم الدولة باللغة الانكليزية",
+  "Create_CountryCode": "إنشاء رمز دولة",
+  "Update_CountryCode": "تحديث رمز الدولة"
 
 }
 

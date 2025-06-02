@@ -6,7 +6,17 @@
           <span class="p-input-icon-left p-0">
             <i class="pi pi-search"></i>
             <input class="search-field" type="text" (ngModelChange)="OnChange()"
-              placeholder="{{ 'optionName_option' | translate }}" formControlName="name" pInputText />
+              placeholder="{{ 'countryName_countryCode' | translate }}" formControlName="name" pInputText />
+          </span>
+        </div>
+      </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
+        <div class="flex flex-wrap justify-content-center gap-3">
+          <span class="p-input-icon-left p-0">
+            <i class="pi pi-search"></i>
+            <input class="search-field" type="text" (ngModelChange)="OnChange()"
+              placeholder="{{ 'countryCode_countryCode' | translate }}" formControlName="code" pInputText />
           </span>
         </div>
       </div>
@@ -33,18 +43,27 @@
             <img src="assets/images/icons8-option-30.png" alt="" />
           </div>
           <div class="card__contents">
-            <div class="card__contents__item">
-              <div class="card-label">
-                {{ row.optionTranslation![layoutService.config.lang]?.name }}
-              </div>
-            </div>
+<div class="card__contents__item d-flex gap-5">
+  <div class="d-flex flex-column">
+    <span class="country-label">{{ 'countryName_countryCode' | translate }}</span>
+    <span class="country-name">
+      {{ row.countryCodeTranslation![layoutService.config.lang]?.name }}
+    </span>
+  </div>
+  <div class="d-flex flex-column">
+    <span class="country-label">{{ 'countryCode_countryCode' | translate }}</span>
+    <span class="country-code">
+      {{ row.code }}
+    </span>
+  </div>
+</div>
           </div>
           <div class="card__actions mt-auto">
             <div [matMenuTriggerFor]="menu" class="action-trigger">
               <span class="material-symbols-outlined">more_vert</span>
             </div>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item (click)="openAddOption(row)">
+              <button mat-menu-item (click)="openAddCountryCode(row)">
                 <span class="material-symbols-outlined">edit</span>
                 {{ 'Edit_Option' | translate }}
               </button>
@@ -60,13 +79,13 @@
 
     <div class="all d-flex">
       <div class="total">
-        {{ "totalOption_option" | translate }}:{{ totalRecords }}
+        {{ "totalCountryCode_CountryCode" | translate }}:{{ totalRecords }}
       </div>
 
     </div>
     <p-paginator class="mt-2" [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[3, 6, 9, 12]"
       [first]="first" (onPageChange)="paginate($event)"></p-paginator>
-    <button class="add-button" (click)="openAddOption()">
+    <button class="add-button" (click)="openAddCountryCode()">
       <span class="material-symbols-outlined">add</span>
     </button>
 
@@ -93,3 +112,4 @@
 
 
 <p-toast key="toast"></p-toast>
+
