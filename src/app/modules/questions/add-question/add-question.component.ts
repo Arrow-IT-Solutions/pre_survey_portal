@@ -232,8 +232,9 @@ export class AddQuestionComponent {
 
       if (this.questionService.SelectedData == null) {
         this.resetForm();
+        this.router.navigate(['layout-admin/questions']);
       } else {
-        this.router.navigate(['layout-admin/questions']);;
+        this.router.navigate(['layout-admin/questions']);
       }
     } else {
       this.layoutService.showError(this.messageService, 'toast', true, response?.requestMessage);
@@ -517,7 +518,7 @@ export class AddQuestionComponent {
       || ''
     );
   }
-  
+
 
 
 
