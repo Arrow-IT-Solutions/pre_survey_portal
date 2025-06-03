@@ -13,10 +13,11 @@
 
 
       <div class="col result">
-        <button class="result_button" (onClick)="resetform()">
+        <p-button class="reset-btn" (onClick)="resetform()">
           <span class="material-symbols-outlined">restart_alt</span>
-        </button>
+        </p-button>
       </div>
+
     </div>
   </div>
   <div *ngIf="!loading; else ListView">
@@ -70,7 +71,7 @@
 <p-paginator class="mt-2" [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[3, 6, 9, 12]"
   [first]="first" (onPageChange)="paginate($event)"></p-paginator>
 
-  
+
 <button class="add-button" (click)="openAddQuestion()">
   <span class="material-symbols-outlined">add</span>
 </button>

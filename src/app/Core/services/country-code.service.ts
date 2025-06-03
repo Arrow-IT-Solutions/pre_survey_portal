@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { LayoutService } from 'src/app/layout/service/layout.service';
 import { HttpClientService } from './http-client.service';
-import { CountryCodeResponse, CountryCodeSearchRequest } from 'src/app/modules/auth/auth.module';
+import { CountryCodeRequest, CountryCodeResponse, CountryCodeSearchRequest, CountryCodeUpdateRequest } from 'src/app/modules/country-code/country-code.module';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,14 +10,40 @@ import { CountryCodeResponse, CountryCodeSearchRequest } from 'src/app/modules/a
 export class CountryCodeService {
   public SelectedData: CountryCodeResponse | null = null;
   public Dialog: any | null = null;
-  constructor(public layoutService: LayoutService, public httpClient: HttpClientService) { }
+   private refreshCountryCodesSubject = new Subject<void>();
 
-  async Search(filter: CountryCodeSearchRequest) {
+    refreshCountryCodes$ = this.refreshCountryCodesSubject.asObservable();
 
-    const apiUrl = `/api/countryCode/list?${this.layoutService.Filter(filter)}`;
+    triggerRefreshCountryCodes() {
+      this.refreshCountryCodesSubject.next();
+    }
+    constructor(public layoutService: LayoutService, public httpClient: HttpClientService) { }
 
-    return await this.httpClient.get(apiUrl)
+        async Add(data: CountryCodeRequest) {
+        const apiUrl = `/api/countryCode`;
 
-  }
+        return await this.httpClient.post(apiUrl, data);
+      }
+
+    async Search(filter: CountryCodeSearchRequest) {
+
+      const apiUrl = `/api/countryCode/list?${this.layoutService.Filter(filter)}`;
+
+        return await this.httpClient.get(apiUrl)
+
+    }
+
+        async Update(data: CountryCodeUpdateRequest) {
+
+        const apiUrl = `/api/countryCode`;
+        return await this.httpClient.put(apiUrl, data);
+      }
+
+          async Delete(uuid: string) {
+
+        const apiUrl = `/api/countryCode/${uuid}`;
+        return await this.httpClient.delete(apiUrl, uuid);
+
+      }
 
 }

@@ -60,10 +60,10 @@
  "totalOption_option":"Total Options",
  "Basic_Info_Option":"Basic Info",
 
- "optionEn_option":"Answer in English",
- "optionAr_option":"Answer in Arabic",
- "Create_Option":"Create Answer",
- "Update_Option":"Update Answer",
+ "optionEn_option":"Option in English",
+ "optionAr_option":"Option in Arabic",
+ "Create_Option":"Create Option",
+ "Update_Option":"Update Option",
  "searchCustomerAnswer_customerAnswers":"Answer",
  "CustomerAnswer_customerAnswers":"Answer",
  "answerCount_customerAnswers":"count of repetitions",
@@ -177,5 +177,14 @@
  "sentSuccessfuly_feedback":"Your feedback has been sent successfully.",
  "yearOfBirth_forms":"year",
  "monthOfData_forms":"month",
- "dayOfDate_forms":"day"
+ "dayOfDate_forms":"day",
+ "countryName_countryCode": "Country Name",
+ "countryCode_countryCode": "Country Code",
+ "totalCountryCode_CountryCode": "Total Country Codes",
+ "Basic_Info_Country_Code": "Basic Info Country Code",
+ "code_CountryCode": "Code",
+ "countryAr_CountryCode": "Country Name in Arabic",
+ "countryEn_CountryCode": "Country Name in English",
+ "Create_CountryCode": "Create Country Code",
+ "Update_CountryCode": "Update Country Code"
 }

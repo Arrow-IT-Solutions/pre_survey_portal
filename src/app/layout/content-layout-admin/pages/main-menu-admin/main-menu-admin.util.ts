@@ -58,7 +58,7 @@ export const navbarData: NavbarData[] = [
     label: 'Customers Answers',
     labelar: 'إجابات العملاء',
     id: 'customers_answers',
-    icon: 'comment',
+    icon: 'question_answer',
     routeLink: "customers-answers"
   },
   {
@@ -74,6 +74,13 @@ export const navbarData: NavbarData[] = [
     id: 'feedback',
     icon: 'Comment',
     routeLink: "feedback"
+  },
+    {
+    label: 'Country Codes',
+    labelar: 'رموز الدول',
+    id: 'country-code',
+    icon: 'public',
+    routeLink: "country-code"
   }
 
 
