@@ -1,0 +1,36 @@
+<div class="settings" *ngFor="let row of data">
+  <span class="material-symbols-outlined fill" id="edit" (click)="openDialog(row)">edit</span>
+
+  <div id="tittle">
+    <span>{{ 'Settings' | translate }}:</span>
+  </div>
+
+  <div class="container">
+    <div class="settings_info">
+      <div class="latestinvoice">
+        <span id="latest">{{ 'CompanyName_Setting' | translate }} :</span>
+        <span id="info">
+          {{ row.settingTranslation![layoutService.config.lang]?.name }}
+        </span>
+      </div>
+
+      <div class="location">
+        <span class="material-symbols-outlined fill">link</span>
+        <span id="info">{{ row.appURL }}</span>
+      </div>
+
+      <div class="phone">
+        <span class="material-symbols-outlined fill">settings_phone</span>
+        <span id="info">{{ row.phone }}</span>
+      </div>
+
+      <div class="email">
+        <span class="material-symbols-outlined fill">email</span>
+        <span id="info">{{ row.email }}</span>
+      </div>
+    </div>
+  </div>
+
+  <button class="add-button" (click)="openDialog()">
+    <span class="material-symbols-outlined">add</span>
+  </button>

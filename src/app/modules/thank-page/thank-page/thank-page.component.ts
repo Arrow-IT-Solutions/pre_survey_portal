@@ -22,10 +22,10 @@ export class ThankPageComponent {
 
   closeAlert() {
     this.isVisible = false;
-    this.route.navigateByUrl(`/forms/${this.surveyService.formUUID}`);
+
 
   }
   goBackHome() {
-    this.route.navigate(['/forms/:uuid'])
+    this.route.navigateByUrl(`/forms/${this.surveyService.formUUID}`);
   }
 }

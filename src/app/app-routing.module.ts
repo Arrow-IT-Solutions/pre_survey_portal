@@ -127,13 +127,20 @@ const routes: Routes = [
             (m) => m.PasswordModule
           )
       },
-            {
+      {
         path: 'country-code',
         loadChildren: () =>
           import('./modules/country-code/country-code.module').then(
             (m) => m.CountryCodeModule
           )
       },
+      {
+        path: 'settings',
+        loadChildren: () =>
+          import('./modules/settings/settings.module').then(
+            (m) => m.SettingsModule
+          )
+      }
 
     ]
   },

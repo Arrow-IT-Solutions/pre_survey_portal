@@ -75,12 +75,19 @@ export const navbarData: NavbarData[] = [
     icon: 'Comment',
     routeLink: "feedback"
   },
-    {
+  {
     label: 'Country Codes',
     labelar: 'رموز الدول',
     id: 'country-code',
     icon: 'public',
     routeLink: "country-code"
+  },
+  {
+    label: 'Settings',
+    labelar: 'الإعدادات',
+    id: 'Settings',
+    icon: 'settings',
+    routeLink: 'settings'
   }
 
 

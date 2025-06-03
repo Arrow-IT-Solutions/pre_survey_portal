@@ -186,5 +186,18 @@
  "countryAr_CountryCode": "Country Name in Arabic",
  "countryEn_CountryCode": "Country Name in English",
  "Create_CountryCode": "Create Country Code",
- "Update_CountryCode": "Update Country Code"
+ "Update_CountryCode": "Update Country Code",
+"Update_Setting" : "Update Settings",
+"Setting_Create" : "Add Settings",
+"Basic_Info_Settings" : "Basic Info",
+"Location_AddSettings" : "App Link",
+"Phone_AddSettings" : "Phone",
+"Email_AddSettings" : "Email",
+"CompanyName_Setting" : "Company Name",
+"NameAr_AddSettings" : "Company Name in Arabic",
+"NameEn_AddSettings" : "Company Name in English",
+"Settings":"Settings",
+"Start" : "Start",
+"CopyLink_Form" : "Copy Form Link",
+"OptionArabic_Required" : "Required Option in Arabic"
 }

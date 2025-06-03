@@ -186,7 +186,19 @@
   "countryAr_CountryCode": "اسم الدولة باللغة العربية",
   "countryEn_CountryCode": "اسم الدولة باللغة الانكليزية",
   "Create_CountryCode": "إنشاء رمز دولة",
-  "Update_CountryCode": "تحديث رمز الدولة"
-
+  "Update_CountryCode": "تحديث رمز الدولة",
+  "Update_Setting" : "تعديل",
+  "Setting_Create" : "اضافة",
+  "Basic_Info_Settings" : "معلومات اساسية",
+  "Location_AddSettings" : "رابط الموقع",
+  "Phone_AddSettings" : "الهاتف",
+  "Email_AddSettings" : "البريد الالكتروني",
+  "CompanyName_Setting" : "اسم الشركة",
+  "NameAr_AddSettings" : "اسم الشركة بالعربية",
+  "NameEn_AddSettings" : "اسم الشركة بالإنجليزية",
+  "Settings":"الإعدادات",
+  "Start" : "البدأ",
+  "CopyLink_Form" : "نسخ رابط الفورم",
+  "OptionArabic_Required" : "حقل الخيار باللغة العربية مطلوب"
 }
 
