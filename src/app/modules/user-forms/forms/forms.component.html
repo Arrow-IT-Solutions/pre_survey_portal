@@ -20,8 +20,8 @@
     <div class="col-12 mb-3 field_container">
       <label>{{ 'maritalStatus_forms' | translate }}:</label>
       <div class="p-float-label dropdown">
-        <p-dropdown [options]="martialStatus" optionLabel="value" optionValue="key"
-          formControlName="maritalStatus"></p-dropdown>
+        <p-dropdown [options]="martialStatus" optionLabel="value" optionValue="key" formControlName="maritalStatus"
+          appendTo="body"></p-dropdown>
         <span *ngIf="submitted && dataForm.controls['maritalStatus']?.hasError('required')" class="error-validation">{{
           'Field_Required' |
           translate }}</span>
@@ -32,18 +32,18 @@
       <label>{{ 'dateOfBirth_forms' | translate }}:</label>
       <div class="p-float-label">
         <div class="birthdate">
-          
+
           <input pInputText type="text" formControlName="year" placeholder="{{ 'yearOfBirth_forms' | translate }}" />
-           <div class="p-float-label dropdown">
-          <p-dropdown [options]="monthOptions" optionLabel="label" optionValue="value" 
-            formControlName="month" [filter]="false"></p-dropdown>
-          <label>{{ 'monthOfDate_forms' | translate }}</label>
-        </div>
-        <div class="p-float-label dropdown">
-          <p-dropdown [options]="dayOptions" optionLabel="value" optionValue="key" 
-            formControlName="day" [filter]="false"></p-dropdown>
-          <label>{{ 'dayOfDate_forms' | translate }}</label>
-        </div>
+          <div class="p-float-label dropdown">
+            <p-dropdown [options]="monthOptions" optionLabel="label" optionValue="value" formControlName="month"
+              [filter]="false"></p-dropdown>
+            <label>{{ 'monthOfDate_forms' | translate }}</label>
+          </div>
+          <div class="p-float-label dropdown">
+            <p-dropdown [options]="dayOptions" optionLabel="value" optionValue="key" formControlName="day"
+              [filter]="false"></p-dropdown>
+            <label>{{ 'dayOfDate_forms' | translate }}</label>
+          </div>
 
         </div>
         <span *ngIf="
