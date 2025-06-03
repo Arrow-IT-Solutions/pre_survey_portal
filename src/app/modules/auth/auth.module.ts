@@ -105,21 +105,4 @@ export interface UserTranslationUpdateRequest {
   language?: string
 }
 
-export interface CountryCodeResponse {
-  uuid?: string;
-  countryCodeTranslation?: { [key: string]: CountryCodeTranslationResponse };
-  code: string;
-  flag: string
-}
 
-export interface CountryCodeTranslationResponse {
-  uuid?: string;
-  name?: string;
-  language?: string;
-}
-
-export interface CountryCodeSearchRequest extends SearchRequestBase {
-  uuid?: string;
-  name?: string;
-  code?: string;
-}

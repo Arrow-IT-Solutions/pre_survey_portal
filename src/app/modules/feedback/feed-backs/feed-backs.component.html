@@ -2,15 +2,26 @@
   <div class="row mb-4 m-0  p-0">
     <div class="col-lg-3 col-md-10 col p-0 feedback__search">
       <div class="flex flex-wrap justify-content-center gap-3">
+
         <span class="p-input-icon-left p-0">
           <i class="pi pi-search"></i>
           <input class="search-field" type="text" (ngModelChange)="OnChange()" placeholder="{{ 'UserName'| translate }}"
             formControlName="UserName" pInputText />
         </span>
+
       </div>
+          <div class="result ms-2 mt-3">
+        <p-button class="reset-btn" (onClick)="resetform()">
+          <span class="material-symbols-outlined">restart_alt</span>
+        </p-button>
     </div>
 
+    </div>
+
+
+
   </div>
+
 
   <ng-container *ngIf="!loading; else ListView">
     <div class="mx-0 mt-2 box" >

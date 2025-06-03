@@ -82,6 +82,13 @@ export class FeedBacksComponent {
 
   }
 
+    async resetform() {
+    this.isResetting = true;
+    this.dataForm.reset();
+    await this.FillData();
+    this.isResetting = false;
+  }
+
   confirmDelete(row: FeedbackResponse) {
 
     console.log(row)

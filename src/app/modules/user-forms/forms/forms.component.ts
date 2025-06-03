@@ -7,9 +7,9 @@ import { SurveyServiceService } from 'src/app/layout/service/survey-service.serv
 import { CustomerRequest } from '../../customers/customers.module';
 import { SurveySession } from '../../SurveySession/survey-session/survey-session.module';
 import { CountryCodeService } from 'src/app/Core/services/country-code.service';
-import { CountryCodeResponse, CountryCodeSearchRequest } from '../../auth/auth.module';
 import { ConstantResponse } from 'src/app/Core/services/constant.service';
 import { ConstantService } from 'src/app/Core/services/constant.service';
+import { CountryCodeResponse, CountryCodeSearchRequest } from '../../country-code/country-code.module';
 
 @Component({
   selector: 'app-forms',
