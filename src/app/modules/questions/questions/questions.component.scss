@@ -188,6 +188,9 @@
         padding: 0;
         font-size: 1.5rem;
         transition: background 0.2s;
+        .material-symbols-outlined{
+          top: auto;
+        }
         &:hover {
           background-color: darken($primary-color-hover, 5%) !important;
         }

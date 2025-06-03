@@ -82,6 +82,7 @@
             .question_item_info{
                 display: flex;
                 column-gap: 0.5rem;
+                align-items: center;
                 @media(max-width:767px){
                     flex-direction: column;
 
@@ -89,7 +90,7 @@
                 #question_number,#question_text{
 
                     font-weight: 400;
-                    font-size: 16px;
+                    font-size: 20px;
                     line-height: 120%;
                     letter-spacing: 0%;
 
@@ -117,18 +118,25 @@
             }
             .options{
                 padding: 0.5rem;
+                display: flex;
+                flex-direction: column;
+                row-gap: 0.5rem;
                 
                
 .radio-wrapper-6 {
     display: flex;
     align-items: center;
     column-gap: 0.5rem;
+    label{
+      font-size: 1.5rem;
+    }
+     
     
   }
 
   @supports (-webkit-appearance: none) or (-moz-appearance: none) {
     .radio-wrapper-6 input[type=radio] {
-      --active: #fccaad;
+      --active: #dd8e60;
       --active-inner: #fff;
       --focus: 2px #fff ;
       --border: #A75422;
@@ -174,7 +182,7 @@
       --bc: var(--border);
     }
     .radio-wrapper-6 input[type=radio]:disabled + label {
-      cursor: not-allowed;
+      cursor: allowed;
       color: #8A91B4;
     }
     .radio-wrapper-6 input[type=radio]:hover:not(:checked):not(:disabled) {
@@ -199,6 +207,14 @@
       vertical-align: top;
       cursor: pointer;
       margin-left: .5em;
+    }
+    label{
+      padding: 0.5rem 0.8rem;
+      border-radius: 16px;
+      font-size: 20px;
+    }
+    .radio-wrapper-6 input[type=radio]:checked + label {
+      background-color: #dd8e60;
     }
 
     .radio-wrapper-6 input[type=radio] {
@@ -231,23 +247,21 @@
         margin-top: 2rem;
         border-radius: 30px;
         color: white;
-
         font-weight: 400;
         font-size: 20px;
         line-height: 120%;
         cursor: pointer;
-        @media(max-width:767px){
-            margin: auto;
-            margin-top: 4rem;
-        }
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+        
 
     }
-    .header-admin__tools{
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
+    button:lang(ar){
+      right: unset;
+      left: 1rem;
+    }
+
 }
 .error-validation {
   color: #c00;
