@@ -186,5 +186,6 @@
  "countryAr_CountryCode": "Country Name in Arabic",
  "countryEn_CountryCode": "Country Name in English",
  "Create_CountryCode": "Create Country Code",
- "Update_CountryCode": "Update Country Code"
+ "Update_CountryCode": "Update Country Code",
+ "closeMessage_AlertModel":"Ok"
 }

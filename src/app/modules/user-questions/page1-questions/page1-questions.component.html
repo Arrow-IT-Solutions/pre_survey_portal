@@ -1,21 +1,4 @@
 <div class="page-container">
-  <div class="header-admin__tools">
-    <div [matMenuTriggerFor]="langMenu">
-      <span class="material-symbols-outlined lang-icon">language</span>
-      <span class="m-0">{{currentlang}}</span>
-
-      <span class="material-symbols-outlined m-0"> arrow_drop_down </span>
-    </div>
-    <mat-menu #langMenu="matMenu">
-      <button mat-menu-item (click)="changeLang('en')">
-        English
-      </button>
-      <button mat-menu-item (click)="changeLang('ar')">
-        عربي
-      </button>
-    </mat-menu>
-
-  </div>
   <div class="elipse-container">
     <img src="../../../../assets/images/Ellipse 141.svg" alt="">
   </div>
