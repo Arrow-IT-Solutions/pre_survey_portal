@@ -200,7 +200,9 @@
     }
     .icon-container{
       display: flex;
-
+      .material-symbols-outlined{
+        color: $primary-color;
+      }
       @media (max-width:767px) {
         padding-top: 0.5rem;
         // margin-bottom: 1rem;
@@ -449,8 +451,7 @@
   }
 
   .icon-container {
-    text-align: center;
-    padding: 1rem 0;
+  
   }
 
   .card__contents {
@@ -467,16 +468,10 @@
 }
 
 /* ensure Bootstrap’s row is stretching its children */
-.row {
-  align-items: stretch;
-}
+
 
 /* optional: force all images in icon-container to the same size */
-.icon-container img {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
-}
+
 
 .reset-btn-container {
   display: flex;
@@ -501,6 +496,9 @@
     padding: 0;
     font-size: 1.5rem;
     transition: background 0.2s;
+    .material-symbols-outlined{
+      top: auto;
+    }
     &:hover {
       background-color: darken($primary-color-hover, 5%) !important;
     }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SurveyServiceService } from 'src/app/layout/service/survey-service.service';
+
 @Component({
   selector: 'app-thank-page',
   templateUrl: './thank-page.component.html',
@@ -9,6 +10,10 @@ import { SurveyServiceService } from 'src/app/layout/service/survey-service.serv
 
 
 export class ThankPageComponent {
+
+  constructor(public route:Router){
+
+=======
   constructor(private router: Router,
     public surveyService: SurveyServiceService
   ) { }
@@ -21,5 +26,9 @@ export class ThankPageComponent {
   closeAlert() {
     this.isVisible = false;
     this.router.navigateByUrl(`/forms/${this.surveyService.formUUID}`);
+
   }
+ goBackHome(){
+  this.route.navigate(['/forms/:uuid'])
+ }
 }
