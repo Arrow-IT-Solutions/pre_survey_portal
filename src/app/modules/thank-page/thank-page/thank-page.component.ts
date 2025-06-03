@@ -11,10 +11,7 @@ import { SurveyServiceService } from 'src/app/layout/service/survey-service.serv
 
 export class ThankPageComponent {
 
-  constructor(public route:Router){
-
-=======
-  constructor(private router: Router,
+  constructor(public route: Router,
     public surveyService: SurveyServiceService
   ) { }
   isVisible: boolean = true;
@@ -25,10 +22,10 @@ export class ThankPageComponent {
 
   closeAlert() {
     this.isVisible = false;
-    this.router.navigateByUrl(`/forms/${this.surveyService.formUUID}`);
+    this.route.navigateByUrl(`/forms/${this.surveyService.formUUID}`);
 
   }
- goBackHome(){
-  this.route.navigate(['/forms/:uuid'])
- }
+  goBackHome() {
+    this.route.navigate(['/forms/:uuid'])
+  }
 }
