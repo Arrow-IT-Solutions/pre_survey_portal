@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-thank-page',
@@ -6,13 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./thank-page.component.scss']
 })
 export class ThankPageComponent {
- isVisible: boolean = true;
+  constructor(public route:Router){
 
-  showAlert() {
-    this.isVisible = true;
   }
-
-  closeAlert() {
-    this.isVisible = false;
-  }
+ goBackHome(){
+  this.route.navigate(['/forms/:uuid'])
+ }
 }

@@ -40,10 +40,11 @@
         <!-- “d-flex” + “flex-fill” makes each card stretch to the same height -->
         <div class="card flex-fill">
           <div class="icon-container">
-            <img src="assets/images/icons8-option-30.png" alt="" />
+            <span class="material-symbols-outlined">public</span>
+            
           </div>
           <div class="card__contents">
-<div class="card__contents__item d-flex gap-5">
+<div class="card__contents__item ">
   <div class="d-flex flex-column">
     <span class="country-label">{{ 'countryName_countryCode' | translate }}</span>
     <span class="country-name">
@@ -93,7 +94,17 @@
 
   <ng-template #ListView>
     <div class="row">
-      <div *ngFor="let list of [1, 2, 3, 4]" class="row mx-0 mt-2">
+      <div *ngFor="let list of [1, 2, 3, ]" class="col mx-0 mt-2">
+        <p-skeleton height="7.5rem"></p-skeleton>
+      </div>
+    </div>
+     <div class="row">
+      <div *ngFor="let list of [1, 2, 3, ]" class="col mx-0 mt-2">
+        <p-skeleton height="7.5rem"></p-skeleton>
+      </div>
+    </div>
+     <div class="row">
+      <div *ngFor="let list of [1, 2, 3, ]" class="col mx-0 mt-2">
         <p-skeleton height="7.5rem"></p-skeleton>
       </div>
     </div>

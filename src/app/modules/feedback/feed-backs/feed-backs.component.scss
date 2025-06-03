@@ -102,6 +102,9 @@
 
       &__search {
         margin-inline-end: 4.5rem;
+        display: flex;
+        align-items: center;
+        column-gap: 1rem;
 
         & .search-field{
           border-color: $light-gray;
@@ -432,6 +435,7 @@
 }
 
 .reset-btn {
+
   ::ng-deep button {
     background-color: $primary-color-hover !important;
     color: #fff !important;
@@ -449,6 +453,10 @@
     padding: 0;
     font-size: 1.5rem;
     transition: background 0.2s;
+    
+    .material-symbols-outlined{
+      top: auto;
+    }
     &:hover {
       background-color: darken($primary-color-hover, 5%) !important;
     }
