@@ -1,5 +1,5 @@
 <div [formGroup]="dataForm" class="feedback">
-  <div class="row mb-4 m-0 flex-row-reverse p-0">
+  <div class="row mb-4 m-0  p-0">
     <div class="col-lg-3 col-md-10 col p-0 feedback__search">
       <div class="flex flex-wrap justify-content-center gap-3">
         <span class="p-input-icon-left p-0">
@@ -13,13 +13,12 @@
   </div>
 
   <ng-container *ngIf="!loading; else ListView">
-    <div class="row mx-0 mt-2 box">
-      <div *ngFor="let row of data">
-        <div class="card col-12 mx-0 mb-2">
+    <div class="mx-0 mt-2 box" >
+        <div class="card mx-0 mb-2" *ngFor="let row of data">
           <div class="icon-container">
             <span class="material-symbols-outlined fill">Comment</span>
           </div>
-          <div class="col-lg-9 col-md-12 col-sm-12 card__contents">
+          <div class="card__contents">
             <div class="card-section">
               <div class="card-section__title">info</div>
               <div class="card-section__items">
@@ -60,7 +59,7 @@
 
           </div>
         </div>
-      </div>
+      
     </div>
 
     <div class="row">
@@ -76,8 +75,18 @@
 
   <ng-template #ListView>
     <div class="row">
-      <div *ngFor="let list of [1, 2, 3, 4]" class="row mx-0 mt-2">
-        <p-skeleton height="7.5rem"></p-skeleton>
+      <div *ngFor="let list of [1, 2,]" class="col mx-0 mt-2">
+        <p-skeleton height="10rem"></p-skeleton>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngFor="let list of [1, 2,]" class="col mx-0 mt-2">
+        <p-skeleton height="10rem"></p-skeleton>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngFor="let list of [1, 2,]" class="col mx-0 mt-2">
+        <p-skeleton height="10rem"></p-skeleton>
       </div>
     </div>
   </ng-template>

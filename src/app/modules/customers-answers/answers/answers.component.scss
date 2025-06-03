@@ -11,18 +11,11 @@
         display: flex;
         flex-wrap: wrap;
         column-gap: 2rem;
-        #result{
-          background-color: $primary-color-hover;
-          border: none;
-          width: 3rem;
-          height: 3rem;
-          border-radius: 50%;
-
-          color: white;
-        }
+        padding: 1rem 1.2rem;
+        
         .result{
-            padding-left: 4rem;
-            padding-top: 2rem;
+            padding-left: 5rem;
+            // padding-top: 1rem;
 
            .result_button{
         width: 3rem !important;
@@ -35,8 +28,9 @@
         padding: 0 !important;
            }
             @media(max-width:767px){
-              justify-content: center;
-            padding-right: 1rem;
+              
+            
+            padding-top: 1rem;
 
 
             }
@@ -202,6 +196,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  margin-top: 1rem;
 }
 
 .reset-btn {
@@ -224,9 +219,8 @@
       }
     }
   & .card {
-     width: 49%;
+     width: 30%;
     display: flex;
-    align-items: center;
     flex-direction: row;
     padding: 1rem;
     max-height: 14rem;
@@ -248,7 +242,7 @@
     }
     .icon-container{
       display: flex;
-      margin-bottom: 3rem;
+      margin-bottom: 6rem;
 
       @media (max-width:767px) {
         padding-top: 0;
@@ -348,7 +342,9 @@
     &__items{
         display: flex;
         width: 95%;
-       column-gap: 7rem;
+        flex-direction: column;
+
+       
        padding: 0.5rem;
 
 
@@ -372,7 +368,7 @@
 
     &__contents {
 
-
+      
       width: 80%;
 
       @media(max-width:767px){
@@ -517,6 +513,9 @@
     padding: 0;
     font-size: 1.5rem;
     transition: background 0.2s;
+    .material-symbols-outlined{
+      top: auto;
+    }
     &:hover {
       background-color: darken($primary-color-hover, 5%) !important;
     }

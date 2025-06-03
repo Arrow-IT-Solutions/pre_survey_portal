@@ -229,9 +229,10 @@ padding: 1rem;
         justify-content: space-between;
         column-gap: 0.3rem;
         .material-symbols-outlined{
-          color: white;
+          color: rgb(219, 43, 43);
           cursor: pointer;
           margin-bottom: 0.5rem;
+          
         }
       }
     }}
@@ -301,6 +302,7 @@ padding: 1rem;
             .delete-icon {
               cursor: pointer;
               justify-self: center;
+              color: rgb(219, 43, 43);
             }
 
                        

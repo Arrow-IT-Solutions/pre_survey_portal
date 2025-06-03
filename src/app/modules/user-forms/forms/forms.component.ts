@@ -19,7 +19,9 @@ import { ConstantService } from 'src/app/Core/services/constant.service';
 export class FormsComponent {
   dataForm!: FormGroup;
   btnLoading: boolean = false;
-  currentlang = 'Arabic';
+  unCurrentlang:string;
+  currentlang:string;
+  langCode:string;
   formUuid: string;
   codes: CountryCodeResponse[] = [];
   martialStatus: ConstantResponse[] = [];
@@ -35,13 +37,15 @@ export class FormsComponent {
     this.dataForm = this.formBuilder.group({
       userName: ['', Validators.required],
       maritalStatus: [null, Validators.required],
-      dateOfBirth: [null, Validators.required],
       countryCode: [null, Validators.required],
       phoneNumber: ['', Validators.required],
       email: ['', Validators.required],
       country: ['', Validators.required],
       info: ['', Validators.required],
       sendOffers: [null, Validators.required],
+      year:[null,[Validators.required, Validators.pattern('^[0-9]+$')]],
+      month:[null, Validators.required],
+      day:[null, Validators.required],
 
     })
   }
@@ -99,44 +103,49 @@ export class FormsComponent {
 
   }
 
-  changeLang(lang: string) {
-    console.log("current Lang : ", lang);
-
-    if (lang == 'en') {
-      this.currentlang = "English"
-      this.layoutService.config =
-      {
-        dir: 'ltr',
-        lang: 'en'
-      }
-
-    }
-    else if (lang == 'ar') {
-      this.currentlang = "عربي"
-      this.layoutService.config =
-      {
-        dir: 'rtl',
-        lang: 'ar'
-      }
-    }
+  changeLang(lang:string) {
+    this.layoutService.config.lang=lang;
+    this.langCode=lang;
+    console.log("long code is",this.langCode)
+    if (lang === 'en') {
+    this.currentlang = "English"; 
+    this.unCurrentlang = "Arabic";
+    
+    this.layoutService.config = {
+      dir: 'ltr',
+      lang: 'en'
+    };
+  } else if(lang === 'ar') {
+    this.currentlang = "Arabic"; 
+    this.unCurrentlang = "English";
+   
+    this.layoutService.config = {
+      dir: 'rtl',
+      lang: 'ar'
+    };
 
     localStorage.setItem('lang', this.layoutService.config.lang);
     localStorage.setItem('dir', this.layoutService.config.dir);
     this.document.documentElement.lang = this.layoutService.config.lang;
 
-    window.location.reload();
+    // window.location.reload();
   }
+}
 
   checkCurrentLang() {
-    if (this.layoutService.config.lang == 'en') {
-      this.currentlang = "English"
-
-
-    }
-    else if (this.layoutService.config.lang == 'ar') {
-      this.currentlang = "عربي"
-
-    }
+    const lang = localStorage.getItem('lang') ; 
+    
+     console.log("lang is",lang)
+     
+  if (lang === 'en') {
+    this.currentlang = "English"; 
+    this.unCurrentlang = "Arabic"; 
+    this.langCode="en"
+  } else if(lang === 'ar') {
+    this.currentlang = "Arabic";    
+    this.unCurrentlang = "English"; 
+    this.langCode="ar"
+  }
   }
 
   start() {
