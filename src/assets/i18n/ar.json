@@ -199,6 +199,8 @@
   "Settings":"الإعدادات",
   "Start" : "البدأ",
   "CopyLink_Form" : "نسخ رابط الفورم",
-  "OptionArabic_Required" : "حقل الخيار باللغة العربية مطلوب"
+  "OptionArabic_Required" : "حقل الخيار باللغة العربية مطلوب",
+  "closeMessage_AlertModel":"موافق"
+
 }
 

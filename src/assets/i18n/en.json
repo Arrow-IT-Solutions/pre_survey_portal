@@ -199,5 +199,6 @@
 "Settings":"Settings",
 "Start" : "Start",
 "CopyLink_Form" : "Copy Form Link",
-"OptionArabic_Required" : "Required Option in Arabic"
+"OptionArabic_Required" : "Required Option in Arabic",
+ "closeMessage_AlertModel":"Ok"
 }
