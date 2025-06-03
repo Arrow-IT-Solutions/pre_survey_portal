@@ -10,6 +10,7 @@ import { CountryCodeService } from 'src/app/Core/services/country-code.service';
 import { ConstantResponse } from 'src/app/Core/services/constant.service';
 import { ConstantService } from 'src/app/Core/services/constant.service';
 import { CountryCodeResponse, CountryCodeSearchRequest } from '../../country-code/country-code.module';
+import { SelectItem } from 'primeng/api';
 
 @Component({
   selector: 'app-forms',
@@ -17,11 +18,21 @@ import { CountryCodeResponse, CountryCodeSearchRequest } from '../../country-cod
   styleUrls: ['./forms.component.scss']
 })
 export class FormsComponent {
+  monthOptions: SelectItem[] = Array.from({ length: 12 }, (_, i) => ({
+    label: (i + 1).toString(),
+    value: i + 1,
+  }));
+
+  dayOptions: SelectItem[] = Array.from({ length: 31 }, (_, i) => ({
+    key: i + 1,
+    value: (i + 1).toString(),
+  }));
+
   dataForm!: FormGroup;
   btnLoading: boolean = false;
-  unCurrentlang:string;
-  currentlang:string;
-  langCode:string;
+  unCurrentlang: string;
+  currentlang: string;
+  langCode: string;
   formUuid: string;
   codes: CountryCodeResponse[] = [];
   martialStatus: ConstantResponse[] = [];
@@ -43,20 +54,26 @@ export class FormsComponent {
       country: ['', Validators.required],
       info: ['', Validators.required],
       sendOffers: [null, Validators.required],
-      year:[null,[Validators.required, Validators.pattern('^[0-9]+$')]],
-      month:[null, Validators.required],
-      day:[null, Validators.required],
+      year: [null, [Validators.required, Validators.pattern('^[0-9]+$')]],
+      month: [null, Validators.required],
+      day: [null, Validators.required],
 
     })
+
   }
+
+
   async ngOnInit() {
     this.formUuid = this.route.snapshot.paramMap.get('uuid')!;
+    this.surveyService.formUUID = this.formUuid;
     await this.RetriveCountryCode();
     const maritalStatus = await this.constantService.Search('SocialStatus') as any;
     this.martialStatus = maritalStatus.data;
     this.checkCurrentLang();
 
   }
+
+
 
   async RetriveCountryCode() {
 
@@ -103,49 +120,45 @@ export class FormsComponent {
 
   }
 
-  changeLang(lang:string) {
-    this.layoutService.config.lang=lang;
-    this.langCode=lang;
-    console.log("long code is",this.langCode)
-    if (lang === 'en') {
-    this.currentlang = "English"; 
-    this.unCurrentlang = "Arabic";
-    
-    this.layoutService.config = {
-      dir: 'ltr',
-      lang: 'en'
-    };
-  } else if(lang === 'ar') {
-    this.currentlang = "Arabic"; 
-    this.unCurrentlang = "English";
-   
-    this.layoutService.config = {
-      dir: 'rtl',
-      lang: 'ar'
-    };
+  changeLang(lang: string) {
+
+    if (lang == 'ar') {
+      this.currentlang = "English"
+      this.layoutService.config =
+      {
+        dir: 'ltr',
+        lang: 'en'
+      }
+
+    }
+    else if (lang == 'en') {
+      this.currentlang = "عربي"
+      this.layoutService.config =
+      {
+        dir: 'rtl',
+        lang: 'ar'
+      }
+    }
 
     localStorage.setItem('lang', this.layoutService.config.lang);
     localStorage.setItem('dir', this.layoutService.config.dir);
     this.document.documentElement.lang = this.layoutService.config.lang;
 
-    // window.location.reload();
+    window.location.reload();
   }
-}
 
   checkCurrentLang() {
-    const lang = localStorage.getItem('lang') ; 
-    
-     console.log("lang is",lang)
-     
-  if (lang === 'en') {
-    this.currentlang = "English"; 
-    this.unCurrentlang = "Arabic"; 
-    this.langCode="en"
-  } else if(lang === 'ar') {
-    this.currentlang = "Arabic";    
-    this.unCurrentlang = "English"; 
-    this.langCode="ar"
-  }
+    const lang = localStorage.getItem('lang');
+
+    if (lang === 'en') {
+      this.currentlang = "English";
+      this.unCurrentlang = "عربي";
+      this.langCode = "en"
+    } else if (lang === 'ar') {
+      this.currentlang = "Arabic";
+      this.unCurrentlang = "English";
+      this.langCode = "ar"
+    }
   }
 
   start() {
@@ -156,7 +169,14 @@ export class FormsComponent {
       return;
     }
 
-    let birthDate = new Date(this.dataForm.controls['dateOfBirth'].value)
+    const year = this.dataForm.get('year')!.value;
+    const month = this.dataForm.get('month')!.value;
+    const day = this.dataForm.get('day')!.value;
+
+    const mm = month < 10 ? '0' + month : month.toString();
+    const dd = day < 10 ? '0' + day : day.toString();
+
+    let birthDate = `${year}-${mm}-${dd}`;
 
 
     var customerTranslation = [
@@ -172,7 +192,7 @@ export class FormsComponent {
 
     var addCustomer: CustomerRequest = {
       customerTranslation: customerTranslation,
-      birthDate: birthDate.toISOString(),
+      birthDate: birthDate,
       socialStatus: this.dataForm.controls['maritalStatus'].value == null ? null : this.dataForm.controls['maritalStatus'].value.toString(),
       state: this.dataForm.controls['country'].value == null ? null : this.dataForm.controls['country'].value.toString(),
       email: this.dataForm.controls['email'].value == null ? null : this.dataForm.controls['email'].value.toString(),
