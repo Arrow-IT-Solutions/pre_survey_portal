@@ -65,6 +65,7 @@ export class FormsComponent {
 
   async ngOnInit() {
     this.formUuid = this.route.snapshot.paramMap.get('uuid')!;
+    this.surveyService.formUUID = this.formUuid;
     await this.RetriveCountryCode();
     const maritalStatus = await this.constantService.Search('SocialStatus') as any;
     this.martialStatus = maritalStatus.data;

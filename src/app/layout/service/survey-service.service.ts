@@ -10,6 +10,7 @@ export class SurveyServiceService {
   private session: SurveySession | null = null;
   public SelectedData: SurveyResponse;
   public customerUUID: any
+  public formUUID: any
   setSession(sess: SurveySession) {
     this.session = sess;
   }
