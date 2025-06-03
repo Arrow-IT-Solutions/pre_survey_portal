@@ -30,8 +30,8 @@
           </div>
           <div class="options">
             <div class="radio-wrapper-6" *ngFor="let opt of q.options">
-              <input type="radio" [formControlName]="q.uuid" [value]="opt.uuid" name="{{ q.uuid }}"
-                id="{{ q.uuid }}-{{ opt.uuid }}">
+              <input id="{{ q.uuid }}-{{ opt.uuid }}" type="radio" [formControlName]="q.uuid" [value]="opt.uuid"
+                name="{{ q.uuid }}">
               <label for="{{ q.uuid }}-{{ opt.uuid }}">{{ opt.optionTranslation?.[layoutService.config.lang]?.name
                 }}</label>
             </div>
