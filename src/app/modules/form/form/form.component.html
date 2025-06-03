@@ -11,11 +11,11 @@
         </div>
       </div>
 
-<div class="result ms-2 mt-3">
+      <div class="result ms-2 mt-3">
         <p-button class="reset-btn" (onClick)="resetform()">
           <span class="material-symbols-outlined">restart_alt</span>
         </p-button>
-    </div>
+      </div>
 
     </div>
 
@@ -44,6 +44,10 @@
               <span class="material-symbols-outlined">more_vert</span>
             </div>
             <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)=" CopyLink(row)">
+                <span class="material-symbols-outlined">content_copy</span>
+                {{ 'CopyLink_Form' | translate }}
+              </button>
               <button mat-menu-item (click)="openAddForm(row)">
                 <span class="material-symbols-outlined">edit</span>
                 {{ 'Edit_Form' | translate }}
@@ -78,12 +82,12 @@
         <p-skeleton height="7.5rem"></p-skeleton>
       </div>
     </div>
-     <div class="row">
+    <div class="row">
       <div *ngFor="let list of [1, 2,3]" class="col mx-0 mt-2">
         <p-skeleton height="7.5rem"></p-skeleton>
       </div>
     </div>
-     <div class="row">
+    <div class="row">
       <div *ngFor="let list of [1, 2,3]" class="col mx-0 mt-2">
         <p-skeleton height="7.5rem"></p-skeleton>
       </div>

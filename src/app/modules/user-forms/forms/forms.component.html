@@ -103,20 +103,18 @@
     <div class="col-12 mb-3 field_container">
       <label>{{ 'sendOffers_forms' | translate }}</label>
       <div class="radio-wrapper">
-        <!-- error now lives in its own block -->
         <span *ngIf="submitted && dataForm.controls['sendOffers']?.hasError('required')" class="error-validation">
           {{ 'Field_Required' | translate }}
         </span>
 
-        <!-- then the options -->
         <div class="radio_options">
           <div class="radio-wrapper-6">
-            <input formControlName="sendOffers" type="radio" name="sendOffers" [value]="1">
-            <label>{{'acceptOffers_forms' | translate}}</label>
+            <input id="sendOffersYes" formControlName="sendOffers" type="radio" name="sendOffers" [value]="1">
+            <label for="sendOffersYes">{{'acceptOffers_forms' | translate}}</label>
           </div>
           <div class="radio-wrapper-6">
-            <input formControlName="sendOffers" type="radio" name="sendOffers" [value]="0">
-            <label>{{'notAcceptOffers_forms' | translate}}</label>
+            <input id="sendOffersNo" formControlName="sendOffers" type="radio" name="sendOffers" [value]="0">
+            <label for="sendOffersNo">{{'notAcceptOffers_forms' | translate}}</label>
           </div>
 
         </div>
@@ -127,7 +125,8 @@
 
   </div>
   <div class="col-xs-12 mt-4 ">
-    <p-button type="Submit" class="btn-primary" label="Start" [loading]="btnLoading" (click)="start()"></p-button>
+    <p-button type="Submit" class="btn-primary" label="{{'Start' | translate}}" [loading]="btnLoading"
+      (click)="start()"></p-button>
   </div>
 
 </form>

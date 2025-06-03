@@ -51,8 +51,6 @@
           <div class="card-content">
             <div class="options-label">{{ 'questionOptions_questions' | translate }}:</div>
             <div class="answers_container">
-              <!-- <p-tag *ngFor="let o of row.options" [value]="o.optionTranslation![layoutService.config.lang]?.name"
-            class="answer-tag"></p-tag> -->
               <span *ngFor="let o of row.options">{{ o.optionTranslation![layoutService.config.lang]?.name }}</span>
             </div>
           </div>
@@ -78,13 +76,13 @@
 
 
 
- <ng-template #ListView>
-    <div class="row">
-      <div *ngFor="let list of [1, 2, 3,]" class="col mx-0 mt-2">
-        <p-skeleton height="20rem"></p-skeleton>
-      </div>
+<ng-template #ListView>
+  <div class="row">
+    <div *ngFor="let list of [1, 2, 3,]" class="col mx-0 mt-2">
+      <p-skeleton height="20rem"></p-skeleton>
     </div>
-  </ng-template>
+  </div>
+</ng-template>
 
 <p-confirmDialog #positionDialog key="positionDialog" position="bottom" [baseZIndex]="10000" onHide="true">
   <ng-template pTemplate="footer">
