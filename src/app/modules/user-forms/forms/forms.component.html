@@ -1,20 +1,7 @@
-<div class="header-admin__tools">
-  <div [matMenuTriggerFor]="langMenu">
-    <span class="material-symbols-outlined lang-icon">language</span>
-    <span class="m-0">{{currentlang}}</span>
-
-    <span class="material-symbols-outlined m-0"> arrow_drop_down </span>
-  </div>
-  <mat-menu #langMenu="matMenu">
-    <button mat-menu-item (click)="changeLang('en')">
-      English
-    </button>
-    <button mat-menu-item (click)="changeLang('ar')">
-      عربي
-    </button>
-  </mat-menu>
-
+<div class="header__tools">
+  <button  (click)="changeLang(langCode)">{{unCurrentlang}}</button>
 </div>
+
 <form [formGroup]="dataForm" action="" class="forms">
   <div class="logo-container mb-5">
     <img src="../../../../assets/images/Fill Logo.svg" alt="">
@@ -44,7 +31,14 @@
     <div class="col-12 mb-3 field_container">
       <label>{{ 'dateOfBirth_forms' | translate }}:</label>
       <div class="p-float-label">
-        <p-calendar [showIcon]="true" formControlName="dateOfBirth"></p-calendar>
+        <div class="birthdate">
+        <input pInputText  type="text" formControlName="year" placeholder="{{ 'yearOfBirth_forms' | translate }}" />
+        <p-dropdown [options]="" optionLabel="value" optionValue="key"
+          formControlName="month" [filter]="true" placeholder="{{ 'monthOfData_forms' | translate }}"></p-dropdown>
+        <p-dropdown [options]="" optionLabel="value" optionValue="key"
+          formControlName="day" [filter]="true" placeholder="{{ 'dayOfDate_forms' | translate }}"></p-dropdown>
+        </div>
+       
         <span *ngIf="submitted && dataForm.controls['dateOfBirth']?.hasError('required')" class="error-validation">{{
           'Field_Required' |
           translate }}</span>
@@ -54,7 +48,7 @@
     <div class="col-12 mb-3 field_container">
       <label>{{ 'phoneNumber_forms' | translate }}:</label>
       <div class="p-float-label d-flex gap-2">
-        <p-dropdown [options]="codes" optionLabel="fullName" optionValue="code"
+        <p-dropdown [options]="codes" optionLabel="fullName" optionValue="code" [filter]="true"
           formControlName="countryCode"></p-dropdown>
         <span *ngIf="submitted && dataForm.controls['phoneNumber']?.hasError('required')" class="error-validation">{{
           'Field_Required' |
@@ -116,6 +110,7 @@
       </div>
     </div>
 
+  <img src="../../../../assets/images/Logo ICON Transparant.svg" alt="" id="vector">
 
   </div>
   <div class="col-xs-12 mt-4 ">

@@ -1,7 +1,7 @@
 <div class="clients">
   <div [formGroup]="dataForm" class="row mb-4 m-0  p-0">
     <div class="container d-flex">
-      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3 ms-2">
         <div class="flex flex-wrap justify-content-center gap-3">
           <span class="p-input-icon-left p-0">
             <i class="pi pi-search"></i>
@@ -26,7 +26,7 @@
         </p-button>
       </div>
 
-
+      </div>
       <ng-container *ngIf="!loading; else ListView">
         <div class="row mx-0 mt-2 box">
           <div *ngFor="let row of data">
@@ -145,13 +145,7 @@
 
       </ng-container>
 
-      <ng-template #ListView>
-        <div class="row">
-          <div *ngFor="let list of [1, 2, 3, 4]" class="row mx-0 mt-2">
-            <p-skeleton height="7.5rem"></p-skeleton>
-          </div>
-        </div>
-      </ng-template>
+      
 
       <p-confirmDialog #positionDialog key="positionDialog" position="bottom" [baseZIndex]="10000" onHide="true">
         <ng-template pTemplate="footer">
@@ -162,4 +156,14 @@
         </ng-template>
       </p-confirmDialog>
 
+    
+</div>
+</div>
+
+<ng-template #ListView>
+    <div class="row">
+      <div *ngFor="let list of [1, 2, 3,4]" class="row mx-0 mt-2">
+        <p-skeleton height="15rem"></p-skeleton>
+      </div>
     </div>
+</ng-template>

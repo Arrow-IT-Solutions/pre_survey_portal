@@ -1,5 +1,19 @@
-.header-admin__tools{
+@import "../../../../assets/scss/varialbles.scss";
+.header__tools{
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    
+    button{
+     border: none;
+     padding:0.5rem 1.5rem;
+     background-color: $primary-color;
+     text-align: center;
+     border-radius: 6px;
+     color: #FFFFFF;
+    }
 }
 .forms{
     width: 70%;
@@ -8,6 +22,8 @@
     padding: 1rem;
     margin: auto;
     margin-top: 2rem;
+    position: relative;
+  
     @media (max-width:767px) {
         width: 90%;
     }
@@ -32,6 +48,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        
         .field_container{
             label{
                 font-weight: 300;
@@ -43,12 +60,13 @@
             }
             .dropdown{
                 width: 100%;
+                z-index: 999;
             }
             .radio_options{
                 display: flex;
                 flex-direction: column;
                 margin-top: 0.5rem;
-                row-gap: 1rem;
+                // row-gap: 1rem;
 //    label {
 // 	display: flex;
 // 	cursor: pointer;
@@ -98,12 +116,13 @@
     display: flex;
     align-items: center;
     column-gap: 0.5rem;
+   
     
   }
 
   @supports (-webkit-appearance: none) or (-moz-appearance: none) {
     .radio-wrapper-6 input[type=radio] {
-      --active: #fccaad;
+      --active: #dd8e60;
       --active-inner: #fff;
       --focus: 2px #fff ;
       --border: #A75422;
@@ -149,7 +168,7 @@
       --bc: var(--border);
     }
     .radio-wrapper-6 input[type=radio]:disabled + label {
-      cursor: not-allowed;
+      cursor: allowed;
       color: #8A91B4;
     }
     .radio-wrapper-6 input[type=radio]:hover:not(:checked):not(:disabled) {
@@ -174,6 +193,13 @@
       vertical-align: top;
       cursor: pointer;
       margin-left: .5em;
+    }
+    label{
+      padding: 0.5rem 0.8rem;
+      border-radius: 16px;
+    }
+    .radio-wrapper-6 input[type=radio]:checked + label {
+      background-color: #dd8e60;
     }
 
     .radio-wrapper-6 input[type=radio] {
@@ -219,7 +245,32 @@
   .radio_options {
     display: flex;
     flex-direction: column;
-
+    
    
   }
+}
+.birthdate{
+  display: flex;
+  justify-content: space-between;
+  column-gap: 1.5rem;
+  @media(max-width:767px){
+    row-gap: 1rem;
+    flex-direction: column;
+  }
+ 
+}
+#vector{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 20rem;
+  @media(max-width:767px){
+    width: 12rem;
+  }
+ 
+}
+#vector:lang(ar){
+  right: unset;
+  left: 0;
+  transform: rotateY(180deg); 
 }

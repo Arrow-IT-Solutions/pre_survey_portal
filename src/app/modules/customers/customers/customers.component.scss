@@ -22,6 +22,7 @@
         border: none;
         color: white;
         margin-top: 1rem;
+        
       }
     ::ng-deep .p-accordion {
         & .p-accordion-header {
@@ -169,18 +170,19 @@
 .box{
   max-height: 30rem;
   overflow-y: auto;
+  padding-top: 1rem;
 }
   & .card {
 
     display: flex;
     flex-direction: row;
     padding: 1rem;
-    max-height: 14rem;
+    max-height: 15rem;
     overflow-y: auto;
     border-radius: 6px;
-
     border-color: rgba($primary-color, 0.5);
     column-gap: 1rem;
+   
     @media (max-width:767px) {
       flex-direction: column;
       max-height: 15rem;
@@ -225,28 +227,8 @@
       color: $primary-color;
     }
 
-    & .size{
-        padding-inline-end: .5rem;
-        margin-inline-end: .5rem;
-        border-inline-end: 1px solid $light-gray;
-        font-family: myfont-bold, myfont-ar-bold;
+    
 
-        &:lang(ar){
-          padding-inline-start: .5rem;
-          margin-inline-start: .5rem;
-          border-inline-start: 1px solid $light-gray;
-          border-inline-end: none
-        }
-    }
-
-    & .category{
-        font-family: myfont-bold, myfont-ar-bold;
-    }
-
-    & .item__ID{
-      color: $gray-color;
-      opacity: .7;
-    }
   }
 
   &-section{
@@ -434,6 +416,7 @@
 .reset-btn-container {
   display: flex;
   align-items: center;
+  top: auto;
 }
 
 .reset-btn {
@@ -454,6 +437,9 @@
     padding: 0;
     font-size: 1.5rem;
     transition: background 0.2s;
+    .material-symbols-outlined{
+      top: auto;
+    }
     &:hover {
       background-color: darken($primary-color-hover, 5%) !important;
     }
