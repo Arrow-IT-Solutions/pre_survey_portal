@@ -1,5 +1,5 @@
 <div class="header__tools">
-  <button  (click)="changeLang(langCode)">{{unCurrentlang}}</button>
+  <button (click)="changeLang(langCode)">{{unCurrentlang}}</button>
 </div>
 
 <form [formGroup]="dataForm" action="" class="forms">
@@ -32,16 +32,23 @@
       <label>{{ 'dateOfBirth_forms' | translate }}:</label>
       <div class="p-float-label">
         <div class="birthdate">
-        <input pInputText  type="text" formControlName="year" placeholder="{{ 'yearOfBirth_forms' | translate }}" />
-        <p-dropdown [options]="" optionLabel="value" optionValue="key"
-          formControlName="month" [filter]="true" placeholder="{{ 'monthOfData_forms' | translate }}"></p-dropdown>
-        <p-dropdown [options]="" optionLabel="value" optionValue="key"
-          formControlName="day" [filter]="true" placeholder="{{ 'dayOfDate_forms' | translate }}"></p-dropdown>
+          <input pInputText type="text" formControlName="year" placeholder="{{ 'yearOfBirth_forms' | translate }}" />
+          <p-dropdown [options]="monthOptions" optionLabel="label" optionValue="value" formControlName="month"
+            [filter]="false" placeholder="{{ 'monthOfDate_forms' | translate }}">
+          </p-dropdown>
+
+          <p-dropdown [options]="dayOptions" optionLabel="value" optionValue="key" formControlName="day"
+            [filter]="false" placeholder="{{ 'dayOfDate_forms' | translate }}"></p-dropdown>
         </div>
-       
-        <span *ngIf="submitted && dataForm.controls['dateOfBirth']?.hasError('required')" class="error-validation">{{
-          'Field_Required' |
-          translate }}</span>
+        <span *ngIf="
+                  submitted &&
+                  (dataForm.get('year')?.hasError('required') ||
+                    dataForm.get('year')?.hasError('pattern') ||
+                    dataForm.get('month')?.hasError('required') ||
+                    dataForm.get('day')?.hasError('required'))
+                " class="error-validation">
+          {{ 'Field_Required' | translate }}
+        </span>
       </div>
 
     </div>
@@ -97,20 +104,20 @@
 
         <!-- then the options -->
         <div class="radio_options">
-         <div class="radio-wrapper-6">
-          <input formControlName="sendOffers" type="radio" name="sendOffers" [value]="1">
-          <label>{{'acceptOffers_forms' | translate}}</label>
-         </div>
           <div class="radio-wrapper-6">
-          <input formControlName="sendOffers" type="radio" name="sendOffers" [value]="0">
-          <label>{{'notAcceptOffers_forms' | translate}}</label>
-         </div>
-          
+            <input formControlName="sendOffers" type="radio" name="sendOffers" [value]="1">
+            <label>{{'acceptOffers_forms' | translate}}</label>
+          </div>
+          <div class="radio-wrapper-6">
+            <input formControlName="sendOffers" type="radio" name="sendOffers" [value]="0">
+            <label>{{'notAcceptOffers_forms' | translate}}</label>
+          </div>
+
         </div>
       </div>
     </div>
 
-  <img src="../../../../assets/images/Logo ICON Transparant.svg" alt="" id="vector">
+    <img src="../../../../assets/images/Logo ICON Transparant.svg" alt="" id="vector">
 
   </div>
   <div class="col-xs-12 mt-4 ">
