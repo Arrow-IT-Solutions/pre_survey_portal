@@ -65,11 +65,11 @@
             </div>
             <mat-menu #menu="matMenu">
               <button mat-menu-item (click)="openAddCountryCode(row)">
-                <span class="material-symbols-outlined">edit</span>
+                <span class="material-symbols-outlined" id="icon_secoundary">edit</span>
                 {{ 'Edit_Option' | translate }}
               </button>
               <button mat-menu-item (click)="confirmDelete(row)">
-                <span class="material-symbols-outlined">delete</span>
+                <span class="material-symbols-outlined" id="icon_secoundary">delete</span>
                 {{ 'Delete_Option' | translate }}
               </button>
             </mat-menu>

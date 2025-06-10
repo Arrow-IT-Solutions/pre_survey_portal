@@ -144,15 +144,15 @@
             </div>
             <mat-menu #menu="matMenu">
               <button mat-menu-item (click)="openDialog(row)">
-                <span class="material-symbols-outlined">Edit</span>
+                <span class="material-symbols-outlined" id="icon_secoundary">Edit</span>
                 {{ 'Edit_Employee' | translate }}
               </button>
               <button mat-menu-item (click)="resetPass(row)">
-                <span class="material-symbols-outlined">Edit</span>
+                <span class="material-symbols-outlined" id="icon_secoundary">Edit</span>
                 {{ 'ResetPassword_Employee' | translate }}
               </button>
               <button mat-menu-item (click)="confirmDelete(row)">
-                <span class="material-symbols-outlined">delete</span>
+                <span class="material-symbols-outlined" id="icon_secoundary">delete</span>
                 {{ 'Delete_Employee' | translate }}
               </button>
             </mat-menu>

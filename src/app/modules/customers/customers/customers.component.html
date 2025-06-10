@@ -116,11 +116,11 @@
                 </div>
                 <mat-menu #menu="matMenu">
                   <button mat-menu-item (click)="openAddCustomer(row)">
-                    <span class="material-symbols-outlined">Edit</span>
+                    <span class="material-symbols-outlined" id="icon_secoundary">Edit</span>
                     {{ 'Edit_Customer' | translate }}
                   </button>
                   <button mat-menu-item (click)="confirmDelete(row)">
-                    <span class="material-symbols-outlined">delete</span>
+                    <span class="material-symbols-outlined" id="icon_secoundary">delete</span>
                     {{ 'Delete_Customer' | translate }}
                   </button>
                 </mat-menu>
