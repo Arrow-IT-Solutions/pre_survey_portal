@@ -45,15 +45,15 @@
             </div>
             <mat-menu #menu="matMenu">
               <button mat-menu-item (click)=" CopyLink(row)">
-                <span class="material-symbols-outlined" id="icon_secoundary">content_copy</span>
+                <span class="material-symbols-outlined" id="icon_edit">content_copy</span>
                 {{ 'CopyLink_Form' | translate }}
               </button>
               <button mat-menu-item (click)="openAddForm(row)">
-                <span class="material-symbols-outlined" id="icon_secoundary">edit</span>
+                <span class="material-symbols-outlined" id="icon_edit">edit</span>
                 {{ 'Edit_Form' | translate }}
               </button>
               <button mat-menu-item (click)="confirmDelete(row)">
-                <span class="material-symbols-outlined" id="icon_secoundary">delete</span>
+                <span class="material-symbols-outlined" id="icon_delete">delete</span>
                 {{ 'Delete_Form' | translate }}
               </button>
             </mat-menu>

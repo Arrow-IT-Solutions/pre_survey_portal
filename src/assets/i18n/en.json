@@ -200,5 +200,19 @@
 "Start" : "Start",
 "CopyLink_Form" : "Copy Form Link",
 "OptionArabic_Required" : "Required Option in Arabic",
- "closeMessage_AlertModel":"Ok"
+ "closeMessage_AlertModel":"Ok",
+ "searchOptionName_report":"Option",
+ "searchCustomerName_report":"Customer",
+ "searchCustomerPhone_report":"Customer Phone",
+ "searchFormName_report":"Form Name",
+ "OptionName_report":"Option",
+ "formName_report":"Form",
+ "customerFullName_report":"customer Name",
+ "customerPhone_report":"customer Phone",
+ "customerSocialStatus_report":"Social Status",
+ "customerBirthDate_report":"Birth Date",
+ "customerCountry_report":"State",
+ "customerIsAgree_report":"Agree to send offers",
+ "customerEmail_report":"Email",
+ "totalReport_report":"Total Reports"
 }

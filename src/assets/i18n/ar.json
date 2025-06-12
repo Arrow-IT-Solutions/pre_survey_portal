@@ -200,7 +200,21 @@
   "Start" : "البدأ",
   "CopyLink_Form" : "نسخ رابط الفورم",
   "OptionArabic_Required" : "حقل الخيار باللغة العربية مطلوب",
-  "closeMessage_AlertModel":"موافق"
+  "closeMessage_AlertModel":"موافق",
+  "searchOptionName_report":"الخيار",
+  "searchCustomerName_report":"اسم العميل",
+  "searchCustomerPhone_report":"هاتف العميل",
+  "searchFormName_report":"اسم النموذج",
+  "OptionName_report":"الخيار",
+  "formName_report":"النموذج",
+  "customerFullName_report":"اسم العميل",
+  "customerPhone_report":"رقم الهاتف",
+  "customerSocialStatus_report":"الحالة الاجتماعية",
+  "customerBirthDate_report":"تاريخ الميلاد",
+  "customerCountry_report":"المنطقة",
+  "customerIsAgree_report":"الموافقة على إرسال الإعلانات",
+  "customerEmail_report":"الإيميل",
+  "totalReport_report":"مجموع التقارير"
 
 }
 
