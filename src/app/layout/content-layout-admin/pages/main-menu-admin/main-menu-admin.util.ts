@@ -82,6 +82,14 @@ export const navbarData: NavbarData[] = [
     icon: 'public',
     routeLink: "country-code"
   },
+  
+  {
+    label: 'Reports',
+    labelar: 'التقارير',
+    id: 'Reports',
+    icon: 'Report',
+    routeLink: 'reports'
+  },
   {
     label: 'Settings',
     labelar: 'الإعدادات',

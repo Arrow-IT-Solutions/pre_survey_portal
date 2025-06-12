@@ -1,30 +1,22 @@
 @import "../../../../assets/scss/varialbles.scss";
 
-.options {
+.reports {
     padding: 1rem 1rem 1rem 0rem;
     position: relative;
 
     &:lang(ar){
         padding: 1rem 0 1rem 1rem;
     }
-    .container{
-        display: flex;
-        flex-wrap: wrap;
-        column-gap: 2rem;
-
-         .result{
-          .result_button{
-        width: 3rem !important;
-        height: 3rem !important;
-        border-radius: 50% !important;
-        background-color: $primary-color-hover !important;
-        border: none;
-        color: white;
-        padding: 0 !important;
-          }
-      }
-      }
-
+      // .result{
+      //   width: 3rem;
+      //   height: 3rem;
+      //   border-radius: 50%;
+      //   background-color: $primary-color-hover;
+      //   border: none;
+      //   color: white;
+      //   margin-top: 1rem;
+        
+      // }
     ::ng-deep .p-accordion {
         & .p-accordion-header {
           display: flex;
@@ -36,7 +28,7 @@
             left: 2rem;
             direction: ltr;
             position: absolute;
-            top: 4rem;
+            top: 5rem;
           }
 
           & .p-accordion-header-link {
@@ -80,7 +72,7 @@
         justify-content: space-evenly;
 
         & .material-symbols-outlined{
-          color: $blue-color;
+          color: $primary-color-hover;
           top: 0;
         }
       }
@@ -124,6 +116,14 @@
           border-color: $light-gray;
         }
       }
+      #search{
+        // margin-left: 2rem;
+        margin-right: 4.5rem;
+        :lang(ar){
+          margin-right: unset;
+          margin-left: 4rem;
+        }
+      }
 
 
 
@@ -149,17 +149,7 @@
       top: -5px;
     }
   }
-  .box2{
-    display: flex;
-    flex-direction: row;
-    column-gap: 2rem;
-    .container{
-      display: flex;
-      flex-wrap: wrap;
-      column-gap: 2rem;
-    }
 
-  }
 
   & .box-shadow {
     background-color: $white-color;
@@ -171,26 +161,22 @@
 .box{
   max-height: 30rem;
   overflow-y: auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  padding-top: 1rem;
 }
   & .card {
-     width: 30%;
+
     display: flex;
     flex-direction: row;
     padding: 1rem;
-    max-height: 14rem;
+    max-height: 18rem;
     overflow-y: auto;
     border-radius: 6px;
-    align-items: center;
-
     border-color: rgba($primary-color, 0.5);
-    // column-gap: 1rem;
+    column-gap: 1rem;
+   
     @media (max-width:767px) {
-
+      flex-direction: column;
       max-height: 15rem;
-      width: 100%;
 
     }
     @media (max-width: 991px) and (min-width: 768px) {
@@ -201,8 +187,8 @@
       display: flex;
 
       @media (max-width:767px) {
-        padding-top: 0.5rem;
-        // margin-bottom: 1rem;
+        padding-top: 0;
+        margin-bottom: 1rem;
       }
       @media (max-width: 991px) and (min-width: 768px) {
        padding-top: 0;
@@ -232,28 +218,8 @@
       color: $primary-color;
     }
 
-    & .size{
-        padding-inline-end: .5rem;
-        margin-inline-end: .5rem;
-        border-inline-end: 1px solid $light-gray;
-        font-family: myfont-bold, myfont-ar-bold;
+    
 
-        &:lang(ar){
-          padding-inline-start: .5rem;
-          margin-inline-start: .5rem;
-          border-inline-start: 1px solid $light-gray;
-          border-inline-end: none
-        }
-    }
-
-    & .category{
-        font-family: myfont-bold, myfont-ar-bold;
-    }
-
-    & .item__ID{
-      color: $gray-color;
-      opacity: .7;
-    }
   }
 
   &-section{
@@ -294,38 +260,39 @@
         display: none;
     }
 
-    // &__items{
-    //     display: flex;
-    //     width: 95%;
-    //    column-gap: 7rem;
-    //    padding: 0.5rem;
+    &__items{
+        display: flex;
+        width: 95%;
+       column-gap: 7rem;
+       padding: 0.5rem;
 
 
-    //     @media (max-width:767px){
-    //       display: flex;
-    //       flex-direction: column;
-    //       margin: auto;
+        @media (max-width:767px){
+          display: flex;
+          flex-direction: column;
+          margin: auto;
 
 
-    //     }
-    //     @media (max-width: 991px) and (min-width: 768px) {
-    //       width: 100%;
-    //        // Tablets
-    //     }
+        }
+        @media (max-width: 991px) and (min-width: 768px) {
+          width: 100%;
+           // Tablets
+        }
 
-    // }
+    }
 
 
   }
 
 
     &__contents {
-
-
-      width: 80%;
+      display: flex;
+     flex-direction: column;
+      row-gap: 1rem;
+      width: 90%;
 
       @media(max-width:767px){
-
+        width: 100%;
       }
       @media (max-width: 991px) and (min-width: 768px) {
         width: 90%;
@@ -354,9 +321,9 @@
     }
 
     &-label {
-      font-size: 1rem;
-      color: black;
-      padding: 0 0.2rem;
+      font-size: $small-font;
+      color: $gray-color;
+      opacity: 0.5;
       font-family: myfont-semibold, myfont-ar-semibold;
     }
 
@@ -380,7 +347,8 @@
       align-items: center;
       justify-content: center;
 
-      width: 20px;
+      width: 40px;
+      
 
       @media (max-width: 991px) and (min-width: 768px) {
         width: 100%;
@@ -437,49 +405,10 @@
       }
 }
 
-
-.card {
-  display: flex;
-  flex-direction: column;
-
-  /* let flex-fill on the wrapper grow this to match its siblings */
-  &.flex-fill {
-    width: 100%;
-  }
-
-  .icon-container {
-    text-align: center;
-    padding: 1rem 0;
-  }
-
-  .card__contents {
-    padding: 0 1rem;
-    flex-grow: 1;
-    /* so the actions area sits at the bottom */
-  }
-
-  .card__actions {
-    display: flex;
-    justify-content: flex-end;
-    padding: 0.5rem 1rem;
-  }
-}
-
-/* ensure Bootstrap’s row is stretching its children */
-.row {
-  align-items: stretch;
-}
-
-/* optional: force all images in icon-container to the same size */
-.icon-container img {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
-}
-
 .reset-btn-container {
   display: flex;
   align-items: center;
+  top: auto;
 }
 
 .reset-btn {
@@ -500,10 +429,10 @@
     padding: 0;
     font-size: 1.5rem;
     transition: background 0.2s;
+    margin-right: 1rem !important;
     .material-symbols-outlined{
-     top: auto;
+      top: auto;
     }
-    
     &:hover {
       background-color: darken($primary-color-hover, 5%) !important;
     }
@@ -515,3 +444,4 @@
 #icon_delete{
   color: $secoundary-color;
 }
+

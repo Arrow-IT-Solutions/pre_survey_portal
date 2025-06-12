@@ -1,4 +1,4 @@
-<div class="clients">
+<div class="reports">
   <div [formGroup]="dataForm">
   <div class="row mb-4 m-0 flex-row-reverse p-3">
    <div class="col-lg-3 col-md-10 col p-0  " id="search">
@@ -6,7 +6,7 @@
           <span class="p-input-icon-left p-0">
             <i class="pi pi-search"></i>
             <input class="search-field" type="text" (ngModelChange)="OnChange()"
-              placeholder="{{ 'searchCustomerName_customer' | translate }}" formControlName="name" pInputText />
+              placeholder="{{ 'searchOptionName_report' | translate }}" formControlName="option" pInputText />
           </span>
         </div>
     </div>
@@ -23,14 +23,31 @@
               <span class="material-symbols-outlined">filter_alt</span>
               <span>Filter By</span>
             </div>
-            <div class="container">
-
+            <div class="container d-flex gap-3">
+           <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
+        <div class="flex flex-wrap justify-content-center gap-3">
+          <span class="p-input-icon-left p-0">
+            <i class="pi pi-search"></i>
+            <input class="search-field" type="text" (ngModelChange)="OnChange()"
+              placeholder="{{ 'searchCustomerName_report'| translate }}" formControlName="CustomerName" pInputText />
+          </span>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
+        <div class="flex flex-wrap justify-content-center gap-3">
+          <span class="p-input-icon-left p-0">
+            <i class="pi pi-search"></i>
+            <input class="search-field" type="text" (ngModelChange)="OnChange()"
+              placeholder="{{ 'searchCustomerPhone_report'| translate }}" formControlName="CustomerPhone" pInputText />
+          </span>
+        </div>
+      </div>
              <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
         <div class="flex flex-wrap justify-content-center gap-3">
           <span class="p-input-icon-left p-0">
             <i class="pi pi-search"></i>
             <input class="search-field" type="text" (ngModelChange)="OnChange()"
-              placeholder="{{ 'searchCustomerPhone_customer'| translate }}" formControlName="phone" pInputText />
+              placeholder="{{ 'searchFormName_report'| translate }}" formControlName="Form" pInputText />
           </span>
         </div>
       </div>
@@ -53,43 +70,57 @@
   
       <ng-container *ngIf="!loading; else ListView">
         <div class="row mx-0 mt-2 box">
-          <div *ngFor="let row of data">
+          <div>
             <div class="card col-12 mx-0 mb-2">
               <div class="icon-container">
-                <span class="material-symbols-outlined fill">group</span>
+                <span class="material-symbols-outlined fill">report</span>
               </div>
               <div class="col-lg-9 col-md-12 col-sm-12 card__contents">
                 <div class="card-section1">
                   <div class="card-section__title">info</div>
-
+                     <div class="card-section__items gap-9">
+                         <div class="card__contents__item">
+                      <div class="card-label">{{ 'OptionName_report' | translate }}</div>
+                      <div class="card-info">
+                        2-4
+                      </div>
+                    </div>
+                    <div class="card__contents__item">
+                      <div class="card-label">{{ 'formName_report' | translate }}</div>
+                      <div class="card-info">
+                        Birthdays
+                       
+                      </div>
+                    </div>
+                     </div>
                   <div class="card-section__items">
-
+                   
                     <div class="card__contents__item">
-                      <div class="card-label">{{ 'customerFullName_customer' | translate }}</div>
+                      <div class="card-label">{{ 'customerFullName_report' | translate }}</div>
                       <div class="card-info">
-                        <span class="material-symbols-outlined fill"></span>
-                        {{ row.customerTranslation![layoutService.config.lang]?.fullName }}
+                        Nour Saleem
+                       
                       </div>
                     </div>
                     <div class="card__contents__item">
-                      <div class="card-label">{{ 'customerPhone_customer' | translate }}</div>
+                      <div class="card-label">{{ 'customerPhone_report' | translate }}</div>
                       <div class="card-info">
-                        <span class="material-symbols-outlined fill"></span>
-                        {{ row.phone }}
+                        +963958902520
+                       
                       </div>
                     </div>
                     <div class="card__contents__item">
-                      <div class="card-label">{{ 'customerSocialStatus_customer' | translate }}</div>
+                      <div class="card-label">{{ 'customerSocialStatus_report' | translate }}</div>
                       <div class="card-info">
-                        <span class="material-symbols-outlined fill"></span>
-                        {{ row.socialStatusValue }}
+                        single
+                       
                       </div>
                     </div>
                     <div class="card__contents__item">
-                      <div class="card-label">{{ 'customerBirthDate_customer' | translate }}</div>
+                      <div class="card-label">{{ 'customerBirthDate_report' | translate }}</div>
                       <div class="card-info">
-                        <span class="material-symbols-outlined fill"></span>
-                        {{ row.birthDate | date: 'dd/MM/yyyy' }}
+                        29-7-1999
+                        
                       </div>
                     </div>
 
@@ -97,58 +128,42 @@
                   <div class="card-section__items">
 
                     <div class="card__contents__item">
-                      <div class="card-label">{{ 'customerCountry_customer' | translate }}</div>
+                      <div class="card-label">{{ 'customerCountry_report' | translate }}</div>
                       <div class="card-info">
-                        <span class="material-symbols-outlined fill"></span>
-                        {{ row.state }}
+                        Homs
+                        
                       </div>
                     </div>
                     <div class="card__contents__item">
-                      <div class="card-label">{{ 'customerIsAgree_customer' | translate }}</div>
+                      <div class="card-label">{{ 'customerIsAgree_report' | translate }}</div>
                       <div class="card-info">
-                        <span class="material-symbols-outlined fill"></span>
-                        {{ row.isAgree == 'True' ? layoutService.config.lang =='en'?'Yes':'نعم' :
-                        layoutService.config.lang=='en'?'No':'لا' }}
+                        yes
+                       
                       </div>
                     </div>
                     <div class="card__contents__item">
-                      <div class="card-label">{{ 'customerEmail_customer' | translate }}</div>
+                      <div class="card-label">{{ 'customerEmail_report' | translate }}</div>
                       <div class="card-info">
-                        <span class="material-symbols-outlined fill"></span>
-                        {{ row.email }}
+                       nawarasa99@gmail.com
+                        
                       </div>
                     </div>
 
 
 
                   </div>
-                  <div class="card-section__items">
-                    <div class="card__contents__item">
-                      <div class="card-label">{{ 'customerKnowingUs_customer' | translate }}</div>
-                      <div class="card-info">
-                        <span class="material-symbols-outlined fill"></span>
-                        {{ row.knowingUs }}
-                      </div>
-                    </div>
-                  </div>
+                  
                 </div>
 
               </div>
               <div class="one">
-                <div [matMenuTriggerFor]="menu" class="card__actions">
-                  <span class="material-symbols-outlined card__actions__details">more_vert</span>
-                </div>
-                <mat-menu #menu="matMenu">
-                  <button mat-menu-item (click)="openAddCustomer(row)">
-                    <span class="material-symbols-outlined" id="icon_edit">Edit</span>
-                    {{ 'Edit_Customer' | translate }}
-                  </button>
-                  <button mat-menu-item (click)="confirmDelete(row)">
+               
+                
+                  <button mat-menu-item >
                     <span class="material-symbols-outlined" id="icon_delete">delete</span>
-                    {{ 'Delete_Customer' | translate }}
+                    
                   </button>
-                </mat-menu>
-
+                  
               </div>
             </div>
 
@@ -157,28 +172,19 @@
 
         <div class="all d-flex">
           <div class="total">
-            {{ "totalCustomer_customer" | translate }}:{{ totalRecords }}
+            {{ "totalReport_report" | translate }}:{{ totalRecords }}
           </div>
 
         </div>
         <p-paginator class="mt-2" [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[4, 12, 20, 30]"
           [first]="first" (onPageChange)="paginate($event)"></p-paginator>
-        <button class="add-button" (click)="openAddCustomer()">
-          <span class="material-symbols-outlined">add</span>
-        </button>
+      
 
       </ng-container>
 
       
 
-      <p-confirmDialog #positionDialog key="positionDialog" position="bottom" [baseZIndex]="10000" onHide="true">
-        <ng-template pTemplate="footer">
-          <button type="button" pButton icon="pi pi-times" label="{{ 'No' | translate }}"
-            (click)="positionDialog.reject()"></button>
-          <button type="button" pButton icon="pi pi-check" label="{{ 'Yes' | translate }}"
-            (click)="positionDialog.accept()"></button>
-        </ng-template>
-      </p-confirmDialog>
+     
 
     
 </div>

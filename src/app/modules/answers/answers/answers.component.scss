@@ -27,7 +27,7 @@
       }
       }
 
-    ::ng-deep .p-accordion {
+     ::ng-deep .p-accordion {
         & .p-accordion-header {
           display: flex;
           justify-content: flex-end;
@@ -38,7 +38,7 @@
             left: 2rem;
             direction: ltr;
             position: absolute;
-            top: 4rem;
+            top: 5rem;
           }
 
           & .p-accordion-header-link {
@@ -82,12 +82,28 @@
         justify-content: space-evenly;
 
         & .material-symbols-outlined{
-          color: $blue-color;
+          color: $primary-color-hover;
           top: 0;
         }
       }
 
+      & .add-button {
+        width: 60px;
+        height: 60px;
+        font-size: $large-icon;
+        border-radius: 50%;
+        color: $white-color;
+        border: none;
+        position: fixed;
+        top: calc(100vh - 85px);
+        right: 1.5rem;
+        background-color: $primary-color;
 
+        &:lang(ar){
+          right: unset;
+          left: 1.5rem;
+        }
+      }
 
       & .filter-field{
         display: flex;
@@ -108,6 +124,14 @@
 
         & .search-field{
           border-color: $light-gray;
+        }
+      }
+      #search{
+        // margin-left: 2rem;
+        margin-right: 4.5rem;
+        :lang(ar){
+          margin-right: unset;
+          margin-left: 4rem;
         }
       }
 
@@ -463,6 +487,7 @@
     padding: 0;
     font-size: 1.5rem;
     transition: background 0.2s;
+    margin-right: 1rem !important;
     .material-symbols-outlined{
           top: auto;
         }

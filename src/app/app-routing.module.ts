@@ -135,6 +135,13 @@ const routes: Routes = [
           )
       },
       {
+        path: 'reports',
+        loadChildren: () =>
+          import('./modules/reports/reports.module').then(
+            (m) => m.ReportsModule
+          )
+      },
+      {
         path: 'settings',
         loadChildren: () =>
           import('./modules/settings/settings.module').then(
