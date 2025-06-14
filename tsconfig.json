@@ -2,6 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "skipLibCheck": true,
    "types": ["node"],
    "strictPropertyInitialization": false,
    "strictNullChecks":true,
@@ -28,6 +29,12 @@
       "dom"
     ]
   },
+  "files": [
+    "src/typings.d.ts"  // ← add this line if not already present
+  ],
+  "include": [
+    "src/**/*.ts"
+  ],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,

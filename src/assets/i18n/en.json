@@ -200,5 +200,9 @@
 "Start" : "Start",
 "CopyLink_Form" : "Copy Form Link",
 "OptionArabic_Required" : "Required Option in Arabic",
- "closeMessage_AlertModel":"Ok"
+ "closeMessage_AlertModel":"Ok",
+ "Form_QR_Code" : "Form QR",
+ "Download_QR" : "Download",
+ "Close_QR" : "Close",
+ "ShowQR_Form" : "Show QR"
 }

@@ -25,9 +25,7 @@
 
   <ng-container *ngIf="!loading; else ListView">
     <div class="row mx-0 mt-2">
-      <!-- 3 columns per row on md+ screens, full width on xs -->
       <div class="col-12 col-md-4 mb-4 d-flex" *ngFor="let row of data">
-        <!-- “d-flex” + “flex-fill” makes each card stretch to the same height -->
         <div class="card flex-fill">
           <div class="icon-container">
             <img src="assets/images/icons8-option-30.png" alt="" />
@@ -44,6 +42,10 @@
               <span class="material-symbols-outlined">more_vert</span>
             </div>
             <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)=" OpenQRDialog(row)">
+                <span class="material-symbols-outlined">qr_code</span>
+                {{ 'ShowQR_Form' | translate }}
+              </button>
               <button mat-menu-item (click)=" CopyLink(row)">
                 <span class="material-symbols-outlined">content_copy</span>
                 {{ 'CopyLink_Form' | translate }}

@@ -9,6 +9,8 @@ import { FormService } from 'src/app/layout/service/form.service';
 import { AddFormComponent } from '../add-form/add-form.component';
 import { SettingsService } from 'src/app/layout/service/settings.service';
 import { SettingResponse, SettingSearchRequest } from '../../settings/settings.module';
+import { MatDialog } from '@angular/material/dialog';
+import { QRCodeDialogComponent } from '../../QR/qrcode-dialog/qrcode-dialog.component';
 
 @Component({
   selector: 'app-form',
@@ -36,7 +38,8 @@ export class FormComponent {
     public messageService: MessageService,
     public confirmationService: ConfirmationService,
     public formService: FormService,
-    public settingService: SettingsService
+    public settingService: SettingsService,
+    private dialog: MatDialog
   ) {
     this.dataForm = this.formBuilder.group({
       name: [''],
@@ -178,6 +181,21 @@ export class FormComponent {
       .catch(err => {
         console.error('Failed to copy:', err);
       });
+  }
+
+  OpenQRDialog(row: FormResponse) {
+    if (!row) {
+      return;
+    }
+    this.formService.SelectedData = row;
+    const linkToCopy = `${this.appURL}/#/forms/${row.uuid}`;
+    this.dialog.open(QRCodeDialogComponent, {
+      data: linkToCopy,
+      width: '300px',       // desired width
+      maxWidth: '90vw',     // never overflow the viewport
+      height: '500px',       // let it grow vertically as needed
+      panelClass: 'qr-dialog' // optional: for any extra styling
+    });
   }
 
 }

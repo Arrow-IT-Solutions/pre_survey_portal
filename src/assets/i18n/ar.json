@@ -200,7 +200,11 @@
   "Start" : "البدأ",
   "CopyLink_Form" : "نسخ رابط الفورم",
   "OptionArabic_Required" : "حقل الخيار باللغة العربية مطلوب",
-  "closeMessage_AlertModel":"موافق"
+  "closeMessage_AlertModel":"موافق",
+  "Form_QR_Code" : "Form QR",
+  "Download_QR" : "تحميل",
+  "Close_QR" : "إغلاق",
+  "ShowQR_Form" : "عرض QR"
 
 }
 

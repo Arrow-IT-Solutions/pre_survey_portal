@@ -30,6 +30,8 @@ import { HeaderAdminComponent } from './layout/content-layout-admin/pages/header
 import { MainMenuAdminComponent } from './layout/content-layout-admin/pages/main-menu-admin/main-menu-admin.component';
 import { HasPermissionDirective } from './Core/directive/has-permission.directive';
 import { DisableElementDirective } from './Core/directive/disable-element.directive';
+import { MatButtonModule } from '@angular/material/button';
+import { QRModule } from './modules/QR/qr.module';
 
 @NgModule({
   declarations: [
@@ -48,11 +50,13 @@ import { DisableElementDirective } from './Core/directive/disable-element.direct
   ],
   imports: [
     BrowserModule,
+    QRModule,
     SharedModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    MatButtonModule,
     HttpClientModule,
     BrowserAnimationsModule,
     TranslateModule.forRoot({
