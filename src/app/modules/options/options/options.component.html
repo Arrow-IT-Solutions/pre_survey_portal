@@ -1,33 +1,51 @@
 <div class="options">
   <div [formGroup]="dataForm" class="row mb-4 m-0  p-0">
-    <div class="container d-flex">
-      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
-        <div class="flex flex-wrap justify-content-center gap-3">
-          <span class="p-input-icon-left p-0">
-            <i class="pi pi-search"></i>
-            <input class="search-field" type="text" (ngModelChange)="OnChange()"
-              placeholder="{{ 'optionName_option' | translate }}" formControlName="name" pInputText />
-          </span>
-        </div>
-      </div>
+    <p-accordion class="mt-5 p-0">
+      <p-accordionTab>
+        <ng-template pTemplate="header">
+          <div class="flex align-items-center">
+            <span class="material-symbols-outlined">tune</span>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="content">
+          <div class="m-0 box2 d-flex">
+            <div class="filter-title">
+              <span class="material-symbols-outlined">filter_alt</span>
+              <span>Filter By</span>
+            </div>
+            <div class="container">
 
-<div class="result ms-2 mt-3">
-        <p-button class="reset-btn" (onClick)="resetform()">
-          <span class="material-symbols-outlined">restart_alt</span>
-        </p-button>
-    </div>
+              <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
+                <div class="flex flex-wrap justify-content-center gap-3">
+                  <span class="p-input-icon-left p-0">
+                    <i class="pi pi-search"></i>
+                    <input class="search-field" type="text" (ngModelChange)="OnChange()"
+                      placeholder="{{ 'optionName_option' | translate }}" formControlName="name" pInputText />
+                  </span>
+                </div>
+              </div>
 
-    </div>
 
+            </div>
+
+            <div class="col result">
+              <div class="ms-2 mt-3">
+                <p-button class="reset-btn" (onClick)="resetform()">
+                  <span class="material-symbols-outlined">restart_alt</span>
+                </p-button>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </p-accordionTab>
+    </p-accordion>
 
   </div>
 
 
   <ng-container *ngIf="!loading; else ListView">
     <div class="row mx-0 mt-2">
-      <!-- 3 columns per row on md+ screens, full width on xs -->
       <div class="col-12 col-md-4 mb-4 d-flex" *ngFor="let row of data">
-        <!-- “d-flex” + “flex-fill” makes each card stretch to the same height -->
         <div class="card flex-fill">
           <div class="icon-container">
             <img src="assets/images/icons8-option-30.png" alt="" />
@@ -78,17 +96,17 @@
         <p-skeleton height="7.5rem"></p-skeleton>
       </div>
     </div>
-     <div class="row">
+    <div class="row">
       <div *ngFor="let list of [1, 2, 3,]" class="col mx-0 mt-2">
         <p-skeleton height="7.5rem"></p-skeleton>
       </div>
     </div>
-     <div class="row">
+    <div class="row">
       <div *ngFor="let list of [1, 2, 3,]" class="col mx-0 mt-2">
         <p-skeleton height="7.5rem"></p-skeleton>
       </div>
     </div>
-     <div class="row">
+    <div class="row">
       <div *ngFor="let list of [1, 2, 3,]" class="col mx-0 mt-2">
         <p-skeleton height="7.5rem"></p-skeleton>
       </div>

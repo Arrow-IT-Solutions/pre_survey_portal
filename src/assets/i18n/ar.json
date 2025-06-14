@@ -218,7 +218,8 @@
   "customerCountry_report":"المنطقة",
   "customerIsAgree_report":"الموافقة على إرسال الإعلانات",
   "customerEmail_report":"الإيميل",
-  "totalReport_report":"مجموع التقارير"
+  "totalReport_report":"مجموع التقارير",
+  "Question_report" : "السؤال"
 
 }
 
