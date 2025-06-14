@@ -204,7 +204,21 @@
   "Form_QR_Code" : "Form QR",
   "Download_QR" : "تحميل",
   "Close_QR" : "إغلاق",
-  "ShowQR_Form" : "عرض QR"
+  "ShowQR_Form" : "عرض QR",
+  "searchOptionName_report":"الخيار",
+  "searchCustomerName_report":"اسم العميل",
+  "searchCustomerPhone_report":"هاتف العميل",
+  "searchFormName_report":"اسم النموذج",
+  "OptionName_report":"الخيار",
+  "formName_report":"النموذج",
+  "customerFullName_report":"اسم العميل",
+  "customerPhone_report":"رقم الهاتف",
+  "customerSocialStatus_report":"الحالة الاجتماعية",
+  "customerBirthDate_report":"تاريخ الميلاد",
+  "customerCountry_report":"المنطقة",
+  "customerIsAgree_report":"الموافقة على إرسال الإعلانات",
+  "customerEmail_report":"الإيميل",
+  "totalReport_report":"مجموع التقارير"
 
 }
 

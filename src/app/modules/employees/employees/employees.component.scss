@@ -19,7 +19,7 @@
             left: 2rem;
             direction: ltr;
             position: absolute;
-            top: 4rem;
+            top: 4.5rem;
           }
 
           & .p-accordion-header-link {
@@ -502,3 +502,9 @@
         }
       }
     }
+  #icon_edit{
+  color: $primary-color;
+}
+#icon_delete{
+  color: $secoundary-color;
+}

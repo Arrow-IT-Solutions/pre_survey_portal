@@ -37,7 +37,7 @@
             left: 2rem;
             direction: ltr;
             position: absolute;
-            top: 4rem;
+            top: 5rem;
           }
 
           & .p-accordion-header-link {
@@ -81,7 +81,7 @@
         justify-content: space-evenly;
 
         & .material-symbols-outlined{
-          color: $blue-color;
+          color: $primary-color-hover;
           top: 0;
         }
       }
@@ -123,6 +123,14 @@
 
         & .search-field{
           border-color: $light-gray;
+        }
+      }
+      #search{
+        // margin-left: 2rem;
+        margin-right: 4.5rem;
+        :lang(ar){
+          margin-right: unset;
+          margin-left: 4rem;
         }
       }
 
@@ -496,6 +504,7 @@
     padding: 0;
     font-size: 1.5rem;
     transition: background 0.2s;
+    margin-right: 1rem !important;
     .material-symbols-outlined{
       top: auto;
     }
@@ -524,5 +533,11 @@
     flex-direction: column;
     gap: 0.5rem;
   }
+}
+#icon_edit{
+  color: $primary-color;
+}
+#icon_delete{
+  color: $secoundary-color;
 }
 

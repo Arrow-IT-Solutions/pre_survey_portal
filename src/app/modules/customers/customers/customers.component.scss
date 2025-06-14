@@ -7,23 +7,16 @@
     &:lang(ar){
         padding: 1rem 0 1rem 1rem;
     }
-    .container{
-        display: flex;
-        flex-wrap: wrap;
-        column-gap: 2rem;
-
-
-      }
-      .result{
-        width: 3rem;
-        height: 3rem;
-        border-radius: 50%;
-        background-color: $primary-color-hover;
-        border: none;
-        color: white;
-        margin-top: 1rem;
+      // .result{
+      //   width: 3rem;
+      //   height: 3rem;
+      //   border-radius: 50%;
+      //   background-color: $primary-color-hover;
+      //   border: none;
+      //   color: white;
+      //   margin-top: 1rem;
         
-      }
+      // }
     ::ng-deep .p-accordion {
         & .p-accordion-header {
           display: flex;
@@ -35,7 +28,7 @@
             left: 2rem;
             direction: ltr;
             position: absolute;
-            top: 4rem;
+            top: 5rem;
           }
 
           & .p-accordion-header-link {
@@ -79,7 +72,7 @@
         justify-content: space-evenly;
 
         & .material-symbols-outlined{
-          color: $blue-color;
+          color: $primary-color-hover;
           top: 0;
         }
       }
@@ -123,6 +116,14 @@
           border-color: $light-gray;
         }
       }
+      #search{
+        // margin-left: 2rem;
+        margin-right: 4.5rem;
+        :lang(ar){
+          margin-right: unset;
+          margin-left: 4rem;
+        }
+      }
 
 
 
@@ -148,17 +149,7 @@
       top: -5px;
     }
   }
-  // .box2{
-  //   display: flex;
-  //   flex-direction: row;
-  //   column-gap: 2rem;
-  //   .container{
-  //     display: flex;
-  //     flex-wrap: wrap;
-  //     column-gap: 2rem;
-  //   }
 
-  // }
 
   & .box-shadow {
     background-color: $white-color;
@@ -357,6 +348,7 @@
       justify-content: center;
 
       width: 20px;
+      
 
       @media (max-width: 991px) and (min-width: 768px) {
         width: 100%;
@@ -437,6 +429,7 @@
     padding: 0;
     font-size: 1.5rem;
     transition: background 0.2s;
+    margin-right: 1rem !important;
     .material-symbols-outlined{
       top: auto;
     }
@@ -444,5 +437,11 @@
       background-color: darken($primary-color-hover, 5%) !important;
     }
   }
+}
+#icon_edit{
+  color: $primary-color;
+}
+#icon_delete{
+  color: $secoundary-color;
 }
 
