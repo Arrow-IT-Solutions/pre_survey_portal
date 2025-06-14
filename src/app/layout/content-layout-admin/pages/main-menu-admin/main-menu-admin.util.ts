@@ -14,8 +14,51 @@ export interface NavbarData {
 
 export const navbarData: NavbarData[] = [
   {
-    label: 'Users',
-    labelar: 'المستخدمين',
+    label: 'Forms',
+    labelar: 'النماذج',
+    id: 'forms',
+    icon: ' format_align_justify',
+    routeLink: "forms"
+  },
+  {
+    label: 'Questions',
+    labelar: ' الأسئلة',
+    id: 'questions',
+    icon: 'question_mark',
+    routeLink: "questions"
+  },
+  {
+    label: 'Options',
+    labelar: 'الخيارات',
+    id: 'options',
+    icon: 'storage',
+    routeLink: "options"
+  },
+  {
+    label: 'Reports',
+    labelar: 'التقارير',
+    id: 'Reports',
+    icon: 'Report',
+    routeLink: 'reports'
+  },
+  {
+    label: 'Answers',
+    labelar: ' الإجابات',
+    id: 'answers',
+    icon: 'question_answer',
+    routeLink: "answers"
+  },
+  {
+    label: 'Customers Answers',
+    labelar: 'إجابات العملاء',
+    id: 'customers_answers',
+    icon: 'question_answer',
+    routeLink: "customers-answers"
+  },
+  {
+
+    label: 'System Management',
+    labelar: 'إدارة النظام',
     id: 'users',
     icon: 'group',
     items: [
@@ -30,72 +73,29 @@ export const navbarData: NavbarData[] = [
         labelar: 'الموظفين',
         id: 'employees',
         routeLink: 'employees'
+      },
+      {
+        label: 'Feedback',
+        labelar: 'التعليقات',
+        id: 'feedback',
+        icon: 'Comment',
+        routeLink: "feedback"
+      },
+      {
+        label: 'Country Codes',
+        labelar: 'رموز الدول',
+        id: 'country-code',
+        icon: 'public',
+        routeLink: "country-code"
+      },
+      {
+        label: 'Settings',
+        labelar: 'الإعدادات',
+        id: 'Settings',
+        icon: 'settings',
+        routeLink: 'settings'
       }
     ]
-  },
-  {
-    label: 'Questions',
-    labelar: ' الأسئلة',
-    id: 'questions',
-    icon: 'question_mark',
-    routeLink: "questions"
-  },
-  {
-    label: 'Answers',
-    labelar: ' الإجابات',
-    id: 'answers',
-    icon: 'question_answer',
-    routeLink: "answers"
-  },
-  {
-    label: 'Options',
-    labelar: 'الخيارات',
-    id: 'options',
-    icon: 'storage',
-    routeLink: "options"
-  },
-  {
-    label: 'Customers Answers',
-    labelar: 'إجابات العملاء',
-    id: 'customers_answers',
-    icon: 'question_answer',
-    routeLink: "customers-answers"
-  },
-  {
-    label: 'Forms',
-    labelar: 'النماذج',
-    id: 'forms',
-    icon: ' format_align_justify',
-    routeLink: "forms"
-  },
-  {
-    label: 'Feedback',
-    labelar: 'التعليقات',
-    id: 'feedback',
-    icon: 'Comment',
-    routeLink: "feedback"
-  },
-  {
-    label: 'Country Codes',
-    labelar: 'رموز الدول',
-    id: 'country-code',
-    icon: 'public',
-    routeLink: "country-code"
-  },
-  
-  {
-    label: 'Reports',
-    labelar: 'التقارير',
-    id: 'Reports',
-    icon: 'Report',
-    routeLink: 'reports'
-  },
-  {
-    label: 'Settings',
-    labelar: 'الإعدادات',
-    id: 'Settings',
-    icon: 'settings',
-    routeLink: 'settings'
   }
 
 

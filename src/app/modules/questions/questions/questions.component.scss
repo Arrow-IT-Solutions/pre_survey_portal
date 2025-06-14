@@ -11,7 +11,7 @@
         display: flex;
         flex-wrap: wrap;
         column-gap: 2rem;
-  
+
         .result{
         .result_button{
         width: 3rem !important;
@@ -20,7 +20,7 @@
         background-color: $primary-color-hover !important;
         border: none;
         color: white;
-       
+
         padding: 0 !important;
       }
       padding-top: 1rem;
@@ -42,21 +42,67 @@
             }
           }
       }
-      & .filter-title{
-        display: flex;
-        align-items: center;
-        border-inline-end: 1px solid rgba($light-purple, .5);
-        margin-top: 0.75rem;
-        width: 12%;
-        justify-content: space-evenly;
+            ::ng-deep .p-accordion {
+              & .p-accordion-header {
+                display: flex;
+                justify-content: flex-end;
+                margin-top: -3rem;
 
-        & .material-symbols-outlined{
-          color: $blue-color;
-          top: 0;
-        }
-      }
+                &:lang(ar) {
+                  right: unset;
+                  left: 2rem;
+                  direction: ltr;
+                  position: absolute;
+                  top: 5rem;
+                }
 
-    
+                & .p-accordion-header-link {
+                  padding: 0.5rem 0.75rem;
+                  border-radius: 6px;
+                  background-color: $white-color;
+                  border-color: $light-gray;
+                  top: 1px;
+                  color: $primary-color;
+                  right: 0.75rem;
+
+                  & chevronrighticon,
+                  & chevrondownicon {
+                    display: none;
+                  }
+
+                  &:lang(ar) {
+                    top: 0;
+                    right: 0;
+                  }
+                }
+              }
+
+              & .p-accordion-content {
+                border-radius: 6px;
+                position: relative;
+                top: 0.75rem;
+                padding: 0 0rem 0.75rem;
+                border: none;
+                border: 1px solid $lighter-gray;
+                margin: 0.5rem .75rem 0.5rem 0;
+              }
+            }
+
+            & .filter-title {
+              display: flex;
+              align-items: center;
+              border-inline-end: 1px solid rgba($light-purple, .5);
+              margin-top: 0.75rem;
+              width: 12%;
+              justify-content: space-evenly;
+
+              & .material-symbols-outlined {
+                color: $primary-color-hover;
+                top: 0;
+              }
+            }
+
+
 
       & .filter-field{
         display: flex;

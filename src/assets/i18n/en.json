@@ -218,5 +218,6 @@
  "customerCountry_report":"State",
  "customerIsAgree_report":"Agree to send offers",
  "customerEmail_report":"Email",
- "totalReport_report":"Total Reports"
+ "totalReport_report":"Total Reports",
+ "Question_report" : "Question"
 }
