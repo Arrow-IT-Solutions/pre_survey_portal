@@ -11,36 +11,38 @@
         display: flex;
         flex-wrap: wrap;
         column-gap: 2rem;
-        #result{
-          background-color: $primary-color-hover;
-          border: none;
-          width: 3rem;
-          height: 3rem;
-          border-radius: 50%;
-          
-          color: white;
-        }
+        padding: 1rem 1.2rem;
+        
         .result{
-            padding-left: 2rem;
-            padding-top: 1rem;
-            
-            display: flex;
-            align-items: center;
+            padding-left: 5rem;
+            // padding-top: 1rem;
+
+           .result_button{
+        width: 3rem !important;
+        height: 3rem !important;
+        border-radius: 50% !important;
+        background-color: $primary-color-hover !important;
+        border: none;
+        color: white;
+
+        padding: 0 !important;
+           }
             @media(max-width:767px){
-              justify-content: center;
-            padding-right: 1rem;
-      
-      
+              
+            
+            padding-top: 1rem;
+
+
             }
             &:lang(ar){
               padding-right: 2rem;
               @media(max-width:767px){
               padding-right: 0;
               padding-left: 1rem;
-      
-      
+
+
               }
-      
+
             }
           }
       }
@@ -178,7 +180,7 @@
       flex-wrap: wrap;
       column-gap: 2rem;
     }
-    
+
   }
 
   & .box-shadow {
@@ -194,11 +196,31 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  margin-top: 1rem;
 }
+
+.reset-btn {
+      ::ng-deep button {
+        background-color: $primary-color-hover !important;
+        color: #fff !important;
+        border: none !important;
+        border-radius: 50% !important;
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        font-size: 1.5rem;
+        transition: background 0.2s;
+        &:hover {
+          background-color: darken($primary-color-hover, 5%) !important;
+        }
+      }
+    }
   & .card {
-     width: 49%;
+     width: 30%;
     display: flex;
-    align-items: center;
     flex-direction: row;
     padding: 1rem;
     max-height: 14rem;
@@ -220,8 +242,8 @@
     }
     .icon-container{
       display: flex;
-      margin-bottom: 3rem;
-     
+      margin-bottom: 6rem;
+
       @media (max-width:767px) {
         padding-top: 0;
         margin-bottom: 5rem;
@@ -233,16 +255,17 @@
       }
       .fill{
         color: $primary-color;
-      
-       
+
+
        }
 
      }
 
 
+
     &__left {
       align-items: center;
-     
+
     }
 
 
@@ -319,9 +342,11 @@
     &__items{
         display: flex;
         width: 95%;
-       column-gap: 7rem;
-       padding: 0.5rem;
+        flex-direction: column;
+
        
+       padding: 0.5rem;
+
 
         @media (max-width:767px){
           display: flex;
@@ -342,8 +367,8 @@
 
 
     &__contents {
+
       
-    
       width: 80%;
 
       @media(max-width:767px){
@@ -361,7 +386,7 @@
 
       &__item {
         margin-inline-end: 2rem;
-        
+
 
 
         @media (max-width: 790px) {
@@ -386,10 +411,10 @@
       height: 40px;
       line-height: 40px;
       width: 100%;
-      
+
       @media(max-width:767px){
         width: 100%;
-        
+
       }
 
       & .material-symbols-outlined {
@@ -402,7 +427,7 @@
       justify-content: center;
 
       width: 20px;
-      
+
       @media (max-width: 991px) and (min-width: 768px) {
         width: 100%;
          // Tablets
@@ -425,7 +450,7 @@
       &__details {
         font-size: $xl-icon;
         color: $primary-color;
-        
+
       }
     }
   }
@@ -454,7 +479,47 @@
     @media (max-width:767px) {
         flex-direction: column;
        align-items: center;
-  
+
       }
 }
+
+.no-answers-message {
+  text-align: center;
+  color: #b35c1e;
+  font-size: 1.2rem;
+  margin: 2rem 0;
+}
+
+.reset-btn-container {
+  display: flex;
+  align-items: center;
+}
+
+.reset-btn {
+  ::ng-deep button {
+    background-color: $primary-color-hover !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 50% !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    min-width: 3rem !important;
+    min-height: 3rem !important;
+    max-width: 3rem !important;
+    max-height: 3rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-size: 1.5rem;
+    transition: background 0.2s;
+    .material-symbols-outlined{
+      top: auto;
+    }
+    &:hover {
+      background-color: darken($primary-color-hover, 5%) !important;
+    }
+  }
+}
+
 

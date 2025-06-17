@@ -1,0 +1,129 @@
+@import '../../../../assets/scss/varialbles.scss';
+.settings{
+    padding: 2rem 1rem 2rem 1rem;
+    width: 80%;
+    position: relative;
+    margin: auto;
+    border-radius: 6px;
+    background-color: $white-color;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    margin-top: 2rem;
+    font-family: myfont-bold, myfont-ar-bold;
+    @media(max-width:767px){
+      width: 100%;
+    }
+
+
+    &:lang(ar){
+        padding: 1rem 1rem 1rem 1rem;
+    }
+    #edit{
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      color: $primary-color;
+      cursor: pointer;
+    }
+    #tittle{
+
+        background-color: $primary-color-hover;
+        text-align: center;
+        width: 80%;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        margin: auto;
+        span{
+          font-weight: bold;
+          font-size: 1.5rem;
+          color:$primary-color ;
+        }
+    }
+    .container{
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 2rem;
+      .settings_info{
+        width:50%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+        padding-left: 1rem;
+        @media(max-width:767px){
+          width: 100%;
+        }
+        &:lang(ar){
+          padding-right: 1rem;
+
+        }
+      }
+      .logo-container{
+        width: 50%;
+        img{
+          width: 80%;
+        }
+        @media (max-width: 991px) and (min-width: 768px) {
+          width: 30%;
+          // Tablets
+        }
+        @media(max-width:767px){
+          display: none;
+        }
+      }
+
+    }
+    .location,.phone ,.email{
+          #info,#latest{
+            font-size: 1.2rem;
+            margin-left: 0.5rem;
+            &:lang(ar){
+                margin-right: 0.5rem;
+            }
+          }
+
+        & .material-symbols-outlined {
+
+            // color: #727070;
+          }
+
+    }
+    .latestinvoice{
+        #latest{
+            font-size: 1.2rem;
+            // color: #727070;
+            font-weight: 500;
+             }
+            #info{
+                font-size: 1.2rem;
+                margin-left: 0.5rem;
+                &:lang(ar){
+                    margin-right: 0.5rem;
+                }
+
+            }
+
+    }
+
+}
+
+.add-button {
+    width: 60px;
+    height: 60px;
+    font-size: $large-icon;
+    border-radius: 50%;
+    color: $white-color;
+    border: none;
+    position: fixed;
+    top: calc(100vh - 85px);
+    right: 1.5rem;
+    background-color: $primary-color;
+
+    &:lang(ar){
+      right: unset;
+      left: 1.5rem;
+    }
+  }

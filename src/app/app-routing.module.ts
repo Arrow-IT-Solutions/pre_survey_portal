@@ -13,7 +13,7 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-   path: 'forms',
+    path: 'forms/:uuid',
     children: [{
       path: '',
       loadChildren: () =>
@@ -23,12 +23,32 @@ const routes: Routes = [
     }],
   },
   {
-   path: 'user-questions',
+    path: 'user-questions',
     children: [{
       path: '',
       loadChildren: () =>
         import('./modules/user-questions/user-questions.module').then(
           (m) => m.UserQuestionsModule
+        )
+    }],
+  },
+  {
+    path: 'user-feedback',
+    children: [{
+      path: '',
+      loadChildren: () =>
+        import('./modules/feedback/feedback.module').then(
+          (m) => m.FeedbackModule
+        )
+    }],
+  },
+  {
+    path: 'thanks',
+    children: [{
+      path: '',
+      loadChildren: () =>
+        import('./modules/thank-page/thank-page.module').then(
+          (m) => m.ThankPageModule
         )
     }],
   },
@@ -45,6 +65,13 @@ const routes: Routes = [
           )
       },
       {
+        path: 'employees',
+        loadChildren: () =>
+          import('./modules/employees/employees.module').then(
+            (m) => m.EmployeesModule
+          )
+      },
+      {
         path: 'answers',
         loadChildren: () =>
           import('./modules/answers/answers.module').then(
@@ -52,17 +79,17 @@ const routes: Routes = [
           )
       },
       {
-        path:'customers-answers',
+        path: 'customers-answers',
         loadChildren: () =>
           import('./modules/customers-answers/customers-answers.module').then(
-            (m) =>m.CustomersAnswersModule
+            (m) => m.CustomersAnswersModule
           )
       },
-       {
-        path:'questions',
+      {
+        path: 'questions',
         loadChildren: () =>
           import('./modules/questions/questions.module').then(
-            (m) =>m.QuestionsModule
+            (m) => m.QuestionsModule
           )
       },
       {
@@ -80,12 +107,47 @@ const routes: Routes = [
           )
       },
       {
-        path:'forms',
-        loadChildren:() =>
+        path: 'forms',
+        loadChildren: () =>
           import('./modules/form/form.module').then(
-            (m) =>m.FormModule
+            (m) => m.FormModule
           )
       },
+      {
+        path: 'feedback',
+        loadChildren: () =>
+          import('./modules/feedback/feedBacks.module').then(
+            (m) => m.FeedBacksModule
+          )
+      },
+      {
+        path: 'password',
+        loadChildren: () =>
+          import('./modules/password/password.module').then(
+            (m) => m.PasswordModule
+          )
+      },
+      {
+        path: 'country-code',
+        loadChildren: () =>
+          import('./modules/country-code/country-code.module').then(
+            (m) => m.CountryCodeModule
+          )
+      },
+      {
+        path: 'reports',
+        loadChildren: () =>
+          import('./modules/reports/reports.module').then(
+            (m) => m.ReportsModule
+          )
+      },
+      {
+        path: 'settings',
+        loadChildren: () =>
+          import('./modules/settings/settings.module').then(
+            (m) => m.SettingsModule
+          )
+      }
 
     ]
   },

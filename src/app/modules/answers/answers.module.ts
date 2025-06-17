@@ -19,7 +19,7 @@ import { FormResponse } from '../form/form.module';
   imports: [
     CommonModule,
     AnswersRoutingModule,
-     ReactiveFormsModule,
+    ReactiveFormsModule,
     SharedModule
   ]
 })
@@ -33,6 +33,8 @@ export interface AnswerSearchRequest extends SearchRequestBase {
   formIDFK?: string;
   CustomerName?: string;
   OptionName?: string;
+  formName?: string;
+  phone?: string;
   includeQuestion?: string;
   includeOption?: string;
   includeCustomer?: string;
@@ -49,5 +51,6 @@ export interface AnswerResponse extends ResponseBase {
   option?: OptionResponse;
   customer?: CustomerResponse;
   form?: FormResponse;
+  numberOfCustomers?: number;
 }
 

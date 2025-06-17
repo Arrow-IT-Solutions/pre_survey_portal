@@ -51,7 +51,7 @@
         margin-top: 1rem;
         row-gap: 0.5rem;
         span{
-            
+
             font-weight: 400;
             font-size: 16px;
             line-height: 22px;
@@ -59,7 +59,7 @@
 
         }
         span:first-child{
-           
+
             font-weight: 700;
             font-size: 20px;
             line-height: 22px;
@@ -74,7 +74,7 @@
         padding-top: 1rem;
         margin: auto;
         row-gap: 1rem;
-        
+
         .question_item{
             display: flex;
             flex-direction: column;
@@ -82,86 +82,158 @@
             .question_item_info{
                 display: flex;
                 column-gap: 0.5rem;
+                align-items: center;
                 @media(max-width:767px){
                     flex-direction: column;
-                    
+
                 }
                 #question_number,#question_text{
-                    
+
                     font-weight: 400;
-                    font-size: 16px;
+                    font-size: 20px;
                     line-height: 120%;
                     letter-spacing: 0%;
 
                 }
-                
+
                 #question_select{
-                    
+
                     font-weight: 400;
                     font-size: 16px;
                     line-height: 120%;
                     letter-spacing: 0%;
                     color: #b4b3b3;
-                    
+
                 }
-                
+
                 #question_required{
-                     
+
                     font-weight: 400;
                     font-size: 16px;
                     line-height: 120%;
                     letter-spacing: 0%;
                     color: #E6404D;
                 }
-              
+
             }
             .options{
                 padding: 0.5rem;
+                display: flex;
+                flex-direction: column;
+                row-gap: 0.5rem;
+                
+               
+.radio-wrapper-6 {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    label{
+      font-size: 1.5rem;
+    }
+     
     
+  }
 
-label {
-	display: flex;
-	cursor: pointer;
-	font-weight: 500;
-	position: relative;
-	overflow: hidden;
-	// margin-bottom: 0.375em;
-    width: 70%;
-	input {
-		position: absolute;
-		left: -9999px;
-		&:checked + span {
-			background-color: mix(#fff, #2BB65F, 84%);
-			&:before {
-				box-shadow: inset 0 0 0 0.4375em #2BB65F;
-			}
-		}
-	}
-	span {
-		display: flex;
-		align-items: center;
-		padding: 0.375em 0.75em 0.375em 0.375em;
-		border-radius: 99em; // or something higher...
-		transition: 0.25s ease;
-        color: #9C9C9C;
-       
-		&:hover {
-			// background-color: mix(#fff, $primary-color, 84%);
-		}
-		&:before {
-			display: flex;
-			flex-shrink: 0;
-			content: "";
-			background-color: #fff;
-			width: 1.5em;
-			height: 1.5em;
-			border-radius: 50%;
-			margin-right: 0.375em;
-			transition: 0.25s ease;
-			box-shadow: inset 0 0 0 0.125em #9C9C9C;
-		}
-	}
-}
+  @supports (-webkit-appearance: none) or (-moz-appearance: none) {
+    .radio-wrapper-6 input[type=radio] {
+      --active: #dd8e60;
+      --active-inner: #fff;
+      --focus: 2px #fff ;
+      --border: #A75422;
+      --border-hover: #A75422;
+      --background: #fff;
+      --disabled: #F6F8FF;
+      --disabled-inner: #E1E6F9;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      height: 21px;
+      outline: none;
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+      margin: 0;
+      cursor: pointer;
+      border: 1px solid var(--bc, var(--border));
+      background: var(--b, var(--background));
+      transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
+    }
+    .radio-wrapper-6 input[type=radio]:after {
+      content: "";
+      display: block;
+      left: 0;
+      top: 0;
+      position: absolute;
+      transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
+    }
+    .radio-wrapper-6 input[type=radio]:checked {
+      --b: var(--active);
+      --bc: var(--active);
+      --d-o: .3s;
+      --d-t: .6s;
+      --d-t-e: cubic-bezier(.2, .85, .32, 1.2);
+    }
+    .radio-wrapper-6 input[type=radio]:disabled {
+      --b: var(--disabled);
+      cursor: not-allowed;
+      opacity: 0.9;
+    }
+    .radio-wrapper-6 input[type=radio]:disabled:checked {
+      --b: var(--disabled-inner);
+      --bc: var(--border);
+    }
+    .radio-wrapper-6 input[type=radio]:disabled + label {
+      cursor: allowed;
+      color: #8A91B4;
+    }
+    .radio-wrapper-6 input[type=radio]:hover:not(:checked):not(:disabled) {
+      --bc: var(--border-hover);
+    }
+    .radio-wrapper-6 input[type=radio]:focus {
+      box-shadow: 0 0 0 var(--focus);
+    }
+    .radio-wrapper-6 input[type=radio]:not(.switch) {
+      width: 21px;
+    }
+    .radio-wrapper-6 input[type=radio]:not(.switch):after {
+      opacity: var(--o, 0);
+    }
+    .radio-wrapper-6 input[type=radio]:not(.switch):checked {
+      --o: 1;
+    }
+    .radio-wrapper-6 input[type=radio] + label {
+      font-size: 14px;
+      line-height: 21px;
+      display: inline-block;
+      vertical-align: top;
+      cursor: pointer;
+      margin-left: .5em;
+    }
+    label{
+      padding: 0.5rem 0.8rem;
+      border-radius: 16px;
+      font-size: 20px;
+    }
+    .radio-wrapper-6 input[type=radio]:checked + label {
+      background-color: #dd8e60;
+    }
+
+    .radio-wrapper-6 input[type=radio] {
+      border-radius: 50%;
+    }
+    .radio-wrapper-6 input[type=radio]:after {
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      background: var(--active-inner);
+      opacity: 0;
+      transform: scale(var(--s, 0.7));
+    }
+    .radio-wrapper-6 input[type=radio]:checked {
+      --s: .5;
+    }
+  } 
+
+             
             }
         }
     }
@@ -175,21 +247,31 @@ label {
         margin-top: 2rem;
         border-radius: 30px;
         color: white;
-       
         font-weight: 400;
         font-size: 20px;
         line-height: 120%;
         cursor: pointer;
-        @media(max-width:767px){
-            margin: auto;
-            margin-top: 4rem;
-        }
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+        
 
     }
-    .header-admin__tools{
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    left: 0;
+    button:lang(ar){
+      right: unset;
+      left: 1rem;
+    }
+
 }
+.error-validation {
+  color: #c00;
+  margin: 0.5rem 0; // give it some breathing room
+  font-size: 0.9rem;
+  text-align: center; // center under the questions
+}
+.page-error {
+  color: #c00;
+  margin: 1rem 0; // space above and below
+  text-align: left; // align with questions
+  font-size: 0.9rem;
 }

@@ -7,63 +7,16 @@
     &:lang(ar){
         padding: 1rem 0 1rem 1rem;
     }
-    .container{
-        display: flex;
-        flex-wrap: wrap;
-        column-gap: 2rem;
-        #result{
-          background-color: $primary-color-hover;
-          border: none;
-          width: 3rem;
-          height: 3rem;
-          border-radius: 50%;
-
-          color: white;
-        }
-        .result{
-                        .reset-btn {
-      ::ng-deep button {
-        background-color: $primary-color-hover !important;
-        color: #fff !important;
-        border: none !important;
-        border-radius: 50% !important;
-        width: 3rem;
-        height: 3rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-        font-size: 1.5rem;
-        transition: background 0.2s;
-        &:hover {
-          background-color: darken($primary-color-hover, 5%) !important;
-        }
-      }
-    }
-            padding-left: 2rem;
-            padding-top: 1rem;
-
-            display: flex;
-            align-items: center;
-            @media(max-width:767px){
-              justify-content: center;
-            padding-right: 1rem;
-
-
-            }
-            &:lang(ar){
-              padding-right: 2rem;
-              @media(max-width:767px){
-              padding-right: 0;
-              padding-left: 1rem;
-
-
-              }
-
-            }
-          }
-      }
-
+      // .result{
+      //   width: 3rem;
+      //   height: 3rem;
+      //   border-radius: 50%;
+      //   background-color: $primary-color-hover;
+      //   border: none;
+      //   color: white;
+      //   margin-top: 1rem;
+        
+      // }
     ::ng-deep .p-accordion {
         & .p-accordion-header {
           display: flex;
@@ -75,7 +28,7 @@
             left: 2rem;
             direction: ltr;
             position: absolute;
-            top: 4rem;
+            top: 5rem;
           }
 
           & .p-accordion-header-link {
@@ -119,7 +72,7 @@
         justify-content: space-evenly;
 
         & .material-symbols-outlined{
-          color: $blue-color;
+          color: $primary-color-hover;
           top: 0;
         }
       }
@@ -163,6 +116,14 @@
           border-color: $light-gray;
         }
       }
+      #search{
+        // margin-left: 2rem;
+        margin-right: 4.5rem;
+        :lang(ar){
+          margin-right: unset;
+          margin-left: 4rem;
+        }
+      }
 
 
 
@@ -188,17 +149,7 @@
       top: -5px;
     }
   }
-  .box2{
-    display: flex;
-    flex-direction: row;
-    column-gap: 2rem;
-    .container{
-      display: flex;
-      flex-wrap: wrap;
-      column-gap: 2rem;
-    }
 
-  }
 
   & .box-shadow {
     background-color: $white-color;
@@ -210,18 +161,19 @@
 .box{
   max-height: 30rem;
   overflow-y: auto;
+  padding-top: 1rem;
 }
   & .card {
 
     display: flex;
     flex-direction: row;
     padding: 1rem;
-    max-height: 14rem;
+    max-height: 15rem;
     overflow-y: auto;
     border-radius: 6px;
-
     border-color: rgba($primary-color, 0.5);
     column-gap: 1rem;
+   
     @media (max-width:767px) {
       flex-direction: column;
       max-height: 15rem;
@@ -266,28 +218,8 @@
       color: $primary-color;
     }
 
-    & .size{
-        padding-inline-end: .5rem;
-        margin-inline-end: .5rem;
-        border-inline-end: 1px solid $light-gray;
-        font-family: myfont-bold, myfont-ar-bold;
+    
 
-        &:lang(ar){
-          padding-inline-start: .5rem;
-          margin-inline-start: .5rem;
-          border-inline-start: 1px solid $light-gray;
-          border-inline-end: none
-        }
-    }
-
-    & .category{
-        font-family: myfont-bold, myfont-ar-bold;
-    }
-
-    & .item__ID{
-      color: $gray-color;
-      opacity: .7;
-    }
   }
 
   &-section{
@@ -416,6 +348,7 @@
       justify-content: center;
 
       width: 20px;
+      
 
       @media (max-width: 991px) and (min-width: 768px) {
         width: 100%;
@@ -470,5 +403,45 @@
        align-items: center;
 
       }
+}
+
+.reset-btn-container {
+  display: flex;
+  align-items: center;
+  top: auto;
+}
+
+.reset-btn {
+  ::ng-deep button {
+    background-color: $primary-color-hover !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 50% !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    min-width: 3rem !important;
+    min-height: 3rem !important;
+    max-width: 3rem !important;
+    max-height: 3rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-size: 1.5rem;
+    transition: background 0.2s;
+    margin-right: 1rem !important;
+    .material-symbols-outlined{
+      top: auto;
+    }
+    &:hover {
+      background-color: darken($primary-color-hover, 5%) !important;
+    }
+  }
+}
+#icon_edit{
+  color: $primary-color;
+}
+#icon_delete{
+  color: $secoundary-color;
 }
 

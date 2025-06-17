@@ -1,5 +1,5 @@
 {
-  "userName_forms":"الاسم",
+  "userName_forms":"الإسم الكامل",
   "maritalStatus_forms":"الحالة الاجتماعية",
   "dateOfBirth_forms":"تاريخ الميلاد",
   "phoneNumber_forms":"رقم الهاتف",
@@ -60,10 +60,10 @@
   "totalOption_option":"مجموع الخيارات",
   "Basic_Info_Option":"المعلومات الأساسية",
 
-  "optionEn_option":"الجواب باللغة الانكليزية",
-  "optionAr_option":"الجواب باللغة العربية",
-  "Create_Option":"إضافة جواب",
-  "Update_Option":"تعديل الجواب",
+  "optionEn_option":"الخيار باللغة الانكليزية",
+  "optionAr_option":"الخيار باللغة العربية",
+  "Create_Option":"إضافة خيار",
+  "Update_Option":"تعديل خيار",
   "searchCustomerAnswer_customerAnswers":"الإجابة",
   "CustomerAnswer_customerAnswers":"الجواب",
   "answerCount_customerAnswers":"مرات التكرار",
@@ -91,13 +91,135 @@
   "questionOptions_questions":"خيارات السؤال",
   "You_must_select_at_least_one_option":"يجب عليك اختيار خيار واحد على الأقل",
   "You_must_select_at_least_one_form":"يجب عليك اختيار نموذج واحد على الأقل",
+  "completeDocument_userQuestion":"يرجى إكمال هذه الوثيقة لمساعدتنا على تحسين الجلسات المستقبلية.",
+  "thanks_userQuestion":"شكرا لمشاركتك 😍",
+  "select_userQuestion":"حدد خيارا واحدا.",
+  "required_userQuestion":"*مطلوب",
+  "Next_userQuestion":"التالي",
+  "Send_userQuestion":"إرسال",
+  "success_feedback":"لقد تم إرسال ردك بنجاح ✅ ✅" ,
+  "thank_feedback":"شكرًا لك على وقتك، لا تتردد في تقييمنا أدناه!",
+  "Note_feedback":"ملاحظات",
+  "Send_feedback":"إرسال",
+  "closeMessage_feedback":"الانتقال إلى الصفحة الرئيسية",
   "FormName_form": "اسم النموذج",
   "Edit_Form":"تعديل النموذج",
   "Delete_Form":"حذف النموذج",
   "totalForm_form":"مجموع النماذج",
   "Basic_Info_Form":"المعلومات الأساسية للنموذج",
+  "FirstNameAr_Employee" : "الإسم الأول بالعربية",
+  "LastNameAr_Employee" : "الإسم الأخير بالعربية",
+  "FirstNameEn_Employee" : "الإسم الأول بالإنجليزية",
+  "LastNameEn_Employee" : "الإسم الأخير بالإنجليزية",
+  "CountryCode_Employee" : "رمز الدولة",
+  "Employee-phone" : "الهاتف",
+  "Employee-username" : "الإيميل/اسم المستخدم",
+  "Employee-gender" : "الجنس",
+  "EmployeePassword" : "الرقم السري",
+  "Birthdate_Employee" : "تاريخ الميلاد",
   "formAr_form":"اسم النموذج باللغة العربية",
   "formEn_form":"اسم النموذج باللغة الانكليزية",
   "Update_Form":"تحديث النموذج",
-  "Create_Form":"إنشاء نموذج"
+  "Create_Form":"إنشاء نموذج",
+  "OptionName_Option":"اسم الخيار",
+  "UserName":"اسم المستخدم",
+  "rateType":"نوع التقييم",
+  "User_Note":"الملاحظات",
+  "totalFeedBack":"المجموع",
+  "formName_answer":"اسم النموذج",
+  "searchQuestion_question":"السؤال",
+  "OptionNameEn_AddQuestion":"الخيار باللغة الانكليزية",
+  "OptionNameAr_AddQuestion":"الخيار باللغة العربية",
+  "NoAnswersFound": "لا توجد إجابات",
+  "Search_EmployeeName":"اسم الموظف",
+  "Search_EmployeePhone":"رقم هاتف الموظف",
+  "Search_EmployeeId":"رقم الموظف",
+  "Search_EmployeeRole":"رقم الموظف",
+  "Search_EmployeeUserName":"اسم المستخدم",
+  "EmployeeName_employee":"الاسم",
+  "EmployeeUserName_employee":"اسم المستخدم",
+  "contryCode_employee":"رمز الدولة",
+  "employeePhone_employee":"رقم الهاتف",
+  "employeeGender_employee":"الجنس",
+  "Birthdate_employee":"تاريخ الميلاد",
+  "EmployeeRole_employee":"الدور",
+  "Edit_Employee":"تعديل",
+  "Delete_Employee":"حذف",
+  "totalEmployees":"مجموع الموظفين",
+  "Basic_Info_Employee":"المعلومات الأساسية",
+  "FirstNameAr_AddEmployee":"الاسم الأول  باللغة العربية",
+  "LastNameAr_AddEmployee":"الاسم الأخير باللغة العربية",
+  "FirstNameEn_AddEmployee":"الاسم الأول باللغة الانكليزية",
+  "LastNameEn_AddEmployee":"الاسم الأخير باللغة الانكليزية",
+  "CountryCode_AddEmployee":"رمز الدولة",
+  "EmployeePhone_AddEmployee":"رقم الهاتف",
+  "username_AddEmployee":"اسم المستخدم",
+  "Gender_AddEmployee":"الجنس",
+  "Birthdate_AddEmployee":"تاريخ الميلاد",
+  "Create_Employee":"إضافة موظف جديد",
+  "Update_Employee":"تعديل",
+  "EmployeeName":"اسم الموظف",
+  "employee-phone":"رقم هاتف الموظف",
+  "employee-gender":"الجنس",
+  "EmployeeUserName":"اسم المستخدم",
+  "EmployeeRole":"دور الموظف",
+  "contryCode":"رمز الدولة",
+  "Username_Password" : "اسم المستخدم",
+  "Password_Password" : "كلمة السر",
+  "ResetPassword_Employee" : "تغيير كلمة السر",
+  "Password_ResetPassword" : "كلمة السر",
+  "Password_Username" : "اسم المستخدم",
+  "FirstNameAr_Password" : "الأسم الأول بالعربية",
+  "LastNameAr_Password" : "الأسم الأخير بالعربية",
+  "FirstNameEn_Password" : "الأسم الأول بالإنجليزية",
+  "LastNameEn_Password" : "الإسم الأخير بالإنجليزية",
+  "thanks_feedback":"شكرا لك!",
+  "sentSuccessfuly_feedback":"لقد تم إرسال تعليقك بنجاح.",
+  "yearOfBirth_forms":"السنة",
+  "monthOfDate_forms":"الشهر",
+  "dayOfDate_forms":"اليوم",
+  "countryCode_countryCode": "رمز الدولة",
+  "countryName_countryCode": "اسم الدولة",
+  "totalCountryCode_CountryCode": "مجموع رموز الدول",
+  "Basic_Info_Country_Code": "المعلومات الأساسية لرمز الدولة",
+  "code_CountryCode": "الرمز",
+  "countryAr_CountryCode": "اسم الدولة باللغة العربية",
+  "countryEn_CountryCode": "اسم الدولة باللغة الانكليزية",
+  "Create_CountryCode": "إنشاء رمز دولة",
+  "Update_CountryCode": "تحديث رمز الدولة",
+  "Update_Setting" : "تعديل",
+  "Setting_Create" : "اضافة",
+  "Basic_Info_Settings" : "معلومات اساسية",
+  "Location_AddSettings" : "رابط الموقع",
+  "Phone_AddSettings" : "الهاتف",
+  "Email_AddSettings" : "البريد الالكتروني",
+  "CompanyName_Setting" : "اسم الشركة",
+  "NameAr_AddSettings" : "اسم الشركة بالعربية",
+  "NameEn_AddSettings" : "اسم الشركة بالإنجليزية",
+  "Settings":"الإعدادات",
+  "Start" : "البدأ",
+  "CopyLink_Form" : "نسخ رابط الفورم",
+  "OptionArabic_Required" : "حقل الخيار باللغة العربية مطلوب",
+  "closeMessage_AlertModel":"موافق",
+  "Form_QR_Code" : "Form QR",
+  "Download_QR" : "تحميل",
+  "Close_QR" : "إغلاق",
+  "ShowQR_Form" : "عرض QR",
+  "searchOptionName_report":"الخيار",
+  "searchCustomerName_report":"اسم العميل",
+  "searchCustomerPhone_report":"هاتف العميل",
+  "searchFormName_report":"اسم النموذج",
+  "OptionName_report":"الخيار",
+  "formName_report":"النموذج",
+  "customerFullName_report":"اسم العميل",
+  "customerPhone_report":"رقم الهاتف",
+  "customerSocialStatus_report":"الحالة الاجتماعية",
+  "customerBirthDate_report":"تاريخ الميلاد",
+  "customerCountry_report":"المنطقة",
+  "customerIsAgree_report":"الموافقة على إرسال الإعلانات",
+  "customerEmail_report":"الإيميل",
+  "totalReport_report":"مجموع التقارير",
+  "Question_report" : "السؤال"
+
 }
+

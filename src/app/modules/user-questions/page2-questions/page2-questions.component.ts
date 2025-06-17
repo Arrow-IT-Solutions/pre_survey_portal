@@ -18,6 +18,9 @@ export class Page2QuestionsComponent {
         answer4:['']
       })
     }
+    openFeedback(){
+      this.route.navigate(['user-feedback']);
+    }
     
       
 

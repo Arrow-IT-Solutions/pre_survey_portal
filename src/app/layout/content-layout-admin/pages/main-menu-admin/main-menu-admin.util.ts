@@ -13,14 +13,12 @@ export interface NavbarData {
 }
 
 export const navbarData: NavbarData[] = [
-
   {
-    label: 'Customers',
-    labelar: 'العملاء',
-    id: 'customers',
-    icon: 'group',
-    routeLink: 'customers'
-
+    label: 'Forms',
+    labelar: 'النماذج',
+    id: 'forms',
+    icon: ' format_align_justify',
+    routeLink: "forms"
   },
   {
     label: 'Questions',
@@ -30,6 +28,20 @@ export const navbarData: NavbarData[] = [
     routeLink: "questions"
   },
   {
+    label: 'Options',
+    labelar: 'الخيارات',
+    id: 'options',
+    icon: 'storage',
+    routeLink: "options"
+  },
+  {
+    label: 'Reports',
+    labelar: 'التقارير',
+    id: 'Reports',
+    icon: 'Report',
+    routeLink: 'reports'
+  },
+  {
     label: 'Answers',
     labelar: ' الإجابات',
     id: 'answers',
@@ -37,26 +49,55 @@ export const navbarData: NavbarData[] = [
     routeLink: "answers"
   },
   {
-    label: 'Options',
-    labelar: 'الخيارات',
-    id: 'options',
-    icon: 'storage',
-    routeLink: "options"
-  },
-   {
     label: 'Customers Answers',
     labelar: 'إجابات العملاء',
     id: 'customers_answers',
-    icon: 'comment',
+    icon: 'question_answer',
     routeLink: "customers-answers"
   },
-   {
-    label: 'Forms',
-    labelar: 'النماذج',
-    id: 'forms',
-    icon: ' format_align_justify',
-    routeLink: "forms"
-  },
-  
+  {
+
+    label: 'System Management',
+    labelar: 'إدارة النظام',
+    id: 'users',
+    icon: 'group',
+    items: [
+      {
+        label: 'Customers',
+        labelar: 'العملاء',
+        id: 'customers',
+        routeLink: 'customers'
+      },
+      {
+        label: 'Employees',
+        labelar: 'الموظفين',
+        id: 'employees',
+        routeLink: 'employees'
+      },
+      {
+        label: 'Feedback',
+        labelar: 'التعليقات',
+        id: 'feedback',
+        icon: 'Comment',
+        routeLink: "feedback"
+      },
+      {
+        label: 'Country Codes',
+        labelar: 'رموز الدول',
+        id: 'country-code',
+        icon: 'public',
+        routeLink: "country-code"
+      },
+      {
+        label: 'Settings',
+        labelar: 'الإعدادات',
+        id: 'Settings',
+        icon: 'settings',
+        routeLink: 'settings'
+      }
+    ]
+  }
+
+
 
 ];

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
@@ -122,22 +122,11 @@ export class AddQuestionComponent {
   async onSubmit() {
     try {
       this.btnLoading = true;
-      this.formSelectionError = false;
-      this.optionSelectionError = false;
 
-      if (this.dataForm.invalid) {
-        this.submitted = true;
+      if (!this.validateAll()) {
         return;
       }
 
-      if (this.selectedFrom.length === 0) {
-        this.formSelectionError = true;
-        return;
-      }
-      if (this.selectedOption.length === 0) {
-        this.optionSelectionError = true;
-        return;
-      }
 
       await this.Save();
     } catch (exceptionVar) {
@@ -232,8 +221,9 @@ export class AddQuestionComponent {
 
       if (this.questionService.SelectedData == null) {
         this.resetForm();
+        this.router.navigate(['layout-admin/questions']);
       } else {
-        this.router.navigate(['layout-admin/questions']);;
+        this.router.navigate(['layout-admin/questions']);
       }
     } else {
       this.layoutService.showError(this.messageService, 'toast', true, response?.requestMessage);
@@ -518,6 +508,53 @@ export class AddQuestionComponent {
     );
   }
 
+  private validateAll(): boolean {
 
+    this.formSelectionError = false;
+    this.optionSelectionError = false;
+    this.submitted = false;
+    let hasError = false;
+
+    if (this.selectedFrom.length === 0) {
+      this.formSelectionError = true;
+      hasError = true;
+    }
+
+    if (this.selectedOption.length === 0) {
+      this.optionSelectionError = true;
+      this.layoutService.showError(
+        this.messageService,
+        'toast',
+        true,
+        this.translate.instant('You_must_select_at_least_one_option')
+      );
+      hasError = true;
+    }
+
+    if (this.dataForm.invalid) {
+      this.submitted = true;
+      hasError = true;
+    }
+
+    this.optionsArray.controls.forEach((control) => {
+      const grp = control as FormGroup;
+      const optionArControl = grp.get('optionAr');
+      if (optionArControl) {
+        const val = optionArControl.value?.toString().trim();
+        if (!val) {
+          optionArControl.markAsTouched();
+          hasError = true;
+          this.layoutService.showError(
+            this.messageService,
+            'toast',
+            true,
+            this.translate.instant('OptionArabic_Required')
+          );
+        }
+      }
+    });
+
+    return !hasError;
+  }
 
 }

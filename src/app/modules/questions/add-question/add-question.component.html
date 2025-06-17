@@ -43,6 +43,7 @@
                       <input type="checkbox" [checked]="isSelectedFrom(form.uuid!.toString())" />
                       {{ form.formTranslations![layoutService.config.lang]?.name }}
                     </div>
+
                   </div>
                 </div>
               </div>
@@ -104,13 +105,14 @@
       <div class="box-shadow mb-3">
         <span id="tittle">{{'selectedOptions_AddQuestion' | translate}}:</span>
         <div class="options-grid">
-          <span class="grid-header">
-            {{ 'OptionNameEn_AddQuestion' | translate }}
-          </span>
-          <span class="grid-header">
-            {{ 'OptionNameAr_AddQuestion' | translate }}
-          </span>
-          <span class="grid-header"></span>
+          <div class="grid-header">
+            <span>
+              {{ 'OptionNameEn_AddQuestion' | translate }}:
+            </span>
+            <span>
+              {{ 'OptionNameAr_AddQuestion' | translate }}:
+            </span>
+          </div>
 
           <ng-container *ngFor="let grp of optionsArray.controls; let i = index">
             <div [formGroupName]="i" class="option-row">
@@ -124,17 +126,6 @@
             </div>
           </ng-container>
         </div>
-
-        <div *ngIf="optionSelectionError" class="error">
-          {{ 'You_must_select_at_least_one_option' | translate }}
-        </div>
-        <!-- Add option in Arabic  -->
-        <!-- <div class="row">
-           <div *ngFor="let selected of selectedOption" class="option">
-           <input type="text" placeholder="{{ selected }}" formControlName="optionAr" pInputText />
-            <span class="material-symbols-outlined" (click)="removeOption(selected)">delete</span>
-          </div>
-        </div> -->
 
       </div>
     </div>

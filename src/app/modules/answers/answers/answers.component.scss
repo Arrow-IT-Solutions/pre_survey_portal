@@ -11,61 +11,23 @@
         display: flex;
         flex-wrap: wrap;
         column-gap: 2rem;
-        #result{
-          background-color: $primary-color-hover;
-          border: none;
-          width: 3rem;
-          height: 3rem;
-          border-radius: 50%;
 
-          color: white;
-        }
-        .result{
-              .reset-btn {
-      ::ng-deep button {
-        background-color: $primary-color-hover !important;
-        color: #fff !important;
-        border: none !important;
+         .result{
+        
+        .result_button{
+        width: 3rem !important;
+        height: 3rem !important;
         border-radius: 50% !important;
-        width: 3rem;
-        height: 3rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-        font-size: 1.5rem;
-        transition: background 0.2s;
-        &:hover {
-          background-color: darken($primary-color-hover, 5%) !important;
-        }
+        background-color: $primary-color-hover !important;
+        border: none;
+        color: white;
+       
+        padding: 0 !important;
       }
-    }
-
-            padding-left: 2rem;
-            padding-top: 1rem;
-
-            display: flex;
-            align-items: center;
-            @media(max-width:767px){
-              justify-content: center;
-            padding-right: 1rem;
-
-
-            }
-            &:lang(ar){
-              padding-right: 2rem;
-              @media(max-width:767px){
-              padding-right: 0;
-              padding-left: 1rem;
-
-
-              }
-
-            }
-          }
+      }
       }
 
-    ::ng-deep .p-accordion {
+     ::ng-deep .p-accordion {
         & .p-accordion-header {
           display: flex;
           justify-content: flex-end;
@@ -76,7 +38,7 @@
             left: 2rem;
             direction: ltr;
             position: absolute;
-            top: 4rem;
+            top: 5rem;
           }
 
           & .p-accordion-header-link {
@@ -120,12 +82,28 @@
         justify-content: space-evenly;
 
         & .material-symbols-outlined{
-          color: $blue-color;
+          color: $primary-color-hover;
           top: 0;
         }
       }
 
+      & .add-button {
+        width: 60px;
+        height: 60px;
+        font-size: $large-icon;
+        border-radius: 50%;
+        color: $white-color;
+        border: none;
+        position: fixed;
+        top: calc(100vh - 85px);
+        right: 1.5rem;
+        background-color: $primary-color;
 
+        &:lang(ar){
+          right: unset;
+          left: 1.5rem;
+        }
+      }
 
       & .filter-field{
         display: flex;
@@ -146,6 +124,14 @@
 
         & .search-field{
           border-color: $light-gray;
+        }
+      }
+      #search{
+        // margin-left: 2rem;
+        margin-right: 4.5rem;
+        :lang(ar){
+          margin-right: unset;
+          margin-left: 4rem;
         }
       }
 
@@ -201,8 +187,8 @@
     display: flex;
     flex-direction: row;
     padding: 1rem;
-    max-height: 14rem;
-    overflow-y: auto;
+    // max-height: 20rem;
+    // overflow-y: auto;
     border-radius: 6px;
 
     border-color: rgba($primary-color, 0.5);
@@ -457,3 +443,60 @@
       }
 }
 
+.card-details-row {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  overflow-x: auto;
+}
+
+.card-section__items {
+  min-width: 180px;
+  flex: 1 1 200px;
+}
+
+.card-info {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-width: 250px;
+}
+
+.reset-btn-container {
+  display: flex;
+  align-items: center;
+}
+
+.reset-btn {
+  ::ng-deep button {
+    background-color: $primary-color-hover !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 50% !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    min-width: 3rem !important;
+    min-height: 3rem !important;
+    max-width: 3rem !important;
+    max-height: 3rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-size: 1.5rem;
+    transition: background 0.2s;
+    margin-right: 1rem !important;
+    .material-symbols-outlined{
+          top: auto;
+        }
+    &:hover {
+      background-color: darken($primary-color-hover, 5%) !important;
+    }
+  }
+}
+.questionText{
+  
+ 
+}
