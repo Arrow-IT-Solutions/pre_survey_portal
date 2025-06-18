@@ -11,8 +11,6 @@ fetch('/assets/config.json')
     environment.baseApiUrl = config.apiUrl;
     console.log("baseUrl : ",config.apiUrl);
 
-    platformBrowserDynamic().bootstrapModule(AppModule)
-      .catch(err => console.error(err));
   });
 
 platformBrowserDynamic().bootstrapModule(AppModule)
