@@ -4,6 +4,9 @@ import { AnswerResponse, AnswerSearchRequest } from '../../answers/answers.modul
 import { AnswerService } from 'src/app/layout/service/answer.service';
 import { LayoutService } from 'src/app/layout/service/layout.service';
 import { TranslateService } from '@ngx-translate/core';
+import { GeneretReportsComponent } from './generet-reports/generet-reports.component';
+import { ReportResponse } from '../reports.module';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reports',
@@ -23,6 +26,7 @@ export class ReportsComponent {
   typingTimer: any;
   isResetting: boolean = false;
   constructor(public formBuilder: FormBuilder,
+    public route:Router,
     public answerService: AnswerService,
     public layoutService: LayoutService,
     public translate: TranslateService,) {
@@ -37,6 +41,22 @@ export class ReportsComponent {
   async ngOnInit() {
     await this.FillData();
   }
+  openGenerateReports(row: ReportResponse | null = null) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.body.style.overflow = 'hidden';
+      this.answerService.SelectedData = row
+      let content = this.answerService.SelectedData == null ? 'generateReports' : 'generateReports';
+      this.translate.get(content).subscribe((res: string) => {
+        content = res
+      });
+      var component = this.layoutService.OpenDialog(GeneretReportsComponent, content);
+      this.answerService.Dialog = component;
+      component.OnClose.subscribe(() => {
+        document.body.style.overflow = '';
+        this.FillData();
+      });
+  
+    }
 
   async FillData(pageIndex: number = 0) {
     this.loading = true;
@@ -94,4 +114,6 @@ export class ReportsComponent {
       this.FillData();
     }, this.doneTypingInterval);
   }
+
+ 
 }

@@ -348,7 +348,11 @@
       justify-content: center;
 
       width: 40px;
-      
+       button{
+         display: flex;
+      align-items: center;
+      justify-content: center;
+       }      
 
       @media (max-width: 991px) and (min-width: 768px) {
         width: 100%;
@@ -443,5 +447,22 @@
 }
 #icon_delete{
   color: $secoundary-color;
+  
+}
+#print{
+  margin: auto;
+  border: none;
+  border-radius: 10px;
+  background-color: $primary-color;
+  color: #FFFFFF;
+  padding: 0.5rem 4rem;
+  width: auto;
+  margin-top:2rem ;
+  font-size: 20px;
+  font-weight: 400;
+  display: flex;
+  
+  column-gap: 0.5rem;
+
 }
 

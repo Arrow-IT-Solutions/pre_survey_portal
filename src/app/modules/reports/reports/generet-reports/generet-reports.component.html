@@ -1,0 +1,37 @@
+<form [formGroup]="dataForm" (ngSubmit)="onSubmit()" class="generate-reports">
+  <div class="generate-reports">
+    <div class="box-shadow mb-3">
+      <div class="row">
+        <div class="col-12 side-icon">
+          <span class="material-symbols-outlined">info</span>
+          <span>{{ 'Basic_Info_reports' | translate }}</span>
+        </div>
+        <div class="col-12 row m-0 p-0">
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <p-calendar [showIcon]="true" formControlName="fromDate"></p-calendar>
+              <label>{{ 'fromDate_reports' | translate }}</label>
+            </div>
+          </div>
+        <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <p-calendar [showIcon]="true" formControlName="toDate"></p-calendar>
+              <label>{{ 'toDate_reports' | translate }}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="col-xs-12 text-end mt-4">
+      <p-button type="Submit" class="btn-primary"  [loading]="btnLoading" (click)="openReportsForPrint()">{{'generateReports' | translate}}</p-button>
+    </div>
+  </div>
+</form>
+
+<p-toast key="toast"></p-toast>
+
+
