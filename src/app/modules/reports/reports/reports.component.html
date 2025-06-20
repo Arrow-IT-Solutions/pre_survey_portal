@@ -2,13 +2,21 @@
   <div [formGroup]="dataForm">
     <div class="row mb-4 m-0 flex-row-reverse p-3">
       <div class="col-lg-3 col-md-10 col p-0  " id="search">
-        <div class="flex flex-wrap justify-content-center gap-3">
-          <span class="p-input-icon-left p-0">
-            <i class="pi pi-search"></i>
-            <input class="search-field" type="text" (ngModelChange)="OnChange()"
-              placeholder="{{ 'searchOptionName_report' | translate }}" formControlName="option" pInputText />
-          </span>
-        </div>
+        <div class="option-dropdown-box ms-auto">
+  <p-dropdown
+    [options]="options"
+    optionLabel="name"
+    optionValue="uuid"
+    formControlName="option"
+    [filter]="true"
+    [showClear]="true"
+    filterBy="name"
+    (onFilter)="FillOption($event)"
+    (ngModelChange)="OnChange()"
+    inputId="optionDropdown"
+    placeholder="{{ 'OptionName_Option' | translate }}"
+  ></p-dropdown>
+</div>
       </div>
       <p-accordion class="p-0">
         <p-accordionTab>

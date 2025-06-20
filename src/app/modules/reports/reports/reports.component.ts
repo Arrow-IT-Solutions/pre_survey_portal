@@ -4,6 +4,8 @@ import { AnswerResponse, AnswerSearchRequest } from '../../answers/answers.modul
 import { AnswerService } from 'src/app/layout/service/answer.service';
 import { LayoutService } from 'src/app/layout/service/layout.service';
 import { TranslateService } from '@ngx-translate/core';
+import { OptionResponse, OptionSearchRequest } from '../../options/options.module';
+import { OptionService } from 'src/app/layout/service/option.service';
 
 @Component({
   selector: 'app-reports',
@@ -18,6 +20,7 @@ export class ReportsComponent {
   totalRecords: number = 0;
   customerTotal: number = 0;
   data: AnswerResponse[] = [];
+  options: OptionResponse[] = [];
   answerTotal: number = 0;
   doneTypingInterval = 1000;
   typingTimer: any;
@@ -25,6 +28,7 @@ export class ReportsComponent {
   constructor(public formBuilder: FormBuilder,
     public answerService: AnswerService,
     public layoutService: LayoutService,
+    public optionService: OptionService,
     public translate: TranslateService,) {
     this.dataForm = this.formBuilder.group({
       option: [],
@@ -35,6 +39,7 @@ export class ReportsComponent {
 
   }
   async ngOnInit() {
+    await this.FillOption();
     await this.FillData();
   }
 
@@ -45,8 +50,8 @@ export class ReportsComponent {
     let filter: AnswerSearchRequest = {
       uuid: '',
       CustomerName: this.dataForm.controls['CustomerName'].value,
-      OptionName: this.dataForm.controls['option'].value,
-      optionIDFK: '',
+      OptionName: '',
+      optionIDFK: this.dataForm.controls['option'].value,
       questionIDFK: '',
       customerIDFK: '',
       formIDFK: '',
@@ -94,4 +99,47 @@ export class ReportsComponent {
       this.FillData();
     }, this.doneTypingInterval);
   }
+
+async FillOption(event: any = null) {
+
+      var optionID: any;
+
+      let filter: OptionSearchRequest = {
+
+        name: '',
+        uuid: optionID,
+        pageIndex: "",
+        pageSize: '100000'
+
+      }
+      const response = await this.optionService.Search(filter) as any
+
+      this.options = response.data,
+
+      await this.ReWriteOption();
+    }
+
+    ReWriteOption(): any {
+
+       var authorDTO: any[] = []
+
+      this.options.map(option => {
+        const translation = option.optionTranslation?.[this.layoutService.config.lang] as any;
+        const optionName = translation?.name;
+
+        var obj =
+        {
+          ...option,
+          name: `${optionName}`.trim()
+
+        }
+
+        authorDTO.push(obj)
+
+      })
+
+      this.options = authorDTO;
+
+    }
+
 }
