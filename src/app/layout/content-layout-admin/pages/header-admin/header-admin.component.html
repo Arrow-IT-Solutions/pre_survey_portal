@@ -10,17 +10,17 @@
         <div [matMenuTriggerFor]="langMenu">
           <span class="material-symbols-outlined lang-icon">language</span>
           <span class="m-0">{{currentlang}}</span>
-          
+
           <span class="material-symbols-outlined m-0"> arrow_drop_down </span>
         </div>
-        
+
 
         <div class="profile" [matMenuTriggerFor]="menu">
           <div class="profile__image">
-            <!-- <span class="registered-user">{{userService.currentUser.userName}}</span> -->
+            <span class="registered-user">{{userService.currentUser.userName}}</span>
             <span class="material-symbols-outlined"> arrow_drop_down </span>
           </div>
-  
+
           <mat-menu #menu="matMenu">
             <!-- <button mat-menu-item>
               <span class="material-symbols-outlined">account_circle</span>
@@ -44,4 +44,3 @@
       </div>
     </div>
   </div>
-  
