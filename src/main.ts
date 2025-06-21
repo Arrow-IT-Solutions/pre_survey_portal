@@ -5,13 +5,13 @@ import { environment } from './environments/environment.prod';
 
 
 
-fetch('/assets/config.json')
-  .then(response => response.json())
-  .then(config => {
-    environment.baseApiUrl = config.apiUrl;
-    console.log("baseUrl : ",config.apiUrl);
+// fetch('/assets/config.json')
+//   .then(response => response.json())
+//   .then(config => {
+//     environment.baseApiUrl = config.apiUrl;
+//     console.log("baseUrl : ",config.apiUrl);
 
-  });
+//   });
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));

@@ -23,7 +23,7 @@
     "@nestjs/axios": "^3.0.1",
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
-    "angularx-qrcode": "^20.0.0",
+    "angularx-qrcode": "^16.0.0",
     "axios": "^1.6.2",
     "chart.js": "^4.4.0",
     "html2pdf.js": "^0.10.2",
