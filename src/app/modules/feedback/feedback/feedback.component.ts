@@ -7,6 +7,8 @@ import { LayoutService } from 'src/app/layout/service/layout.service';
 import { FeedbackRequest } from '../feedBacks.module';
 import { SurveyServiceService } from 'src/app/layout/service/survey-service.service';
 import { Router } from '@angular/router';
+import { SettingResponse, SettingSearchRequest } from '../../settings/settings.module';
+import { SettingsService } from 'src/app/layout/service/settings.service';
 
 @Component({
   selector: 'app-feedback',
@@ -21,6 +23,7 @@ export class FeedbackComponent {
   loading: boolean = false;
   dataform!: FormGroup;
   customerIDFK: any;
+  settingData: SettingResponse | null = null;
   @ViewChild(AlertModelComponent) alertModal!: AlertModelComponent;
 
 
@@ -29,6 +32,7 @@ export class FeedbackComponent {
     public layoutService: LayoutService,
     public messageService: MessageService,
     public surveyService: SurveyServiceService,
+    public settingService: SettingsService,
     public route: Router
   ) {
     this.dataform = this.formBuilder.group({
@@ -37,8 +41,9 @@ export class FeedbackComponent {
     })
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.customerIDFK = this.surveyService.customerUUID;
+    await this.GetSettingData();
     console.log('CustomerUUID ', this.customerIDFK)
   }
 
@@ -97,5 +102,23 @@ export class FeedbackComponent {
   openThanksMessage() {
     this.route.navigate(['/thanks']);
   }
+  async GetSettingData(pageIndex: number = 0) {
 
+    this.settingData = null;
+
+    let filter: SettingSearchRequest = {
+      uuid: '',
+      name: '',
+    };
+
+    const response = (await this.settingService.Search(filter)) as any;
+
+    if (response.data == null || response.data.length == 0) {
+      this.settingData = null;
+    } else if (response.data != null && response.data.length != 0) {
+      this.settingData = response.data[0];
+      console.log(this.settingData)
+    }
+
+  }
 }
