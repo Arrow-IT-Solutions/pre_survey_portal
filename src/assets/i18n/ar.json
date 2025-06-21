@@ -226,7 +226,9 @@
   "toDate_reports":"إلى تاريخ",
   "Basic_Info_reports":"المعلومات الأساسية",
   "Back_report":"العودة",
-  "Reports":"التقارير"
+  "Reports":"التقارير",
+  "Watermark_Image":"صورة العلامة المائية",
+  "Logo_Image":"صورة الشعار"
 
 }
 

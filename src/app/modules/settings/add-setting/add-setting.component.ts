@@ -19,13 +19,19 @@ export class AddSettingComponent {
   file: any;
   fileInput: any
   img: boolean = true;
+  fileLogo: any;
+  fileWatermark: any;
+  fileInputLogo: any;
+  fileInputWatermark: any;
+  logo: boolean = true;
+  watermark: boolean = true;
   constructor(public formBuilder: FormBuilder,
     public layoutService: LayoutService,
     public settingService: SettingsService,
     public messageService: MessageService
   ) {
     this.dataForm = this.formBuilder.group({
-      location: [''],
+      location: ['',],
       phone: [''],
       email: [''],
       nameAr: [''],
@@ -88,7 +94,8 @@ export class AddSettingComponent {
         settingTranslation: settingTranslation,
         phone: this.dataForm.controls['phone'].value.toString(),
         email: this.dataForm.controls['email'].value.toString(),
-
+        logo: this.fileLogo,
+        watermark: this.fileWatermark
       };
 
       response = await this.settingService.Update(setting);
@@ -99,6 +106,8 @@ export class AddSettingComponent {
         appURL: this.dataForm.controls['location'].value.toString(),
         phone: this.dataForm.controls['phone'].value.toString(),
         email: this.dataForm.controls['email'].value.toString(),
+        logo: this.fileLogo,
+        watermark: this.fileWatermark
       };
 
       console.log('add', addsetting)
@@ -131,11 +140,25 @@ export class AddSettingComponent {
       nameAr: this.settingService.SelectedData?.settingTranslation!['ar'].name,
       nameEn: this.settingService.SelectedData?.settingTranslation!['en'].name,
     };
+    this.fileInputLogo = this.settingService.SelectedData?.logo,
+      this.logo = false
+    this.fileInputWatermark = this.settingService.SelectedData?.watermark,
+      this.watermark = false
     this.dataForm.patchValue(temp);
 
   }
 
   resetForm() {
     this.dataForm.reset();
+  }
+
+  OnSelectFileLogo(file) {
+    this.fileLogo = file;
+    this.logo = false;
+  }
+
+  OnSelectFileWatermark(file) {
+    this.fileWatermark = file;
+    this.watermark = false;
   }
 }

@@ -28,6 +28,8 @@ export interface SettingResponse extends ResponseBase {
   phone: string,
   email: string,
   appURL: string,
+  logo: string,
+  watermark: string
 }
 export interface SettingSearchRequest extends SearchRequestBase {
   uuid?: string;
@@ -39,6 +41,8 @@ export interface SettingUpdateRequest extends RequestBase {
   phone: string,
   email: string,
   appURL: string,
+  logo: string,
+  watermark: string
 
 }
 
@@ -47,6 +51,8 @@ export interface SettingRequest extends RequestBase {
   phone: string,
   email: string,
   appURL: string,
+  logo: string,
+  watermark: string
 
 }
 

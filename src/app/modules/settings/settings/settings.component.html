@@ -28,9 +28,26 @@
         <span class="material-symbols-outlined fill">email</span>
         <span id="info">{{ row.email }}</span>
       </div>
+      <div class="col-lg-2 col-md-6 col-sm-6 d-flex card__left">
+        <div class="img">
+<label>{{ 'Logo_Image' | translate }}</label>
+          <img (click)="showDialog(row.logo)" [src]="row.logo" />
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 col-sm-6 d-flex card__left">
+        <div class="img">
+          <label>{{ 'Watermark_Image' | translate }}</label>
+          <img (click)="showDialog(row.watermark)" [src]="row.watermark" />
+        </div>
+      </div>
     </div>
   </div>
 
   <button class="add-button" (click)="openDialog()">
     <span class="material-symbols-outlined">add</span>
   </button>
+
+<p-dialog header="Header" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false"
+    [resizable]="false">
+    <img [src]="link" />
+  </p-dialog>

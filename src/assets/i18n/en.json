@@ -226,5 +226,7 @@
  "toDate_reports":"To Date",
  "Basic_Info_reports":"Basic Info",
  "Back_report":"Back",
- "Reports":"Reports"
+ "Reports":"Reports",
+ "Watermark_Image":"Watermark Image",
+ "Logo_Image":"Logo Image"
 }

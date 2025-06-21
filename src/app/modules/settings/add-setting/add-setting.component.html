@@ -37,6 +37,20 @@
               <label>{{ 'Email_AddSettings' | translate }}</label>
             </div>
           </div>
+          <div>
+            <label>{{ 'Logo_Image' | translate }}</label>
+            <app-img-control (onSelected)="OnSelectFileLogo($event)" [fileInput]="fileInputLogo"></app-img-control>
+            <small *ngIf="submitted && logo" class="error-validation">
+              {{ "Field_Required" | translate }}
+            </small>
+          </div>
+          <div>
+            <label>{{ 'Watermark_Image' | translate }}</label>
+            <app-img-control (onSelected)="OnSelectFileWatermark($event)" [fileInput]="fileInputWatermark"></app-img-control>
+            <small *ngIf="submitted && watermark" class="error-validation">
+              {{ "Field_Required" | translate }}
+            </small>
+          </div>
         </div>
       </div>
     </div>
