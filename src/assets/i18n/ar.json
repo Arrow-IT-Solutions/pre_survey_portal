@@ -219,7 +219,14 @@
   "customerIsAgree_report":"الموافقة على إرسال الإعلانات",
   "customerEmail_report":"الإيميل",
   "totalReport_report":"مجموع التقارير",
-  "Question_report" : "السؤال"
+  "Question_report" : "السؤال",
+  "print_report":"طباعة التقارير",
+  "generateReports":"إنشاء تقارير",
+  "fromDate_reports":"من تاريخ",
+  "toDate_reports":"إلى تاريخ",
+  "Basic_Info_reports":"المعلومات الأساسية",
+  "Back_report":"العودة",
+  "Reports":"التقارير"
 
 }
 
