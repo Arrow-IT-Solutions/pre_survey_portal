@@ -1,31 +1,17 @@
- 
- <div class="reports">
+<div class="reports">
   <div [formGroup]="dataForm">
     <!--  -->
 
     <div class="row mb-2 m-0 flex-row-reverse  ">
 
-<<<<<<< HEAD
-      
-=======
+
       <div class="col-lg-3 col-md-10 col p-0  " id="search">
         <div class="option-dropdown-box ms-auto">
-  <p-dropdown
-    [options]="options"
-    optionLabel="name"
-    optionValue="uuid"
-    formControlName="option"
-    [filter]="true"
-    [showClear]="true"
-    filterBy="name"
-    (onFilter)="FillOption($event)"
-    (ngModelChange)="OnChange()"
-    inputId="optionDropdown"
-    placeholder="{{ 'OptionName_Option' | translate }}"
-  ></p-dropdown>
-</div>
+          <p-dropdown [options]="options" optionLabel="name" optionValue="uuid" formControlName="option" [filter]="true"
+            [showClear]="true" filterBy="name" (onFilter)="FillOption($event)" (ngModelChange)="OnChange()"
+            inputId="optionDropdown" placeholder="{{ 'OptionName_Option' | translate }}"></p-dropdown>
+        </div>
       </div>
->>>>>>> f2c2b3da4123bf15bd075edb612f3b27398f61db
 
       <p-accordion class="p-0 mt-4 ">
         <p-accordionTab>
@@ -41,14 +27,14 @@
                 <span>Filter By</span>
               </div>
               <div class="container d-flex gap-3">
-              
-               <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
                   <div class="flex flex-wrap justify-content-center gap-3">
                     <span class="p-input-icon-left p-0">
-                   <i class="pi pi-search"></i>
-                    <input class="search-field" type="text" (ngModelChange)="OnChange()"
-                     placeholder="{{ 'searchOptionName_report' | translate }}" formControlName="option" pInputText />
-                  </span>
+                      <i class="pi pi-search"></i>
+                      <input class="search-field" type="text" (ngModelChange)="OnChange()"
+                        placeholder="{{ 'searchOptionName_report' | translate }}" formControlName="option" pInputText />
+                    </span>
                   </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
@@ -81,24 +67,24 @@
                   </div>
                 </div>
                 <div class="col result">
-                <div class="ms-2 mt-3">
-                  <p-button class="reset-btn" (onClick)="resetform()">
-                    <span class="material-symbols-outlined">restart_alt</span>
-                  </p-button>
+                  <div class="ms-2 mt-3">
+                    <p-button class="reset-btn" (onClick)="resetform()">
+                      <span class="material-symbols-outlined">restart_alt</span>
+                    </p-button>
+                  </div>
                 </div>
-              </div>
 
               </div>
 
-              
+
             </div>
           </ng-template>
         </p-accordionTab>
       </p-accordion>
       <button id="print" (click)="openGenerateReports()">
-    <span class="material-symbols-outlined">print</span>
+        <span class="material-symbols-outlined">print</span>
 
-    {{'print_report' | translate}}
+        {{'print_report' | translate}}
       </button>
 
 
