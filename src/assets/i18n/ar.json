@@ -228,7 +228,8 @@
   "Back_report":"العودة",
   "Reports":"التقارير",
   "Watermark_Image":"صورة العلامة المائية",
-  "Logo_Image":"صورة الشعار"
+  "Logo_Image":"صورة الشعار",
+  "export_report":"تصدير إلى إكسل "
 
 }
 
