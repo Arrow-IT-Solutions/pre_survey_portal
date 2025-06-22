@@ -11,6 +11,8 @@ import { ConstantResponse } from 'src/app/Core/services/constant.service';
 import { ConstantService } from 'src/app/Core/services/constant.service';
 import { CountryCodeResponse, CountryCodeSearchRequest } from '../../country-code/country-code.module';
 import { SelectItem } from 'primeng/api';
+import { SettingResponse, SettingSearchRequest } from '../../settings/settings.module';
+import { SettingsService } from 'src/app/layout/service/settings.service';
 
 @Component({
   selector: 'app-forms',
@@ -37,6 +39,7 @@ export class FormsComponent {
   codes: CountryCodeResponse[] = [];
   martialStatus: ConstantResponse[] = [];
   submitted: boolean = false;
+  settingData: SettingResponse | null = null;
   constructor(public formBuilder: FormBuilder,
     public layoutService: LayoutService,
     @Inject(DOCUMENT) private document: Document,
@@ -44,6 +47,7 @@ export class FormsComponent {
     private router: Router,
     private surveyService: SurveyServiceService,
     public countryCodeService: CountryCodeService,
+    public settingService: SettingsService,
     public constantService: ConstantService) {
     this.dataForm = this.formBuilder.group({
       userName: ['', Validators.required],
@@ -67,6 +71,7 @@ export class FormsComponent {
     this.formUuid = this.route.snapshot.paramMap.get('uuid')!;
     this.surveyService.formUUID = this.formUuid;
     await this.RetriveCountryCode();
+    await this.GetSettingData();
     const maritalStatus = await this.constantService.Search('SocialStatus') as any;
     this.martialStatus = maritalStatus.data;
     this.checkCurrentLang();
@@ -207,6 +212,26 @@ export class FormsComponent {
     this.surveyService.setSession(session);
 
     this.router.navigate(['user-questions']);
+  }
+
+  async GetSettingData(pageIndex: number = 0) {
+
+    this.settingData = null;
+
+    let filter: SettingSearchRequest = {
+      uuid: '',
+      name: '',
+    };
+
+    const response = (await this.settingService.Search(filter)) as any;
+
+    if (response.data == null || response.data.length == 0) {
+      this.settingData = null;
+    } else if (response.data != null && response.data.length != 0) {
+      this.settingData = response.data[0];
+      console.log(this.settingData)
+    }
+
   }
 
 }

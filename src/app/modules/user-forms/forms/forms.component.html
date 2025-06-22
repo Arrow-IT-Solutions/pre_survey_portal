@@ -4,7 +4,8 @@
 
 <form [formGroup]="dataForm" action="" class="forms">
   <div class="logo-container mb-5">
-    <img src="../../../../assets/images/Fill Logo.svg" alt="">
+    <!-- <img src="../../../../assets/images/Fill Logo.svg" alt=""> -->
+      <img [src]="settingData?.logo" />
   </div>
   <div class="fields">
     <div class="col-12 mb-3 field_container">
@@ -121,7 +122,8 @@
       </div>
     </div>
 
-    <img src="../../../../assets/images/Logo ICON Transparant.svg" alt="" id="vector">
+    <!-- <img src="../../../../assets/images/Logo ICON Transparant.svg" alt="" id="vector"> -->
+    <img [src]="settingData?.watermark" alt="" id="vector">
 
   </div>
   <div class="col-xs-12 mt-4 ">

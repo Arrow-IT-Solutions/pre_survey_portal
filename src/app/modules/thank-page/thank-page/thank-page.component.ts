@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SurveyServiceService } from 'src/app/layout/service/survey-service.service';
+import { SettingResponse, SettingSearchRequest } from '../../settings/settings.module';
+import { SettingsService } from 'src/app/layout/service/settings.service';
 
 @Component({
   selector: 'app-thank-page',
@@ -10,11 +12,16 @@ import { SurveyServiceService } from 'src/app/layout/service/survey-service.serv
 
 
 export class ThankPageComponent {
-
+settingData: SettingResponse | null = null;
   constructor(public route: Router,
-    public surveyService: SurveyServiceService
+    public surveyService: SurveyServiceService,
+    public settingService: SettingsService,
   ) { }
   isVisible: boolean = true;
+
+  async ngOnInit() {
+    await this.GetSettingData();
+  }
 
   showAlert() {
     this.isVisible = true;
@@ -27,5 +34,25 @@ export class ThankPageComponent {
   }
   goBackHome() {
     this.route.navigateByUrl(`/forms/${this.surveyService.formUUID}`);
+  }
+
+  async GetSettingData(pageIndex: number = 0) {
+
+    this.settingData = null;
+
+    let filter: SettingSearchRequest = {
+      uuid: '',
+      name: '',
+    };
+
+    const response = (await this.settingService.Search(filter)) as any;
+
+    if (response.data == null || response.data.length == 0) {
+      this.settingData = null;
+    } else if (response.data != null && response.data.length != 0) {
+      this.settingData = response.data[0];
+      console.log(this.settingData)
+    }
+
   }
 }

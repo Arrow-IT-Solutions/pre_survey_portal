@@ -15,7 +15,7 @@
       //   border: none;
       //   color: white;
       //   margin-top: 1rem;
-        
+
       // }
     ::ng-deep .p-accordion {
         & .p-accordion-header {
@@ -174,7 +174,7 @@
     border-radius: 6px;
     border-color: rgba($primary-color, 0.5);
     column-gap: 1rem;
-   
+
     @media (max-width:767px) {
       flex-direction: column;
       max-height: 15rem;
@@ -219,7 +219,7 @@
       color: $primary-color;
     }
 
-    
+
 
   }
 
@@ -354,6 +354,7 @@
       align-items: center;
       justify-content: center;
        }      
+
 
       @media (max-width: 991px) and (min-width: 768px) {
         width: 100%;
@@ -497,4 +498,41 @@
 .tune_container:lang(ar){
 background-color: red;
 }
+
+#search {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem; // مسافة بين الدروب داون وزر الفلاتر
+  margin-bottom: 0;
+  margin-top: 0.5rem;
+
+  .option-dropdown-box {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    width: 100%;
+    max-width: 260px; // قلل العرض حسب الحاجة
+    min-width: 180px;
+
+
+    .p-dropdown {
+      width: 100% !important;
+      border: none;
+      box-shadow: none;
+      background: transparent;
+
+      .p-dropdown-label {
+        font-size: 1rem;
+        color: #616164;
+        opacity: 0.9;
+        padding-left: 0.5rem;
+      }
+    }
+  }
+
+}
+
+
+
+
 

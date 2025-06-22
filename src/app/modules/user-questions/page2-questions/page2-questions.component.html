@@ -1,17 +1,19 @@
 
 <div class="page-container">
-  
- 
+
+
    <div class="elipse-container">
     <img src="../../../../assets/images/Ellipse 141.svg" alt="">
    </div>
    <div class="icon-container">
-    <img src="../../../../assets/images/Logo ICON Transparant.svg" alt="">
+    <!-- <img src="../../../../assets/images/Logo ICON Transparant.svg" alt=""> -->
+    <img [src]="settingData?.watermark" alt="" id="vector">
    </div>
    <div class="logo-container">
-    <img src="../../../../assets/images/Fill Logo.svg" alt="">
+    <!-- <img src="../../../../assets/images/Fill Logo.svg" alt=""> -->
+    <img [src]="settingData?.logo" />
    </div>
-   
+
    <div class="question_items">
     <form action="" [formGroup]="dataForm">
     <div class="question_item">
@@ -22,7 +24,7 @@
             <span id="question_required">{{'required_userQuestion' | translate}}</span>
         </div>
         <div class="options">
-            
+
 		<label>
 			<input formControlName="answer1" type="radio" name="radio1" />
 			<span>Another Number</span>
@@ -35,9 +37,9 @@
 			<input formControlName="answer1" type="radio" name="radio1" />
 			<span>Use my Number</span>
 		</label>
-	
+
         </div>
-        
+
     </div>
 
      <div class="question_item">
@@ -48,7 +50,7 @@
             <span id="question_required">{{'required_userQuestion' | translate}}</span> -->
         </div>
         <div class="options">
-            
+
 		<label>
 			<input formControlName="answer2" type="radio" name="radio2" />
 			<span>Another Number</span>
@@ -61,9 +63,9 @@
 			<input formControlName="answer2" type="radio" name="radio2" />
 			<span>Use my Number</span>
 		</label>
-	
+
         </div>
-        
+
     </div>
      <div class="question_item">
         <div class="question_item_info">
@@ -73,7 +75,7 @@
             <span id="question_required">{{'required_userQuestion' | translate}}</span> -->
         </div>
         <div class="options">
-            
+
 		<label>
 			<input formControlName="answer3" type="radio" name="radio3" />
 			<span>Another Number</span>
@@ -86,9 +88,9 @@
 			<input formControlName="answer3" type="radio" name="radio3" />
 			<span>Use my Number</span>
 		</label>
-	
+
         </div>
-        
+
     </div>
      <div class="question_item">
         <div class="question_item_info">
@@ -98,7 +100,7 @@
             <span id="question_required">{{'required_userQuestion' | translate}}</span> -->
         </div>
         <div class="options">
-            
+
 		<label>
 			<input formControlName="answer4" type="radio" name="radio4" />
 			<span>Another Number</span>
@@ -111,9 +113,9 @@
 			<input formControlName="answer4" type="radio" name="radio4" />
 			<span>Use my Number</span>
 		</label>
-	
+
         </div>
-        
+
     </div>
     <button (click)="openFeedback()">
         <img src="../../../../assets/images/send-2.svg" alt="">

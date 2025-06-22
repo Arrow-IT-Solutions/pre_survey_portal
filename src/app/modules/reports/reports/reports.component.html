@@ -5,7 +5,27 @@
 
     <div class="row mb-2 m-0 flex-row-reverse  ">
 
+<<<<<<< HEAD
       
+=======
+      <div class="col-lg-3 col-md-10 col p-0  " id="search">
+        <div class="option-dropdown-box ms-auto">
+  <p-dropdown
+    [options]="options"
+    optionLabel="name"
+    optionValue="uuid"
+    formControlName="option"
+    [filter]="true"
+    [showClear]="true"
+    filterBy="name"
+    (onFilter)="FillOption($event)"
+    (ngModelChange)="OnChange()"
+    inputId="optionDropdown"
+    placeholder="{{ 'OptionName_Option' | translate }}"
+  ></p-dropdown>
+</div>
+      </div>
+>>>>>>> f2c2b3da4123bf15bd075edb612f3b27398f61db
 
       <p-accordion class="p-0 mt-4 ">
         <p-accordionTab>
