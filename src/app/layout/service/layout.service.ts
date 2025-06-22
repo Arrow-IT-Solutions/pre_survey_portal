@@ -116,5 +116,36 @@ export class LayoutService {
     return txt
   }
 
+  DownloadExcel(dataBase64, excelName) {
+
+    const arrayBuffer = this.base64ToArrayBuffer(dataBase64);
+    var binaryData = atob(dataBase64.toString());
+    const blob = new Blob([arrayBuffer], {
+      type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    });
+    const url = window.URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = excelName + '.xlsx';
+    a.click();
+
+    // Revoke the object URL to free up resources
+    window.URL.revokeObjectURL(url);
+
+  }
+
+
+  private base64ToArrayBuffer(base64: string): ArrayBuffer {
+    // atob gives us the “binary” string back
+    const binaryString = window.atob(base64);
+    const len = binaryString.length;
+    // create a view into an ArrayBuffer
+    const bytes = new Uint8Array(len);
+    for (let i = 0; i < len; i++) {
+      bytes[i] = binaryString.charCodeAt(i);
+    }
+    return bytes.buffer;
+  }
 
 }

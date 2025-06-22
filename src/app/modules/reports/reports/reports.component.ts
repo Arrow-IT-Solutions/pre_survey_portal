@@ -32,7 +32,7 @@ export class ReportsComponent {
   typingTimer: any;
   isResetting: boolean = false;
   constructor(public formBuilder: FormBuilder,
-    public route:Router,
+    public route: Router,
     public answerService: AnswerService,
     public layoutService: LayoutService,
     public optionService: OptionService,
@@ -50,21 +50,21 @@ export class ReportsComponent {
     await this.FillData();
   }
   openGenerateReports(row: ReportResponse | null = null) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      document.body.style.overflow = 'hidden';
-      this.answerService.SelectedData = row
-      let content = this.answerService.SelectedData == null ? 'generateReports' : 'generateReports';
-      this.translate.get(content).subscribe((res: string) => {
-        content = res
-      });
-      var component = this.layoutService.OpenDialog(GeneretReportsComponent, content);
-      this.answerService.Dialog = component;
-      component.OnClose.subscribe(() => {
-        document.body.style.overflow = '';
-        this.FillData();
-      });
-  
-    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.body.style.overflow = 'hidden';
+    this.answerService.SelectedData = row
+    let content = this.answerService.SelectedData == null ? 'generateReports' : 'generateReports';
+    this.translate.get(content).subscribe((res: string) => {
+      content = res
+    });
+    var component = this.layoutService.OpenDialog(GeneretReportsComponent, content);
+    this.answerService.Dialog = component;
+    component.OnClose.subscribe(() => {
+      document.body.style.overflow = '';
+      this.FillData();
+    });
+
+  }
 
   async FillData(pageIndex: number = 0) {
     this.loading = true;
@@ -102,18 +102,21 @@ export class ReportsComponent {
 
     this.loading = false;
   }
+
   async resetform() {
     this.isResetting = true;
     this.dataForm.reset();
     await this.FillData();
     this.isResetting = false;
   }
+
   paginate(event: any) {
     this.pageSize = event.rows
     this.first = event.first
     this.FillData(event.first);
 
   }
+
   OnChange() {
     if (this.isResetting) { return };
 
@@ -123,47 +126,46 @@ export class ReportsComponent {
     }, this.doneTypingInterval);
   }
 
+  async FillOption(event: any = null) {
 
-async FillOption(event: any = null) {
+    var optionID: any;
 
-      var optionID: any;
+    let filter: OptionSearchRequest = {
 
-      let filter: OptionSearchRequest = {
+      name: '',
+      uuid: optionID,
+      pageIndex: "",
+      pageSize: '100000'
 
-        name: '',
-        uuid: optionID,
-        pageIndex: "",
-        pageSize: '100000'
+    }
+    const response = await this.optionService.Search(filter) as any
 
-      }
-      const response = await this.optionService.Search(filter) as any
-
-      this.options = response.data,
+    this.options = response.data,
 
       await this.ReWriteOption();
-    }
+  }
 
-    ReWriteOption(): any {
+  ReWriteOption(): any {
 
-       var authorDTO: any[] = []
+    var authorDTO: any[] = []
 
-      this.options.map(option => {
-        const translation = option.optionTranslation?.[this.layoutService.config.lang] as any;
-        const optionName = translation?.name;
+    this.options.map(option => {
+      const translation = option.optionTranslation?.[this.layoutService.config.lang] as any;
+      const optionName = translation?.name;
 
-        var obj =
-        {
-          ...option,
-          name: `${optionName}`.trim()
+      var obj =
+      {
+        ...option,
+        name: `${optionName}`.trim()
 
-        }
+      }
 
-        authorDTO.push(obj)
+      authorDTO.push(obj)
 
-      })
+    })
 
-      this.options = authorDTO;
+    this.options = authorDTO;
 
-    }
+  }
 
 }
