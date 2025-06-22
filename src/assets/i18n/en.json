@@ -228,5 +228,6 @@
  "Back_report":"Back",
  "Reports":"Reports",
  "Watermark_Image":"Watermark Image",
- "Logo_Image":"Logo Image"
+ "Logo_Image":"Logo Image",
+ "export_report":"Export to Excel"
 }

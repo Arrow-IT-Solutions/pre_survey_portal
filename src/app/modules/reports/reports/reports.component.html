@@ -5,13 +5,7 @@
     <div class="row mb-2 m-0 flex-row-reverse  ">
 
 
-      <div class="col-lg-3 col-md-10 col p-0  " id="search">
-        <div class="option-dropdown-box ms-auto">
-          <p-dropdown [options]="options" optionLabel="name" optionValue="uuid" formControlName="option" [filter]="true"
-            [showClear]="true" filterBy="name" (onFilter)="FillOption($event)" (ngModelChange)="OnChange()"
-            inputId="optionDropdown" placeholder="{{ 'OptionName_Option' | translate }}"></p-dropdown>
-        </div>
-      </div>
+      
 
       <p-accordion class="p-0 mt-4 ">
         <p-accordionTab>
@@ -28,15 +22,7 @@
               </div>
               <div class="container d-flex gap-3">
 
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
-                  <div class="flex flex-wrap justify-content-center gap-3">
-                    <span class="p-input-icon-left p-0">
-                      <i class="pi pi-search"></i>
-                      <input class="search-field" type="text" (ngModelChange)="OnChange()"
-                        placeholder="{{ 'searchOptionName_report' | translate }}" formControlName="option" pInputText />
-                    </span>
-                  </div>
-                </div>
+                
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
                   <div class="flex flex-wrap justify-content-center gap-3">
                     <span class="p-input-icon-left p-0">
@@ -66,6 +52,13 @@
                     </span>
                   </div>
                 </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3 search-box">
+                <div class="option-dropdown-box ">
+                 <p-dropdown [options]="options" optionLabel="name" optionValue="uuid" formControlName="option" [filter]="true"
+                  [showClear]="true" filterBy="name" (onFilter)="FillOption($event)" (ngModelChange)="OnChange()"
+                  inputId="optionDropdown" placeholder="{{ 'OptionName_Option' | translate }}"></p-dropdown>
+                </div>
+                </div>
                 <div class="col result">
                   <div class="ms-2 mt-3">
                     <p-button class="reset-btn" (onClick)="resetform()">
@@ -82,9 +75,10 @@
         </p-accordionTab>
       </p-accordion>
       <button id="print" (click)="openGenerateReports()">
-        <span class="material-symbols-outlined">print</span>
+        <!-- <span class="material-symbols-outlined">file</span> -->
+         <img src="../../../../assets/images/icons8-export-24.png" alt="">
 
-        {{'print_report' | translate}}
+        {{'export_report' | translate}}
       </button>
 
 
