@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import { QRCodeDialogComponent } from './qrcode-dialog/qrcode-dialog.component';
 // import { QRCodeComponent } from 'angularx-qrcode';
-import { QRCodeModule } from 'angularx-qrcode';
 import { MatButtonModule } from '@angular/material/button';
 import { SharedModule } from 'src/app/shared/shared.module';
 
@@ -13,7 +12,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     MatDialogModule,
     MatButtonModule,
-    QRCodeModule,
     SharedModule,
     SharedModule,
   ],
