@@ -3,32 +3,34 @@
   <div [formGroup]="dataForm">
     <!--  -->
 
-    <div class="row mb-4 m-0 flex-row-reverse p-3">
+    <div class="row mb-2 m-0 flex-row-reverse  ">
 
-      <div class="col-lg-3 col-md-10 col p-0  " id="search">
-        <div class="flex flex-wrap justify-content-center gap-3">
-          <span class="p-input-icon-left p-0">
-            <i class="pi pi-search"></i>
-            <input class="search-field" type="text" (ngModelChange)="OnChange()"
-              placeholder="{{ 'searchOptionName_report' | translate }}" formControlName="option" pInputText />
-          </span>
-        </div>
-      </div>
+      
 
-      <p-accordion class="p-0">
+      <p-accordion class="p-0 mt-4 ">
         <p-accordionTab>
-          <ng-template pTemplate="header">
+          <ng-template pTemplate="header" class="tune_container">
             <div class="flex align-items-center">
               <span class="material-symbols-outlined">tune</span>
             </div>
           </ng-template>
           <ng-template pTemplate="content">
-            <div class="m-0 box2 d-flex">
+            <div class=" box2 d-flex">
               <div class="filter-title">
                 <span class="material-symbols-outlined">filter_alt</span>
                 <span>Filter By</span>
               </div>
               <div class="container d-flex gap-3">
+              
+               <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
+                  <div class="flex flex-wrap justify-content-center gap-3">
+                    <span class="p-input-icon-left p-0">
+                   <i class="pi pi-search"></i>
+                    <input class="search-field" type="text" (ngModelChange)="OnChange()"
+                     placeholder="{{ 'searchOptionName_report' | translate }}" formControlName="option" pInputText />
+                  </span>
+                  </div>
+                </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
                   <div class="flex flex-wrap justify-content-center gap-3">
                     <span class="p-input-icon-left p-0">
@@ -58,26 +60,26 @@
                     </span>
                   </div>
                 </div>
-
-
-              </div>
-
-              <div class="col result">
+                <div class="col result">
                 <div class="ms-2 mt-3">
                   <p-button class="reset-btn" (onClick)="resetform()">
                     <span class="material-symbols-outlined">restart_alt</span>
                   </p-button>
                 </div>
               </div>
+
+              </div>
+
+              
             </div>
           </ng-template>
         </p-accordionTab>
       </p-accordion>
-  <button id="print" (click)="openGenerateReports()">
+      <button id="print" (click)="openGenerateReports()">
     <span class="material-symbols-outlined">print</span>
 
     {{'print_report' | translate}}
-  </button>
+      </button>
 
 
     </div>
