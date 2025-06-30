@@ -22,7 +22,7 @@ export class AnswersComponent {
     typingTimer: any;
     isResetting: boolean = false;
     Total: number = 0;
-    data: AnswerResponse[] = [];
+    data: OptionResponse[] = [];
     answerTotal: number = 0;
     searchAttempted = false;
   constructor(public formBuilder:FormBuilder,
@@ -40,40 +40,21 @@ export class AnswersComponent {
   this.searchAttempted = true;
         this.data = [];
         this.answerTotal = 0;
-        let filter: AnswerSearchRequest = {
-          uuid: '',
-          OptionName: '',
-          optionIDFK: this.dataForm.controls['option'].value,
-          questionIDFK: '',
-          customerIDFK: '',
-          formIDFK: '',
-          includeCustomer: '1',
-          includeQuestion: '1',
-          includeOption: '1',
-          includeForm: '1',
+        let filter: OptionSearchRequest = {
+          uuid: this.dataForm.controls['option'].value,
+          name: '',
           pageIndex: pageIndex.toString(),
           pageSize: this.pageSize.toString(),
         };
 
-        const response = (await this.answerService.Search(filter)) as any;
+        const response = (await this.optionService.Search(filter)) as any;
         console.log('data',response)
-       if (response.data == null || response.data.length == 0) {
+        if (response.data == null || response.data.length == 0) {
   this.data = [];
   this.answerTotal = 0;
 } else if (response.data != null && response.data.length != 0) {
 
-  const uniqueOptionsMap = new Map();
-  for (const item of response.data) {
-    const optionUuid = item.option?.uuid;
-    if (optionUuid && !uniqueOptionsMap.has(optionUuid)) {
-      uniqueOptionsMap.set(optionUuid, item);
-    }
-  }
-  this.data = Array.from(uniqueOptionsMap.values());
-
-    for (let item of this.data) {
-      item.numberOfCustomers = await this.GetNumberOfCustomers(item.option?.uuid!);
-    }
+  this.data = response.data;
 
           this.answerTotal = response.data[0];
         }
@@ -84,12 +65,14 @@ export class AnswersComponent {
   }
 
     async ngOnInit() {
-      await this.FillOption();
-      await this.FillData();
+
+    await this.FillData();
+    await this.FillOption();
+
     }
 
 
-   async resetform() {
+    async resetform() {
     this.isResetting = true;
     this.dataForm.reset();
     await this.FillData();
@@ -155,26 +138,5 @@ export class AnswersComponent {
 
     }
 
-    async GetNumberOfCustomers(uuid: string): Promise<number> {
-          let filter: AnswerSearchRequest = {
-          uuid: '',
-          OptionName: '',
-          optionIDFK: uuid,
-          questionIDFK: '',
-          customerIDFK: '',
-          formIDFK: '',
-          includeCustomer: '1',
-          includeQuestion: '1',
-          includeOption: '1',
-          includeForm: '1',
-        };
-
-  const response = (await this.answerService.Search(filter)) as any;
-  if (response.data == null || response.data.length == 0) {
-    return 0;
-  }
-
-  return response.totalRecords;
-}
 
 }

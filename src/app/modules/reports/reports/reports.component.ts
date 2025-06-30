@@ -46,8 +46,9 @@ export class ReportsComponent {
 
   }
   async ngOnInit() {
-    await this.FillOption();
     await this.FillData();
+    await this.FillOption();
+
   }
   openGenerateReports(row: ReportResponse | null = null) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
