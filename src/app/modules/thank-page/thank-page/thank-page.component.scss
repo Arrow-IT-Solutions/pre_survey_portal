@@ -60,6 +60,11 @@
        border-radius: 32px;
         padding: 24px 56px;
         border: 1px solid #E7E7E7;
+        @media(max-width:767px){
+          width: 90%;
+          padding: 24px 30px;
+          margin-top: 28%;
+        }
       .header{
         width: 6rem;
         img{
@@ -70,6 +75,9 @@
         display: flex;
         flex-direction: column;
         row-gap: 1rem;
+        @media(max-width:767px){
+          width: 100%;
+        }
         span{
 
           font-weight: bold;
@@ -77,6 +85,9 @@
           line-height: 100%;
           letter-spacing: 0%;
           text-align: center;
+
+        }
+        #sentSuccessfuly{
 
         }
       }
@@ -98,6 +109,7 @@
         @media(max-width:767px){
             margin: auto;
             margin-top: 2rem;
+            padding: 16px 50px;
         }
       }
       

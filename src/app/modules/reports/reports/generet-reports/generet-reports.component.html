@@ -1,4 +1,4 @@
-<form [formGroup]="dataForm" (ngSubmit)="onSubmit()" class="generate-reports">
+<form [formGroup]="dataForm" (ngSubmit)="onSubmit()" class="generate-reports" *ngIf="!loading; else ListView">
   <div class="generate-reports">
     <div class="box-shadow mb-3">
       <div class="row">
@@ -13,7 +13,7 @@
               <label>{{ 'fromDate_reports' | translate }}</label>
             </div>
           </div>
-        <div class="col-12 mb-3">
+          <div class="col-12 mb-3">
             <div class="p-float-label">
               <p-calendar [showIcon]="true" formControlName="toDate"></p-calendar>
               <label>{{ 'toDate_reports' | translate }}</label>
@@ -27,11 +27,18 @@
 
 
     <div class="col-xs-12 text-end mt-4">
-      <p-button type="Submit" class="btn-primary"  [loading]="btnLoading" (click)="openReportsForPrint()">{{'generateReports' | translate}}</p-button>
+      <p-button type="Submit" class="btn-primary" [loading]="btnLoading"
+        (click)="openReportsForPrint()">{{'generateReports' | translate}}</p-button>
     </div>
   </div>
 </form>
 
 <p-toast key="toast"></p-toast>
 
-
+<ng-template #ListView>
+  <div class="row">
+    <div *ngFor="let list of [1, 2, 3,]" class="col mx-0 mt-2">
+      <p-skeleton height="20rem"></p-skeleton>
+    </div>
+  </div>
+</ng-template>
