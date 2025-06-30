@@ -51,6 +51,6 @@ export interface AnswerResponse extends ResponseBase {
   option?: OptionResponse;
   customer?: CustomerResponse;
   form?: FormResponse;
-  numberOfCustomers?: number;
+ // numberOfCustomers?: number;
 }
 
