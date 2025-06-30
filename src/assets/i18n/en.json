@@ -229,5 +229,7 @@
  "Reports":"Reports",
  "Watermark_Image":"Watermark Image",
  "Logo_Image":"Logo Image",
- "export_report":"Export to Excel"
+ "export_report":"Export to Excel",
+ "age_forms":"Age",
+ "gender_forms":"Gender"
 }

@@ -6,7 +6,7 @@
   "email_forms":"البريد الإلكتروني",
   "country_forms":"المنطقة",
   "infoforms_forms":"كيف عرفت عن مطعمنا؟",
-  "sendOffers_forms":"هل بتوافق نستعمل رقمك أو بريدك لنبعتلك عروض علو الواتساب أو الإيميل؟",
+  "sendOffers_forms":"هل بتوافق نستعمل رقمك أو بريدك لنبعتلك عروض على الواتساب أو الإيميل؟",
   "notAcceptOffers_forms":"لا,شكرا",
   "acceptOffers_forms":"نعم,بالتأكيد",
   "weeklyPlaycount_forms":"كم مرة تلعب أسبوعيا؟",
@@ -197,7 +197,7 @@
   "NameAr_AddSettings" : "اسم الشركة بالعربية",
   "NameEn_AddSettings" : "اسم الشركة بالإنجليزية",
   "Settings":"الإعدادات",
-  "Start" : "البدأ",
+  "Start" : "إبدأ",
   "CopyLink_Form" : "نسخ رابط الفورم",
   "OptionArabic_Required" : "حقل الخيار باللغة العربية مطلوب",
   "closeMessage_AlertModel":"موافق",
@@ -229,7 +229,9 @@
   "Reports":"التقارير",
   "Watermark_Image":"صورة العلامة المائية",
   "Logo_Image":"صورة الشعار",
-  "export_report":"تصدير إلى إكسل "
+  "export_report":"تصدير إلى إكسل ",
+  "age_forms":"العمر",
+  "gender_forms":"الجنس"
 
 }
 
