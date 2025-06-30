@@ -30,6 +30,20 @@ export class FormsComponent {
     value: (i + 1).toString(),
   }));
 
+  yearOptions: SelectItem[] = Array.from({ length: 2007 - 1960 + 1 }, (_, i) => ({
+  label: (1960 + i).toString(),
+  value: 1960 + i,
+}));
+ ageOptions: SelectItem[] = Array.from({ length: 65 - 18 + 1 }, (_, i) => ({
+  label: (18 + i).toString(),
+  value: 18 + i,
+}));
+
+ gender: SelectItem[] = [
+    { label: 'male', value: 'Male' },
+    { label: 'female', value: 'Female' },
+  ];
+
   dataForm!: FormGroup;
   btnLoading: boolean = false;
   unCurrentlang: string;
@@ -58,9 +72,11 @@ export class FormsComponent {
       country: ['', Validators.required],
       info: ['', Validators.required],
       sendOffers: [null, Validators.required],
-      year: [null, [Validators.required, Validators.pattern('^[0-9]+$')]],
+      year: [null, Validators.required],
       month: [null, Validators.required],
       day: [null, Validators.required],
+      age:[null, Validators.required],
+      gender:[null, Validators.required]
 
     })
 
