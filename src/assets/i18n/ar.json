@@ -231,7 +231,11 @@
   "Logo_Image":"صورة الشعار",
   "export_report":"تصدير إلى إكسل ",
   "age_forms":"العمر",
-  "gender_forms":"الجنس"
+  "gender_forms":"الجنس",
+  "customerAge_customer": "العمر",
+  "customerGender_customer": "الجنس",
+  "customerAge_AddCustomer": "العمر",
+  "customerGender_AddCustomer": "الجنس"
 
 }
 

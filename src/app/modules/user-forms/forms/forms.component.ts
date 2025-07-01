@@ -39,11 +39,6 @@ export class FormsComponent {
   value: 18 + i,
 }));
 
- gender: SelectItem[] = [
-    { label: 'male', value: 'Male' },
-    { label: 'female', value: 'Female' },
-  ];
-
   dataForm!: FormGroup;
   btnLoading: boolean = false;
   unCurrentlang: string;
@@ -52,6 +47,7 @@ export class FormsComponent {
   formUuid: string;
   codes: CountryCodeResponse[] = [];
   martialStatus: ConstantResponse[] = [];
+  genderOptions: ConstantResponse[] = [];
   submitted: boolean = false;
   settingData: SettingResponse | null = null;
   constructor(public formBuilder: FormBuilder,
@@ -90,6 +86,10 @@ export class FormsComponent {
     await this.GetSettingData();
     const maritalStatus = await this.constantService.Search('SocialStatus') as any;
     this.martialStatus = maritalStatus.data;
+
+    const gender = await this.constantService.Search('Gender') as any;
+    this.genderOptions = gender.data;
+
     this.checkCurrentLang();
 
   }
@@ -215,11 +215,13 @@ export class FormsComponent {
       customerTranslation: customerTranslation,
       birthDate: birthDate,
       socialStatus: this.dataForm.controls['maritalStatus'].value == null ? null : this.dataForm.controls['maritalStatus'].value.toString(),
+      gender: this.dataForm.controls['gender'].value == null ? null : this.dataForm.controls['gender'].value.toString(),
+      age: this.dataForm.controls['age'].value == null ? null : this.dataForm.controls['age'].value.toString(),
       state: this.dataForm.controls['country'].value == null ? null : this.dataForm.controls['country'].value.toString(),
       email: this.dataForm.controls['email'].value == null ? null : this.dataForm.controls['email'].value.toString(),
       phone: this.dataForm.controls['phoneNumber'].value == null ? null : this.dataForm.controls['countryCode'].value + this.dataForm.controls['phoneNumber'].value.toString(),
       knowingUs: this.dataForm.controls['info'].value == null ? null : this.dataForm.controls['info'].value.toString(),
-      isAgree: this.dataForm.controls['sendOffers'].value.toString()
+      isAgree: this.dataForm.controls['sendOffers'].value.toString() == 'Yes' ? 'True' : 'False'
     };
     const session: SurveySession = {
       formUuid: this.formUuid,

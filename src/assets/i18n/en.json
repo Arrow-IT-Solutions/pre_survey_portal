@@ -231,5 +231,9 @@
  "Logo_Image":"Logo Image",
  "export_report":"Export to Excel",
  "age_forms":"Age",
- "gender_forms":"Gender"
+ "gender_forms":"Gender",
+ "customerAge_customer": "Age",
+ "customerGender_customer": "Gender",
+ "customerAge_AddCustomer": "Age",
+  "customerGender_AddCustomer": "Gender"
 }

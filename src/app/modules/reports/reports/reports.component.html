@@ -5,7 +5,7 @@
     <div class="row mb-2 m-0 flex-row-reverse  ">
 
 
-      
+
 
       <p-accordion class="p-0 mt-4 ">
         <p-accordionTab>
@@ -22,7 +22,7 @@
               </div>
               <div class="container d-flex gap-3">
 
-                
+
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
                   <div class="flex flex-wrap justify-content-center gap-3">
                     <span class="p-input-icon-left p-0">
@@ -114,6 +114,13 @@
                       {{ row.option?.optionTranslation![layoutService.config.lang]?.name }}
                     </div>
                   </div>
+                                    <div class="card__contents__item">
+                      <div class="card-label">{{ 'customerGender_customer' | translate }}</div>
+                      <div class="card-info">
+                        <span class="material-symbols-outlined fill"></span>
+                        {{ row.customer?.genderValue }}
+                      </div>
+                    </div>
                 </div>
                 <div class="card-section__items">
                   <div class="card__contents__item">
@@ -168,7 +175,13 @@
 
                     </div>
                   </div>
-
+                  <div class="card__contents__item">
+                      <div class="card-label">{{ 'customerAge_customer' | translate }}</div>
+                      <div class="card-info">
+                        <span class="material-symbols-outlined fill"></span>
+                        {{ row.customer?.age }}
+                      </div>
+                    </div>
 
 
                 </div>
