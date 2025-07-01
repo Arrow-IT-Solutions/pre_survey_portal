@@ -20,9 +20,9 @@
    <div class="col-12 mb-3 field_container">
       <label>{{ 'gender_forms' | translate }}:</label>
       <div class="p-float-label dropdown">
-        <p-dropdown [options]="gender" optionLabel="value" optionValue="key" formControlName="gender"
+        <p-dropdown [options]="genderOptions" optionLabel="value" optionValue="key" formControlName="gender"
           appendTo="body"></p-dropdown>
-        <span *ngIf="submitted && dataForm.controls['maritalStatus']?.hasError('required')" class="error-validation">{{
+        <span *ngIf="submitted && dataForm.controls['gender']?.hasError('required')" class="error-validation">{{
           'Field_Required' |
           translate }}</span>
       </div>

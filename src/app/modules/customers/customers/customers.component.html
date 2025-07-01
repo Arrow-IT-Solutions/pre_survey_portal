@@ -35,7 +35,7 @@
         </div>
       </div>
 
-             
+
             </div>
 
             <div class="col result">
@@ -50,7 +50,7 @@
       </p-accordionTab>
     </p-accordion>
   </div>
-  
+
       <ng-container *ngIf="!loading; else ListView">
         <div class="row mx-0 mt-2 box">
           <div *ngFor="let row of data">
@@ -76,6 +76,13 @@
                       <div class="card-info">
                         <span class="material-symbols-outlined fill"></span>
                         {{ row.phone }}
+                      </div>
+                    </div>
+                  <div class="card__contents__item">
+                      <div class="card-label">{{ 'customerGender_customer' | translate }}</div>
+                      <div class="card-info">
+                        <span class="material-symbols-outlined fill"></span>
+                        {{ row.genderValue }}
                       </div>
                     </div>
                     <div class="card__contents__item">
@@ -119,6 +126,13 @@
                       </div>
                     </div>
 
+                  <div class="card__contents__item">
+                      <div class="card-label">{{ 'customerAge_customer' | translate }}</div>
+                      <div class="card-info">
+                        <span class="material-symbols-outlined fill"></span>
+                        {{ row.age }}
+                      </div>
+                    </div>
 
 
                   </div>
@@ -169,7 +183,7 @@
 
       </ng-container>
 
-      
+
 
       <p-confirmDialog #positionDialog key="positionDialog" position="bottom" [baseZIndex]="10000" onHide="true">
         <ng-template pTemplate="footer">
@@ -180,7 +194,7 @@
         </ng-template>
       </p-confirmDialog>
 
-    
+
 </div>
 </div>
 
