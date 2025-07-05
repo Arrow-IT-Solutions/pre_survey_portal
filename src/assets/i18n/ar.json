@@ -235,7 +235,9 @@
   "customerAge_customer": "العمر",
   "customerGender_customer": "الجنس",
   "customerAge_AddCustomer": "العمر",
-  "customerGender_AddCustomer": "الجنس"
+  "customerGender_AddCustomer": "الجنس",
+  "Gender_Report" : "الجنس",
+  "SocialStatus_Report" : "الحالة الاجتماعية"
 
 }
 
