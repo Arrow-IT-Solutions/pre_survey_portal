@@ -35,6 +35,11 @@ export interface AnswerSearchRequest extends SearchRequestBase {
   OptionName?: string;
   formName?: string;
   phone?: string;
+  fromDate?: string;
+  toDate?: string;
+  gender?: string;
+  martialStatus?: string;
+  lang?: string;
   includeQuestion?: string;
   includeOption?: string;
   includeCustomer?: string;
@@ -61,6 +66,6 @@ export interface AnswerResponse extends ResponseBase {
   option?: OptionResponse;
   customer?: CustomerResponse;
   form?: FormResponse;
- // numberOfCustomers?: number;
+  // numberOfCustomers?: number;
 }
 

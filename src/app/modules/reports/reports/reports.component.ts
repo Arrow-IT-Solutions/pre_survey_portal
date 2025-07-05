@@ -8,7 +8,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { GeneretReportsComponent } from './generet-reports/generet-reports.component';
 import { ReportResponse } from '../reports.module';
 import { Router } from '@angular/router';
-
+import { ConstantResponse } from 'src/app/Core/services/constant.service';
+import { ConstantService } from 'src/app/Core/services/constant.service';
 import { OptionResponse, OptionSearchRequest } from '../../options/options.module';
 import { OptionService } from 'src/app/layout/service/option.service';
 
@@ -31,44 +32,95 @@ export class ReportsComponent {
   doneTypingInterval = 1000;
   typingTimer: any;
   isResetting: boolean = false;
+  gender: ConstantResponse[] = [];
+  socialStatus: ConstantResponse[] = [];
   constructor(public formBuilder: FormBuilder,
     public route: Router,
     public answerService: AnswerService,
     public layoutService: LayoutService,
     public optionService: OptionService,
-    public translate: TranslateService,) {
+    public translate: TranslateService,
+    public constantService: ConstantService) {
     this.dataForm = this.formBuilder.group({
       option: [],
       CustomerName: [],
       CustomerPhone: [],
-      Form: []
+      Form: [''],
+      gender: [''],
+      socialStatus: [''],
+      fromDate: [''],
+      toDate: ['',],
     })
 
   }
   async ngOnInit() {
-    await this.FillData();
-    await this.FillOption();
+
+    try {
+      this.loading = true;
+
+      await this.FillOption();
+      const SocialStatusResponse = await this.constantService.Search('SocialStatus', 1) as any;
+      this.socialStatus = SocialStatusResponse.data;
+
+      const GenderResponse = await this.constantService.Search('Gender', 1) as any;
+      this.gender = GenderResponse.data;
+
+      await this.FillData();
+    }
+    catch (exceptionVar) {
+      console.log(exceptionVar);
+    } finally {
+      this.loading = false;
+    }
 
   }
-  openGenerateReports(row: ReportResponse | null = null) {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    document.body.style.overflow = 'hidden';
-    this.answerService.SelectedData = row
-    let content = this.answerService.SelectedData == null ? 'generateReports' : 'generateReports';
-    this.translate.get(content).subscribe((res: string) => {
-      content = res
-    });
-    var component = this.layoutService.OpenDialog(GeneretReportsComponent, content);
-    this.answerService.Dialog = component;
-    component.OnClose.subscribe(() => {
-      document.body.style.overflow = '';
-      this.FillData();
-    });
+  async openGenerateReports(row: ReportResponse | null = null) {
+    // window.scrollTo({ top: 0, behavior: 'smooth' });
+    // document.body.style.overflow = 'hidden';
+    // this.answerService.SelectedData = row
+    // let content = this.answerService.SelectedData == null ? 'generateReports' : 'generateReports';
+    // this.translate.get(content).subscribe((res: string) => {
+    //   content = res
+    // });
+    // var component = this.layoutService.OpenDialog(GeneretReportsComponent, content);
+    // this.answerService.Dialog = component;
+    // component.OnClose.subscribe(() => {
+    //   document.body.style.overflow = '';
+    //   this.FillData();
+    // });
+
+    const fromDate = this.dataForm.controls['fromDate'].value == '' ? '' : new Date(this.dataForm.controls['fromDate'].value.toISOString())
+    const toDate = this.dataForm.controls['toDate'].value == '' ? '' : new Date(this.dataForm.controls['toDate'].value.toISOString())
+    let filter: AnswerSearchRequest = {
+      uuid: '',
+      CustomerName: this.dataForm.controls['CustomerName'].value,
+      OptionName: '',
+      optionIDFK: this.dataForm.controls['option'].value,
+      questionIDFK: '',
+      customerIDFK: '',
+      formIDFK: '',
+      formName: this.dataForm.controls['Form'].value,
+      phone: this.dataForm.controls['CustomerPhone'].value,
+      fromDate: fromDate.toLocaleString(),
+      toDate: toDate.toLocaleString(),
+      gender: this.dataForm.controls['gender'].value.toString(),
+      martialStatus: this.dataForm.controls['socialStatus'].value.toString(),
+      lang: this.layoutService.config.lang,
+      includeCustomer: '1',
+      includeQuestion: '1',
+      includeOption: '1',
+      includeForm: '1',
+    };
+
+    const response = (await this.answerService.GetAnswerReport(filter)) as any;
+    this.layoutService.DownloadExcel(response, "AnswersReport");
 
   }
 
   async FillData(pageIndex: number = 0) {
     this.loading = true;
+    const fromDate = this.dataForm.controls['fromDate'].value == '' ? '' : new Date(this.dataForm.controls['fromDate'].value.toISOString())
+    const toDate = this.dataForm.controls['toDate'].value == '' ? '' : new Date(this.dataForm.controls['toDate'].value.toISOString())
     this.data = [];
     this.answerTotal = 0;
     let filter: AnswerSearchRequest = {
@@ -81,6 +133,10 @@ export class ReportsComponent {
       formIDFK: '',
       formName: this.dataForm.controls['Form'].value,
       phone: this.dataForm.controls['CustomerPhone'].value,
+      fromDate: fromDate.toLocaleString(),
+      toDate: toDate.toLocaleString(),
+      gender: this.dataForm.controls['gender'].value.toString(),
+      martialStatus: this.dataForm.controls['socialStatus'].value.toString(),
       includeCustomer: '1',
       includeQuestion: '1',
       includeOption: '1',

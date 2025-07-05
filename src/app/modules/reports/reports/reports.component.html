@@ -21,8 +21,6 @@
                 <span>Filter By</span>
               </div>
               <div class="container d-flex gap-3">
-
-
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
                   <div class="flex flex-wrap justify-content-center gap-3">
                     <span class="p-input-icon-left p-0">
@@ -53,11 +51,47 @@
                   </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3 search-box">
-                <div class="option-dropdown-box ">
-                 <p-dropdown [options]="options" optionLabel="name" optionValue="uuid" formControlName="option" [filter]="true"
-                  [showClear]="true" filterBy="name" (onFilter)="FillOption($event)" (ngModelChange)="OnChange()"
-                  inputId="optionDropdown" placeholder="{{ 'OptionName_Option' | translate }}"></p-dropdown>
+                  <div class="option-dropdown-box ">
+                    <p-dropdown [options]="options" optionLabel="name" optionValue="uuid" formControlName="option"
+                      [filter]="true" [showClear]="true" filterBy="name" (onFilter)="FillOption($event)"
+                      (ngModelChange)="OnChange()" inputId="optionDropdown"
+                      placeholder="{{ 'OptionName_Option' | translate }}"></p-dropdown>
+                  </div>
                 </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3 search-box">
+                  <div class="option-dropdown-box ">
+                    <p-dropdown [options]="gender" optionLabel="value" optionValue="key" formControlName="gender"
+                      placeholder="{{ 'Gender_Report' | translate }}" (ngModelChange)="OnChange()"></p-dropdown>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3 search-box">
+                  <div class="option-dropdown-box ">
+                    <p-dropdown [options]="socialStatus" optionLabel="value" optionValue="key" appendTo="body"
+                      formControlName="socialStatus" placeholder="{{ 'SocialStatus_Report' | translate }}"
+                      (ngModelChange)="OnChange()"></p-dropdown>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
+                  <div class="flex flex-wrap justify-content-center gap-3">
+                    <div class="col-12 mb-3">
+                      <div class="p-float-label">
+                        <p-calendar [showIcon]="true" formControlName="fromDate"
+                          (ngModelChange)="OnChange()"></p-calendar>
+                        <label>{{ 'fromDate_reports' | translate }}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
+                  <div class="flex flex-wrap justify-content-center gap-3">
+                    <div class="col-12 mb-3">
+                      <div class="p-float-label">
+                        <p-calendar [showIcon]="true" formControlName="toDate"
+                          (ngModelChange)="OnChange()"></p-calendar>
+                        <label>{{ 'toDate_reports' | translate }}</label>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div class="col result">
                   <div class="ms-2 mt-3">
@@ -76,7 +110,7 @@
       </p-accordion>
       <button id="print" (click)="openGenerateReports()">
         <!-- <span class="material-symbols-outlined">file</span> -->
-         <img src="../../../../assets/images/icons8-export-24.png" alt="">
+        <img src="../../../../assets/images/icons8-export-24.png" alt="">
 
         {{'export_report' | translate}}
       </button>
@@ -114,13 +148,13 @@
                       {{ row.option?.optionTranslation![layoutService.config.lang]?.name }}
                     </div>
                   </div>
-                                    <div class="card__contents__item">
-                      <div class="card-label">{{ 'customerGender_customer' | translate }}</div>
-                      <div class="card-info">
-                        <span class="material-symbols-outlined fill"></span>
-                        {{ row.customer?.genderValue }}
-                      </div>
+                  <div class="card__contents__item">
+                    <div class="card-label">{{ 'customerGender_customer' | translate }}</div>
+                    <div class="card-info">
+                      <span class="material-symbols-outlined fill"></span>
+                      {{ row.customer?.genderValue }}
                     </div>
+                  </div>
                 </div>
                 <div class="card-section__items">
                   <div class="card__contents__item">
@@ -176,12 +210,12 @@
                     </div>
                   </div>
                   <div class="card__contents__item">
-                      <div class="card-label">{{ 'customerAge_customer' | translate }}</div>
-                      <div class="card-info">
-                        <span class="material-symbols-outlined fill"></span>
-                        {{ row.customer?.age }}
-                      </div>
+                    <div class="card-label">{{ 'customerAge_customer' | translate }}</div>
+                    <div class="card-info">
+                      <span class="material-symbols-outlined fill"></span>
+                      {{ row.customer?.age }}
                     </div>
+                  </div>
 
 
                 </div>

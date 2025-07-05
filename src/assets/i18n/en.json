@@ -235,5 +235,7 @@
  "customerAge_customer": "Age",
  "customerGender_customer": "Gender",
  "customerAge_AddCustomer": "Age",
-  "customerGender_AddCustomer": "Gender"
+  "customerGender_AddCustomer": "Gender",
+  "Gender_Report" : "Gender",
+  "SocialStatus_Report" : "Socila Status"
 }
