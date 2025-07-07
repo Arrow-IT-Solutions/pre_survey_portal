@@ -23,6 +23,24 @@
                 translate }}</span>
             </div>
           </div>
+        <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <p-dropdown [options]="genderOptions" optionLabel="value" optionValue="key" formControlName="gender"
+          appendTo="body"></p-dropdown>
+              <label id="month">{{ 'customerGender_AddCustomer' | translate }}</label>
+              <span *ngIf="submitted && form['gender'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
+            </div>
+          </div>
+        <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <p-dropdown [options]="ageOptions" optionLabel="label" optionValue="value" formControlName="age"
+              [filter]="false" appendTo="body"></p-dropdown>
+              <label id="month">{{ 'customerAge_AddCustomer' | translate }}</label>
+              <span *ngIf="submitted && form['age'].errors" class="error-validation">{{ 'Field_Required' |
+                translate }}</span>
+            </div>
+          </div>
           <div class="col-12 mb-3">
             <div class="p-float-label">
               <p-dropdown [options]="customerSocialStatus" optionLabel="value" optionValue="key"

@@ -19,6 +19,9 @@
         position: absolute;
         left: 0;
         bottom: -5rem;
+        @media(max-width:767px){
+          display: none;
+        }
         :lang(ar){
             right: unset;
             left: 0;
@@ -75,6 +78,9 @@
             font-size: 20px;
             line-height: 22px;
             letter-spacing: 0%;
+            @media(max-width:767px){
+              line-height: 30px;
+            }
 
         }
     }
@@ -164,7 +170,11 @@ svg {
   fill: #cccaca;
   height: 3.6rem;
   width: 3.6rem;
-  margin: 0.2rem;
+  // margin: 0.2rem;
+  @media(max-width:767px){
+    height: 2.5rem;
+    width: 2.5rem;
+  }
 }
 
 .rating-form-2 svg {

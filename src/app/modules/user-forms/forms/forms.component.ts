@@ -11,6 +11,8 @@ import { ConstantResponse } from 'src/app/Core/services/constant.service';
 import { ConstantService } from 'src/app/Core/services/constant.service';
 import { CountryCodeResponse, CountryCodeSearchRequest } from '../../country-code/country-code.module';
 import { SelectItem } from 'primeng/api';
+import { SettingResponse, SettingSearchRequest } from '../../settings/settings.module';
+import { SettingsService } from 'src/app/layout/service/settings.service';
 
 @Component({
   selector: 'app-forms',
@@ -28,6 +30,15 @@ export class FormsComponent {
     value: (i + 1).toString(),
   }));
 
+  yearOptions: SelectItem[] = Array.from({ length: 2007 - 1960 + 1 }, (_, i) => ({
+  label: (1960 + i).toString(),
+  value: 1960 + i,
+}));
+ ageOptions: SelectItem[] = Array.from({ length: 65 - 18 + 1 }, (_, i) => ({
+  label: (18 + i).toString(),
+  value: 18 + i,
+}));
+
   dataForm!: FormGroup;
   btnLoading: boolean = false;
   unCurrentlang: string;
@@ -36,7 +47,9 @@ export class FormsComponent {
   formUuid: string;
   codes: CountryCodeResponse[] = [];
   martialStatus: ConstantResponse[] = [];
+  genderOptions: ConstantResponse[] = [];
   submitted: boolean = false;
+  settingData: SettingResponse | null = null;
   constructor(public formBuilder: FormBuilder,
     public layoutService: LayoutService,
     @Inject(DOCUMENT) private document: Document,
@@ -44,6 +57,7 @@ export class FormsComponent {
     private router: Router,
     private surveyService: SurveyServiceService,
     public countryCodeService: CountryCodeService,
+    public settingService: SettingsService,
     public constantService: ConstantService) {
     this.dataForm = this.formBuilder.group({
       userName: ['', Validators.required],
@@ -54,9 +68,11 @@ export class FormsComponent {
       country: ['', Validators.required],
       info: ['', Validators.required],
       sendOffers: [null, Validators.required],
-      year: [null, [Validators.required, Validators.pattern('^[0-9]+$')]],
+      year: [null, Validators.required],
       month: [null, Validators.required],
       day: [null, Validators.required],
+      age:[null, Validators.required],
+      gender:[null, Validators.required]
 
     })
 
@@ -67,8 +83,13 @@ export class FormsComponent {
     this.formUuid = this.route.snapshot.paramMap.get('uuid')!;
     this.surveyService.formUUID = this.formUuid;
     await this.RetriveCountryCode();
+    await this.GetSettingData();
     const maritalStatus = await this.constantService.Search('SocialStatus') as any;
     this.martialStatus = maritalStatus.data;
+
+    const gender = await this.constantService.Search('Gender') as any;
+    this.genderOptions = gender.data;
+
     this.checkCurrentLang();
 
   }
@@ -194,11 +215,13 @@ export class FormsComponent {
       customerTranslation: customerTranslation,
       birthDate: birthDate,
       socialStatus: this.dataForm.controls['maritalStatus'].value == null ? null : this.dataForm.controls['maritalStatus'].value.toString(),
+      gender: this.dataForm.controls['gender'].value == null ? null : this.dataForm.controls['gender'].value.toString(),
+      age: this.dataForm.controls['age'].value == null ? null : this.dataForm.controls['age'].value.toString(),
       state: this.dataForm.controls['country'].value == null ? null : this.dataForm.controls['country'].value.toString(),
       email: this.dataForm.controls['email'].value == null ? null : this.dataForm.controls['email'].value.toString(),
       phone: this.dataForm.controls['phoneNumber'].value == null ? null : this.dataForm.controls['countryCode'].value + this.dataForm.controls['phoneNumber'].value.toString(),
       knowingUs: this.dataForm.controls['info'].value == null ? null : this.dataForm.controls['info'].value.toString(),
-      isAgree: this.dataForm.controls['sendOffers'].value.toString()
+      isAgree: this.dataForm.controls['sendOffers'].value.toString() == 'Yes' ? 'True' : 'False'
     };
     const session: SurveySession = {
       formUuid: this.formUuid,
@@ -207,6 +230,26 @@ export class FormsComponent {
     this.surveyService.setSession(session);
 
     this.router.navigate(['user-questions']);
+  }
+
+  async GetSettingData(pageIndex: number = 0) {
+
+    this.settingData = null;
+
+    let filter: SettingSearchRequest = {
+      uuid: '',
+      name: '',
+    };
+
+    const response = (await this.settingService.Search(filter)) as any;
+
+    if (response.data == null || response.data.length == 0) {
+      this.settingData = null;
+    } else if (response.data != null && response.data.length != 0) {
+      this.settingData = response.data[0];
+      console.log(this.settingData)
+    }
+
   }
 
 }

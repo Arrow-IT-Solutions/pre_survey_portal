@@ -444,4 +444,9 @@
 #icon_delete{
   color: $secoundary-color;
 }
+.box2{
+  @media(max-width:767px){
+    flex-direction: column;
+  }
+}
 

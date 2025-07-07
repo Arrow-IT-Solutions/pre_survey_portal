@@ -4,7 +4,8 @@
 
 <form [formGroup]="dataForm" action="" class="forms">
   <div class="logo-container mb-5">
-    <img src="../../../../assets/images/Fill Logo.svg" alt="">
+    <!-- <img src="../../../../assets/images/Fill Logo.svg" alt=""> -->
+      <img [src]="settingData?.logo" />
   </div>
   <div class="fields">
     <div class="col-12 mb-3 field_container">
@@ -15,6 +16,17 @@
           'Field_Required' |
           translate }}</span>
       </div>
+    </div>
+   <div class="col-12 mb-3 field_container">
+      <label>{{ 'gender_forms' | translate }}:</label>
+      <div class="p-float-label dropdown">
+        <p-dropdown [options]="genderOptions" optionLabel="value" optionValue="key" formControlName="gender"
+          appendTo="body"></p-dropdown>
+        <span *ngIf="submitted && dataForm.controls['gender']?.hasError('required')" class="error-validation">{{
+          'Field_Required' |
+          translate }}</span>
+      </div>
+
     </div>
 
     <div class="col-12 mb-3 field_container">
@@ -33,15 +45,20 @@
       <div class="p-float-label">
         <div class="birthdate">
 
-          <input pInputText type="text" formControlName="year" placeholder="{{ 'yearOfBirth_forms' | translate }}" />
+          <!-- <input pInputText type="text" formControlName="year" placeholder="{{ 'yearOfBirth_forms' | translate }}" /> -->
+          <div class="p-float-label dropdown">
+            <p-dropdown [options]="yearOptions" optionLabel="label" optionValue="value" formControlName="year"
+              [filter]="false" appendTo="body"></p-dropdown>
+            <label>{{ 'yearOfBirth_forms' | translate }}</label>
+          </div>
           <div class="p-float-label dropdown">
             <p-dropdown [options]="monthOptions" optionLabel="label" optionValue="value" formControlName="month"
-              [filter]="false"></p-dropdown>
+              [filter]="false" appendTo="body"></p-dropdown>
             <label>{{ 'monthOfDate_forms' | translate }}</label>
           </div>
           <div class="p-float-label dropdown">
             <p-dropdown [options]="dayOptions" optionLabel="value" optionValue="key" formControlName="day"
-              [filter]="false"></p-dropdown>
+              [filter]="false" appendTo="body"></p-dropdown>
             <label>{{ 'dayOfDate_forms' | translate }}</label>
           </div>
 
@@ -49,9 +66,24 @@
         <span *ngIf="
                   submitted &&
                   (dataForm.get('year')?.hasError('required') ||
-                    dataForm.get('year')?.hasError('pattern') ||
                     dataForm.get('month')?.hasError('required') ||
                     dataForm.get('day')?.hasError('required'))
+                " class="error-validation">
+          {{ 'Field_Required' | translate }}
+        </span>
+      </div>
+
+    </div>
+     <div class="col-12 mb-3 field_container">
+      <label>{{ 'age_forms' | translate }}:</label>
+      <div class="p-float-label">
+          <div class="p-float-label dropdown">
+            <p-dropdown [options]="ageOptions" optionLabel="label" optionValue="value" formControlName="age"
+              [filter]="false" appendTo="body"></p-dropdown>
+          </div>
+        <span *ngIf="
+                  submitted &&
+                  (dataForm.get('age')?.hasError('required'))
                 " class="error-validation">
           {{ 'Field_Required' | translate }}
         </span>
@@ -121,12 +153,13 @@
       </div>
     </div>
 
-    <img src="../../../../assets/images/Logo ICON Transparant.svg" alt="" id="vector">
+    <!-- <img src="../../../../assets/images/Logo ICON Transparant.svg" alt="" id="vector"> -->
+    <img [src]="settingData?.watermark" alt="" id="vector">
 
   </div>
   <div class="col-xs-12 mt-4 ">
-    <p-button type="Submit" class="btn-primary" label="{{'Start' | translate}}" [loading]="btnLoading"
-      (click)="start()"></p-button>
+    <p-button type="Submit" class="btn-primary" label="" [loading]="btnLoading"
+      (click)="start()">{{'Start' | translate}}</p-button>
   </div>
 
 </form>

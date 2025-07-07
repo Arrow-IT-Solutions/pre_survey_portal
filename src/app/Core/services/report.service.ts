@@ -4,20 +4,19 @@ import { UserService } from './user.service';
 
 import Axios from 'axios';
 import { UserResponse } from 'src/app/modules/auth/auth.module';
-import { DriverRequest, DriverResponse, DriverSearchRequest, DriverUpdateRequest } from 'src/app/modules/drivers/drivers.module';
 import { environment } from 'src/environments/environment';
 import { HttpClientService } from './http-client.service';
-import { PrintReportRequest } from 'src/app/modules/licensing/licensing-routing.module';
+import { PrintReportRequest, ReportResponse, ReportSearchRequest } from 'src/app/modules/reports/reports.module';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReportService {
-  public SelectedData: DriverResponse | null = null;
+  public SelectedData: ReportResponse | null = null;
   public Dialog: any | null = null;
   constructor(public layoutService: LayoutService, public httpClient: HttpClientService) { }
 
-  async ExpiredLicenceReport(filter: DriverSearchRequest) {
+  async ExpiredLicenceReport(filter: ReportSearchRequest) {
 
     const apiUrl = `/api/report/expiredLicenceReport?${this.layoutService.Filter(filter)}`;
 

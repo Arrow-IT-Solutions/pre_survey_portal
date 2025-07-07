@@ -10,6 +10,8 @@ import { QuestionResponse, QuestionSearchRequest } from '../../questions/questio
 import { FormResponse, FormSearchRequest } from '../../form/form.module';
 import { FormService } from 'src/app/layout/service/form.service';
 import { AnswerPair } from '../../SurveySession/survey-session/survey-session.module';
+import { SettingResponse, SettingSearchRequest } from '../../settings/settings.module';
+import { SettingsService } from 'src/app/layout/service/settings.service';
 @Component({
   selector: 'app-page1-questions',
   templateUrl: './page1-questions.component.html',
@@ -25,13 +27,15 @@ export class Page1QuestionsComponent {
   displayedQuestions: QuestionResponse[] = [];
   readonly pageSize = 4;
   pageError = false;
+  settingData: SettingResponse | null = null;
 
   constructor(public formBuilder: FormBuilder,
     public layoutService: LayoutService,
     @Inject(DOCUMENT) private document: Document,
     public route: Router,
     public surveyService: SurveyServiceService,
-    public formService: FormService) {
+    public formService: FormService,
+    public settingService: SettingsService) {
   }
 
   async ngOnInit() {
@@ -43,6 +47,7 @@ export class Page1QuestionsComponent {
       this.session.answers = [];
     }
     await this.RetriveQuestions();
+    await this.GetSettingData();
     this.pageIndex = 0;
     this.loadPageForm();
   }
@@ -169,5 +174,23 @@ export class Page1QuestionsComponent {
     });
     this.dataForm = this.formBuilder.group(group);
   }
+  async GetSettingData(pageIndex: number = 0) {
 
+    this.settingData = null;
+
+    let filter: SettingSearchRequest = {
+      uuid: '',
+      name: '',
+    };
+
+    const response = (await this.settingService.Search(filter)) as any;
+
+    if (response.data == null || response.data.length == 0) {
+      this.settingData = null;
+    } else if (response.data != null && response.data.length != 0) {
+      this.settingData = response.data[0];
+      console.log(this.settingData)
+    }
+
+  }
 }

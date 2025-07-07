@@ -26,7 +26,10 @@ export interface CustomerResponse extends ResponseBase {
   uuid?: string;
   customerTranslation?: { [key: string]: CustomerTranslationResponse };
   socialStatus?: string;
+  gender?: string;
+  age?: string;
   socialStatusValue?: string;
+  genderValue?: string;
   phone?: string;
   birthDate?: string;
   email?: string;
@@ -48,6 +51,8 @@ export interface CustomerSearchRequest extends SearchRequestBase {
   email?: string;
   birthDate?: string;
   socialStatus?: string;
+  gender?: string;
+  age?: string;
   isAgree?: string;
 }
 
@@ -55,6 +60,8 @@ export interface CustomerRequest extends RequestBase {
   uuid?: string;
   customerTranslation?: CustomerTranslationRequest[];
   socialStatus?: string;
+  gender?: string;
+  age?: string;
   phone?: string;
   birthDate?: string;
   email?: string;
@@ -73,6 +80,8 @@ export interface CustomerUpdateRequest extends RequestBase {
   uuid?: string;
   customerTranslation?: CustomerTranslationUpdateRequest[];
   socialStatus?: string;
+  gender?: string;
+  age?: string;
   phone?: string;
   birthDate?: string;
   email?: string;

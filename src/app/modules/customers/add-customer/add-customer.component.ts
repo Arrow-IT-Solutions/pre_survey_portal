@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MessageService } from 'primeng/api';
+import { MessageService, SelectItem } from 'primeng/api';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { ConstantResponse, ConstantService } from 'src/app/Core/services/constant.service';
 import { CustomerService } from 'src/app/layout/service/customer.service';
@@ -20,6 +20,7 @@ export class AddCustomerComponent {
   btnLoading: boolean = false;
   loading: boolean = false;
   customerSocialStatus: ConstantResponse[] = [];
+  genderOptions: ConstantResponse[] = [];
   constructor(public formBuilder: FormBuilder,
     public messageService: MessageService,
     public constantService: ConstantService,
@@ -35,19 +36,29 @@ export class AddCustomerComponent {
       email: ['', Validators.required],
       phone: ['', Validators.required],
       KnowingUs: ['', Validators.required],
-      sendOffers: ['No', Validators.required]
+      sendOffers: ['No', Validators.required],
+      age:[null, Validators.required],
+      gender:[null, Validators.required]
     })
   }
   get form(): { [key: string]: AbstractControl } {
     return this.dataForm.controls;
   }
 
+  ageOptions: SelectItem[] = Array.from({ length: 65 - 18 + 1 }, (_, i) => ({
+    label: (18 + i).toString(),
+    value: 18 + i,
+  }));
+
   async ngOnInit() {
     try {
       this.loading = true;
       const SocialStatusResponse = await this.constantService.Search('SocialStatus', 0) as any;
       this.customerSocialStatus = SocialStatusResponse.data;
-      console.log('SocialStatusResponse ', SocialStatusResponse);
+
+      const GenderResponse = await this.constantService.Search('Gender', 0) as any;
+      this.genderOptions = GenderResponse.data;
+
       if (this.customerService.SelectedData != null) {
         await this.FillData();
       }
@@ -95,6 +106,8 @@ export class AddCustomerComponent {
         customerTranslation: customerTranslation,
         birthDate: birthDate.toISOString(),
         socialStatus: this.dataForm.controls['SocialStatus'].value == null ? null : this.dataForm.controls['SocialStatus'].value.toString(),
+        gender: this.dataForm.controls['gender'].value == null ? null : this.dataForm.controls['gender'].value.toString(),
+        age: this.dataForm.controls['age'].value == null ? null : this.dataForm.controls['age'].value.toString(),
         state: this.dataForm.controls['state'].value == null ? null : this.dataForm.controls['state'].value.toString(),
         email: this.dataForm.controls['email'].value == null ? null : this.dataForm.controls['email'].value.toString(),
         phone: this.dataForm.controls['phone'].value == null ? null : this.dataForm.controls['phone'].value.toString(),
@@ -109,6 +122,8 @@ export class AddCustomerComponent {
         customerTranslation: customerTranslation,
         birthDate: birthDate.toISOString(),
         socialStatus: this.dataForm.controls['SocialStatus'].value == null ? null : this.dataForm.controls['SocialStatus'].value.toString(),
+        gender: this.dataForm.controls['gender'].value == null ? null : this.dataForm.controls['gender'].value.toString(),
+        age: this.dataForm.controls['age'].value == null ? null : this.dataForm.controls['age'].value.toString(),
         state: this.dataForm.controls['state'].value == null ? null : this.dataForm.controls['state'].value.toString(),
         email: this.dataForm.controls['email'].value == null ? null : this.dataForm.controls['email'].value.toString(),
         phone: this.dataForm.controls['phone'].value == null ? null : this.dataForm.controls['phone'].value.toString(),
@@ -154,6 +169,8 @@ export class AddCustomerComponent {
       fullNameAr: this.customerService.SelectedData?.customerTranslation!['ar'].fullName,
       fullNameEn: this.customerService.SelectedData?.customerTranslation!['en'].fullName,
       SocialStatus: Number(this.customerService.SelectedData?.socialStatus),
+      gender: Number(this.customerService.SelectedData?.gender),
+      age: Number(this.customerService.SelectedData?.age),
       birthDate: this.customerService.SelectedData?.birthDate,
       state: this.customerService.SelectedData?.state,
       email: this.customerService.SelectedData?.email,

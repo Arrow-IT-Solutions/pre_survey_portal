@@ -52,6 +52,16 @@ const routes: Routes = [
         )
     }],
   },
+   {
+    path: 'print-reports',
+    children: [{
+      path: '',
+      loadChildren: () =>
+        import('./modules/report-for-print/report-for-print.module').then(
+          (m) => m.ReportForPrintModule
+        )
+    }],
+  },
   {
     path: 'layout-admin',
     component: ContentLayoutAdminComponent,

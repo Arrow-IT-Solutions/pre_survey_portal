@@ -105,8 +105,6 @@ export class AddFormComponent {
                 formTranslations: formTranslation
               };
 
-              console.log(addForm)
-
               response = await this.formService.Add(addForm);
             }
 
