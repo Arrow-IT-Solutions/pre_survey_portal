@@ -1,0 +1,19 @@
+@import"../../../../assets/scss/varialbles.scss";
+.actions{
+    width: 50%;
+    margin: auto;
+     display: flex;
+     justify-content: space-between;
+     button{
+      margin-bottom: 1rem;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      background-color: $primary-color;
+      border: none;
+      img{
+        width:2rem
+      }
+     }
+
+  }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { AnswerResponse, AnswerSearchRequest } from 'src/app/modules/answers/answers.module';
+import { AnswerResponse, AnswerSearchRequest, AnswerReportRequest } from 'src/app/modules/answers/answers.module';
 import { LayoutService } from './layout.service';
 import { HttpClientService } from 'src/app/Core/services/http-client.service';
 
@@ -9,9 +9,9 @@ import { HttpClientService } from 'src/app/Core/services/http-client.service';
 })
 export class AnswerService {
 
-    public SelectedData: AnswerResponse | null = null;
-    public Dialog: any | null = null;
-    private refreshCustomersSubject = new Subject<void>();
+  public SelectedData: AnswerResponse | null = null;
+  public Dialog: any | null = null;
+  private refreshCustomersSubject = new Subject<void>();
 
   refreshCustomers$ = this.refreshCustomersSubject.asObservable();
 
@@ -20,11 +20,19 @@ export class AnswerService {
   }
   constructor(public layoutService: LayoutService, public httpClient: HttpClientService) { }
 
-    async Search(filter: AnswerSearchRequest) {
+  async Search(filter: AnswerSearchRequest) {
 
-      const apiUrl = `/api/answer/list?${this.layoutService.Filter(filter)}`;
+    const apiUrl = `/api/answer/list?${this.layoutService.Filter(filter)}`;
 
-        return await this.httpClient.get(apiUrl)
+    return await this.httpClient.get(apiUrl)
 
-    }
+  }
+
+  async GetAnswerReport(filter: AnswerSearchRequest) {
+
+    const apiUrl = `/api/answer/GetReport?${this.layoutService.Filter(filter)}`;
+
+    return await this.httpClient.get(apiUrl)
+
+  }
 }

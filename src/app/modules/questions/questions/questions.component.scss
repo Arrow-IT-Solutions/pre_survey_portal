@@ -95,6 +95,9 @@
               margin-top: 0.75rem;
               width: 12%;
               justify-content: space-evenly;
+              @media(max-width:767px){
+                text-align: center;
+              }
 
               & .material-symbols-outlined {
                 color: $primary-color-hover;
@@ -265,4 +268,12 @@
 }
 #icon_delete{
   color: $secoundary-color;
+}
+.box2{
+  width: 90%;
+  display: flex;
+  @media(max-width:767px){
+    flex-direction: column;
+    align-items: center;
+  }
 }
