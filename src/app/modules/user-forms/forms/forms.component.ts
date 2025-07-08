@@ -31,13 +31,13 @@ export class FormsComponent {
   }));
 
   yearOptions: SelectItem[] = Array.from({ length: 2007 - 1960 + 1 }, (_, i) => ({
-  label: (1960 + i).toString(),
-  value: 1960 + i,
-}));
- ageOptions: SelectItem[] = Array.from({ length: 65 - 18 + 1 }, (_, i) => ({
-  label: (18 + i).toString(),
-  value: 18 + i,
-}));
+    label: (1960 + i).toString(),
+    value: 1960 + i,
+  }));
+  ageOptions: SelectItem[] = Array.from({ length: 65 - 18 + 1 }, (_, i) => ({
+    label: (18 + i).toString(),
+    value: 18 + i,
+  }));
 
   dataForm!: FormGroup;
   btnLoading: boolean = false;
@@ -50,6 +50,8 @@ export class FormsComponent {
   genderOptions: ConstantResponse[] = [];
   submitted: boolean = false;
   settingData: SettingResponse | null = null;
+
+
   constructor(public formBuilder: FormBuilder,
     public layoutService: LayoutService,
     @Inject(DOCUMENT) private document: Document,
@@ -71,8 +73,8 @@ export class FormsComponent {
       year: [null, Validators.required],
       month: [null, Validators.required],
       day: [null, Validators.required],
-      age:[null, Validators.required],
-      gender:[null, Validators.required]
+      age: [null, Validators.required],
+      gender: [null, Validators.required]
 
     })
 
@@ -93,8 +95,6 @@ export class FormsComponent {
     this.checkCurrentLang();
 
   }
-
-
 
   async RetriveCountryCode() {
 
@@ -143,6 +143,8 @@ export class FormsComponent {
 
   changeLang(lang: string) {
 
+    console.log(lang, 'lang')
+
     if (lang == 'ar') {
       this.currentlang = "English"
       this.layoutService.config =
@@ -166,6 +168,7 @@ export class FormsComponent {
     this.document.documentElement.lang = this.layoutService.config.lang;
 
     window.location.reload();
+
   }
 
   checkCurrentLang() {
@@ -229,7 +232,7 @@ export class FormsComponent {
     };
     this.surveyService.setSession(session);
 
-    this.router.navigate(['user-questions']);
+    this.router.navigate(['user-questions/' + this.formUuid]);
   }
 
   async GetSettingData(pageIndex: number = 0) {
@@ -247,7 +250,6 @@ export class FormsComponent {
       this.settingData = null;
     } else if (response.data != null && response.data.length != 0) {
       this.settingData = response.data[0];
-      console.log(this.settingData)
     }
 
   }

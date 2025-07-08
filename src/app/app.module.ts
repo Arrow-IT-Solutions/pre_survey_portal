@@ -73,21 +73,20 @@ import { QRModule } from './modules/QR/qr.module';
 })
 export class AppModule implements OnInit {
   constructor(
-    private localService: LocalService,
-    public translate: TranslateService,
-    public userService: UserService,
-    public layoutService: LayoutService,
-    @Inject(DOCUMENT) private document: Document
   ) {
-    this.localService.GetStorge();
+    // this.localService.GetStorge();
 
-    this.translate.use(layoutService.config.lang);
+    // this.translate.use(layoutService.config.lang);
 
-    this.document.documentElement.lang = layoutService.config.lang;
+    // this.document.documentElement.lang = layoutService.config.lang;
 
   }
 
-  async ngOnInit() { }
+  async ngOnInit() {
+    console.log("here");
+    // this.localService.GetStorge();
+
+  }
 }
 export function httpTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
