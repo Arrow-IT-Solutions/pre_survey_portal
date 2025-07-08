@@ -251,15 +251,17 @@
         font-size: 20px;
         line-height: 120%;
         cursor: pointer;
-        position: absolute;
-        bottom: 1rem;
-        right: 1rem;
+        margin-top: 3rem;
+        margin: auto;
+        @media(max-width:767px){
+          margin-top: 3rem;
+        }
+        
         
 
     }
     button:lang(ar){
-      right: unset;
-      left: 1rem;
+  
     }
 
 }
