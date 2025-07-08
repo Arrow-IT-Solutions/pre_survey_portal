@@ -12,7 +12,7 @@ import { SettingsService } from 'src/app/layout/service/settings.service';
 
 
 export class ThankPageComponent {
-settingData: SettingResponse | null = null;
+  settingData: SettingResponse | null = null;
   constructor(public route: Router,
     public surveyService: SurveyServiceService,
     public settingService: SettingsService,
@@ -21,6 +21,8 @@ settingData: SettingResponse | null = null;
 
   async ngOnInit() {
     await this.GetSettingData();
+
+    console.log('sersess', this.surveyService.getSession())
   }
 
   showAlert() {
@@ -33,7 +35,9 @@ settingData: SettingResponse | null = null;
 
   }
   goBackHome() {
-    this.route.navigateByUrl(`/forms/${this.surveyService.formUUID}`);
+    this.route.navigateByUrl(`/forms/${this.surveyService.getSession().formUuid}`);
+
+    this.surveyService.clearSession();
   }
 
   async GetSettingData(pageIndex: number = 0) {

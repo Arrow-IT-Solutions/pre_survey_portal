@@ -1,7 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LayoutService } from 'src/app/layout/service/layout.service';
 import { SurveyServiceService } from 'src/app/layout/service/survey-service.service';
 import { SubmitAnswersRequest, SurveySession } from '../../SurveySession/survey-session/survey-session.module';
@@ -28,20 +28,20 @@ export class Page1QuestionsComponent {
   readonly pageSize = 4;
   pageError = false;
   settingData: SettingResponse | null = null;
-
+  formUuid: string;
   constructor(public formBuilder: FormBuilder,
     public layoutService: LayoutService,
     @Inject(DOCUMENT) private document: Document,
-    public route: Router,
+    public router: Router,
+    public route: ActivatedRoute,
     public surveyService: SurveyServiceService,
     public formService: FormService,
     public settingService: SettingsService) {
   }
 
   async ngOnInit() {
-    console.log('OnInit')
+    this.session = this.surveyService.getSession();
     this.checkCurrentLang();
-
     this.session = this.surveyService.getSession();
     if (!this.session.answers) {
       this.session.answers = [];
@@ -155,7 +155,7 @@ export class Page1QuestionsComponent {
 
       this.surveyService.customerUUID = response.customerUUID;
 
-      this.route.navigate(['user-feedback']);
+      this.router.navigate(['user-feedback']);
     } else {
       this.loadPageForm();
     }
