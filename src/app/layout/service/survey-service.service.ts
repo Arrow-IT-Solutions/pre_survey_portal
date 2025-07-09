@@ -13,10 +13,17 @@ export class SurveyServiceService {
   public formUUID: any
   setSession(sess: SurveySession) {
     this.session = sess;
+    sessionStorage.setItem('surveySession', JSON.stringify(sess));
   }
   constructor(public layoutService: LayoutService, public httpClient: HttpClientService) { }
 
   getSession(): SurveySession {
+    if (!this.session) {
+      const data = sessionStorage.getItem('surveySession');
+      if (data) {
+        this.session = JSON.parse(data);
+      }
+    }
     if (!this.session) {
       throw new Error('Survey session has not been initialized!');
     }
@@ -24,6 +31,7 @@ export class SurveyServiceService {
   }
   clearSession() {
     this.session = null;
+    sessionStorage.removeItem('surveySession');
   }
 
   async Add(data: SubmitAnswersRequest) {

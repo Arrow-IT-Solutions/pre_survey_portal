@@ -28,7 +28,7 @@ export class AnswerService {
 
   }
 
-  async GetAnswerReport(filter: AnswerReportRequest) {
+  async GetAnswerReport(filter: AnswerSearchRequest) {
 
     const apiUrl = `/api/answer/GetReport?${this.layoutService.Filter(filter)}`;
 

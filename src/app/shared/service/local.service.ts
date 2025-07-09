@@ -11,7 +11,7 @@ export class LocalService {
     private userService: UserService,
     private layoutService: LayoutService,
     public router: Router
-  ) {}
+  ) { }
 
   public saveData(key: string, value: string) {
     localStorage.setItem(key, value);
@@ -30,6 +30,8 @@ export class LocalService {
     console.log('getStorage');
 
     var user = this.getData('currentUser');
+
+    console.log("user : ", user);
     //var config = this.getData()
 
     if (user != null) {
@@ -51,10 +53,10 @@ export class LocalService {
     console.log('get Storage lang', lang, 'get Storage dir', dir);
     this.layoutService.config =
     {
-      dir :dir == null ? 'en' : dir,
-      lang : lang == null ? 'en' : lang
+      dir: dir == null ? 'en' : dir,
+      lang: lang == null ? 'en' : lang
 
     }
- 
+
   }
 }
