@@ -42,7 +42,6 @@ export class Page1QuestionsComponent {
   async ngOnInit() {
     this.session = this.surveyService.getSession();
     this.checkCurrentLang();
-    this.session = this.surveyService.getSession();
     if (!this.session.answers) {
       this.session.answers = [];
     }
@@ -86,7 +85,8 @@ export class Page1QuestionsComponent {
 
       name: '',
       uuid: this.session.formUuid,
-      pageSize: '10000'
+      includeQuestions: '1',
+      pageSize: '20'
 
     }
     const response = await this.formService.Search(filter) as any

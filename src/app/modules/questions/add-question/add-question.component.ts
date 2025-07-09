@@ -69,14 +69,14 @@ export class AddQuestionComponent {
     try {
       this.loading = true;
 
-      if (this.questionService.SelectedData != null) {
-        await this.populateForEdit(this.questionService.SelectedData);
-      }
+
 
       await this.RetriveOption();
       await this.RetriveForm();
 
-
+      if (this.questionService.SelectedData != null) {
+        await this.populateForEdit(this.questionService.SelectedData);
+      }
 
       this.optionService.refreshOptions$.subscribe(() => {
         this.RetriveOption();
@@ -86,6 +86,7 @@ export class AddQuestionComponent {
       console.log(exceptionVar);
     } finally {
       this.loading = false;
+      console.log('loading', this.loading)
     }
   }
 
@@ -320,7 +321,7 @@ export class AddQuestionComponent {
       name: '',
       uuid: optionID,
       pageIndex: "",
-      pageSize: '100000'
+      pageSize: '10'
 
     }
     const response = await this.optionService.Search(filter) as any
@@ -339,8 +340,9 @@ export class AddQuestionComponent {
 
       name: '',
       uuid: formID,
+      includeQuestions: '0',
       pageIndex: "",
-      pageSize: '100000'
+      pageSize: '10'
 
     }
     const response = await this.formService.Search(filter) as any
@@ -409,7 +411,7 @@ export class AddQuestionComponent {
       name: filterInput,
       uuid: '',
       pageIndex: "",
-      pageSize: '100000'
+      pageSize: '10'
     }
     const response = await this.optionService.Search(filter) as any
 
@@ -427,9 +429,10 @@ export class AddQuestionComponent {
     let filter: FormSearchRequest = {
 
       name: filterInput,
+      includeQuestions: '0',
       uuid: '',
       pageIndex: "",
-      pageSize: '100000'
+      pageSize: '10'
     }
     const response = await this.formService.Search(filter) as any
     this.forms = response.data

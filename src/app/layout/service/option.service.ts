@@ -10,7 +10,7 @@ import { HttpClientService } from 'src/app/Core/services/http-client.service';
   providedIn: 'root'
 })
 export class OptionService {
- public SelectedData: OptionResponse | null = null;
+  public SelectedData: OptionResponse | null = null;
   public Dialog: any | null = null;
   private refreshOptionsSubject = new Subject<void>();
 
@@ -21,30 +21,38 @@ export class OptionService {
   }
   constructor(public layoutService: LayoutService, public httpClient: HttpClientService) { }
 
-      async Add(data: OptionRequest) {
-      const apiUrl = `/api/option`;
+  async Add(data: OptionRequest) {
+    const apiUrl = `/api/option`;
 
-      return await this.httpClient.post(apiUrl, data);
-    }
+    return await this.httpClient.post(apiUrl, data);
+  }
 
   async Search(filter: OptionSearchRequest) {
 
     const apiUrl = `/api/option/list?${this.layoutService.Filter(filter)}`;
 
-      return await this.httpClient.get(apiUrl)
+    return await this.httpClient.get(apiUrl)
 
   }
 
-      async Update(data: OptionUpdateRequest) {
+  async Update(data: OptionUpdateRequest) {
 
-      const apiUrl = `/api/option`;
-      return await this.httpClient.put(apiUrl, data);
-    }
+    const apiUrl = `/api/option`;
+    return await this.httpClient.put(apiUrl, data);
+  }
 
-        async Delete(uuid: string) {
+  async Delete(uuid: string) {
 
-      const apiUrl = `/api/option/${uuid}`;
-      return await this.httpClient.delete(apiUrl, uuid);
+    const apiUrl = `/api/option/${uuid}`;
+    return await this.httpClient.delete(apiUrl, uuid);
 
-    }
+  }
+
+  async SearchWithCount(filter: OptionSearchRequest) {
+    console.log('Count')
+    const apiUrl = `/api/option/OptionsCount?${this.layoutService.Filter(filter)}`;
+
+    return await this.httpClient.get(apiUrl)
+
+  }
 }

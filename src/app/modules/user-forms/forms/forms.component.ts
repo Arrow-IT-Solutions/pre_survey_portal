@@ -108,7 +108,7 @@ export class FormsComponent {
       uuid: '',
       code: '',
       pageIndex: "",
-      pageSize: '100000'
+      pageSize: '10'
     }
 
     const response = await this.countryCodeService.Search(filter) as any
