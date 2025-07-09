@@ -32,6 +32,9 @@
         position: absolute;
         right: 0;
         bottom: 0;
+        z-index: 0;
+        @media(max-width:767px){
+        }
          :lang(ar){
             right: unset;
             left: 0;
@@ -129,9 +132,15 @@
         margin: auto;
         cursor: pointer;
         margin-top: 2rem;
+        
         @media(max-width:767px){
-            margin: auto;
             margin-top: 2rem;
+            position: absolute;
+            bottom: 8rem;
+            
+            z-index: 9999999;
+            padding: 16px 150px;
+
         }
 
     }
@@ -177,7 +186,7 @@ svg {
   }
 }
 
-.rating-form-2 svg {
+.rating-form svg {
   height: 3rem;
   width: 3rem;
   margin: 0.5rem;

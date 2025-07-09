@@ -274,3 +274,10 @@
   left: 0;
   transform: rotateY(180deg); 
 }
+#spinner{
+  margin: auto;
+  margin-top: 20%;
+  @media(max-width:767px){
+    margin-top: 40%;
+  }
+}

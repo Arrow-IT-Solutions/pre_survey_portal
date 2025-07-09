@@ -13,11 +13,13 @@ import { CountryCodeResponse, CountryCodeSearchRequest } from '../../country-cod
 import { SelectItem } from 'primeng/api';
 import { SettingResponse, SettingSearchRequest } from '../../settings/settings.module';
 import { SettingsService } from 'src/app/layout/service/settings.service';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-forms',
   templateUrl: './forms.component.html',
-  styleUrls: ['./forms.component.scss']
+  styleUrls: ['./forms.component.scss'],
 })
 export class FormsComponent {
   monthOptions: SelectItem[] = Array.from({ length: 12 }, (_, i) => ({
@@ -45,6 +47,7 @@ export class FormsComponent {
   currentlang: string;
   langCode: string;
   formUuid: string;
+  loading = false;
   codes: CountryCodeResponse[] = [];
   martialStatus: ConstantResponse[] = [];
   genderOptions: ConstantResponse[] = [];
@@ -66,7 +69,7 @@ export class FormsComponent {
       maritalStatus: [null, Validators.required],
       countryCode: [null, Validators.required],
       phoneNumber: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['',],
       country: ['', Validators.required],
       info: ['', Validators.required],
       sendOffers: [null, Validators.required],
@@ -152,6 +155,7 @@ export class FormsComponent {
         dir: 'ltr',
         lang: 'en'
       }
+      this.loading=true;
 
     }
     else if (lang == 'en') {
@@ -161,6 +165,7 @@ export class FormsComponent {
         dir: 'rtl',
         lang: 'ar'
       }
+      this.loading=true;
     }
 
     localStorage.setItem('lang', this.layoutService.config.lang);
