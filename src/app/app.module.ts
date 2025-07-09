@@ -66,6 +66,7 @@ import { QRModule } from './modules/QR/qr.module';
         deps: [HttpClient],
       },
     }),
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

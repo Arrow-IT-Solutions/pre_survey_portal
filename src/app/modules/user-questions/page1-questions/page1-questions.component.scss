@@ -3,11 +3,13 @@
 *:before {
 	box-sizing: border-box;
 }
+body{background-color: white;}
 .page-container{
     position: relative;
     background-color: white;
     width: 100%;
     padding: 1rem;
+    height: 100%;
     .elipse-container{
         position: absolute;
         top: -5rem;
@@ -79,6 +81,12 @@
             display: flex;
             flex-direction: column;
             margin-top: 2rem;
+            margin-bottom: 1rem;
+            @media(max-width:767px){
+              padding-bottom: 3rem;
+            }
+
+           
             .question_item_info{
                 display: flex;
                 column-gap: 0.5rem;
@@ -254,7 +262,13 @@
         margin-top: 3rem;
         margin: auto;
         @media(max-width:767px){
-          margin-top: 3rem;
+              
+           padding: 16px 150px;
+              position: absolute;
+              z-index: 99999;
+              bottom: 1rem;
+             
+            
         }
         
         
@@ -276,4 +290,8 @@
   margin: 1rem 0; // space above and below
   text-align: left; // align with questions
   font-size: 0.9rem;
+}
+
+.question_item:last-child{
+  margin-bottom:3rem ;
 }
