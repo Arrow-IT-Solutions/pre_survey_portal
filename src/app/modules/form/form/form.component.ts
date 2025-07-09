@@ -80,6 +80,7 @@ export class FormComponent {
     let filter: FormSearchRequest = {
       uuid: '',
       name: this.dataForm.controls['name'].value,
+      includeQuestions: '0',
       pageIndex: pageIndex.toString(),
       pageSize: this.pageSize.toString(),
     };
