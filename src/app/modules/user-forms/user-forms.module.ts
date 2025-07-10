@@ -5,6 +5,7 @@ import { UserFormsRoutingModule } from './user-forms-routing.module';
 import { FormsComponent } from './forms/forms.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { NgPrimeModule } from 'src/app/shared/ngprime.module';
 
 
 @NgModule({
@@ -15,7 +16,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     UserFormsRoutingModule,
     SharedModule,   
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgPrimeModule
+   
   ]
 })
 export class UserFormsModule { }

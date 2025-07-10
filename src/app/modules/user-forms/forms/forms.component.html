@@ -2,7 +2,7 @@
   <button (click)="changeLang(langCode)">{{unCurrentlang}}</button>
 </div>
 
-<form [formGroup]="dataForm" action="" class="forms">
+<form [formGroup]="dataForm" action="" class="forms" *ngIf="!loading; else spinner">
   <div class="logo-container mb-5">
     <!-- <img src="../../../../assets/images/Fill Logo.svg" alt=""> -->
       <img [src]="settingData?.logo" />
@@ -106,9 +106,9 @@
       <label>{{ 'email_forms' | translate }}:</label>
       <div class="p-float-label">
         <input pInputText type="text" formControlName="email" />
-        <span *ngIf="submitted && dataForm.controls['email']?.hasError('required')" class="error-validation">{{
+        <!-- <span *ngIf="submitted && dataForm.controls['email']?.hasError('required')" class="error-validation">{{
           'Field_Required' |
-          translate }}</span>
+          translate }}</span> -->
       </div>
 
     </div>
@@ -163,3 +163,7 @@
   </div>
 
 </form>
+<ng-template #spinner>
+<mat-spinner id="spinner"></mat-spinner>
+</ng-template>
+

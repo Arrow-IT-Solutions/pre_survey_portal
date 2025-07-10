@@ -38,6 +38,7 @@ export interface FormTranslationResponse {
 export interface FormSearchRequest extends SearchRequestBase {
   uuid?: string;
   name?: string;
+  includeQuestions: string
 }
 
 export interface FormRequest extends RequestBase {

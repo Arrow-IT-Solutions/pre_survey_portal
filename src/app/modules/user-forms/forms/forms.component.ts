@@ -13,11 +13,13 @@ import { CountryCodeResponse, CountryCodeSearchRequest } from '../../country-cod
 import { SelectItem } from 'primeng/api';
 import { SettingResponse, SettingSearchRequest } from '../../settings/settings.module';
 import { SettingsService } from 'src/app/layout/service/settings.service';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-forms',
   templateUrl: './forms.component.html',
-  styleUrls: ['./forms.component.scss']
+  styleUrls: ['./forms.component.scss'],
 })
 export class FormsComponent {
   monthOptions: SelectItem[] = Array.from({ length: 12 }, (_, i) => ({
@@ -31,13 +33,13 @@ export class FormsComponent {
   }));
 
   yearOptions: SelectItem[] = Array.from({ length: 2007 - 1960 + 1 }, (_, i) => ({
-  label: (1960 + i).toString(),
-  value: 1960 + i,
-}));
- ageOptions: SelectItem[] = Array.from({ length: 65 - 18 + 1 }, (_, i) => ({
-  label: (18 + i).toString(),
-  value: 18 + i,
-}));
+    label: (1960 + i).toString(),
+    value: 1960 + i,
+  }));
+  ageOptions: SelectItem[] = Array.from({ length: 65 - 18 + 1 }, (_, i) => ({
+    label: (18 + i).toString(),
+    value: 18 + i,
+  }));
 
   dataForm!: FormGroup;
   btnLoading: boolean = false;
@@ -45,11 +47,14 @@ export class FormsComponent {
   currentlang: string;
   langCode: string;
   formUuid: string;
+  loading = false;
   codes: CountryCodeResponse[] = [];
   martialStatus: ConstantResponse[] = [];
   genderOptions: ConstantResponse[] = [];
   submitted: boolean = false;
   settingData: SettingResponse | null = null;
+
+
   constructor(public formBuilder: FormBuilder,
     public layoutService: LayoutService,
     @Inject(DOCUMENT) private document: Document,
@@ -64,15 +69,15 @@ export class FormsComponent {
       maritalStatus: [null, Validators.required],
       countryCode: [null, Validators.required],
       phoneNumber: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['',],
       country: ['', Validators.required],
       info: ['', Validators.required],
       sendOffers: [null, Validators.required],
       year: [null, Validators.required],
       month: [null, Validators.required],
       day: [null, Validators.required],
-      age:[null, Validators.required],
-      gender:[null, Validators.required]
+      age: [null, Validators.required],
+      gender: [null, Validators.required]
 
     })
 
@@ -94,8 +99,6 @@ export class FormsComponent {
 
   }
 
-
-
   async RetriveCountryCode() {
 
     var code: any;
@@ -105,7 +108,7 @@ export class FormsComponent {
       uuid: '',
       code: '',
       pageIndex: "",
-      pageSize: '100000'
+      pageSize: '10'
     }
 
     const response = await this.countryCodeService.Search(filter) as any
@@ -143,6 +146,8 @@ export class FormsComponent {
 
   changeLang(lang: string) {
 
+    console.log(lang, 'lang')
+
     if (lang == 'ar') {
       this.currentlang = "English"
       this.layoutService.config =
@@ -150,6 +155,7 @@ export class FormsComponent {
         dir: 'ltr',
         lang: 'en'
       }
+      this.loading=true;
 
     }
     else if (lang == 'en') {
@@ -159,6 +165,7 @@ export class FormsComponent {
         dir: 'rtl',
         lang: 'ar'
       }
+      this.loading=true;
     }
 
     localStorage.setItem('lang', this.layoutService.config.lang);
@@ -166,6 +173,7 @@ export class FormsComponent {
     this.document.documentElement.lang = this.layoutService.config.lang;
 
     window.location.reload();
+
   }
 
   checkCurrentLang() {
@@ -229,7 +237,7 @@ export class FormsComponent {
     };
     this.surveyService.setSession(session);
 
-    this.router.navigate(['user-questions']);
+    this.router.navigate(['user-questions/' + this.formUuid]);
   }
 
   async GetSettingData(pageIndex: number = 0) {
@@ -247,7 +255,6 @@ export class FormsComponent {
       this.settingData = null;
     } else if (response.data != null && response.data.length != 0) {
       this.settingData = response.data[0];
-      console.log(this.settingData)
     }
 
   }

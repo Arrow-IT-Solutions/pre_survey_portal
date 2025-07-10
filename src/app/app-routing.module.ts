@@ -8,29 +8,20 @@ import { ContentLayoutAdminComponent } from './layout/content-layout-admin/conte
 
 const routes: Routes = [
   {
+    path: 'forms/:uuid',
+    loadChildren: () =>
+      import('./modules/user-forms/user-forms.module').then((m) => m.UserFormsModule
+      )
+  },
+  {
     path: '',
     redirectTo: '/auth/login',
     pathMatch: 'full',
   },
   {
-    path: 'forms/:uuid',
-    children: [{
-      path: '',
-      loadChildren: () =>
-        import('./modules/user-forms/user-forms.module').then(
-          (m) => m.UserFormsModule
-        )
-    }],
-  },
-  {
-    path: 'user-questions',
-    children: [{
-      path: '',
-      loadChildren: () =>
-        import('./modules/user-questions/user-questions.module').then(
-          (m) => m.UserQuestionsModule
-        )
-    }],
+    path: 'user-questions/:uuid',
+    loadChildren: () =>
+      import('./modules/user-questions/user-questions.module').then((m) => m.UserQuestionsModule)
   },
   {
     path: 'user-feedback',
@@ -52,7 +43,7 @@ const routes: Routes = [
         )
     }],
   },
-   {
+  {
     path: 'print-reports',
     children: [{
       path: '',

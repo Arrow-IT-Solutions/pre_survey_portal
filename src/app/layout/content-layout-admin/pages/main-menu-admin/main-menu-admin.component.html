@@ -16,11 +16,12 @@
             <span class="description" *ngIf="layoutService.config.dir === 'rtl'">{{ data?.labelar }}</span>
             <span class="description" *ngIf="layoutService.config.dir === 'ltr'">{{ data?.label }}</span>
             <span class="short-description">{{ data.char }}</span>
-          </div>
-          <span *ngIf="data.items != null"
+            <span *ngIf="data.items != null"
             class="material-symbols-outlined down">
             keyboard_arrow_down
           </span>
+          </div>
+         
         </div>
         <div [id]="'collapse' + data.id"
           [ngClass]="{'collapse': !isSubMenuOpen(data.id!), 'show': isSubMenuOpen(data.id!)}"

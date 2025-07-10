@@ -2,11 +2,11 @@
 
 .main-menu {
   height: 100vh;
-  background-color: $white-color;
+  background-color: white;
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-  width: 85%;
+  width: 88%;
   transition: 0.2s;
   color: $black-color;
   // overflow: auto;
@@ -69,7 +69,7 @@
     line-height: 40px;
     cursor: pointer;
     border-radius: 6px;
-    padding: 0 1rem;
+    // padding: 0 1rem;
     border-inline-start: 5px solid $white-color;
     white-space: nowrap;
 
@@ -116,6 +116,12 @@
   & .item-container{
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    align-items: center;
+   
+    div{
+  
+    }
   }
 
 
@@ -225,7 +231,22 @@
 }
 
 // responsive
-
+@media screen and (max-width: 1300px) {
+   .main-menu{
+    width: 100% !important;
+  }
+   .description{
+    font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 1200px) {
+   .main-menu{
+    width: 100% !important;
+  }
+   .description{
+    font-size: 0.7rem;
+  }
+}
 @media screen and (max-width: 990px) {
   .main-menu{
     width: 80% !important;
@@ -236,7 +257,7 @@
       & .down{
         transform: rotate(270deg);
         top: 0 !important;
-        left: .25rem;
+        // left: .25rem;
 
         &:lang(ar){
           transform: rotate(-270deg);
