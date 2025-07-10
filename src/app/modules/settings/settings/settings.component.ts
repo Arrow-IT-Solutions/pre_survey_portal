@@ -40,8 +40,8 @@ export class SettingsComponent {
 
   }
   async ngOnInit() {
-
-    await this.FillData();
+   this.loading=true;
+  await this.FillData();
   }
   Search() {
     this.FillData();

@@ -35,6 +35,8 @@ import { PanelModule } from 'primeng/panel';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { DialogModule } from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -81,6 +83,8 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     MatExpansionModule,
     DialogModule,
     ConfirmDialogModule,
+    ProgressSpinnerModule
+    
 
   ]
 })

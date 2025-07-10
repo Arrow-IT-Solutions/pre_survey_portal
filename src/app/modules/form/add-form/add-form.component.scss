@@ -71,10 +71,15 @@
 }
 .radio_options{
     display: flex;
-    column-gap: 6rem;
-
-    
+    column-gap: 6rem;   
 }
+#spinner{
+  margin: auto;
+  margin-top: 20%;
+  @media(max-width:767px){
+    margin-top: 40%;
+  }
+} 
 
 
 

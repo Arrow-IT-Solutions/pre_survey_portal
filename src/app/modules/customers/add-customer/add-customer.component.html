@@ -1,4 +1,4 @@
-<form [formGroup]="dataForm" (ngSubmit)="onSubmit()" class="add-client">
+<form [formGroup]="dataForm" (ngSubmit)="onSubmit()" class="add-client" *ngIf="!loading; else spinner">
   <div class="add-client">
     <div class="box-shadow mb-3">
       <div class="row">
@@ -140,5 +140,8 @@
     </div>
   </div>
 </form>
+<ng-template #spinner>
+<mat-spinner id="spinner"></mat-spinner>
 
+</ng-template>
 <p-toast key="toast"></p-toast>

@@ -19,6 +19,7 @@ export class AddFormComponent {
       submitted: boolean = false;
       btnLoading: boolean = false;
       loading: boolean = false;
+      load: boolean = false;
       constructor(public formBuilder:FormBuilder,
         public messageService: MessageService,
         public formService: FormService,
@@ -36,9 +37,9 @@ export class AddFormComponent {
     }
 
   async ngOnInit() {
+    
     try {
       this.loading = true;
-
       if (!this.prefillValue && (this.constructor as any).prefillValue) {
         this.prefillValue = (this.constructor as any).prefillValue;
         (this.constructor as any).prefillValue = null;
@@ -59,7 +60,11 @@ export class AddFormComponent {
       console.log(exceptionVar);
     } finally {
       this.loading = false;
+     
+      
+      
     }
+   
   }
 
       async onSubmit() {

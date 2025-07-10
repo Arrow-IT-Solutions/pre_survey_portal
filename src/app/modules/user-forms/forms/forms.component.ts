@@ -20,6 +20,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   selector: 'app-forms',
   templateUrl: './forms.component.html',
   styleUrls: ['./forms.component.scss'],
+  
 })
 export class FormsComponent {
   monthOptions: SelectItem[] = Array.from({ length: 12 }, (_, i) => ({
@@ -85,6 +86,7 @@ export class FormsComponent {
 
 
   async ngOnInit() {
+    this.loading=true;
     this.formUuid = this.route.snapshot.paramMap.get('uuid')!;
     this.surveyService.formUUID = this.formUuid;
     await this.RetriveCountryCode();
@@ -96,6 +98,8 @@ export class FormsComponent {
     this.genderOptions = gender.data;
 
     this.checkCurrentLang();
+    this.loading=false;
+    
 
   }
 
