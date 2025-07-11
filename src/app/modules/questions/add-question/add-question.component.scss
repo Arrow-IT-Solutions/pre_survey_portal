@@ -321,4 +321,11 @@ padding: 1rem;
                           font-weight: bold;
                                      }
     }
+#spinner{
+  margin: auto;
+  margin-top: 20%;
+  @media(max-width:767px){
+    margin-top: 40%;
+  }
+}    
 

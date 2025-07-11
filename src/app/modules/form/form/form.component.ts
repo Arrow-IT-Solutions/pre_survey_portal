@@ -31,6 +31,7 @@ export class FormComponent {
   isResetting: boolean = false;
   appURL: string = '';
   setting: SettingResponse;
+  load=false;
   constructor(public formBuilder: FormBuilder,
     public layoutService: LayoutService,
     public translate: TranslateService,
@@ -110,9 +111,12 @@ export class FormComponent {
     });
     var component = this.layoutService.OpenDialog(AddFormComponent, content);
     this.formService.Dialog = component;
+    
     component.OnClose.subscribe(() => {
       document.body.style.overflow = '';
+      this.load=true;
       this.FillData();
+      this.load=false;
     });
 
   }

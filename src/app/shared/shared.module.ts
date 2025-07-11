@@ -7,7 +7,6 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ImgControlComponent } from '../layout/component/img-control/img-control.component';
-import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @NgModule({
   imports: [
@@ -17,7 +16,6 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     RouterModule,
     TranslateModule,
     NgPrimeModule,
-    ProgressSpinnerModule,
     // TranslateModule.forRoot({
     //   loader: {
     //     provide: TranslateLoader,
@@ -35,7 +33,6 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     RouterModule,
     // MaterialModule,
     NgPrimeModule,
-    ProgressSpinnerModule,
     TranslateModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
