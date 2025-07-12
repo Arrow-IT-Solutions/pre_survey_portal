@@ -60,6 +60,7 @@ export class AddOptionComponent {
     } catch (exceptionVar) {
     } finally {
       this.btnLoading = false;
+      
     }
   }
 
