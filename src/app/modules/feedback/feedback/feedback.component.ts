@@ -42,9 +42,11 @@ export class FeedbackComponent {
   }
 
   async ngOnInit() {
+    this.loading=true;
     this.customerIDFK = this.surveyService.customerUUID;
     await this.GetSettingData();
     console.log('CustomerUUID ', this.customerIDFK)
+    this.loading=false;
   }
 
   ngAfterViewInit() {

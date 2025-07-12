@@ -409,3 +409,10 @@ input[class="super-sad"]:focus + svg {
 :host ::ng-deep .rating label input.super-sad:checked+svg {
   fill: #EE7F88;
 }
+#spinner{
+  margin: auto;
+  margin-top: 15%;
+  @media(max-width:767px){
+    margin-top: 40%;
+  }
+}
