@@ -30,6 +30,7 @@
         position: absolute;
         right: 0;
         bottom: 0;
+        // z-index: ;
          :lang(ar){
             right: unset;
             left: 0;
@@ -49,6 +50,7 @@
         }
     }
     .content{
+     
       margin: auto;
       width: 50%;
       margin-top: 5%;
@@ -60,10 +62,13 @@
        border-radius: 32px;
         padding: 24px 56px;
         border: 1px solid #E7E7E7;
+        
         @media(max-width:767px){
           width: 90%;
           padding: 24px 30px;
           margin-top: 28%;
+          position: absolute;
+          z-index: 9999;
         }
       .header{
         width: 6rem;
@@ -106,10 +111,9 @@
         margin: auto;
         cursor: pointer;
         margin-top: 2rem;
+        text-align: center;
         @media(max-width:767px){
-            margin: auto;
-            margin-top: 2rem;
-            padding: 16px 50px;
+             
         }
       }
       

@@ -119,7 +119,7 @@
       }
       .search-box{
         @media(max-width:767px){
-          width: 72%;
+          width: 80%;
         }
       }
 
@@ -442,7 +442,7 @@
   }
 }
 #icon_edit{
-  color: $primary-color;
+  color:#8E8E8E;
 }
 #icon_delete{
   color: $secoundary-color;

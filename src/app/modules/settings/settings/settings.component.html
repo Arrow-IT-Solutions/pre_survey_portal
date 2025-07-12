@@ -1,4 +1,7 @@
-<div class="settings" *ngFor="let row of data">
+<div *ngIf="!loading; else spinner">
+
+
+<div class="settings" *ngFor="let row of data" >
   <span class="material-symbols-outlined fill" id="edit" (click)="openDialog(row)">edit</span>
 
   <div id="tittle">
@@ -46,8 +49,13 @@
   <button class="add-button" (click)="openDialog()">
     <span class="material-symbols-outlined">add</span>
   </button>
+  </div>
+</div>
 
 <p-dialog header="Header" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false"
     [resizable]="false">
     <img [src]="link" />
   </p-dialog>
+  <ng-template #spinner>
+<mat-spinner id="spinner"></mat-spinner>
+</ng-template>
