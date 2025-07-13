@@ -14,7 +14,7 @@
     <span>{{'thanks_userQuestion' | translate}}</span>
     <span>{{'completeDocument_userQuestion' | translate}}</span>
   </div>
-  <div class="question_items">
+  <div class="question_items" *ngIf="!loading; else spinner">
     <form *ngIf="dataForm" action="" [formGroup]="dataForm">
       <ng-container *ngFor="let q of displayedQuestions; let i = index">
         <div *ngIf="q.uuid" class="question_item">
@@ -51,3 +51,7 @@
     </form>
   </div>
 </div>
+<ng-template #spinner>
+<mat-spinner id="spinner"></mat-spinner>
+
+</ng-template>
