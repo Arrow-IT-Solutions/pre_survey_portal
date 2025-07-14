@@ -295,3 +295,10 @@ body{background-color: white;}
 .question_item:last-child{
   margin-bottom:3rem ;
 }
+#spinner{
+  margin: auto;
+  margin-top: 15%;
+  @media(max-width:767px){
+    margin-top: 40%;
+  }
+}

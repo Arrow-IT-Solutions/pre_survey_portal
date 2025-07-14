@@ -22,6 +22,7 @@ export class Page1QuestionsComponent {
   session!: SurveySession;
   currentlang = 'Arabic';
   pageIndex = 0;
+  loading = false;
   forms: FormResponse[] = [];
   questions: QuestionResponse[] = [];
   displayedQuestions: QuestionResponse[] = [];
@@ -40,6 +41,7 @@ export class Page1QuestionsComponent {
   }
 
   async ngOnInit() {
+    this.loading=true;
     this.session = this.surveyService.getSession();
     this.checkCurrentLang();
     if (!this.session.answers) {
@@ -49,6 +51,7 @@ export class Page1QuestionsComponent {
     await this.GetSettingData();
     this.pageIndex = 0;
     this.loadPageForm();
+    this.loading=false;
   }
 
   changeLang(lang: string) {

@@ -18,7 +18,7 @@
       <span>{{'success_feedback' | translate}}</span>
       <span>{{'thank_feedback' | translate}}</span>
     </div>
-    <div class="page-container__feedbackInfo">
+    <div class="page-container__feedbackInfo" *ngIf="!loading; else spinner">
       <div class="card">
         <div class="rating">
           <label for="super-happy">
@@ -82,4 +82,7 @@
   </form>
 
 </div>
+<ng-template #spinner>
+<mat-spinner id="spinner"></mat-spinner>
+</ng-template>
 <app-alert-model></app-alert-model>
